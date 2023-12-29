@@ -9,7 +9,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import utils.Animation;
@@ -18,11 +17,10 @@ import utils.Logger;
 import utils.ObjectPool;
 import utils.ShutDown;
 import utils.TextManager;
-import utils.Vector2;
 
 public class PandemicRisingTide extends Application {
 
-	private Vector2 dimensionsInsets = new Vector2(16, 39);
+//	private Vector2 dimensionsInsets = new Vector2(16, 39);
 
 	private void start() {
 
@@ -87,34 +85,37 @@ public class PandemicRisingTide extends Application {
 
 		Panel panel = new Panel();
 
-		double width = Credentials.INSTANCE.dFrame.x + this.dimensionsInsets.x;
-		double height = Credentials.INSTANCE.dFrame.y + this.dimensionsInsets.y;
+//		double width = Credentials.INSTANCE.dFrame.x + this.dimensionsInsets.x;
+//		double height = Credentials.INSTANCE.dFrame.y + this.dimensionsInsets.y;
 
 		Scene scene = new Scene(panel);
+		InstancesGui.INSTANCE.setStage(primaryStage);
 		InstancesGui.INSTANCE.setScene(scene);
 		setKeyPressed(scene);
 
 		primaryStage.setScene(scene);
-		primaryStage.setWidth(width);
-		primaryStage.setHeight(height);
+//		primaryStage.setWidth(width);
+//		primaryStage.setHeight(height);
 		primaryStage.setResizable(false);
 
 		primaryStage.setTitle(Credentials.INSTANCE.primaryStageTitle);
 
-		primaryStage.setX((Screen.getPrimary().getBounds().getWidth() - width) / 2
-				- Credentials.INSTANCE.stagePixesOnTheLeft);
+//		primaryStage.setX((Screen.getPrimary().getBounds().getWidth() - width) / 2
+//				- Credentials.INSTANCE.stagePixesOnTheLeft);
 
-		double y = 0;
-		y += Screen.getPrimary().getBounds().getHeight();
-		y -= 72;
-		y -= Credentials.INSTANCE.dFrame.y;
-		y /= 2;
+//		double y = 0;
+//		y += Screen.getPrimary().getBounds().getHeight();
+//		y -= 72;
+//		y -= Credentials.INSTANCE.dFrame.y;
+//		y /= 2;
+//
+//		y = 1406;
+//		y -= Credentials.INSTANCE.dFrame.y;
+//		y /= 2;
+//
+//		primaryStage.setY(y);
 
-		y = 1406;
-		y -= Credentials.INSTANCE.dFrame.y;
-		y /= 2;
-
-		primaryStage.setY(y);
+		primaryStage.setFullScreen(true);
 
 //		if (Credentials.INSTANCE.dFrame.y == 1366)
 //			primaryStage.setY(0);

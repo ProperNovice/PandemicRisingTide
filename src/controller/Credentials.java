@@ -9,12 +9,14 @@ public enum Credentials {
 
 	public String primaryStageTitle = "Pandemic: Rising Tide", numbersImageViewColor = "black";
 	public boolean colliderVisibility = true;
-	public final double stagePixesOnTheLeft = 0, gapBetweenBorders = 10, textHeight = 50,
+	public final double stagePixesOnTheLeft = 180, gapBetweenBorders = 14, textHeight = 50,
 			selectEventHandlerAbleDimension = 100, imageViewCloneWidth = 200, animationStep = 4,
 			cameraViewSpots = 1;
 	public Vector2 dFrame, dGapBetweenComponents, dCameraView, dGapBetweenComponentsLineCast;
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
+
+	public Vector2 dCard;
 
 	private Credentials() {
 
@@ -22,7 +24,7 @@ public enum Credentials {
 
 		// frame
 
-		this.dFrame = new Vector2(2560 - 4, 1368 + 38);
+		this.dFrame = new Vector2(2560 - 4, 1440);
 
 		// gaps
 
@@ -46,18 +48,11 @@ public enum Credentials {
 		y = this.gapBetweenBorders;
 		this.cImageViewClone = new Vector2(x, y);
 
-		//
+		// d card
 
-		this.dFrame.y = 1406;
-
-		y = this.dFrame.y;
-		System.out.println(y);
-		y -= 2 * this.gapBetweenBorders;
-		System.out.println(y);
-		y -= 3 * this.dGapBetweenComponents.y;
-		System.out.println(y);
-		y /= 5;
-		System.out.println(y);
+		x = 205;
+		y = 280;
+		this.dCard = new Vector2(x, y);
 
 	}
 
