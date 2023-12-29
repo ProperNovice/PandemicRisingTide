@@ -110,6 +110,10 @@ public class PandemicRisingTide extends Application {
 		y -= Credentials.INSTANCE.dFrame.y;
 		y /= 2;
 
+		y = 1406;
+		y -= Credentials.INSTANCE.dFrame.y;
+		y /= 2;
+
 		primaryStage.setY(y);
 
 //		if (Credentials.INSTANCE.dFrame.y == 1366)
