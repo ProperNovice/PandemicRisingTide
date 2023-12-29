@@ -34,7 +34,9 @@ public enum Credentials {
 
 		// camera view
 
-		this.dCameraView = new Vector2(1969, 2316);
+		x = 1696;
+		y = 2316;
+		this.dCameraView = new Vector2(x, y);
 
 		// c text panel
 

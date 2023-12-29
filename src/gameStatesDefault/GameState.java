@@ -2,6 +2,7 @@ package gameStatesDefault;
 
 import controller.Credentials;
 import enums.EText;
+import gui.InstancesGui;
 import javafx.scene.input.KeyCode;
 import utils.ArrayList;
 import utils.CameraView;
@@ -55,6 +56,17 @@ public abstract class GameState {
 	}
 
 	protected void handleKeyPressed(KeyCode keyCode) {
+
+		if (!keyCode.equals(KeyCode.M))
+			return;
+
+		InstancesGui.INSTANCE.getStage()
+				.setFullScreen(!InstancesGui.INSTANCE.getStage().isFullScreen());
+
+		if (InstancesGui.INSTANCE.getStage().isFullScreen())
+			InstancesGui.INSTANCE.getStage().setX(0);
+		else
+			InstancesGui.INSTANCE.getStage().setX(-510);
 
 	}
 

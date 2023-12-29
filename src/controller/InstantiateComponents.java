@@ -1,6 +1,7 @@
 package controller;
 
 import model.Map;
+import model.Regions;
 
 public enum InstantiateComponents {
 
@@ -9,6 +10,7 @@ public enum InstantiateComponents {
 	private InstantiateComponents() {
 
 		Map.values();
+		Regions.values();
 
 	}
 
