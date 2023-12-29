@@ -4,7 +4,7 @@ import business.Region;
 import enums.EColor;
 import enums.ERegion;
 import utils.ArrayList;
-import utils.CameraView;
+import utils.ShutDown;
 
 public enum Regions {
 
@@ -13,6 +13,22 @@ public enum Regions {
 	private ArrayList<Region> list = new ArrayList<>();
 
 	private Regions() {
+		createRegions();
+	}
+
+	public Region getRegion(ERegion eRegion) {
+
+		for (Region region : list)
+			if (region.getERegion().equals(eRegion))
+				return region;
+
+		ShutDown.INSTANCE.execute();
+
+		return null;
+
+	}
+
+	private void createRegions() {
 
 		// purple
 
@@ -54,10 +70,33 @@ public enum Regions {
 		this.list.addLast(new Region(ERegion.KROMME_RIJN, 942, 1128, EColor.YELLOW));
 		this.list.addLast(new Region(ERegion.GELDERSE_VALLEI, 1127, 1164, EColor.YELLOW));
 
-		this.list.getLast().setSelected();
-		this.list.getLast().print();
+		// high elevated
 
-		CameraView.INSTANCE.setCameraViewingSpot(2);
+		this.list.addLast(new Region(ERegion.DRENTHE, 1575, 612));
+		this.list.getLast().setIsHighElevated();
+
+		this.list.addLast(new Region(ERegion.TWENTE, 1594, 986));
+		this.list.getLast().setIsHighElevated();
+
+		this.list.addLast(new Region(ERegion.VELUWE, 1280, 1106));
+		this.list.getLast().setIsHighElevated();
+
+		this.list.addLast(new Region(ERegion.UTRECHTSE_HEUVELRUG, 1035, 1144));
+		this.list.getLast().setIsHighElevated();
+
+		this.list.addLast(new Region(ERegion.DE_ZOOM, 552, 1702));
+		this.list.getLast().setIsHighElevated();
+
+		this.list.addLast(new Region(ERegion.OOST_BRABANT, 1122, 1662));
+		this.list.getLast().setIsHighElevated();
+
+		// sea
+
+		this.list.addLast(new Region(ERegion.NOORDZEE, 563, 674));
+		this.list.getLast().setIsSea(true);
+
+		this.list.addLast(new Region(ERegion.ZUIDERZEE, 1119, 621));
+		this.list.getLast().setIsSea(true);
 
 	}
 
