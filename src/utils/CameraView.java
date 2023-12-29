@@ -30,24 +30,24 @@ public enum CameraView {
 		this.cameraViewSpotCurrent = cameraViewSpot;
 
 		for (IImageViewAble imageViewAble : MapImageViews.INSTANCE.getImageViewsMap())
-			if (!(imageViewAble instanceof Background))
-				relocateImageviewAble(imageViewAble);
+			relocateImageviewAble(imageViewAble);
 
 	}
 
 	public void relocateImageviewAble(IImageViewAble imageViewAble) {
 
+		if (imageViewAble instanceof Background)
+			return;
+
 		double imageViewTopLeftX = imageViewAble.getImageView().getCoordinatesTopLeftX();
 		double cameraViewTopLeftX = Credentials.INSTANCE.dCameraView.x
 				+ Credentials.INSTANCE.gapBetweenBorders;
 
-		if (imageViewTopLeftX > cameraViewTopLeftX)
-			return;
-
 		Vector2 vector2 = imageViewAble.getImageView().getCoordinatesTopLeft().clone();
 
-		for (int counter = 2; counter <= this.cameraViewSpotCurrent; counter++)
-			vector2.y -= this.heightUnit;
+		if (imageViewTopLeftX < cameraViewTopLeftX)
+			for (int counter = 2; counter <= this.cameraViewSpotCurrent; counter++)
+				vector2.y -= this.heightUnit;
 
 		imageViewAble.getImageView().relocateTopLeftCamera(vector2);
 

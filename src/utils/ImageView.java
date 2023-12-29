@@ -90,16 +90,13 @@ public class ImageView implements INode {
 		this.coordinatesTopLeft.x = x;
 		this.coordinatesTopLeft.y = y;
 
-		executeRelocateTopLeft(x, y);
+		IImageViewAble imageViewAble = MapImageViews.INSTANCE.getImageViewsMap().getKey(this);
+		CameraView.INSTANCE.relocateImageviewAble(imageViewAble);
 
-	}
-
-	public void relocateTopLeftCamera(double x, double y) {
-		executeRelocateTopLeft(x, y);
 	}
 
 	public void relocateTopLeftCamera(Vector2 vector2) {
-		relocateTopLeftCamera(vector2.x, vector2.y);
+		executeRelocateTopLeft(vector2.x, vector2.y);
 	}
 
 	@Override
