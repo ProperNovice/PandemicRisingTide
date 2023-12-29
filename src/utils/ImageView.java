@@ -61,8 +61,13 @@ public class ImageView implements INode {
 
 	@Override
 	public void setVisible(boolean value) {
+
 		this.isVisible = value;
 		LayerZManager.INSTANCE.setVisible(this.isVisible, this);
+
+		if (this.isVisible)
+			handleCamera();
+
 	}
 
 	@Override
@@ -90,8 +95,7 @@ public class ImageView implements INode {
 		this.coordinatesTopLeft.x = x;
 		this.coordinatesTopLeft.y = y;
 
-		IImageViewAble imageViewAble = MapImageViews.INSTANCE.getImageViewsMap().getKey(this);
-		CameraView.INSTANCE.relocateImageviewAble(imageViewAble);
+		handleCamera();
 
 	}
 
@@ -120,6 +124,13 @@ public class ImageView implements INode {
 
 	public void relocateBottomLeft(Vector2 vector2) {
 		relocateBottomLeft(vector2.x, vector2.y);
+	}
+
+	private void handleCamera() {
+
+		IImageViewAble imageViewAble = MapImageViews.INSTANCE.getImageViewsMap().getKey(this);
+		CameraView.INSTANCE.relocateImageviewAble(imageViewAble);
+
 	}
 
 	@Override
