@@ -1,5 +1,6 @@
 package business;
 
+import controller.Credentials;
 import enums.EColor;
 import enums.ERegion;
 import utils.Interfaces.ISelectCoordinatesAble;
@@ -21,6 +22,10 @@ public class Region implements ISelectCoordinatesAble {
 
 		this.eRegion = eRegion;
 		this.eColor = eColor;
+
+		x += Credentials.INSTANCE.gapBetweenBorders;
+		y += Credentials.INSTANCE.gapBetweenBorders;
+
 		this.coordinates = new Vector2(x, y);
 
 	}
