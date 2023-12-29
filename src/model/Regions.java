@@ -46,6 +46,14 @@ public enum Regions {
 
 		// yellow
 
+		this.list.addLast(new Region(ERegion.VOLLENHOVE, 1515, 765, EColor.YELLOW));
+		this.list.addLast(new Region(ERegion.IJSSELDELTA, 1405, 818, EColor.YELLOW));
+		this.list.addLast(new Region(ERegion.RIJN_EN_IJSSEL, 1484, 1278, EColor.YELLOW));
+		this.list.addLast(new Region(ERegion.BETUWE, 1019, 1351, EColor.YELLOW));
+		this.list.addLast(new Region(ERegion.VIJFHERELANDEN, 821, 1308, EColor.YELLOW));
+		this.list.addLast(new Region(ERegion.KROMME_RIJN, 942, 1128, EColor.YELLOW));
+		this.list.addLast(new Region(ERegion.GELDERSE_VALLEI, 1127, 1164, EColor.YELLOW));
+
 		this.list.getLast().setSelected();
 		this.list.getLast().print();
 
