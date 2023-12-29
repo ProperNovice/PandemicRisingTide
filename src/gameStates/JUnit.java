@@ -15,7 +15,21 @@ public class JUnit extends GameState {
 		double x, y;
 
 		x = Credentials.INSTANCE.dFrame.x;
-		x -= 250;
+		x -= Credentials.INSTANCE.gapBetweenBorders;
+		x -= 4 * Credentials.INSTANCE.dCard.x;
+		x -= 3 * Credentials.INSTANCE.dGapBetweenComponents.x;
+		y = Credentials.INSTANCE.gapBetweenBorders;
+		new Q(x, y);
+
+		x += Credentials.INSTANCE.dCard.x + Credentials.INSTANCE.dGapBetweenComponents.x;
+		new Q(x, y);
+
+		x += Credentials.INSTANCE.dCard.x + Credentials.INSTANCE.dGapBetweenComponents.x;
+		new Q(x, y);
+
+		x = Credentials.INSTANCE.dFrame.x;
+		x -= Credentials.INSTANCE.gapBetweenBorders;
+		x -= Credentials.INSTANCE.dCard.x;
 		y = Credentials.INSTANCE.gapBetweenBorders;
 		new Q(x, y);
 
@@ -42,6 +56,8 @@ public class JUnit extends GameState {
 
 		y += 0.25 * Credentials.INSTANCE.dCard.y;
 		new Q(x, y);
+
+//		handleKeyPressed(KeyCode.M);
 
 	}
 

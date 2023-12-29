@@ -11,12 +11,13 @@ public enum Credentials {
 	public boolean colliderVisibility = true;
 	public final double stagePixesOnTheLeft = 180, gapBetweenBorders = 14, textHeight = 50,
 			selectEventHandlerAbleDimension = 100, imageViewCloneWidth = 200, animationStep = 4,
-			cameraViewSpots = 1;
+			cameraViewSpots = 3;
 	public Vector2 dFrame, dGapBetweenComponents, dCameraView, dGapBetweenComponentsLineCast;
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
 	public Vector2 dCard;
+	public Vector2 cMap;
 
 	private Credentials() {
 
@@ -24,7 +25,7 @@ public enum Credentials {
 
 		// frame
 
-		this.dFrame = new Vector2(2560 - 4, 1440);
+		this.dFrame = new Vector2(2560 - 4 + 4, 1440);
 
 		// gaps
 
@@ -33,7 +34,7 @@ public enum Credentials {
 
 		// camera view
 
-		this.dCameraView = new Vector2(1, 1);
+		this.dCameraView = new Vector2(1969, 2316);
 
 		// c text panel
 
@@ -53,6 +54,12 @@ public enum Credentials {
 		x = 205;
 		y = 280;
 		this.dCard = new Vector2(x, y);
+
+		// c map
+
+		x = this.gapBetweenBorders;
+		y = this.gapBetweenBorders;
+		this.cMap = new Vector2(x, y);
 
 	}
 
