@@ -14,6 +14,21 @@ public enum Adjacencies {
 		create();
 	}
 
+	public ArrayList<ERegion> getAdjacentERegionsForMovement(ERegion eRegion) {
+
+		ArrayList<ERegion> regions = new ArrayList<>();
+
+		for (Adjacency adjacency : this.list)
+			if (adjacency.getERegions().contains(eRegion))
+				regions.addAllLast(adjacency.getERegions());
+
+		while (regions.contains(eRegion))
+			regions.remove(eRegion);
+
+		return regions;
+
+	}
+
 	private void create() {
 
 		this.list.addLast(new Adjacency(ERegion.NOORDZEE, ERegion.NOORDERZIJLVEST, 1555, 79));
@@ -94,6 +109,29 @@ public enum Adjacencies {
 		this.list.addLast(new Adjacency(ERegion.RIJN_EN_IJSSEL, ERegion.IJSSELDELTA, 1466, 1181));
 		this.list.addLast(new Adjacency(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE, 1515, 1057));
 		this.list.addLast(new Adjacency(ERegion.IJSSELDELTA, ERegion.VOLLENHOVE, 1465, 877));
+
+		this.list.addLast(new Adjacency(ERegion.DRENTHE, ERegion.NOORDERZIJLVEST));
+		this.list.addLast(new Adjacency(ERegion.DRENTHE, ERegion.FRYSLAN));
+		this.list.addLast(new Adjacency(ERegion.DRENTHE, ERegion.VOLLENHOVE));
+		this.list.addLast(new Adjacency(ERegion.DRENTHE, ERegion.TWENTE));
+		this.list.addLast(new Adjacency(ERegion.VOLLENHOVE, ERegion.TWENTE));
+		this.list.addLast(new Adjacency(ERegion.RIJN_EN_IJSSEL, ERegion.TWENTE));
+		this.list.addLast(new Adjacency(ERegion.VELUWE, ERegion.FLEVOLAND));
+		this.list.addLast(new Adjacency(ERegion.VELUWE, ERegion.IJSSELDELTA));
+		this.list.addLast(new Adjacency(ERegion.VELUWE, ERegion.RIJN_EN_IJSSEL));
+		this.list.addLast(new Adjacency(ERegion.VELUWE, ERegion.BETUWE));
+		this.list.addLast(new Adjacency(ERegion.VELUWE, ERegion.GELDERSE_VALLEI));
+		this.list.addLast(new Adjacency(ERegion.UTRECHTSE_HEUVELRUG, ERegion.GELDERSE_VALLEI));
+		this.list.addLast(new Adjacency(ERegion.UTRECHTSE_HEUVELRUG, ERegion.KROMME_RIJN));
+		this.list.addLast(new Adjacency(ERegion.UTRECHTSE_HEUVELRUG, ERegion.FLEVOLAND));
+		this.list.addLast(new Adjacency(ERegion.DE_ZOOM, ERegion.ZUID_BEVELAND));
+		this.list.addLast(new Adjacency(ERegion.DE_ZOOM, ERegion.SCHOUWEN_DUIVELAND));
+		this.list.addLast(new Adjacency(ERegion.DE_ZOOM, ERegion.WEST_BRABANT));
+		this.list.addLast(new Adjacency(ERegion.OOST_BRABANT, ERegion.WEST_BRABANT));
+		this.list.addLast(new Adjacency(ERegion.OOST_BRABANT, ERegion.LAND_VAN_HEUSDEN));
+		this.list.addLast(new Adjacency(ERegion.OOST_BRABANT, ERegion.LAND_VAN_MAAS_EN_WAAL));
+		this.list.addLast(new Adjacency(ERegion.OOST_BRABANT, ERegion.PEEL_EN_MAASVALLEI));
+		this.list.addLast(new Adjacency(ERegion.OOST_BRABANT, ERegion.ROER_EN_OVERMAAS));
 
 	}
 
