@@ -40,6 +40,8 @@ public class NumberImageViewIndicator {
 
 	public void setNumber(int number, double dimension) {
 
+		createList();
+
 		if (dimension == 0)
 			ShutDown.INSTANCE.execute();
 
@@ -96,6 +98,8 @@ public class NumberImageViewIndicator {
 
 	public void clear() {
 
+		createList();
+
 		for (IImageViewAble imageViewAble : this.list)
 			imageViewAble.getImageView().setVisible(false);
 
@@ -104,7 +108,20 @@ public class NumberImageViewIndicator {
 	}
 
 	public ListCredentials getListCredentials() {
+
+		createList();
 		return this.list.getListCredentials();
+
+	}
+
+	private void createList() {
+
+		if (this.list != null)
+			return;
+
+		this.list = new ListImageViewAbles<>();
+		this.list.getListCredentials().layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
+
 	}
 
 }

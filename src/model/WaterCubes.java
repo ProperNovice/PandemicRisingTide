@@ -19,7 +19,7 @@ public enum WaterCubes {
 		this.list.getListCredentials().coordinatesList = Credentials.INSTANCE.cWaterCubes;
 		this.list.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		this.list.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
-//		this.list.getListCredentials().showListSize = true;
+		this.list.getListCredentials().showListSize = true;
 
 		for (int counter = 1; counter <= 36; counter++)
 			this.list.getArrayList().addLast(new WaterCube());
