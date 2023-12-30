@@ -98,6 +98,14 @@ public enum Regions {
 		this.list.addLast(new Region(ERegion.ZUIDERZEE, 1119, 621));
 		this.list.getLast().setIsSea(true);
 
+		// hydraulic structures
+
+		getRegion(ERegion.FRYSLAN).setCanBuildHydraulicStructure();
+		getRegion(ERegion.WIERINGERMEER).setCanBuildHydraulicStructure();
+		getRegion(ERegion.SCHOUWEN_DUIVELAND).setCanBuildHydraulicStructure();
+		getRegion(ERegion.ROER_EN_OVERMAAS).setCanBuildHydraulicStructure();
+		getRegion(ERegion.RIJN_EN_IJSSEL).setCanBuildHydraulicStructure();
+
 	}
 
 }

@@ -12,7 +12,7 @@ public class Region implements ISelectCoordinatesAble {
 	private ERegion eRegion = null;
 	private EColor eColor = null;
 	private Vector2 coordinates = null;
-	private boolean isSea = false, isHighElevated = false;
+	private boolean isSea = false, isHighElevated = false, canBuildHydraulicStructure = false;
 
 	public Region(ERegion eRegion, double x, double y) {
 		this(eRegion, x, y, null);
@@ -36,6 +36,10 @@ public class Region implements ISelectCoordinatesAble {
 
 	public void setIsHighElevated() {
 		this.isHighElevated = true;
+	}
+
+	public void setCanBuildHydraulicStructure() {
+		this.canBuildHydraulicStructure = true;
 	}
 
 	public void print() {
@@ -75,6 +79,10 @@ public class Region implements ISelectCoordinatesAble {
 
 	public boolean isHighElevated() {
 		return this.isHighElevated;
+	}
+
+	public boolean canBuildHydraulicStructure() {
+		return this.canBuildHydraulicStructure;
 	}
 
 }
