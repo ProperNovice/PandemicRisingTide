@@ -4,6 +4,7 @@ import controller.Credentials;
 import enums.EText;
 import gui.InstancesGui;
 import javafx.scene.input.KeyCode;
+import utils.Animation;
 import utils.ArrayList;
 import utils.CameraView;
 import utils.Flow;
@@ -27,6 +28,9 @@ public abstract class GameState {
 	}
 
 	public final void executeKeyPressed(KeyCode keyCode) {
+
+		if (Animation.INSTANCE.isAnimating())
+			return;
 
 		handleKeyPressed(keyCode);
 

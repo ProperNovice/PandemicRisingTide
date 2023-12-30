@@ -2,6 +2,7 @@ package controller;
 
 import model.Map;
 import model.Regions;
+import model.WaterCubes;
 
 public enum InstantiateComponents {
 
@@ -11,6 +12,7 @@ public enum InstantiateComponents {
 
 		Map.values();
 		Regions.values();
+		WaterCubes.values();
 
 	}
 

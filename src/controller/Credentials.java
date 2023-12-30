@@ -16,8 +16,8 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public Vector2 dCard;
-	public Vector2 cMap;
+	public Vector2 dCard, dActionIndicator, dWaterCube;
+	public Vector2 cMap, cActionIndicators, cWaterCubes;
 
 	private Credentials() {
 
@@ -62,6 +62,29 @@ public enum Credentials {
 		x = this.gapBetweenBorders;
 		y = this.gapBetweenBorders;
 		this.cMap = new Vector2(x, y);
+
+		// d action indicators
+
+		y = this.dCard.y / 5;
+		this.dActionIndicator = new Vector2(y, y);
+
+		// c action indicators
+
+		x = this.gapBetweenBorders;
+		x += this.dCameraView.x;
+		x += this.dGapBetweenComponents.x;
+		y = this.gapBetweenBorders;
+		this.cActionIndicators = new Vector2(x, y);
+
+		// d water cubes
+
+		this.dWaterCube = this.dActionIndicator.clone();
+
+		// c water cubes
+
+		this.cWaterCubes = this.cActionIndicators.clone();
+		this.cWaterCubes.x += this.dActionIndicator.x;
+		this.cWaterCubes.x += this.dGapBetweenComponents.x;
 
 	}
 
