@@ -15,15 +15,15 @@ public class JUnit extends GameState {
 
 //		handleKeyPressed(KeyCode.M);
 
-		CameraView.INSTANCE.setCameraViewingSpot(2);
+		CameraView.INSTANCE.setCameraViewingSpot(1);
 		
-		testAdjacentRegions(ERegion.OOST_BRABANT);
+		testAdjacentRegions(ERegion.WIERINGERMEER);
 
 	}
 
 	public void testAdjacentRegions(ERegion eRegion) {
 
-		ArrayList<ERegion> eRegions = Adjacencies.INSTANCE.getAdjacentERegionsForMovement(eRegion);
+		ArrayList<ERegion> eRegions = Adjacencies.INSTANCE.getAdjacentERegions(eRegion);
 
 		ArrayList<Region> regions = new ArrayList<>();
 

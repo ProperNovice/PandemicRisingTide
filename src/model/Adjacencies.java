@@ -14,7 +14,7 @@ public enum Adjacencies {
 		create();
 	}
 
-	public ArrayList<ERegion> getAdjacentERegionsForMovement(ERegion eRegion) {
+	public ArrayList<ERegion> getAdjacentERegions(ERegion eRegion) {
 
 		ArrayList<ERegion> regions = new ArrayList<>();
 
