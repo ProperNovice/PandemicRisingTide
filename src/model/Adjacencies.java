@@ -29,6 +29,18 @@ public enum Adjacencies {
 
 	}
 
+	public ArrayList<Adjacency> getAdjacenciesOfRegion(ERegion eRegion) {
+
+		ArrayList<Adjacency> adjacencies = new ArrayList<>();
+
+		for (Adjacency adjacency : this.list)
+			if (adjacency.getERegions().contains(eRegion))
+				adjacencies.addLast(adjacency);
+
+		return adjacencies;
+
+	}
+
 	private void create() {
 
 		this.list.addLast(new Adjacency(ERegion.NOORDZEE, ERegion.NOORDERZIJLVEST, 1555, 79));
