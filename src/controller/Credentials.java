@@ -16,8 +16,8 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public Vector2 dCard, dActionIndicator, dWaterCube;
-	public Vector2 cMap, cActionIndicators, cWaterCubes;
+	public Vector2 dCard, dActionIndicator, dWaterCube, dDike;
+	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes;
 
 	private Credentials() {
 
@@ -63,28 +63,36 @@ public enum Credentials {
 		y = this.gapBetweenBorders;
 		this.cMap = new Vector2(x, y);
 
-		// d action indicators
+		// d action indicator
 
 		y = this.dCard.y / 5;
 		this.dActionIndicator = new Vector2(y, y);
 
-		// c action indicators
-
-		x = this.gapBetweenBorders;
-		x += this.dCameraView.x;
-		x += this.dGapBetweenComponents.x;
-		y = this.gapBetweenBorders;
-		this.cActionIndicators = new Vector2(x, y);
-
-		// d water cubes
+		// d water cube
 
 		this.dWaterCube = this.dActionIndicator.clone();
 
 		// c water cubes
 
-		this.cWaterCubes = this.cActionIndicators.clone();
-		this.cWaterCubes.x += this.dActionIndicator.x;
-		this.cWaterCubes.x += this.dGapBetweenComponents.x;
+		x = this.gapBetweenBorders;
+		x += this.dCameraView.x;
+		x += this.dGapBetweenComponents.x;
+		y = this.gapBetweenBorders;
+		this.cWaterCubes = new Vector2(x, y);
+
+		// d dike
+
+		this.dDike = this.dWaterCube.clone();
+
+		// c dikes
+
+		this.cDikes = this.cWaterCubes.clone();
+		this.cDikes.y += this.dWaterCube.y;
+		this.cDikes.y += this.dGapBetweenComponents.y;
+
+		// c action indicators
+
+		this.cActionIndicators = new Vector2(x, y);
 
 	}
 
