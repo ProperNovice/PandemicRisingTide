@@ -90,13 +90,13 @@ public enum Regions {
 		this.list.addLast(new Region(ERegion.OOST_BRABANT, 1122, 1662));
 		this.list.getLast().setIsHighElevated();
 
+		this.list.addLast(new Region(ERegion.NOORDZEE, 563, 674));
+		this.list.addLast(new Region(ERegion.ZUIDERZEE, 1119, 621));
+
 		// sea
 
-		this.list.addLast(new Region(ERegion.NOORDZEE, 563, 674));
-		this.list.getLast().setIsSea(true);
-
-		this.list.addLast(new Region(ERegion.ZUIDERZEE, 1119, 621));
-		this.list.getLast().setIsSea(true);
+		getRegion(ERegion.NOORDZEE).setIsSea(true);
+		getRegion(ERegion.ZUIDERZEE).setIsSea(true);
 
 		// hydraulic structures
 
