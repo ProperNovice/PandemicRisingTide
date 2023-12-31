@@ -1,5 +1,6 @@
 package gameStates;
 
+import business.WaterPump;
 import gameStatesDefault.GameState;
 
 public class JUnit extends GameState {
@@ -8,6 +9,8 @@ public class JUnit extends GameState {
 	public void execute() {
 
 //		handleKeyPressed(KeyCode.M);
+
+		new WaterPump();
 
 	}
 

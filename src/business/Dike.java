@@ -10,7 +10,7 @@ public class Dike implements IImageViewAble {
 	public Dike() {
 
 		new ImageView("dike.png", ELayerZ.TOKENS, this);
-		getImageView().setDimensions(Credentials.INSTANCE.dWaterCube);
+		getImageView().setDimensions(Credentials.INSTANCE.dDike);
 
 	}
 
