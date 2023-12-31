@@ -138,8 +138,17 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 
 		int number = this.arrayList.size();
 
-		double dimension = Math.min(imageView.getWidth(), imageView.getHeight());
-		dimension *= getListCredentials().listQuantityRatioImageViewDimensions;
+		double dimension = -1;
+
+		if (getListCredentials().listQuantityRatioImageViewDimensions > 1)
+			dimension = getListCredentials().listQuantityRatioImageViewDimensions;
+
+		else {
+
+			dimension = Math.min(imageView.getWidth(), imageView.getHeight());
+			dimension *= getListCredentials().listQuantityRatioImageViewDimensions;
+
+		}
 
 		this.numberImageViewIndicator.setNumber(number, dimension);
 

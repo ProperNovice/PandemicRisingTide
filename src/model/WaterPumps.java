@@ -19,8 +19,9 @@ public enum WaterPumps {
 		this.list.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		this.list.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.list.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
-		this.list.getListCredentials().listQuantityRatioImageViewDimensions = 28
-				/ Credentials.INSTANCE.dWaterPump.x;
+		this.list
+				.getListCredentials().listQuantityRatioImageViewDimensions = Credentials.INSTANCE.dWaterPump.y
+						/ 2;
 		this.list.getListCredentials().showListSize = true;
 
 		for (int counter = 1; counter <= 5; counter++)
