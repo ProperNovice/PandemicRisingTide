@@ -29,6 +29,8 @@ public enum Ports {
 
 		this.list.relocateImageViews();
 
+		this.list.getArrayList().saveOriginal();
+
 	}
 
 	public ListImageViewAbles<Port> getList() {

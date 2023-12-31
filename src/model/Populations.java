@@ -1,28 +1,28 @@
 package model;
 
-import business.Dike;
+import business.Population;
 import controller.Credentials;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
 import utils.ListImageViewAbles;
 
-public enum Dikes {
+public enum Populations {
 
 	INSTANCE;
 
-	private ListImageViewAbles<Dike> list = new ListImageViewAbles<>();
+	private ListImageViewAbles<Population> list = new ListImageViewAbles<>();
 
-	private Dikes() {
+	private Populations() {
 
-		this.list.getListCredentials().coordinatesList = Credentials.INSTANCE.cDikes;
+		this.list.getListCredentials().coordinatesList = Credentials.INSTANCE.cPopulation;
 		this.list.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		this.list.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.list.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.list.getListCredentials().showListSize = true;
 
-		for (int counter = 1; counter <= 50; counter++)
-			this.list.getArrayList().addLast(new Dike());
+		for (int counter = 1; counter <= 36; counter++)
+			this.list.getArrayList().addLast(new Population());
 
 		this.list.relocateImageViews();
 
@@ -30,7 +30,7 @@ public enum Dikes {
 
 	}
 
-	public ListImageViewAbles<Dike> getList() {
+	public ListImageViewAbles<Population> getList() {
 		return this.list;
 	}
 

@@ -26,6 +26,8 @@ public enum WaterCubes {
 
 		this.list.relocateImageViews();
 
+		this.list.getArrayList().saveOriginal();
+
 	}
 
 	public ListImageViewAbles<WaterCube> getList() {

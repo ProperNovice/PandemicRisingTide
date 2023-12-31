@@ -29,6 +29,8 @@ public enum WaterPumps {
 
 		this.list.relocateImageViews();
 
+		this.list.getArrayList().saveOriginal();
+
 	}
 
 	public ListImageViewAbles<WaterPump> getList() {

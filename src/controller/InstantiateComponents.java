@@ -4,6 +4,7 @@ import model.Adjacencies;
 import model.Cards;
 import model.Dikes;
 import model.Map;
+import model.Populations;
 import model.Ports;
 import model.Regions;
 import model.WaterCubes;
@@ -21,6 +22,7 @@ public enum InstantiateComponents {
 		Dikes.values();
 		WaterPumps.values();
 		Ports.values();
+		Populations.values();
 		Adjacencies.values();
 		Cards.values();
 
