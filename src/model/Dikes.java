@@ -4,6 +4,7 @@ import business.Dike;
 import controller.Credentials;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
+import utils.Enums.RelocateTypeEnum;
 import utils.ListImageViewAbles;
 
 public enum Dikes {
@@ -17,6 +18,7 @@ public enum Dikes {
 		this.list.getListCredentials().coordinatesList = Credentials.INSTANCE.cDikes;
 		this.list.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		this.list.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
+		this.list.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.list.getListCredentials().showListSize = true;
 
 		for (int counter = 1; counter <= 50; counter++)
