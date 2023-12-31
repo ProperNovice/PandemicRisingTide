@@ -1,6 +1,7 @@
 package controller;
 
 import model.Adjacencies;
+import model.Cards;
 import model.Dikes;
 import model.Map;
 import model.Ports;
@@ -21,6 +22,7 @@ public enum InstantiateComponents {
 		WaterPumps.values();
 		Ports.values();
 		Adjacencies.values();
+		Cards.values();
 
 	}
 

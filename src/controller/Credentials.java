@@ -70,7 +70,9 @@ public enum Credentials {
 
 		// d water cube
 
-		this.dWaterCube = this.dActionIndicator.clone();
+		x = 40;
+		y = 40;
+		this.dWaterCube = new Vector2(40, 40);
 
 		// c water cubes
 
@@ -92,32 +94,29 @@ public enum Credentials {
 
 		// d water pump
 
-		y = this.dWaterCube.y;
-		x = 86 * y / 100;
+		x = 86;
+		y = 100;
 		this.dWaterPump = new Vector2(x, y);
 
 		// c water pumps
 
 		this.cWaterPumps = this.cDikes.clone();
-		this.cWaterPumps.x += this.dWaterCube.x / 2;
 		this.cWaterPumps.y += this.dDike.y;
 		this.cWaterPumps.y += this.dGapBetweenComponents.y;
-		this.cWaterPumps.y += this.dWaterPump.y / 2;
 
 		// d port
 
-		y = this.dWaterCube.y;
-		x = 64 * y / 100;
+		x = 86;
+		y = 100;
 		this.dPort = new Vector2(x, y);
 
 		// c ports
 
-		x = this.cWaterPumps.x;
-		y = this.cWaterPumps.y;
-		y += this.dWaterPump.y / 2;
-		y += this.dGapBetweenComponents.y;
-		y += this.dPort.y / 2;
-		this.cPorts = new Vector2(x, y);
+		this.cPorts = this.cWaterPumps.clone();
+		this.cPorts.x += this.dWaterPump.x / 2;
+		this.cPorts.y += this.dWaterPump.y;
+		this.cPorts.y += this.dGapBetweenComponents.y;
+		this.cPorts.y += this.dPort.y / 2;
 
 		// c action indicators
 
