@@ -10,8 +10,7 @@ public class CardPlayerEvent extends CardPlayer {
 
 		this.eEvent = eEvent;
 
-		String fileName = "";
-		fileName += getFolder();
+		String fileName = getFolder();
 		fileName += this.eEvent.toString();
 		fileName += ".png";
 

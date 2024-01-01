@@ -1,5 +1,6 @@
 package model;
 
+import cards.CardDikeFailure;
 import cards.CardPlayerEvent;
 import cards.CardPlayerRegion;
 import cards.CardPlayerStorm;
@@ -13,12 +14,13 @@ public enum Cards {
 	INSTANCE;
 
 	private ArrayList<CardPlayerRegion> cardsPlayerRegion = new ArrayList<>();
-	private ArrayList<CardPlayerEvent> cardPlayerEvent = new ArrayList<>();
-	private ArrayList<CardPlayerStorm> cardPlayerStorm = new ArrayList<>();
+	private ArrayList<CardPlayerEvent> cardsPlayerEvent = new ArrayList<>();
+	private ArrayList<CardPlayerStorm> cardsPlayerStorm = new ArrayList<>();
+	private ArrayList<CardDikeFailure> cardsDikeFailure = new ArrayList<>();
 
 	private Cards() {
 
-		createCardsPlayerCardPlayerRegion();
+		createCardsRegion();
 		createCardsPlayerEvent();
 		createCardsPlayerStorm();
 
@@ -27,69 +29,64 @@ public enum Cards {
 	private void createCardsPlayerStorm() {
 
 		for (int counter = 1; counter <= 8; counter++)
-			this.cardPlayerStorm.addLast(new CardPlayerStorm());
+			this.cardsPlayerStorm.addLast(new CardPlayerStorm());
 
 	}
 
 	private void createCardsPlayerEvent() {
 
 		for (EEvent eEvent : EEvent.values())
-			this.cardPlayerEvent.addLast(new CardPlayerEvent(eEvent));
+			this.cardsPlayerEvent.addLast(new CardPlayerEvent(eEvent));
 
 	}
 
-	private void createCardsPlayerCardPlayerRegion() {
+	private void createCardsRegion() {
 
 		// purple
 
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.NOORDERZIJLVEST, EColor.PURPLE));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.FRYSLAN, EColor.PURPLE));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.NOORDOOSTPOLDER, EColor.PURPLE));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.FLEVOLAND, EColor.PURPLE));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.MARKERWAARD, EColor.PURPLE));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.WIERINGERMEER, EColor.PURPLE));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.KENNEMERLAND, EColor.PURPLE));
+		createCardsRegion(ERegion.NOORDERZIJLVEST, EColor.PURPLE);
+		createCardsRegion(ERegion.FRYSLAN, EColor.PURPLE);
+		createCardsRegion(ERegion.NOORDOOSTPOLDER, EColor.PURPLE);
+		createCardsRegion(ERegion.FLEVOLAND, EColor.PURPLE);
+		createCardsRegion(ERegion.MARKERWAARD, EColor.PURPLE);
+		createCardsRegion(ERegion.WIERINGERMEER, EColor.PURPLE);
+		createCardsRegion(ERegion.KENNEMERLAND, EColor.PURPLE);
 
 		// orange
 
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.DELFLAND, EColor.ORANGE));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.VOORNE_PUTTEN, EColor.ORANGE));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.GOERRE_OVERFLAKKEE, EColor.ORANGE));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.SCHOUWEN_DUIVELAND, EColor.ORANGE));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.WALCHEREN, EColor.ORANGE));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.ZUID_BEVELAND, EColor.ORANGE));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.ZEEUWS_VLAANDEREN, EColor.ORANGE));
+		createCardsRegion(ERegion.DELFLAND, EColor.ORANGE);
+		createCardsRegion(ERegion.VOORNE_PUTTEN, EColor.ORANGE);
+		createCardsRegion(ERegion.GOERRE_OVERFLAKKEE, EColor.ORANGE);
+		createCardsRegion(ERegion.SCHOUWEN_DUIVELAND, EColor.ORANGE);
+		createCardsRegion(ERegion.WALCHEREN, EColor.ORANGE);
+		createCardsRegion(ERegion.ZUID_BEVELAND, EColor.ORANGE);
+		createCardsRegion(ERegion.ZEEUWS_VLAANDEREN, EColor.ORANGE);
 
 		// green
 
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.WEST_BRABANT, EColor.GREEN));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.HOEKSE_WAARD, EColor.GREEN));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.LAND_VAN_ALTENA, EColor.GREEN));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.LAND_VAN_HEUSDEN, EColor.GREEN));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.LAND_VAN_MAAS_EN_WAAL, EColor.GREEN));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.PEEL_EN_MAASVALLEI, EColor.GREEN));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.ROER_EN_OVERMAAS, EColor.GREEN));
+		createCardsRegion(ERegion.WEST_BRABANT, EColor.GREEN);
+		createCardsRegion(ERegion.HOEKSE_WAARD, EColor.GREEN);
+		createCardsRegion(ERegion.LAND_VAN_ALTENA, EColor.GREEN);
+		createCardsRegion(ERegion.LAND_VAN_HEUSDEN, EColor.GREEN);
+		createCardsRegion(ERegion.LAND_VAN_MAAS_EN_WAAL, EColor.GREEN);
+		createCardsRegion(ERegion.PEEL_EN_MAASVALLEI, EColor.GREEN);
+		createCardsRegion(ERegion.ROER_EN_OVERMAAS, EColor.GREEN);
 
 		// yellow
 
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.VOLLENHOVE, EColor.YELLOW));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.IJSSELDELTA, EColor.YELLOW));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.RIJN_EN_IJSSEL, EColor.YELLOW));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.BETUWE, EColor.YELLOW));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.VIJFHERELANDEN, EColor.YELLOW));
-		this.cardsPlayerRegion.addLast(new CardPlayerRegion(ERegion.KROMME_RIJN, EColor.YELLOW));
-		this.cardsPlayerRegion
-				.addLast(new CardPlayerRegion(ERegion.GELDERSE_VALLEI, EColor.YELLOW));
+		createCardsRegion(ERegion.VOLLENHOVE, EColor.YELLOW);
+		createCardsRegion(ERegion.IJSSELDELTA, EColor.YELLOW);
+		createCardsRegion(ERegion.RIJN_EN_IJSSEL, EColor.YELLOW);
+		createCardsRegion(ERegion.BETUWE, EColor.YELLOW);
+		createCardsRegion(ERegion.VIJFHERELANDEN, EColor.YELLOW);
+		createCardsRegion(ERegion.KROMME_RIJN, EColor.YELLOW);
+		createCardsRegion(ERegion.GELDERSE_VALLEI, EColor.YELLOW);
 
+	}
+
+	private void createCardsRegion(ERegion eRegion, EColor eColor) {
+		this.cardsPlayerRegion.addLast(new CardPlayerRegion(eRegion, eColor));
+		this.cardsDikeFailure.addLast(new CardDikeFailure(eRegion));
 	}
 
 }

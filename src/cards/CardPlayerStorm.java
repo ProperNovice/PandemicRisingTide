@@ -4,8 +4,7 @@ public class CardPlayerStorm extends CardPlayer {
 
 	public CardPlayerStorm() {
 
-		String fileName = "";
-		fileName += getFolder();
+		String fileName = getFolder();
 		fileName += "STORM.png";
 
 		super.createCard(fileName);

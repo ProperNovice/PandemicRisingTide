@@ -13,8 +13,7 @@ public class CardPlayerRegion extends CardPlayer {
 		this.eRegion = eRegion;
 		this.eColor = eColor;
 
-		String fileName = "";
-		fileName += getFolder();
+		String fileName = getFolder();
 		fileName += this.eColor.toString().toLowerCase();
 		fileName += "/";
 		fileName += this.eRegion;
