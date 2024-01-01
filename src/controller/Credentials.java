@@ -71,7 +71,7 @@ public enum Credentials {
 
 		// d water pump
 
-		y = 80;
+		y = 78;
 		x = 86 * y / 100;
 		this.dWaterPump = new Vector2(x, y);
 
@@ -86,6 +86,7 @@ public enum Credentials {
 		x = this.dCard.y;
 		x -= this.dWaterPump.y;
 		x -= this.dPort.y;
+		x -= 4 * this.dGapBetweenComponents.y;
 		x /= 3;
 		this.dWaterCube = new Vector2(x, x);
 
@@ -143,6 +144,9 @@ public enum Credentials {
 		// c action indicators
 
 		this.cActionIndicators = new Vector2(x, y);
+
+		this.dWaterPump.print();
+		this.dWaterCube.print();
 
 	}
 
