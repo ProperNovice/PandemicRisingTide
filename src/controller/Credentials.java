@@ -16,7 +16,8 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public Vector2 dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation;
+	public Vector2 dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation,
+			dPawn;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cWaterPumps, cPorts, cPopulation;
 
 	private Credentials() {
@@ -95,6 +96,12 @@ public enum Credentials {
 		// d population
 
 		this.dPopulation = this.dWaterCube.clone();
+
+		// d pawn
+
+		y = this.dWaterPump.y;
+		x = 54 * y / 100;
+		this.dPawn = new Vector2(x, y);
 
 		// c water cubes
 
