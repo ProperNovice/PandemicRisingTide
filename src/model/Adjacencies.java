@@ -43,6 +43,8 @@ public enum Adjacencies {
 
 	private void create() {
 
+		// between low elevated regions
+
 		this.list.addLast(new Adjacency(ERegion.NOORDZEE, ERegion.NOORDERZIJLVEST, 1555, 79));
 		this.list.addLast(new Adjacency(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST, 1490, 285));
 		this.list.addLast(new Adjacency(ERegion.FRYSLAN, ERegion.NOORDZEE, 1121, 268));
@@ -121,6 +123,8 @@ public enum Adjacencies {
 		this.list.addLast(new Adjacency(ERegion.RIJN_EN_IJSSEL, ERegion.IJSSELDELTA, 1466, 1181));
 		this.list.addLast(new Adjacency(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE, 1515, 1057));
 		this.list.addLast(new Adjacency(ERegion.IJSSELDELTA, ERegion.VOLLENHOVE, 1465, 877));
+
+		// connected to high elevated regions
 
 		this.list.addLast(new Adjacency(ERegion.DRENTHE, ERegion.NOORDERZIJLVEST));
 		this.list.addLast(new Adjacency(ERegion.DRENTHE, ERegion.FRYSLAN));

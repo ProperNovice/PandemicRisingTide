@@ -2,7 +2,7 @@ package cards;
 
 import enums.ERole;
 
-public class CardRole extends CardPlayer {
+public class CardRole extends Card {
 
 	private ERole eRole = null;
 
@@ -11,6 +11,10 @@ public class CardRole extends CardPlayer {
 		this.eRole = eRole;
 
 		String fileName = getFolder();
+		fileName += this.eRole.toString();
+		fileName += ".png";
+
+		super.createCard(fileName);
 
 	}
 
@@ -20,7 +24,12 @@ public class CardRole extends CardPlayer {
 
 	@Override
 	protected String getFolder() {
-		return "roles/";
+		return super.getFolder() + "roles/";
+	}
+
+	@Override
+	protected String getStringBack() {
+		return getFolder() + "back.png";
 	}
 
 }

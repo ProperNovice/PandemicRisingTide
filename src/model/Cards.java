@@ -4,9 +4,11 @@ import cards.CardDikeFailure;
 import cards.CardPlayerEvent;
 import cards.CardPlayerRegion;
 import cards.CardPlayerStorm;
+import cards.CardRole;
 import enums.EColor;
 import enums.EEvent;
 import enums.ERegion;
+import enums.ERole;
 import utils.ArrayList;
 
 public enum Cards {
@@ -17,12 +19,41 @@ public enum Cards {
 	private ArrayList<CardPlayerEvent> cardsPlayerEvent = new ArrayList<>();
 	private ArrayList<CardPlayerStorm> cardsPlayerStorm = new ArrayList<>();
 	private ArrayList<CardDikeFailure> cardsDikeFailure = new ArrayList<>();
+	private ArrayList<CardRole> cardsRole = new ArrayList<>();
 
 	private Cards() {
 
 		createCardsRegion();
 		createCardsPlayerEvent();
 		createCardsPlayerStorm();
+		createCardsRole();
+
+	}
+
+	public ArrayList<CardPlayerRegion> getCardsPlayerRegionClone() {
+		return this.cardsPlayerRegion.clone();
+	}
+
+	public ArrayList<CardPlayerEvent> getCardsPlayerEventClone() {
+		return this.cardsPlayerEvent.clone();
+	}
+
+	public ArrayList<CardPlayerStorm> getCardsPlayerStormClone() {
+		return this.cardsPlayerStorm.clone();
+	}
+
+	public ArrayList<CardDikeFailure> getCardsDikeFailureClone() {
+		return this.cardsDikeFailure.clone();
+	}
+
+	public ArrayList<CardRole> getCardsRoleClone() {
+		return this.cardsRole.clone();
+	}
+
+	private void createCardsRole() {
+
+		for (ERole eRole : ERole.values())
+			this.cardsRole.addLast(new CardRole(eRole));
 
 	}
 
