@@ -145,9 +145,6 @@ public enum Credentials {
 
 		this.cActionIndicators = new Vector2(x, y);
 
-		this.dWaterPump.print();
-		this.dWaterCube.print();
-
 	}
 
 }
