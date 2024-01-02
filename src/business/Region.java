@@ -43,19 +43,104 @@ public class Region implements ISelectCoordinatesAble {
 
 	public void relocateComponents() {
 
-		double totalX = 0, totalGap = -1;
+		double totalX = 0, totalGaps = -1;
 
-		totalX += Credentials.INSTANCE.dPopulation.x * this.populations.getArrayList().size();
-		totalX += Credentials.INSTANCE.dWaterCube.x * this.populations.getArrayList().size();
-		totalX += Credentials.INSTANCE.dWaterPump.x * this.populations.getArrayList().size();
-		totalX += Credentials.INSTANCE.dPort.x * this.populations.getArrayList().size();
-		totalX += Credentials.INSTANCE.dPawn.x * this.populations.getArrayList().size();
+		if (!this.populations.getArrayList().isEmpty()) {
 
-		totalGap += this.populations.getArrayList().size();
-		totalGap += this.waterCubes.getArrayList().size();
-		totalGap += this.waterPumps.getArrayList().size();
-		totalGap += this.ports.getArrayList().size();
-		totalGap += this.pawns.getArrayList().size();
+			totalX += Credentials.INSTANCE.dPopulation.x;
+			totalGaps++;
+
+		}
+
+		if (!this.waterCubes.getArrayList().isEmpty()) {
+
+			totalX += Credentials.INSTANCE.dWaterCube.x;
+			totalGaps++;
+
+		}
+
+		if (!this.waterPumps.getArrayList().isEmpty()) {
+
+			totalX += Credentials.INSTANCE.dWaterPump.x;
+			totalGaps++;
+
+		}
+
+		if (!this.ports.getArrayList().isEmpty()) {
+
+			totalX += Credentials.INSTANCE.dPort.x;
+			totalGaps++;
+
+		}
+
+		if (!this.pawns.getArrayList().isEmpty()) {
+
+			totalX += this.pawns.getArrayList().size() * Credentials.INSTANCE.dPawn.x;
+			totalGaps += this.pawns.getArrayList().size() - 1;
+
+		}
+
+		totalX += totalGaps * Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		double x = this.coordinates.x - totalX / 2;
+
+		if (!this.pawns.getArrayList().isEmpty()) {
+
+			x += (this.pawns.getArrayList().size() - 1) * Credentials.INSTANCE.dPawn.x;
+			x += (this.pawns.getArrayList().size() - 1)
+					* Credentials.INSTANCE.dGapBetweenComponents.x;
+
+			x += Credentials.INSTANCE.dPawn.x / 2;
+
+			this.pawns.getListCredentials().coordinatesList.x = x;
+
+			x += Credentials.INSTANCE.dPawn.x / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		if (!this.ports.getArrayList().isEmpty()) {
+
+			x += Credentials.INSTANCE.dPort.x / 2;
+
+			this.ports.getListCredentials().coordinatesList.x = x;
+
+			x += Credentials.INSTANCE.dPort.x / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		if (!this.waterPumps.getArrayList().isEmpty()) {
+
+			x += Credentials.INSTANCE.dWaterPump.x / 2;
+
+			this.waterPumps.getListCredentials().coordinatesList.x = x;
+
+			x += Credentials.INSTANCE.dWaterPump.x / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		if (!this.populations.getArrayList().isEmpty()) {
+
+			x += Credentials.INSTANCE.dPopulation.x / 2;
+
+			this.populations.getListCredentials().coordinatesList.x = x;
+
+			x += Credentials.INSTANCE.dPopulation.x / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		if (!this.waterCubes.getArrayList().isEmpty()) {
+
+			x += Credentials.INSTANCE.dWaterCube.x / 2;
+
+			this.waterCubes.getListCredentials().coordinatesList.x = x;
+
+			x += Credentials.INSTANCE.dWaterCube.x / 2;
+
+		}
 
 		// relocate image views
 

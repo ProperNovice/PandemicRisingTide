@@ -21,11 +21,11 @@ public class JUnit extends GameState {
 		ERegion eRegion = ERegion.FRYSLAN;
 
 		addWaterCubes(2, eRegion);
-//		addPopulations(3, eRegion);
+		addPopulations(3, eRegion);
 		addPort(eRegion);
 		addWaterPump(eRegion);
 		addPawn(ERole.HYDRAULIC_ENGINEER, eRegion);
-//		addPawn(ERole.PUMP_OPERATOR, eRegion);
+		addPawn(ERole.PUMP_OPERATOR, eRegion);
 
 		Regions.INSTANCE.getRegion(eRegion).relocateComponents();
 
