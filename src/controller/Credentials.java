@@ -72,6 +72,7 @@ public enum Credentials {
 		// d water pump
 
 		y = 78;
+		y = 64;
 		x = 86 * y / 100;
 		this.dWaterPump = new Vector2(x, y);
 

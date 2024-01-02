@@ -43,6 +43,70 @@ public class Region implements ISelectCoordinatesAble {
 
 	public void relocateComponents() {
 
+		double x = this.coordinates.x;
+		x += Credentials.INSTANCE.dGapBetweenComponents.x / 2;
+
+		// populations
+
+		if (!this.populations.getArrayList().isEmpty()) {
+
+			x += Credentials.INSTANCE.dPopulation.x / 2;
+			this.populations.getListCredentials().coordinatesList.x = x;
+
+			x += Credentials.INSTANCE.dPopulation.x / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		// water cubes
+
+		if (!this.waterCubes.getArrayList().isEmpty()) {
+
+			x += Credentials.INSTANCE.dWaterCube.x / 2;
+			this.waterCubes.getListCredentials().coordinatesList.x = x;
+
+		}
+
+		// resetting x
+
+		x = this.coordinates.x;
+		x -= Credentials.INSTANCE.dGapBetweenComponents.x / 2;
+
+		// water pumps
+
+		if (!this.waterPumps.getArrayList().isEmpty()) {
+
+			x -= Credentials.INSTANCE.dWaterPump.x / 2;
+			this.waterPumps.getListCredentials().coordinatesList.x = x;
+
+			x -= Credentials.INSTANCE.dWaterPump.x / 2;
+			x -= Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		// ports
+
+		if (!this.ports.getArrayList().isEmpty()) {
+
+			x -= Credentials.INSTANCE.dPort.x / 2;
+			this.ports.getListCredentials().coordinatesList.x = x;
+
+			x -= Credentials.INSTANCE.dPort.x / 2;
+			x -= Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		// pawns
+
+		if (!this.pawns.getArrayList().isEmpty()) {
+
+			x -= Credentials.INSTANCE.dPawn.x / 2;
+			this.pawns.getListCredentials().coordinatesList.x = x;
+
+		}
+
+		// relocate image views
+
 		this.populations.relocateImageViews();
 		this.waterCubes.relocateImageViews();
 		this.waterPumps.relocateImageViews();
@@ -52,6 +116,8 @@ public class Region implements ISelectCoordinatesAble {
 	}
 
 	private void createLists() {
+
+		this.waterCubes = new ListImageViewAbles<>();
 
 		// populations
 
@@ -89,6 +155,10 @@ public class Region implements ISelectCoordinatesAble {
 
 	public ListImageViewAbles<WaterCube> getWaterCubes() {
 		return this.waterCubes;
+	}
+
+	public ListImageViewAbles<WaterPump> getWaterPumps() {
+		return this.waterPumps;
 	}
 
 	public ListImageViewAbles<Port> getPorts() {

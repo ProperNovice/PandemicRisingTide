@@ -8,7 +8,7 @@ import utils.Enums.RelocateTypeEnum;
 
 public class ListCredentials {
 
-	public LayerZListEnum layerZListEnum = null;
+	public LayerZListEnum layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
 	private LayerZListEnum layerZListEnumSave = null;
 
 	public int objectsPerRow = -1;
