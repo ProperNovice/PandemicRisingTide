@@ -18,7 +18,7 @@ public class JUnit extends GameState {
 
 //		handleKeyPressed(KeyCode.M);
 
-		ERegion eRegion = ERegion.ROER_EN_OVERMAAS;
+		ERegion eRegion = ERegion.FRYSLAN;
 
 		addWaterCubes(2, eRegion);
 //		addPopulations(3, eRegion);
