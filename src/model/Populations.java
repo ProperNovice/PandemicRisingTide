@@ -19,7 +19,6 @@ public enum Populations {
 		this.list.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		this.list.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.list.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
-		this.list.getListCredentials().showListSize = true;
 
 		for (int counter = 1; counter <= 36; counter++)
 			this.list.getArrayList().addLast(new Population());

@@ -108,10 +108,10 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 
 	private void showListSize() {
 
+		this.numberImageViewIndicator.clear();
+
 		if (!this.listCredentials.showListSize)
 			return;
-
-		this.numberImageViewIndicator.clear();
 
 		if (this.arrayList.isEmpty())
 			return;

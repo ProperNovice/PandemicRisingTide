@@ -1,5 +1,8 @@
 package gameStates;
 
+import business.Adjacency;
+import business.Dike;
+import business.DikeLocation;
 import business.Pawn;
 import business.Population;
 import business.Port;
@@ -9,7 +12,10 @@ import business.WaterPump;
 import enums.ERegion;
 import enums.ERole;
 import gameStatesDefault.GameState;
+import javafx.scene.input.KeyCode;
+import model.Adjacencies;
 import model.Regions;
+import utils.ArrayList;
 
 public class JUnit extends GameState {
 
@@ -17,6 +23,18 @@ public class JUnit extends GameState {
 	public void execute() {
 
 //		handleKeyPressed(KeyCode.M);
+
+	}
+
+	@Override
+	protected void handleKeyPressed(KeyCode keyCode) {
+
+		boolean q = true;
+
+		if (keyCode.equals(KeyCode.W))
+			q = false;
+
+		addRemoveDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST, q);
 
 	}
 
@@ -72,6 +90,30 @@ public class JUnit extends GameState {
 		region.getPawns().getArrayList().addLast(pawn);
 
 		region.relocateComponents();
+
+	}
+
+	public void addRemoveDike(ERegion eRegionA, ERegion eRegionB, boolean add) {
+
+		ArrayList<Adjacency> list = Adjacencies.INSTANCE.getAdjacenciesOfRegion(eRegionA);
+		Adjacency adjacency = null;
+
+		for (Adjacency adjacencyTemp : list) {
+
+			if (!adjacencyTemp.getERegions().contains(eRegionB))
+				continue;
+
+			adjacency = adjacencyTemp;
+			break;
+
+		}
+
+		DikeLocation dikeLocation = adjacency.getDikeLocation();
+
+		if (add)
+			dikeLocation.addDikeRelocate(new Dike());
+		else
+			dikeLocation.removeDikeRelocate();
 
 	}
 

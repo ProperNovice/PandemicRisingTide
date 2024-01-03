@@ -27,8 +27,31 @@ public class DikeLocation implements ISelectCoordinatesAble {
 
 	}
 
-	public ListImageViewAbles<Dike> getList() {
-		return this.list;
+	public void addDikeRelocate(Dike dike) {
+
+		this.list.getArrayList().addLast(dike);
+		relocateShowListSize();
+
+	}
+
+	public Dike removeDikeRelocate() {
+
+		Dike dike = this.list.getArrayList().removeLast();
+		relocateShowListSize();
+
+		return dike;
+
+	}
+
+	public int dikeSize() {
+		return this.list.getArrayList().size();
+	}
+
+	private void relocateShowListSize() {
+
+		this.list.getListCredentials().showListSize = this.list.getArrayList().size() >= 2;
+		this.list.relocateImageViews();
+
 	}
 
 	@Override
