@@ -9,7 +9,7 @@ public class Population implements IImageViewAble {
 
 	public Population() {
 
-		new ImageView("population.png", ELayerZ.TOKENS, this);
+		new ImageView("population.png", ELayerZ.MAP_CUBES, this);
 		getImageView().setDimensions(Credentials.INSTANCE.dPopulation);
 
 	}

@@ -19,6 +19,7 @@ public enum Credentials {
 	public Vector2 dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation,
 			dPawn;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cWaterPumps, cPorts, cPopulation;
+	public double hTokenMap, hCubeMap, hDikeMap;
 
 	private Credentials() {
 
@@ -72,7 +73,7 @@ public enum Credentials {
 		// d water pump
 
 		y = 78; // or
-		y = 66;
+		y = 64;
 		x = 86 * y / 100;
 		this.dWaterPump = new Vector2(x, y);
 
@@ -145,6 +146,11 @@ public enum Credentials {
 		// c action indicators
 
 		this.cActionIndicators = new Vector2(x, y);
+
+		// h token map
+
+		this.hTokenMap = 64;
+		this.hCubeMap = 40;
 
 	}
 

@@ -9,6 +9,7 @@ import business.Port;
 import business.Region;
 import business.WaterCube;
 import business.WaterPump;
+import controller.Credentials;
 import enums.ERegion;
 import enums.ERole;
 import gameStatesDefault.GameState;
@@ -25,6 +26,7 @@ public class JUnit extends GameState {
 //		handleKeyPressed(KeyCode.M);
 
 		addWaterCubes(3, ERegion.FRYSLAN);
+		addPopulations(3, ERegion.FRYSLAN);
 
 	}
 
@@ -44,8 +46,13 @@ public class JUnit extends GameState {
 
 		Region region = Regions.INSTANCE.getRegion(eRegion);
 
-		for (int counter = 1; counter <= amount; counter++)
-			region.getPopulations().getArrayList().addLast(new Population());
+		for (int counter = 1; counter <= amount; counter++) {
+
+			Population population = new Population();
+			population.getImageView().setHeight(Credentials.INSTANCE.hCubeMap);
+			region.getPopulations().getArrayList().addLast(population);
+
+		}
 
 		region.relocateComponents();
 
@@ -55,8 +62,13 @@ public class JUnit extends GameState {
 
 		Region region = Regions.INSTANCE.getRegion(eRegion);
 
-		for (int counter = 1; counter <= amount; counter++)
-			region.getWaterCubes().getArrayList().addLast(new WaterCube());
+		for (int counter = 1; counter <= amount; counter++) {
+
+			WaterCube waterCube = new WaterCube();
+			waterCube.getImageView().setHeight(Credentials.INSTANCE.hCubeMap);
+			region.getWaterCubes().getArrayList().addLast(waterCube);
+
+		}
 
 		region.relocateComponents();
 
