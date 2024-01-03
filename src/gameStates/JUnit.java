@@ -18,44 +18,6 @@ public class JUnit extends GameState {
 
 //		handleKeyPressed(KeyCode.M);
 
-		ERegion eRegion = ERegion.VOORNE_PUTTEN;
-
-		addWaterCubes(2, eRegion);
-		addPopulations(3, eRegion);
-		addPort(eRegion);
-		addWaterPump(eRegion);
-		addPawn(ERole.HYDRAULIC_ENGINEER, eRegion);
-		addPawn(ERole.PUMP_OPERATOR, eRegion);
-
-		eRegion = ERegion.HOEKSE_WAARD;
-
-		addWaterCubes(2, eRegion);
-		addPopulations(3, eRegion);
-		addPort(eRegion);
-		addWaterPump(eRegion);
-		addPawn(ERole.HYDRAULIC_ENGINEER, eRegion);
-		addPawn(ERole.PUMP_OPERATOR, eRegion);
-		
-		eRegion = ERegion.KENNEMERLAND;
-		
-		addWaterCubes(2, eRegion);
-		addPopulations(3, eRegion);
-		addPort(eRegion);
-		addWaterPump(eRegion);
-		addPawn(ERole.HYDRAULIC_ENGINEER, eRegion);
-		addPawn(ERole.PUMP_OPERATOR, eRegion);
-
-		eRegion = ERegion.WALCHEREN;
-
-		addWaterCubes(2, eRegion);
-		addPopulations(3, eRegion);
-		addPort(eRegion);
-		addWaterPump(eRegion);
-		addPawn(ERole.HYDRAULIC_ENGINEER, eRegion);
-		addPawn(ERole.PUMP_OPERATOR, eRegion);
-
-		Regions.INSTANCE.getRegion(eRegion).relocateComponents();
-
 	}
 
 	public void addPopulations(int amount, ERegion eRegion) {

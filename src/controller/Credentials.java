@@ -146,19 +146,6 @@ public enum Credentials {
 
 		this.cActionIndicators = new Vector2(x, y);
 
-		// dimensions
-
-		this.dWaterCube.x /= 2;
-		this.dPopulation.x /= 2;
-		this.dWaterPump.x /= 2;
-		this.dPort.x /= 2;
-		this.dPawn.x /= 2;
-		this.dWaterCube.y /= 2;
-		this.dPopulation.y /= 2;
-		this.dWaterPump.y /= 2;
-		this.dPort.y /= 2;
-		this.dPawn.y /= 2;
-
 	}
 
 }
