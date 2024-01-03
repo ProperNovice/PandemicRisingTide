@@ -12,7 +12,7 @@ public class Adjacency {
 
 		this.eRegions.addAllLast(eRegionA, eRegionB);
 
-		if (x == -1 || y == -1)
+		if (x == -1 && y == -1)
 			return;
 
 		this.dikeLocation = new DikeLocation(x, y);
