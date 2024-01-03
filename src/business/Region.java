@@ -47,35 +47,36 @@ public class Region implements ISelectCoordinatesAble {
 
 		if (!this.populations.getArrayList().isEmpty()) {
 
-			totalX += Credentials.INSTANCE.dPopulation.x;
+			totalX += this.populations.getArrayList().getFirst().getImageView().getWidth();
 			totalGaps++;
 
 		}
 
 		if (!this.waterCubes.getArrayList().isEmpty()) {
 
-			totalX += Credentials.INSTANCE.dWaterCube.x;
+			totalX += this.waterCubes.getArrayList().getFirst().getImageView().getWidth();
 			totalGaps++;
 
 		}
 
 		if (!this.waterPumps.getArrayList().isEmpty()) {
 
-			totalX += Credentials.INSTANCE.dWaterPump.x;
+			totalX += this.waterPumps.getArrayList().getFirst().getImageView().getWidth();
 			totalGaps++;
 
 		}
 
 		if (!this.ports.getArrayList().isEmpty()) {
 
-			totalX += Credentials.INSTANCE.dPort.x;
+			totalX += this.ports.getArrayList().getFirst().getImageView().getWidth();
 			totalGaps++;
 
 		}
 
 		if (!this.pawns.getArrayList().isEmpty()) {
 
-			totalX += this.pawns.getArrayList().size() * Credentials.INSTANCE.dPawn.x;
+			totalX += this.pawns.getArrayList().size()
+					* this.pawns.getArrayList().getFirst().getImageView().getWidth();
 			totalGaps += this.pawns.getArrayList().size() - 1;
 
 		}
@@ -90,51 +91,51 @@ public class Region implements ISelectCoordinatesAble {
 			x += (this.pawns.getArrayList().size() - 1)
 					* Credentials.INSTANCE.dGapBetweenComponents.x;
 
-			x += Credentials.INSTANCE.dPawn.x / 2;
+			x += this.pawns.getArrayList().getFirst().getImageView().getWidth() / 2;
 
 			this.pawns.getListCredentials().coordinatesList.x = x;
 
-			x += Credentials.INSTANCE.dPawn.x / 2;
+			x += this.pawns.getArrayList().getFirst().getImageView().getWidth() / 2;
 			x += Credentials.INSTANCE.dGapBetweenComponents.x;
 
 		}
 
 		if (!this.ports.getArrayList().isEmpty()) {
 
-			x += Credentials.INSTANCE.dPort.x / 2;
+			x += this.ports.getArrayList().getFirst().getImageView().getWidth() / 2;
 
 			this.ports.getListCredentials().coordinatesList.x = x;
 
-			x += Credentials.INSTANCE.dPort.x / 2;
+			x += this.ports.getArrayList().getFirst().getImageView().getWidth() / 2;
 			x += Credentials.INSTANCE.dGapBetweenComponents.x;
 
 		}
 
 		if (!this.waterPumps.getArrayList().isEmpty()) {
 
-			x += Credentials.INSTANCE.dWaterPump.x / 2;
+			x += this.waterPumps.getArrayList().getFirst().getImageView().getWidth() / 2;
 
 			this.waterPumps.getListCredentials().coordinatesList.x = x;
 
-			x += Credentials.INSTANCE.dWaterPump.x / 2;
+			x += this.waterPumps.getArrayList().getFirst().getImageView().getWidth() / 2;
 			x += Credentials.INSTANCE.dGapBetweenComponents.x;
 
 		}
 
 		if (!this.populations.getArrayList().isEmpty()) {
 
-			x += Credentials.INSTANCE.dPopulation.x / 2;
+			x += this.populations.getArrayList().getFirst().getImageView().getWidth() / 2;
 
 			this.populations.getListCredentials().coordinatesList.x = x;
 
-			x += Credentials.INSTANCE.dPopulation.x / 2;
+			x += this.populations.getArrayList().getFirst().getImageView().getWidth() / 2;
 			x += Credentials.INSTANCE.dGapBetweenComponents.x;
 
 		}
 
 		if (!this.waterCubes.getArrayList().isEmpty()) {
 
-			x += Credentials.INSTANCE.dWaterCube.x / 2;
+			x += this.waterCubes.getArrayList().getFirst().getImageView().getWidth() / 2;
 
 			this.waterCubes.getListCredentials().coordinatesList.x = x;
 
