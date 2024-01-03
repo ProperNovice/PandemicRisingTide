@@ -35,6 +35,15 @@ public class JUnit extends GameState {
 		addWaterPump(eRegion);
 		addPawn(ERole.HYDRAULIC_ENGINEER, eRegion);
 		addPawn(ERole.PUMP_OPERATOR, eRegion);
+		
+		eRegion = ERegion.KENNEMERLAND;
+		
+		addWaterCubes(2, eRegion);
+		addPopulations(3, eRegion);
+		addPort(eRegion);
+		addWaterPump(eRegion);
+		addPawn(ERole.HYDRAULIC_ENGINEER, eRegion);
+		addPawn(ERole.PUMP_OPERATOR, eRegion);
 
 		eRegion = ERegion.WALCHEREN;
 
