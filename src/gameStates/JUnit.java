@@ -49,7 +49,7 @@ public class JUnit extends GameState {
 		for (int counter = 1; counter <= amount; counter++) {
 
 			Population population = new Population();
-			population.getImageView().setHeight(Credentials.INSTANCE.hCubeMap);
+			population.getImageView().setHeight(Credentials.INSTANCE.hWaterPopulationCubeMap);
 			region.getPopulations().getArrayList().addLast(population);
 
 		}
@@ -65,7 +65,7 @@ public class JUnit extends GameState {
 		for (int counter = 1; counter <= amount; counter++) {
 
 			WaterCube waterCube = new WaterCube();
-			waterCube.getImageView().setHeight(Credentials.INSTANCE.hCubeMap);
+			waterCube.getImageView().setHeight(Credentials.INSTANCE.hWaterPopulationCubeMap);
 			region.getWaterCubes().getArrayList().addLast(waterCube);
 
 		}
@@ -79,6 +79,8 @@ public class JUnit extends GameState {
 		Region region = Regions.INSTANCE.getRegion(eRegion);
 
 		region.getWaterPumps().getArrayList().addLast(new WaterPump());
+		region.getWaterPumps().getArrayList().getLast().getImageView()
+				.setHeight(Credentials.INSTANCE.hPortWaterPumpMap);
 
 		region.relocateComponents();
 
@@ -89,6 +91,8 @@ public class JUnit extends GameState {
 		Region region = Regions.INSTANCE.getRegion(eRegion);
 
 		region.getPorts().getArrayList().addLast(new Port());
+		region.getPorts().getArrayList().getLast().getImageView()
+				.setHeight(Credentials.INSTANCE.hPortWaterPumpMap);
 
 		region.relocateComponents();
 
@@ -98,10 +102,8 @@ public class JUnit extends GameState {
 
 		Region region = Regions.INSTANCE.getRegion(eRegion);
 
-		Pawn pawn = new Pawn(eRole);
-		pawn.getImageView().setVisible(true);
-
-		region.getPawns().getArrayList().addLast(pawn);
+		region.getPawns().getArrayList().addLast(new Pawn(eRole));
+		region.getPawns().getArrayList().getLast().getImageView().setVisible(true);
 
 		region.relocateComponents();
 
