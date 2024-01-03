@@ -24,6 +24,8 @@ public class JUnit extends GameState {
 
 //		handleKeyPressed(KeyCode.M);
 
+		addWaterCubes(3, ERegion.FRYSLAN);
+
 	}
 
 	@Override
