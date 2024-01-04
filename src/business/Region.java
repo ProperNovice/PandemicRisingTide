@@ -169,7 +169,7 @@ public class Region implements ISelectCoordinatesAble {
 		this.waterCubes.getListCredentials().coordinatesList.y = this.coordinates.y;
 		this.waterCubes.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.waterCubes.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
-		this.waterCubes.getListCredentials().listQuantityRatioImageViewDimensions = 0.75;
+		this.waterCubes.getListCredentials().listQuantityRatioImageViewDimensions = 1;
 
 		// water pumps
 

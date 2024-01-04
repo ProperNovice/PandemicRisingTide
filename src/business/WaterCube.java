@@ -9,7 +9,7 @@ public class WaterCube implements IImageViewAble {
 
 	public WaterCube() {
 
-		new ImageView("water cube.png", ELayerZ.MAP_CUBES, this);
+		new ImageView("water cube - dark.png", ELayerZ.MAP_CUBES, this);
 		getImageView().setDimensions(Credentials.INSTANCE.dWaterCube);
 
 	}

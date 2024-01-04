@@ -8,7 +8,7 @@ public class SelectImageView implements IImageViewAble, IMouseEventAble {
 
 	public SelectImageView() {
 
-		new ImageView("misc/select.png", ELayerZ.ICONS_MISC, this);
+		new ImageView("misc/select.png", ELayerZ.SELECT_IMAGEVIEW, this);
 		this.getImageView().setVisible(false);
 
 	}

@@ -26,12 +26,16 @@ public class JUnit extends GameState {
 
 		handleKeyPressed(KeyCode.M);
 
-//		addWaterCubes(4, ERegion.NOORDZEE);
-//		addWaterCubes(4, ERegion.ZUIDERZEE);
-		addWaterCubes(2, ERegion.FRYSLAN);
-		addPopulations(3, ERegion.FRYSLAN);
+//		addWaterCubes(2, ERegion.NOORDZEE);
+//		addWaterCubes(2, ERegion.ZUIDERZEE);
+		addWaterCubes(3, ERegion.FRYSLAN);
+
+//		addPopulations(3, ERegion.FRYSLAN);
+
 		addWaterPump(ERegion.FRYSLAN);
-		addPort(ERegion.FRYSLAN);
+
+//		addPort(ERegion.FRYSLAN);
+
 		addPawn(ERole.CARPENTER, ERegion.FRYSLAN);
 		addPawn(ERole.SANITATION_ENGINEER, ERegion.FRYSLAN);
 		addPawn(ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
@@ -42,6 +46,8 @@ public class JUnit extends GameState {
 		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
 		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
+
+		Regions.INSTANCE.getRegion(ERegion.FRYSLAN).setSelected();
 
 		WaterFlows.INSTANCE.execute();
 
