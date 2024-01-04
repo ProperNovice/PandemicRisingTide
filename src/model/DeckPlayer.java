@@ -19,8 +19,10 @@ public enum DeckPlayer {
 	}
 
 	public void addDeckRelocate(ArrayList<CardPlayer> list) {
+
 		this.list.getArrayList().addAllLast(list);
 		this.list.relocateImageViews();
+
 	}
 
 	public CardPlayer removeFirstFlip() {
