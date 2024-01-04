@@ -16,10 +16,11 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
+	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hDikeMap;
 	public Vector2 dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation,
 			dPawn;
-	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cWaterPumps, cPorts, cPopulation;
-	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hDikeMap;
+	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cWaterPumps, cPorts, cPopulation,
+			cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure;
 
 	private Credentials() {
 
@@ -149,6 +150,22 @@ public enum Credentials {
 		y = 80;
 		x = 54 * y / 100;
 		this.dPawn = new Vector2(x, y);
+
+		// c deck player
+
+		x = this.gapBetweenBorders;
+		x += this.dCameraView.x;
+		x += this.dGapBetweenComponents.x;
+		y = this.gapBetweenBorders;
+		y += this.dCard.y;
+		y += this.dGapBetweenComponents.y;
+		this.cDeckPlayer = new Vector2(x, y);
+
+		// c discard pile player
+
+		this.cDiscardPilePlayer = this.cDeckPlayer.clone();
+		this.cDiscardPilePlayer.x += this.dCard.x;
+		this.cDiscardPilePlayer.x += this.dGapBetweenComponents.x;
 
 	}
 

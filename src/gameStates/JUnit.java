@@ -30,18 +30,18 @@ public class JUnit extends GameState {
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
 		addWaterCubes(3, ERegion.FRYSLAN);
 
-//		addPopulations(3, ERegion.FRYSLAN);
+		addPopulations(3, ERegion.FRYSLAN);
 
 		addWaterPump(ERegion.FRYSLAN);
 
-//		addPort(ERegion.FRYSLAN);
+		addPort(ERegion.FRYSLAN);
 
 		addPawn(ERole.CARPENTER, ERegion.FRYSLAN);
 		addPawn(ERole.SANITATION_ENGINEER, ERegion.FRYSLAN);
 		addPawn(ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
 
-		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 //		addDike(ERegion.FRYSLAN, ERegion.VOLLENHOVE);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
