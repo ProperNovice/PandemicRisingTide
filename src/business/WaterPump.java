@@ -9,7 +9,7 @@ public class WaterPump implements IImageViewAble {
 
 	public WaterPump() {
 
-		new ImageView("water pump.png", ELayerZ.MAP_TOKENS, this);
+		new ImageView("water pump.png", ELayerZ.MAP_BUILDINGS, this);
 		getImageView().setHeight(Credentials.INSTANCE.dWaterPump.y);
 
 	}

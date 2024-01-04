@@ -3,7 +3,6 @@ package business;
 import controller.Credentials;
 import enums.EColor;
 import enums.ERegion;
-import utils.Enums.DirectionEnum;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
 import utils.Interfaces.ISelectCoordinatesAble;
@@ -43,7 +42,8 @@ public class Region implements ISelectCoordinatesAble {
 
 	public void relocateComponents() {
 
-		double totalX = 0, totalGaps = -1;
+		relocatePopulationWaterCubes();
+		relocatePortsWaterPumps();
 
 		// show list size
 
@@ -60,6 +60,96 @@ public class Region implements ISelectCoordinatesAble {
 		this.waterPumps.relocateImageViews();
 		this.ports.relocateImageViews();
 		this.pawns.relocateImageViews();
+
+	}
+
+	private void relocatePortsWaterPumps() {
+
+		double totalX = 0, totalGaps = -1, x;
+
+		if (!this.ports.getArrayList().isEmpty()) {
+
+			totalGaps++;
+			totalX += this.ports.getArrayList().getFirst().getImageView().getWidth();
+
+		}
+
+		if (!this.waterPumps.getArrayList().isEmpty()) {
+
+			totalGaps++;
+			totalX += this.waterPumps.getArrayList().getFirst().getImageView().getWidth();
+
+		}
+
+		totalX += totalGaps * Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		x = this.coordinates.x;
+		x -= totalX / 2;
+
+		if (!this.ports.getArrayList().isEmpty()) {
+
+			x += this.ports.getArrayList().getFirst().getImageView().getWidth() / 2;
+			this.ports.getListCredentials().coordinatesList.x = x;
+
+			x += this.ports.getArrayList().getFirst().getImageView().getWidth() / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		if (!this.waterPumps.getArrayList().isEmpty()) {
+
+			x += this.waterPumps.getArrayList().getFirst().getImageView().getWidth() / 2;
+			this.waterPumps.getListCredentials().coordinatesList.x = x;
+
+			x += this.waterPumps.getArrayList().getFirst().getImageView().getWidth() / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+	}
+
+	private void relocatePopulationWaterCubes() {
+
+		double totalX = 0, totalGaps = -1, x;
+
+		if (!this.populations.getArrayList().isEmpty()) {
+
+			totalGaps++;
+			totalX += this.populations.getArrayList().getFirst().getImageView().getWidth();
+
+		}
+
+		if (!this.waterCubes.getArrayList().isEmpty()) {
+
+			totalGaps++;
+			totalX += this.waterCubes.getArrayList().getFirst().getImageView().getWidth();
+
+		}
+
+		totalX += totalGaps * Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		x = this.coordinates.x;
+		x -= totalX / 2;
+
+		if (!this.populations.getArrayList().isEmpty()) {
+
+			x += this.populations.getArrayList().getFirst().getImageView().getWidth() / 2;
+			this.populations.getListCredentials().coordinatesList.x = x;
+
+			x += this.populations.getArrayList().getFirst().getImageView().getWidth() / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
+
+		if (!this.waterCubes.getArrayList().isEmpty()) {
+
+			x += this.waterCubes.getArrayList().getFirst().getImageView().getWidth() / 2;
+			this.waterCubes.getListCredentials().coordinatesList.x = x;
+
+			x += this.waterCubes.getArrayList().getFirst().getImageView().getWidth() / 2;
+			x += Credentials.INSTANCE.dGapBetweenComponents.x;
+
+		}
 
 	}
 
@@ -93,9 +183,9 @@ public class Region implements ISelectCoordinatesAble {
 
 		// pawns
 
-		this.pawns.getListCredentials().coordinatesList.y = this.coordinates.y;
+		this.pawns.getListCredentials().coordinatesList = this.coordinates;
 		this.pawns.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
-		this.pawns.getListCredentials().directionEnumHorizontal = DirectionEnum.LEFT;
+		this.pawns.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.PIVOT;
 
 	}
 

@@ -9,7 +9,7 @@ public class Port implements IImageViewAble {
 
 	public Port() {
 
-		new ImageView("port.png", ELayerZ.MAP_TOKENS, this);
+		new ImageView("port.png", ELayerZ.MAP_BUILDINGS, this);
 		getImageView().setHeight(Credentials.INSTANCE.dPort.y);
 
 	}
