@@ -27,7 +27,7 @@ public class JUnit extends GameState {
 		handleKeyPressed(KeyCode.M);
 
 //		addWaterCubes(4, ERegion.NOORDZEE);
-		addWaterCubes(4, ERegion.ZUIDERZEE);
+//		addWaterCubes(4, ERegion.ZUIDERZEE);
 		addWaterCubes(2, ERegion.FRYSLAN);
 		addPopulations(3, ERegion.FRYSLAN);
 		addWaterPump(ERegion.FRYSLAN);
