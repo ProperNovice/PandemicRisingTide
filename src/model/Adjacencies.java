@@ -3,6 +3,7 @@ package model;
 import business.Adjacency;
 import enums.ERegion;
 import utils.ArrayList;
+import utils.ShutDown;
 
 public enum Adjacencies {
 
@@ -38,6 +39,18 @@ public enum Adjacencies {
 				adjacencies.addLast(adjacency);
 
 		return adjacencies;
+
+	}
+
+	public Adjacency getAdjecencyBetweenRegions(ERegion eRegionA, ERegion eRegionB) {
+
+		for (Adjacency adjacency : this.list)
+			if (adjacency.getERegions().contains(eRegionA))
+				if (adjacency.getERegions().contains(eRegionB))
+					return adjacency;
+
+		ShutDown.INSTANCE.execute();
+		return null;
 
 	}
 

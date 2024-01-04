@@ -21,7 +21,7 @@ public enum WaterCubes {
 		this.list.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.list.getListCredentials().showListSize = true;
 
-		for (int counter = 1; counter <= 36; counter++)
+		for (int counter = 1; counter <= 136; counter++)
 			this.list.getArrayList().addLast(new WaterCube());
 
 		this.list.relocateImageViews();

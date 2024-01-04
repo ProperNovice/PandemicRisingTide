@@ -1,5 +1,6 @@
 package gameStates;
 
+import actions.WaterFlows;
 import business.Adjacency;
 import business.Dike;
 import business.DikeLocation;
@@ -23,30 +24,26 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-//		handleKeyPressed(KeyCode.M);
+		handleKeyPressed(KeyCode.M);
 
-		addWaterCubes(3, ERegion.FRYSLAN);
+//		addWaterCubes(4, ERegion.NOORDZEE);
+		addWaterCubes(4, ERegion.ZUIDERZEE);
+		addWaterCubes(2, ERegion.FRYSLAN);
 		addPopulations(3, ERegion.FRYSLAN);
 		addWaterPump(ERegion.FRYSLAN);
 		addPort(ERegion.FRYSLAN);
 		addPawn(ERole.CARPENTER, ERegion.FRYSLAN);
 		addPawn(ERole.SANITATION_ENGINEER, ERegion.FRYSLAN);
 		addPawn(ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
-		
-		addRemoveDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST, true);
-		addRemoveDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST, true);
 
-	}
+		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+//		addDike(ERegion.FRYSLAN, ERegion.VOLLENHOVE);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
+		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
 
-	@Override
-	protected void handleKeyPressed(KeyCode keyCode) {
-
-		boolean q = true;
-
-		if (keyCode.equals(KeyCode.W))
-			q = false;
-
-		addRemoveDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST, q);
+		WaterFlows.INSTANCE.execute();
 
 	}
 
@@ -117,7 +114,7 @@ public class JUnit extends GameState {
 
 	}
 
-	public void addRemoveDike(ERegion eRegionA, ERegion eRegionB, boolean add) {
+	public void addDike(ERegion eRegionA, ERegion eRegionB) {
 
 		ArrayList<Adjacency> list = Adjacencies.INSTANCE.getAdjacenciesOfRegion(eRegionA);
 		Adjacency adjacency = null;
@@ -133,11 +130,7 @@ public class JUnit extends GameState {
 		}
 
 		DikeLocation dikeLocation = adjacency.getDikeLocation();
-
-		if (add)
-			dikeLocation.addDikeRelocate(new Dike());
-		else
-			dikeLocation.removeDikeRelocate();
+		dikeLocation.addDikeRelocate(new Dike());
 
 	}
 
