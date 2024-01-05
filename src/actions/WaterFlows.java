@@ -130,6 +130,9 @@ public enum WaterFlows {
 
 	private void log(int amount) {
 
+		if (this.listTarget.isEmpty())
+			return;
+
 		Logger.INSTANCE.logNewLine("amount - " + amount);
 
 		logListSource();

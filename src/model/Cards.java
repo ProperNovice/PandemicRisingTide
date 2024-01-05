@@ -1,7 +1,6 @@
 package model;
 
 import cards.CardDikeFailure;
-import cards.CardPlayer;
 import cards.CardPlayerEvent;
 import cards.CardPlayerRegion;
 import cards.CardPlayerStorm;
@@ -16,9 +15,9 @@ public enum Cards {
 
 	INSTANCE;
 
-	private ArrayList<CardPlayer> cardsPlayerRegion = new ArrayList<>();
-	private ArrayList<CardPlayer> cardsPlayerEvent = new ArrayList<>();
-	private ArrayList<CardPlayer> cardsPlayerStorm = new ArrayList<>();
+	private ArrayList<CardPlayerRegion> cardsPlayerRegion = new ArrayList<>();
+	private ArrayList<CardPlayerEvent> cardsPlayerEvent = new ArrayList<>();
+	private ArrayList<CardPlayerStorm> cardsPlayerStorm = new ArrayList<>();
 	private ArrayList<CardDikeFailure> cardsDikeFailure = new ArrayList<>();
 	private ArrayList<CardRole> cardsRole = new ArrayList<>();
 
@@ -31,15 +30,15 @@ public enum Cards {
 
 	}
 
-	public ArrayList<CardPlayer> getCardsPlayerRegionClone() {
+	public ArrayList<CardPlayerRegion> getCardsPlayerRegionClone() {
 		return this.cardsPlayerRegion.clone();
 	}
 
-	public ArrayList<CardPlayer> getCardsPlayerEventClone() {
+	public ArrayList<CardPlayerEvent> getCardsPlayerEventClone() {
 		return this.cardsPlayerEvent.clone();
 	}
 
-	public ArrayList<CardPlayer> getCardsPlayerStormClone() {
+	public ArrayList<CardPlayerStorm> getCardsPlayerStormClone() {
 		return this.cardsPlayerStorm.clone();
 	}
 

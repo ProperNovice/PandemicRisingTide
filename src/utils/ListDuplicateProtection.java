@@ -1,6 +1,6 @@
 package utils;
 
-import utils.Enums.ListsManager;
+import utils.Enums.Lists;
 import utils.Interfaces.IImageViewAble;
 
 public enum ListDuplicateProtection {
@@ -13,7 +13,7 @@ public enum ListDuplicateProtection {
 
 	public void execute(ListImageViewAbles<IImageViewAble> list, IImageViewAble object) {
 
-		for (ListImageViewAbles<IImageViewAble> objectList : ListsManager.INSTANCE.lists) {
+		for (ListImageViewAbles<IImageViewAble> objectList : Lists.INSTANCE.lists) {
 
 			if (objectList.equals(list)) {
 

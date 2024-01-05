@@ -5,17 +5,22 @@ import business.Adjacency;
 import business.Dike;
 import business.DikeLocation;
 import business.Pawn;
+import business.Player;
 import business.Population;
 import business.Port;
 import business.Region;
 import business.WaterCube;
 import business.WaterPump;
+import cards.CardPlayerRegion;
+import cards.CardRole;
 import controller.Credentials;
+import enums.EColor;
 import enums.ERegion;
 import enums.ERole;
 import gameStatesDefault.GameState;
-import javafx.scene.input.KeyCode;
 import model.Adjacencies;
+import model.Cards;
+import model.Players;
 import model.Regions;
 import utils.ArrayList;
 
@@ -24,7 +29,7 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-		handleKeyPressed(KeyCode.M);
+//		handleKeyPressed(KeyCode.M);
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
@@ -42,12 +47,28 @@ public class JUnit extends GameState {
 
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-//		addDike(ERegion.FRYSLAN, ERegion.VOLLENHOVE);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
 		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
 
 		Regions.INSTANCE.getRegion(ERegion.FRYSLAN).setSelected();
+
+		playerRole(EPlayer.TOP, ERole.CARPENTER);
+		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+
+		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 
 		WaterFlows.INSTANCE.execute();
 
@@ -137,6 +158,69 @@ public class JUnit extends GameState {
 
 		DikeLocation dikeLocation = adjacency.getDikeLocation();
 		dikeLocation.addDikeRelocate(new Dike());
+
+	}
+
+	private enum EPlayer {
+		TOP, BOTTOM
+	}
+
+	public void playerCardRegion(EPlayer ePlayer, ERegion eRegion) {
+
+		Player player = null;
+
+		switch (ePlayer) {
+
+		case TOP:
+			player = Players.INSTANCE.getList().getFirst();
+			break;
+
+		case BOTTOM:
+			player = Players.INSTANCE.getList().getLast();
+			break;
+
+		}
+
+		CardPlayerRegion cardPlayerRegion = null;
+		EColor eColor = null;
+
+		for (CardPlayerRegion cardPlayerRegionTemp : Cards.INSTANCE.getCardsPlayerRegionClone())
+			if (eRegion.equals(cardPlayerRegionTemp.getERegion()))
+				eColor = cardPlayerRegionTemp.getEColor();
+
+		cardPlayerRegion = new CardPlayerRegion(eRegion, eColor);
+		cardPlayerRegion.getImageView().setVisible(true);
+
+		player.getCardsPlayer().getArrayList().addLast(cardPlayerRegion);
+		player.getCardsPlayer().relocateImageViews();
+
+		cardPlayerRegion.setSelected();
+
+	}
+
+	public void playerRole(EPlayer ePlayer, ERole eRole) {
+
+		Player player = null;
+
+		switch (ePlayer) {
+
+		case TOP:
+			player = Players.INSTANCE.getList().getFirst();
+			break;
+
+		case BOTTOM:
+			player = Players.INSTANCE.getList().getLast();
+			break;
+
+		}
+
+		CardRole cardRole = new CardRole(eRole);
+		cardRole.getImageView().setVisible(true);
+
+		player.getCardRole().getArrayList().addLast(cardRole);
+		player.getCardRole().relocateImageViews();
+
+		cardRole.setSelected();
 
 	}
 

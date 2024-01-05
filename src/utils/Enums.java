@@ -44,7 +44,7 @@ public class Enums {
 
 	}
 
-	public enum ListsManager {
+	public enum Lists {
 
 		INSTANCE;
 

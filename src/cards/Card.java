@@ -15,6 +15,8 @@ public abstract class Card implements IImageViewAble {
 		new ImageView(fileName, ELayerZ.CARDS, this);
 		getImageView().setBack(getStringBack());
 		getImageView().setVisible(false);
+		getImageView().setSelectImageViewAbleRatioPosition(0.5, 0.35);
+		getImageView().setSelectImageViewAbleRatioDimensions(0.35);
 
 	}
 

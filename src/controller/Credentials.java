@@ -9,7 +9,7 @@ public enum Credentials {
 
 	public String primaryStageTitle = "Pandemic: Rising Tide", numbersImageViewColor = "black";
 	public boolean colliderVisibility = true;
-	public final double stagePixesOnTheLeft = 180, gapBetweenBorders = 14, textHeight = 50,
+	public final double stagePixesOnTheLeft = 180, gapBetweenBorders = 14 + 2, textHeight = 50,
 			selectEventHandlerAbleDimension = 100, imageViewCloneWidth = 200, animationStep = 4,
 			cameraViewSpots = 3;
 	public Vector2 dFrame, dGapBetweenComponents, dCameraView, dGapBetweenComponentsLineCast;
@@ -17,10 +17,11 @@ public enum Credentials {
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
 	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hDikeMap;
-	public Vector2 dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation,
+	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation,
 			dPawn;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cWaterPumps, cPorts, cPopulation,
-			cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure;
+			cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure, cPlayerTop,
+			cPlayerBottom;
 
 	private Credentials() {
 
@@ -35,11 +36,15 @@ public enum Credentials {
 		this.dGapBetweenComponents = new Vector2(4, 4);
 		this.dGapBetweenComponentsLineCast = this.dGapBetweenComponents;
 
-		// camera view
+		// d map
 
 		x = 1696;
 		y = 2316;
-		this.dCameraView = new Vector2(x, y);
+		this.dMap = new Vector2(x, y);
+
+		// camera view
+
+		this.dCameraView = this.dMap.clone();
 
 		// c text panel
 
@@ -104,7 +109,7 @@ public enum Credentials {
 		// c water cubes
 
 		x = this.gapBetweenBorders;
-		x += this.dCameraView.x;
+		x += this.dMap.x;
 		x += this.dGapBetweenComponents.x;
 		x += this.dWaterPump.x / 2;
 		y = this.gapBetweenBorders;
@@ -174,6 +179,22 @@ public enum Credentials {
 		x = 225;
 		y = 436;
 		this.cDiscardPileDikeFailure = new Vector2(x, y);
+
+		// c player top
+
+		x = this.gapBetweenBorders;
+		x += this.dMap.x;
+		x += this.dGapBetweenComponents.x;
+		y = this.gapBetweenBorders;
+		y += this.dCard.y;
+		y += this.dGapBetweenComponents.y;
+		this.cPlayerTop = new Vector2(x, y);
+
+		// c player bottom
+
+		this.cPlayerBottom = this.cPlayerTop.clone();
+		this.cPlayerBottom.y += 2 * this.dCard.y;
+		this.cPlayerBottom.y += this.dGapBetweenComponents.y;
 
 	}
 
