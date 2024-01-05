@@ -1,6 +1,7 @@
 package cards;
 
 import enums.ELayerZ;
+import utils.Flow;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
@@ -10,9 +11,24 @@ public abstract class Card implements IImageViewAble {
 
 	}
 
+	@Override
+	public void handleMousePressedPrimary() {
+		Flow.INSTANCE.getGameStateCurrent().handleCardPressed(this);
+	}
+
+	@Override
+	public void handleMouseEntered() {
+		Flow.INSTANCE.getGameStateCurrent().handleCardEntered(this);
+	}
+
+	@Override
+	public void handleMouseExited() {
+		Flow.INSTANCE.getGameStateCurrent().handleCardExited(this);
+	}
+
 	protected final void createCard(String fileName) {
 
-		new ImageView(fileName, eLayerZ(), this);
+		new ImageView(fileName, ELayerZ.CARDS, this);
 		getImageView().setBack(getStringBack());
 		getImageView().setVisible(false);
 		getImageView().setSelectImageViewAbleRatioPosition(0.5, 0.35);
@@ -25,9 +41,5 @@ public abstract class Card implements IImageViewAble {
 	}
 
 	protected abstract String getStringBack();
-
-	protected ELayerZ eLayerZ() {
-		return ELayerZ.CARDS;
-	}
 
 }

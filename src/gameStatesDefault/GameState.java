@@ -1,9 +1,13 @@
 package gameStatesDefault;
 
+import business.Player;
+import cards.Card;
+import cards.CardRole;
 import controller.Credentials;
 import enums.EText;
 import gui.InstancesGui;
 import javafx.scene.input.KeyCode;
+import model.Players;
 import utils.Animation;
 import utils.ArrayList;
 import utils.CameraView;
@@ -96,6 +100,50 @@ public abstract class GameState {
 
 	protected final SelectImageViewManager getSelectImageViewManager() {
 		return SelectImageViewManager.INSTANCE;
+	}
+
+	public final void handleCardEntered(Card card) {
+
+		// check for card in player's hand
+
+		for (Player player : Players.INSTANCE.getList()) {
+
+			if (!player.getCardsPlayer().getArrayList().contains(card))
+				continue;
+
+			card.getImageView().toFront();
+
+		}
+
+		// check for card role
+
+		if (card instanceof CardRole)
+			card.getImageView().toFront();
+
+	}
+
+	public final void handleCardExited(Card card) {
+
+		// check for card in player's hand
+
+		for (Player player : Players.INSTANCE.getList()) {
+
+			if (!player.getCardsPlayer().getArrayList().contains(card))
+				continue;
+
+			player.getCardsPlayer().layerZSort();
+
+		}
+
+		// check for card role
+
+		if (card instanceof CardRole)
+			card.getImageView().toBack();
+
+	}
+
+	public final void handleCardPressed(Card card) {
+
 	}
 
 }
