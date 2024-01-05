@@ -1,6 +1,6 @@
 package model;
 
-import cards.CardPlayer;
+import cards.CardDikeFailure;
 import controller.Credentials;
 import utils.ArrayList;
 import utils.Enums.LayerZListEnum;
@@ -9,26 +9,26 @@ import utils.Enums.RelocateTypeEnum;
 import utils.ListCredentials;
 import utils.ListImageViewAbles;
 
-public enum DeckPlayer {
+public enum DeckDikeFailure {
 
 	INSTANCE;
 
-	private ListImageViewAbles<CardPlayer> list = new ListImageViewAbles<>();
+	private ListImageViewAbles<CardDikeFailure> list = new ListImageViewAbles<>();
 
-	private DeckPlayer() {
+	private DeckDikeFailure() {
 		createList();
 	}
 
-	public void addDeckRelocate(ArrayList<CardPlayer> list) {
+	public void addDeckRelocate(ArrayList<CardDikeFailure> list) {
 
 		this.list.getArrayList().addAllLast(list);
 		this.list.relocateImageViews();
 
 	}
 
-	public CardPlayer removeFirstFlip() {
+	public CardDikeFailure removeFirstFlip() {
 
-		CardPlayer cardPlayer = this.list.getArrayList().removeFirst();
+		CardDikeFailure cardPlayer = this.list.getArrayList().removeFirst();
 		cardPlayer.getImageView().flipFront();
 
 		return cardPlayer;
@@ -39,7 +39,7 @@ public enum DeckPlayer {
 
 		ListCredentials listCredentials = this.list.getListCredentials();
 
-		listCredentials.coordinatesList = Credentials.INSTANCE.cDeckPlayer;
+		listCredentials.coordinatesList = Credentials.INSTANCE.cDeckDikeFailure;
 		listCredentials.coordinatesList.addVector2(Credentials.INSTANCE.cMap);
 		listCredentials.layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		listCredentials.rearrangeTypeEnum = RearrangeTypeEnum.STATIC;

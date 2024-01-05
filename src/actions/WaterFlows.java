@@ -29,28 +29,13 @@ public enum WaterFlows {
 
 	private void execute(int amount) {
 
-		Logger.INSTANCE.logNewLine("amount - " + amount);
-
 		clearLists();
+
 		populateListSource(amount);
-
-		Logger.INSTANCE.log("source regions");
-		for (ERegion eRegion : this.listSource)
-			Logger.INSTANCE.log(eRegion);
-
-		Logger.INSTANCE.newLine();
-
 		populateListTarget(amount - 1);
-
-		Logger.INSTANCE.log("target regions");
-		for (ERegion eRegion : this.listTarget)
-			Logger.INSTANCE.log(eRegion);
-
-		Logger.INSTANCE.newLine();
-
 		addWaterToListTarget(amount - 1);
 
-		Logger.INSTANCE.logNewLine("end amount - " + amount);
+		log(amount);
 
 	}
 
@@ -137,8 +122,41 @@ public enum WaterFlows {
 	}
 
 	private void clearLists() {
+
 		this.listSource.clear();
 		this.listTarget.clear();
+
+	}
+
+	private void log(int amount) {
+
+		Logger.INSTANCE.logNewLine("amount - " + amount);
+
+		logListSource();
+		logListTarget();
+
+		Logger.INSTANCE.logNewLine("end amount - " + amount);
+
+	}
+
+	private void logListSource() {
+
+		Logger.INSTANCE.log("source regions");
+		for (ERegion eRegion : this.listSource)
+			Logger.INSTANCE.log(eRegion);
+
+		Logger.INSTANCE.newLine();
+
+	}
+
+	private void logListTarget() {
+
+		Logger.INSTANCE.log("target regions");
+		for (ERegion eRegion : this.listTarget)
+			Logger.INSTANCE.log(eRegion);
+
+		Logger.INSTANCE.newLine();
+
 	}
 
 }

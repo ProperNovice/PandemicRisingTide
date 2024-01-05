@@ -153,19 +153,27 @@ public enum Credentials {
 
 		// c deck player
 
-		x = this.gapBetweenBorders;
-		x += this.dCameraView.x;
-		x += this.dGapBetweenComponents.x;
-		y = this.gapBetweenBorders;
-		y += this.dCard.y;
-		y += this.dGapBetweenComponents.y;
+		x = 172;
+		y = 2089;
 		this.cDeckPlayer = new Vector2(x, y);
 
 		// c discard pile player
 
-		this.cDiscardPilePlayer = this.cDeckPlayer.clone();
-		this.cDiscardPilePlayer.x += this.dCard.x;
-		this.cDiscardPilePlayer.x += this.dGapBetweenComponents.x;
+		x = 436;
+		y = 2089;
+		this.cDiscardPilePlayer = new Vector2(x, y);
+
+		// c deck dike failure
+
+		x = 225;
+		y = 170;
+		this.cDeckDikeFailure = new Vector2(x, y);
+
+		// c discard pile dike failure
+
+		x = 225;
+		y = 436;
+		this.cDiscardPileDikeFailure = new Vector2(x, y);
 
 	}
 
