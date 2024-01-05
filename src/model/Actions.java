@@ -34,6 +34,15 @@ public enum Actions {
 
 	}
 
+	public void concealActions() {
+
+		for (Action action : this.list)
+			action.getImageView().setVisible(false);
+
+		this.list.getArrayList().clear();
+
+	}
+
 	public EAction getEActionPressed(Vector2 vector2) {
 
 		EAction eAction = null;

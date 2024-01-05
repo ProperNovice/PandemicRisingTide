@@ -13,13 +13,10 @@ import business.WaterPump;
 import cards.CardPlayerRegion;
 import cards.CardRole;
 import controller.Credentials;
-import enums.EAction;
 import enums.EColor;
 import enums.ERegion;
 import enums.ERole;
-import functions.WaterFlows;
 import gameStatesDefault.GameState;
-import model.Actions;
 import model.Adjacencies;
 import model.Cards;
 import model.Players;
@@ -51,7 +48,7 @@ public class JUnit extends GameState {
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
-		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
+//		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
 
 		Regions.INSTANCE.getRegion(ERegion.FRYSLAN).setSelected();
 
@@ -74,10 +71,13 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
-		WaterFlows.INSTANCE.execute();
+//		WaterFlows.INSTANCE.execute();
 
-		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
-		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
+//		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
+//		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
+
+		getFlow().addFirst(WaterFlows.class);
+		proceedToNextGameState();
 
 	}
 
