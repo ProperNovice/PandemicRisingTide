@@ -17,6 +17,7 @@ import utils.KeyCodeHandler;
 import utils.Logger;
 import utils.SelectImageViewManager;
 import utils.TextManager;
+import utils.Vector2;
 
 public abstract class GameState {
 
@@ -101,6 +102,12 @@ public abstract class GameState {
 
 	protected final SelectImageViewManager getSelectImageViewManager() {
 		return SelectImageViewManager.INSTANCE;
+	}
+
+	public final void handleBackgroundPressed(Vector2 vector2) {
+
+		vector2.print();
+		
 	}
 
 	public final void handleCardEntered(Card card) {

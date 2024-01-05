@@ -9,4 +9,12 @@ public class Background implements IImageViewAble {
 		new ImageView("misc/background.png", eLayerZ, this);
 	}
 
+	@Override
+	public void handleMousePressedPrimary() {
+
+		Flow.INSTANCE.getGameStateCurrent()
+				.handleBackgroundPressed(getImageView().getEventOriginalCoordinates());
+
+	}
+
 }
