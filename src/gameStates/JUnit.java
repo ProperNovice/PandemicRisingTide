@@ -10,6 +10,7 @@ import business.Port;
 import business.Region;
 import business.WaterCube;
 import business.WaterPump;
+import cards.CardDikeFailure;
 import cards.CardPlayerRegion;
 import cards.CardRole;
 import controller.Credentials;
@@ -19,6 +20,7 @@ import enums.ERole;
 import gameStatesDefault.GameState;
 import model.Adjacencies;
 import model.Cards;
+import model.DiscardPileDikeFailure;
 import model.Players;
 import model.Regions;
 import utils.ArrayList;
@@ -50,8 +52,6 @@ public class JUnit extends GameState {
 		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
 //		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
 
-		Regions.INSTANCE.getRegion(ERegion.FRYSLAN).setSelected();
-
 		playerRole(EPlayer.TOP, ERole.CARPENTER);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
@@ -71,12 +71,17 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
+		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
+
 //		WaterFlows.INSTANCE.execute();
 
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-		getFlow().addFirst(WaterFlows.class);
+		getFlow().addFirst(DegradeRegionNoFlood.class);
+		getFlow().addFirst(DegradeRegionNoFlood.class);
+		getFlow().addFirst(DegradeRegionNoFlood.class);
+		getFlow().addFirst(DegradeRegionNoFlood.class);
 		proceedToNextGameState();
 
 	}
@@ -224,6 +229,15 @@ public class JUnit extends GameState {
 
 		player.getCardRole().getArrayList().addLast(cardRole);
 		player.getCardRole().relocateImageViews();
+
+	}
+
+	public void addDikesFailureCardToDiscardPile(ERegion eRegion) {
+
+		CardDikeFailure cardDikeFailure = new CardDikeFailure(eRegion);
+		cardDikeFailure.getImageView().setVisible(true);
+
+		DiscardPileDikeFailure.INSTANCE.addFirstRelocate(cardDikeFailure);
 
 	}
 
