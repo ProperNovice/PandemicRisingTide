@@ -61,6 +61,7 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
 		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
@@ -69,6 +70,7 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		WaterFlows.INSTANCE.execute();
 
@@ -194,8 +196,6 @@ public class JUnit extends GameState {
 		player.getCardsPlayer().getArrayList().addLast(cardPlayerRegion);
 		player.getCardsPlayer().relocateImageViews();
 
-		cardPlayerRegion.setSelected();
-
 	}
 
 	public void playerRole(EPlayer ePlayer, ERole eRole) {
@@ -219,8 +219,6 @@ public class JUnit extends GameState {
 
 		player.getCardRole().getArrayList().addLast(cardRole);
 		player.getCardRole().relocateImageViews();
-
-		cardRole.setSelected();
 
 	}
 

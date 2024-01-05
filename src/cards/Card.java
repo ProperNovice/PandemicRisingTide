@@ -12,7 +12,7 @@ public abstract class Card implements IImageViewAble {
 
 	protected final void createCard(String fileName) {
 
-		new ImageView(fileName, ELayerZ.CARDS, this);
+		new ImageView(fileName, eLayerZ(), this);
 		getImageView().setBack(getStringBack());
 		getImageView().setVisible(false);
 		getImageView().setSelectImageViewAbleRatioPosition(0.5, 0.35);
@@ -25,5 +25,9 @@ public abstract class Card implements IImageViewAble {
 	}
 
 	protected abstract String getStringBack();
+
+	protected ELayerZ eLayerZ() {
+		return ELayerZ.CARDS;
+	}
 
 }

@@ -1,5 +1,6 @@
 package cards;
 
+import enums.ELayerZ;
 import enums.ERole;
 
 public class CardRole extends Card {
@@ -30,6 +31,11 @@ public class CardRole extends Card {
 	@Override
 	protected String getStringBack() {
 		return getFolder() + "back.png";
+	}
+
+	@Override
+	protected ELayerZ eLayerZ() {
+		return ELayerZ.CARDS_ROLE;
 	}
 
 }
