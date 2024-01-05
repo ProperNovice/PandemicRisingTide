@@ -7,6 +7,7 @@ import utils.HashMap;
 import utils.ListCredentials;
 import utils.ListImageViewAbles;
 import utils.ShutDown;
+import utils.Vector2;
 
 public enum Actions {
 
@@ -30,6 +31,18 @@ public enum Actions {
 
 		this.list.getArrayList().addLast(action);
 		this.list.relocateImageViews();
+
+	}
+
+	public EAction getEActionPressed(Vector2 vector2) {
+
+		EAction eAction = null;
+
+		for (Action action : this.list)
+			if (action.getImageView().contains(vector2))
+				return action.getEAction();
+
+		return eAction;
 
 	}
 

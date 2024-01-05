@@ -8,6 +8,7 @@ import enums.EAction;
 import enums.EText;
 import gui.InstancesGui;
 import javafx.scene.input.KeyCode;
+import model.Actions;
 import model.Players;
 import utils.Animation;
 import utils.ArrayList;
@@ -106,8 +107,11 @@ public abstract class GameState {
 
 	public final void handleBackgroundPressed(Vector2 vector2) {
 
-		vector2.print();
-		
+		EAction eActionPressed = Actions.INSTANCE.getEActionPressed(vector2);
+
+		if (eActionPressed != null)
+			handleActionPressed(eActionPressed);
+
 	}
 
 	public final void handleCardEntered(Card card) {

@@ -81,13 +81,6 @@ public class JUnit extends GameState {
 
 	}
 
-	@Override
-	public void handleActionPressed(EAction eAction) {
-
-		System.out.println(eAction);
-
-	}
-
 	public void addPopulations(int amount, ERegion eRegion) {
 
 		Region region = Regions.INSTANCE.getRegion(eRegion);
