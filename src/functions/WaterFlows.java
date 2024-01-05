@@ -1,4 +1,4 @@
-package actions;
+package functions;
 
 import business.Adjacency;
 import business.DikeLocation;

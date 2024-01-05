@@ -59,7 +59,7 @@ public class Interfaces {
 			return MapImageViews.INSTANCE.getImageViewsMap().getValue(this);
 		}
 
-		public default void reverseSelectImageView() {
+		public default void reverseSelected() {
 			SelectImageViewManager.INSTANCE.reverseSelectImageViewAble(this);
 		}
 

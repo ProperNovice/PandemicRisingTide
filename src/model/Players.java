@@ -18,6 +18,18 @@ public enum Players {
 		return this.list;
 	}
 
+	public Player getActivePlayer() {
+		return this.list.getFirst();
+	}
+
+	public Player getPassivePlayer() {
+		return this.list.getLast();
+	}
+
+	public void changePlayerOrder() {
+		this.list.addLast(this.list.removeFirst());
+	}
+
 	private void createList() {
 
 		this.list.addLast(new Player(Credentials.INSTANCE.cPlayerTop));

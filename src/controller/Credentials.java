@@ -145,6 +145,10 @@ public enum Credentials {
 
 		// c action indicators
 
+		x = this.cWaterPumps.x;
+		x += this.dWaterPump.x / 2;
+		x += this.dGapBetweenComponents.x;
+		y = this.gapBetweenBorders;
 		this.cActionIndicators = new Vector2(x, y);
 
 		// h token map

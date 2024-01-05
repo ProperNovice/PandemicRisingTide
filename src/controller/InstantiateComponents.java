@@ -1,5 +1,6 @@
 package controller;
 
+import model.Actions;
 import model.Adjacencies;
 import model.Cards;
 import model.Dikes;
@@ -27,6 +28,7 @@ public enum InstantiateComponents {
 		Adjacencies.values();
 		Cards.values();
 		Pawns.values();
+		Actions.values();
 
 	}
 

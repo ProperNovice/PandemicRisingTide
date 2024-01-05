@@ -1,6 +1,5 @@
 package gameStates;
 
-import actions.WaterFlows;
 import business.Adjacency;
 import business.Dike;
 import business.DikeLocation;
@@ -14,10 +13,13 @@ import business.WaterPump;
 import cards.CardPlayerRegion;
 import cards.CardRole;
 import controller.Credentials;
+import enums.EAction;
 import enums.EColor;
 import enums.ERegion;
 import enums.ERole;
+import functions.WaterFlows;
 import gameStatesDefault.GameState;
+import model.Actions;
 import model.Adjacencies;
 import model.Cards;
 import model.Players;
@@ -73,6 +75,16 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		WaterFlows.INSTANCE.execute();
+
+		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
+		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
+
+	}
+
+	@Override
+	public void handleActionPressed(EAction eAction) {
+
+		System.out.println(eAction);
 
 	}
 
