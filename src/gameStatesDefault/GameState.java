@@ -1,5 +1,6 @@
 package gameStatesDefault;
 
+import business.Dike;
 import business.Player;
 import cards.Card;
 import cards.CardRole;
@@ -172,7 +173,27 @@ public abstract class GameState {
 
 	}
 
-	public void handleActionPressed(EAction eAction) {
+	public final void handleActionPressed(EAction eAction) {
+
+		if (Actions.INSTANCE.actionIsSelected(eAction))
+			handleActionSelectedPressed(eAction);
+
+	}
+
+	protected void handleActionSelectedPressed(EAction eAction) {
+
+	}
+
+	public final void handleDikePressed(Dike dike) {
+
+		if (!dike.isSelected())
+			return;
+
+		handleDikeSelectedPressed(dike);
+
+	}
+
+	protected void handleDikeSelectedPressed(Dike dike) {
 
 	}
 

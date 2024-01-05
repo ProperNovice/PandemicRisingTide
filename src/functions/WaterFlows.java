@@ -85,7 +85,7 @@ public enum WaterFlows {
 
 				DikeLocation dikeLocation = adjacency.getDikeLocation();
 
-				if (dikeLocation.dikeSize() > 0)
+				if (!dikeLocation.isEmpty())
 					continue;
 
 				// check if list already contains region

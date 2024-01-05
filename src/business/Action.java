@@ -2,6 +2,7 @@ package business;
 
 import controller.Credentials;
 import enums.EAction;
+import enums.ELayerZ;
 import utils.Flow;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
@@ -18,7 +19,7 @@ public class Action implements IImageViewAble {
 		filePath += this.eAction.toString();
 		filePath += ".png";
 
-		new ImageView(filePath, this);
+		new ImageView(filePath, ELayerZ.ACTION_INDICATORS, this);
 		getImageView().setDimensions(Credentials.INSTANCE.dActionIndicator);
 		getImageView().setVisible(false);
 

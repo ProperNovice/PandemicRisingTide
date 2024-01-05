@@ -46,8 +46,9 @@ public class JUnit extends GameState {
 		addPawn(ERole.SANITATION_ENGINEER, ERegion.FRYSLAN);
 		addPawn(ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
 
-//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
 //		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
@@ -72,16 +73,17 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
+		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
 
 //		WaterFlows.INSTANCE.execute();
 
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-		getFlow().addFirst(DegradeRegionNoFlood.class);
-		getFlow().addFirst(DegradeRegionNoFlood.class);
-		getFlow().addFirst(DegradeRegionNoFlood.class);
-		getFlow().addFirst(DegradeRegionNoFlood.class);
+		getFlow().addFirst(DikesFailNoFlood.class);
+		getFlow().addFirst(DikesFailNoFlood.class);
+		getFlow().addFirst(DikesFailNoFlood.class);
+		getFlow().addFirst(DikesFailNoFlood.class);
 		proceedToNextGameState();
 
 	}

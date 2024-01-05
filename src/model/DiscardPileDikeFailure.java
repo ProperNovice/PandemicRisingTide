@@ -2,6 +2,7 @@ package model;
 
 import cards.CardDikeFailure;
 import controller.Credentials;
+import enums.ERegion;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
@@ -23,6 +24,10 @@ public enum DiscardPileDikeFailure {
 		this.list.getArrayList().addFirst(cardDikeFailure);
 		this.list.relocateImageViews();
 
+	}
+
+	public ERegion getFirstCardERegion() {
+		return this.list.getArrayList().getFirst().getERegion();
 	}
 
 	private void createList() {

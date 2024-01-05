@@ -55,6 +55,14 @@ public enum Actions {
 
 	}
 
+	public void selectAction(EAction eAction) {
+		this.hashMap.getValue(eAction).setSelected();
+	}
+
+	public boolean actionIsSelected(EAction eAction) {
+		return this.hashMap.getValue(eAction).isSelected();
+	}
+
 	private void create() {
 
 		// create hash map

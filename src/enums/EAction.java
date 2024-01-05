@@ -2,6 +2,6 @@ package enums;
 
 public enum EAction {
 
-	WATER_FLOWS, DEGRADE_REGION;
+	WATER_FLOWS, DIKES_FAIL;
 
 }

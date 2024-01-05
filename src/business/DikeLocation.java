@@ -43,8 +43,16 @@ public class DikeLocation implements ISelectCoordinatesAble {
 
 	}
 
-	public int dikeSize() {
-		return this.list.getArrayList().size();
+	public boolean isEmpty() {
+		return this.list.getArrayList().isEmpty();
+	}
+
+	public void selectDike() {
+		this.list.getArrayList().getFirst().setSelected();
+	}
+
+	public boolean containsDike(Dike dike) {
+		return this.list.getArrayList().contains(dike);
 	}
 
 	private void relocateShowListSize() {
