@@ -36,8 +36,14 @@ public enum Actions {
 
 	public void concealActions() {
 
-		for (Action action : this.list)
+		for (Action action : this.list) {
+
 			action.getImageView().setVisible(false);
+
+			if (action.isSelected())
+				action.reverseSelected();
+
+		}
 
 		this.list.getArrayList().clear();
 

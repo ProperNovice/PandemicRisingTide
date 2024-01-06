@@ -59,16 +59,20 @@ public class Interfaces {
 			return MapImageViews.INSTANCE.getImageViewsMap().getValue(this);
 		}
 
-		public default void reverseSelected() {
-			SelectImageViewManager.INSTANCE.reverseSelectImageViewAble(this);
-		}
-
 		public default boolean isSelected() {
 			return SelectImageViewManager.INSTANCE.isSelectedImageViewAble(this);
 		}
 
 		public default void setSelected() {
 			SelectImageViewManager.INSTANCE.addSelectImageViewAble(this);
+		}
+
+		public default void reverseSelected() {
+			SelectImageViewManager.INSTANCE.reverseSelectImageViewAble(this);
+		}
+
+		public default void deselect() {
+			SelectImageViewManager.INSTANCE.releaseSelectImageViewAble(this);
 		}
 
 	}

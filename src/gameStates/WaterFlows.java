@@ -10,11 +10,12 @@ public class WaterFlows extends GameState {
 	public void execute() {
 
 		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
+		Actions.INSTANCE.selectAction(EAction.WATER_FLOWS);
 
 	}
 
 	@Override
-	public void handleActionPressed(EAction eAction) {
+	protected void handleActionSelectedPressed(EAction eAction) {
 
 		Actions.INSTANCE.concealActions();
 		functions.WaterFlows.INSTANCE.execute();
