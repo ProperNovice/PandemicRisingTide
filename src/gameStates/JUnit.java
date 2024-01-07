@@ -18,6 +18,7 @@ import enums.EColor;
 import enums.ERegion;
 import enums.ERole;
 import gameStatesDefault.GameState;
+import javafx.scene.input.KeyCode;
 import model.Adjacencies;
 import model.Cards;
 import model.DiscardPileDikeFailure;
@@ -30,11 +31,11 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-//		handleKeyPressed(KeyCode.M);
+		handleKeyPressed(KeyCode.M);
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
-		addWaterCubes(3, ERegion.FRYSLAN);
+		addWaterCubes(1, ERegion.FRYSLAN);
 
 		addPopulations(3, ERegion.FRYSLAN);
 
@@ -52,6 +53,8 @@ public class JUnit extends GameState {
 		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
 		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
 //		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
+		addDike(ERegion.VOLLENHOVE, ERegion.IJSSELDELTA);
+		addDike(ERegion.NOORDOOSTPOLDER, ERegion.IJSSELDELTA);
 
 		playerRole(EPlayer.TOP, ERole.CARPENTER);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
@@ -73,17 +76,15 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
-		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
+//		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
 
 //		WaterFlows.INSTANCE.execute();
 
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-		getFlow().addFirst(DikesFailNoFlood.class);
-		getFlow().addFirst(DikesFailNoFlood.class);
-		getFlow().addFirst(DikesFailNoFlood.class);
-		getFlow().addFirst(DikesFailNoFlood.class);
+		getFlow().addLast(DikesFailNoFlood.class, 2);
+		getFlow().addLast(WaterFlows.class);
 		proceedToNextGameState();
 
 	}

@@ -1,10 +1,15 @@
 package gameStates;
 
-import business.Dike;
+import business.DikeLocation;
 import enums.EAction;
+import enums.ERegion;
+import functions.AddWaterToRegion;
+import functions.Flood;
+import functions.RemoveDike;
 import functions.SetDikesAvailableToFail;
 import gameStatesDefault.GameState;
 import model.Actions;
+import model.DiscardPileDikeFailure;
 import utils.SelectImageViewManager;
 
 public abstract class DikesFail extends GameState {
@@ -26,13 +31,27 @@ public abstract class DikesFail extends GameState {
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 		Actions.INSTANCE.concealActions();
 
+		ERegion eRegion = DiscardPileDikeFailure.INSTANCE.getFirstCardERegion();
+		AddWaterToRegion.INSTANCE.execute(eRegion, 1);
+
+		if (floodCanTrigger())
+			Flood.INSTANCE.execute(eRegion);
+
+		proceedToNextGameState();
+
 	}
 
 	@Override
-	protected void handleDikeSelectedPressed(Dike dike) {
+	protected void handleDikeLocationSelectedPressed(DikeLocation dikeLocation) {
+
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+		Actions.INSTANCE.concealActions();
+
+		RemoveDike.INSTANCE.execute(dikeLocation);
+		proceedToNextGameState();
 
 	}
 
-	protected abstract boolean floodOccurs();
+	protected abstract boolean floodCanTrigger();
 
 }

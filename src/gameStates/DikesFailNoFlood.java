@@ -3,7 +3,7 @@ package gameStates;
 public class DikesFailNoFlood extends DikesFail {
 
 	@Override
-	protected boolean floodOccurs() {
+	protected boolean floodCanTrigger() {
 		return false;
 	}
 

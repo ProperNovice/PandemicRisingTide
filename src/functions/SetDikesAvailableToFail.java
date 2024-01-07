@@ -11,7 +11,7 @@ public enum SetDikesAvailableToFail {
 
 	INSTANCE;
 
-	private boolean dikesAvailableToFail = false;
+	private boolean dikesAvailableToFail;
 
 	public void execute() {
 
@@ -31,7 +31,7 @@ public enum SetDikesAvailableToFail {
 			if (dikeLocation.isEmpty())
 				continue;
 
-			dikeLocation.selectDike();
+			dikeLocation.setSelected();
 			this.dikesAvailableToFail = true;
 
 		}

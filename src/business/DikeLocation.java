@@ -4,6 +4,7 @@ import controller.Credentials;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
+import utils.Flow;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListImageViewAbles;
 import utils.Vector2;
@@ -47,10 +48,6 @@ public class DikeLocation implements ISelectCoordinatesAble {
 		return this.list.getArrayList().isEmpty();
 	}
 
-	public void selectDike() {
-		this.list.getArrayList().getFirst().setSelected();
-	}
-
 	public boolean containsDike(Dike dike) {
 		return this.list.getArrayList().contains(dike);
 	}
@@ -63,8 +60,18 @@ public class DikeLocation implements ISelectCoordinatesAble {
 	}
 
 	@Override
+	public void handleMousePressedPrimary() {
+		Flow.INSTANCE.getGameStateCurrent().handleDikeLocationPressed(this);
+	}
+
+	@Override
 	public Vector2 getCoordinatesCenter() {
 		return this.list.getListCredentials().coordinatesList;
+	}
+
+	@Override
+	public double getSelectDimension() {
+		return 2 * Credentials.INSTANCE.dDike.y;
 	}
 
 }

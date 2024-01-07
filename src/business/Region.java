@@ -163,6 +163,7 @@ public class Region implements ISelectCoordinatesAble {
 		this.populations.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.populations.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.populations.getListCredentials().listQuantityRatioImageViewDimensions = 1;
+		this.populations.getArrayList().setCapacity(3);
 
 		// water cubes
 
@@ -170,6 +171,7 @@ public class Region implements ISelectCoordinatesAble {
 		this.waterCubes.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.waterCubes.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.waterCubes.getListCredentials().listQuantityRatioImageViewDimensions = 1;
+		this.waterCubes.getArrayList().setCapacity(3);
 
 		// water pumps
 

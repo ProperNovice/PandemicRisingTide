@@ -16,7 +16,7 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hDikeMap;
+	public double hPortWaterPumpMap, hWaterPopulationCubeMap;
 	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation,
 			dPawn;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cWaterPumps, cPorts, cPopulation,

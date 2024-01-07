@@ -11,15 +11,15 @@ public enum AddWaterToRegion {
 
 	INSTANCE;
 
-	private AddWaterToRegion() {
-
-	}
+	private boolean floodTriggered = false;
 
 	public void execute(ERegion eRegion, int amount) {
 
 		Region region = Regions.INSTANCE.getRegion(eRegion);
 
-		for (int counter = 1; counter <= amount; counter++) {
+		while (!region.getWaterCubes().getArrayList().isMaxCapacity() && amount > 0) {
+
+			amount--;
 
 			WaterCube waterCube = WaterCubes.INSTANCE.getList().getArrayList().removeFirst();
 			waterCube.getImageView().setHeight(Credentials.INSTANCE.hWaterPopulationCubeMap);
@@ -30,6 +30,12 @@ public enum AddWaterToRegion {
 
 		region.relocateComponents();
 
+		this.floodTriggered = amount > 0;
+
+	}
+
+	public boolean floodIsTriggered() {
+		return this.floodTriggered;
 	}
 
 }

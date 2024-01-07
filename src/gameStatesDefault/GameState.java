@@ -1,15 +1,19 @@
 package gameStatesDefault;
 
+import business.Adjacency;
 import business.Dike;
+import business.DikeLocation;
 import business.Player;
 import cards.Card;
 import cards.CardRole;
 import controller.Credentials;
 import enums.EAction;
+import enums.ERegion;
 import enums.EText;
 import gui.InstancesGui;
 import javafx.scene.input.KeyCode;
 import model.Actions;
+import model.Adjacencies;
 import model.Players;
 import utils.Animation;
 import utils.ArrayList;
@@ -184,16 +188,41 @@ public abstract class GameState {
 
 	}
 
-	public final void handleDikePressed(Dike dike) {
+	public final void handleDikeLocationPressed(DikeLocation dikeLocation) {
 
-		if (!dike.isSelected())
+		if (!dikeLocation.isSelected())
 			return;
 
-		handleDikeSelectedPressed(dike);
+		handleDikeLocationSelectedPressed(dikeLocation);
 
 	}
 
-	protected void handleDikeSelectedPressed(Dike dike) {
+	protected void handleDikeLocationSelectedPressed(DikeLocation dikeLocation) {
+
+	}
+
+	public final void handleDikePressed(Dike dike) {
+
+		for (ERegion eRegion : ERegion.values()) {
+
+			ArrayList<Adjacency> list = Adjacencies.INSTANCE.getAdjacenciesOfRegion(eRegion);
+
+			for (Adjacency adjacency : list) {
+
+				DikeLocation dikeLocation = adjacency.getDikeLocation();
+
+				if (dikeLocation == null)
+					continue;
+
+				if (!dikeLocation.containsDike(dike))
+					continue;
+
+				handleDikeLocationPressed(dikeLocation);
+				return;
+
+			}
+
+		}
 
 	}
 
