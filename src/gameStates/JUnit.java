@@ -17,7 +17,6 @@ import controller.Credentials;
 import enums.EColor;
 import enums.ERegion;
 import enums.ERole;
-import functions.Flood;
 import gameStatesDefault.GameState;
 import javafx.scene.input.KeyCode;
 import model.Adjacencies;
@@ -36,7 +35,7 @@ public class JUnit extends GameState {
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
-		addWaterCubes(2, ERegion.FRYSLAN);
+		addWaterCubes(1, ERegion.FRYSLAN);
 		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
 		addWaterCubes(3, ERegion.VOLLENHOVE);
 
@@ -51,11 +50,11 @@ public class JUnit extends GameState {
 		addPawn(ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
 
 		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
-		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
+//		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
 //		addDike(ERegion.VOLLENHOVE, ERegion.IJSSELDELTA);
 //		addDike(ERegion.NOORDOOSTPOLDER, ERegion.IJSSELDELTA);
 
@@ -86,7 +85,7 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-//		getFlow().addLast(DikesFailNoFlood.class, 50);
+		getFlow().addLast(DegradeRegionNoFlood.class, 50);
 		getFlow().addLast(DegradeRegionWithFlood.class, 50);
 		getFlow().addLast(WaterFlows.class);
 		proceedToNextGameState();
@@ -95,8 +94,6 @@ public class JUnit extends GameState {
 
 	@Override
 	protected void handleKeyPressed(KeyCode keyCode) {
-
-		Flood.INSTANCE.execute(ERegion.NOORDERZIJLVEST);
 
 	}
 

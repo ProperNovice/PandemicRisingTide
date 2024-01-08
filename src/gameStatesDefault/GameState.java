@@ -17,6 +17,7 @@ import javafx.scene.input.KeyCode;
 import model.Actions;
 import model.Adjacencies;
 import model.Players;
+import model.Regions;
 import utils.Animation;
 import utils.ArrayList;
 import utils.CameraView;
@@ -182,8 +183,11 @@ public abstract class GameState {
 
 	public final void handleActionPressed(EAction eAction) {
 
-		if (Actions.INSTANCE.actionIsSelected(eAction))
-			handleActionSelectedPressed(eAction);
+		if (!Actions.INSTANCE.actionIsSelected(eAction))
+			return;
+
+		Actions.INSTANCE.concealActions();
+		handleActionSelectedPressed(eAction);
 
 	}
 
@@ -234,6 +238,15 @@ public abstract class GameState {
 	}
 
 	public final void handleWaterCubePressed(WaterCube waterCube) {
+
+		for (ERegion eRegion : ERegion.values()) {
+
+			Region region = Regions.INSTANCE.getRegion(eRegion);
+
+			if (region.getWaterCubes().getArrayList().contains(waterCube))
+				handleRegionPressed(eRegion, region);
+
+		}
 
 	}
 

@@ -34,7 +34,6 @@ public abstract class DegradeRegion extends GameState {
 	protected void handleActionSelectedPressed(EAction eAction) {
 
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
-		Actions.INSTANCE.concealActions();
 
 		ERegion eRegion = DiscardPileDikeFailure.INSTANCE.getFirstCardERegion();
 		Region region = Regions.INSTANCE.getRegion(eRegion);
