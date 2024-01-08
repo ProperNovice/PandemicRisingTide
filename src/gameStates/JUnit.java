@@ -48,10 +48,10 @@ public class JUnit extends GameState {
 		addPawn(ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
 
 		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
 //		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
 		addDike(ERegion.VOLLENHOVE, ERegion.IJSSELDELTA);
 		addDike(ERegion.NOORDOOSTPOLDER, ERegion.IJSSELDELTA);
@@ -83,7 +83,8 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-		getFlow().addLast(DikesFailNoFlood.class, 2);
+//		getFlow().addLast(DikesFailNoFlood.class, 50);
+		getFlow().addLast(DikesFailWithFlood.class, 50);
 		getFlow().addLast(WaterFlows.class);
 		proceedToNextGameState();
 

@@ -11,31 +11,17 @@ public enum AddWaterToRegion {
 
 	INSTANCE;
 
-	private boolean floodTriggered = false;
-
-	public void execute(ERegion eRegion, int amount) {
+	public void execute(ERegion eRegion) {
 
 		Region region = Regions.INSTANCE.getRegion(eRegion);
 
-		while (!region.getWaterCubes().getArrayList().isMaxCapacity() && amount > 0) {
+		WaterCube waterCube = WaterCubes.INSTANCE.getList().getArrayList().removeFirst();
+		waterCube.getImageView().setHeight(Credentials.INSTANCE.hWaterPopulationCubeMap);
 
-			amount--;
-
-			WaterCube waterCube = WaterCubes.INSTANCE.getList().getArrayList().removeFirst();
-			waterCube.getImageView().setHeight(Credentials.INSTANCE.hWaterPopulationCubeMap);
-
-			region.getWaterCubes().getArrayList().addLast(waterCube);
-
-		}
+		region.getWaterCubes().getArrayList().addLast(waterCube);
 
 		region.relocateComponents();
 
-		this.floodTriggered = amount > 0;
-
-	}
-
-	public boolean floodIsTriggered() {
-		return this.floodTriggered;
 	}
 
 }

@@ -11,11 +11,20 @@ public enum SetDikesAvailableToFail {
 
 	INSTANCE;
 
-	private boolean dikesAvailableToFail;
+	private ArrayList<DikeLocation> dikeLocations = new ArrayList<>();
 
-	public void execute() {
+	public void selectDikesAvailableToFail() {
+		execute(true);
+	}
 
-		this.dikesAvailableToFail = false;
+	public int sizeDikesAvailableToFail() {
+		return execute(false);
+	}
+
+	private int execute(boolean select) {
+
+		this.dikeLocations.clear();
+		int size = 0;
 
 		ERegion eRegion = DiscardPileDikeFailure.INSTANCE.getFirstCardERegion();
 
@@ -31,15 +40,15 @@ public enum SetDikesAvailableToFail {
 			if (dikeLocation.isEmpty())
 				continue;
 
-			dikeLocation.setSelected();
-			this.dikesAvailableToFail = true;
+			if (select)
+				dikeLocation.setSelected();
+
+			size += dikeLocation.size();
 
 		}
 
-	}
+		return size;
 
-	public boolean dikesAvailableToFail() {
-		return this.dikesAvailableToFail;
 	}
 
 }

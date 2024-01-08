@@ -52,6 +52,10 @@ public class DikeLocation implements ISelectCoordinatesAble {
 		return this.list.getArrayList().contains(dike);
 	}
 
+	public int size() {
+		return this.list.getArrayList().size();
+	}
+
 	private void relocateShowListSize() {
 
 		this.list.getListCredentials().showListSize = this.list.getArrayList().size() >= 2;

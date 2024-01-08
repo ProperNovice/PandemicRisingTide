@@ -46,7 +46,8 @@ public enum WaterFlows {
 			Region region = Regions.INSTANCE.getRegion(eRegion);
 			int waterCubesToAdd = amountTarget - region.getWaterCubes().getArrayList().size();
 
-			AddWaterToRegion.INSTANCE.execute(eRegion, waterCubesToAdd);
+			for (int counter = 1; counter <= waterCubesToAdd; counter++)
+				AddWaterToRegion.INSTANCE.execute(eRegion);
 
 		}
 

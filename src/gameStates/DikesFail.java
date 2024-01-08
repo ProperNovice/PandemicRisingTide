@@ -1,6 +1,7 @@
 package gameStates;
 
 import business.DikeLocation;
+import business.Region;
 import enums.EAction;
 import enums.ERegion;
 import functions.AddWaterToRegion;
@@ -10,6 +11,8 @@ import functions.SetDikesAvailableToFail;
 import gameStatesDefault.GameState;
 import model.Actions;
 import model.DiscardPileDikeFailure;
+import model.Regions;
+import utils.Flow;
 import utils.SelectImageViewManager;
 
 public abstract class DikesFail extends GameState {
@@ -18,9 +21,11 @@ public abstract class DikesFail extends GameState {
 	public void execute() {
 
 		Actions.INSTANCE.showAction(EAction.DIKES_FAIL);
-		SetDikesAvailableToFail.INSTANCE.execute();
 
-		if (!SetDikesAvailableToFail.INSTANCE.dikesAvailableToFail())
+		if (SetDikesAvailableToFail.INSTANCE.sizeDikesAvailableToFail() > 0)
+			SetDikesAvailableToFail.INSTANCE.selectDikesAvailableToFail();
+
+		else
 			Actions.INSTANCE.selectAction(EAction.DIKES_FAIL);
 
 	}
@@ -32,10 +37,25 @@ public abstract class DikesFail extends GameState {
 		Actions.INSTANCE.concealActions();
 
 		ERegion eRegion = DiscardPileDikeFailure.INSTANCE.getFirstCardERegion();
-		AddWaterToRegion.INSTANCE.execute(eRegion, 1);
+		Region region = Regions.INSTANCE.getRegion(eRegion);
 
-		if (floodCanTrigger())
+		int waterCubes = region.getWaterCubes().getArrayList().size();
+
+		if (waterCubes < 3) {
+
+			waterCubes++;
+			AddWaterToRegion.INSTANCE.execute(eRegion);
+
+			if (region.getWaterCubes().getArrayList().isMaxCapacity() && !floodCanTrigger())
+				removeDikesFailGameStatesFromFlow();
+			
+
+		} else {
+
 			Flood.INSTANCE.execute(eRegion);
+			removeDikesFailGameStatesFromFlow();
+
+		}
 
 		proceedToNextGameState();
 
@@ -49,6 +69,16 @@ public abstract class DikesFail extends GameState {
 
 		RemoveDike.INSTANCE.execute(dikeLocation);
 		proceedToNextGameState();
+
+	}
+
+	private void removeDikesFailGameStatesFromFlow() {
+
+		while (Flow.INSTANCE.getFlow().getFirst().equals(DikesFailNoFlood.class))
+			Flow.INSTANCE.getFlow().removeFirst();
+
+		while (Flow.INSTANCE.getFlow().getFirst().equals(DikesFailWithFlood.class))
+			Flow.INSTANCE.getFlow().removeFirst();
 
 	}
 

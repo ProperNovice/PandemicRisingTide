@@ -17,6 +17,10 @@ public enum Flood {
 
 	}
 
+	public boolean floodHasAlreadyBeenTriggeredToRegion(ERegion eRegion) {
+		return this.list.contains(eRegion);
+	}
+
 	public void clearList() {
 		this.list.clear();
 	}
