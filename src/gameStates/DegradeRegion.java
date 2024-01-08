@@ -36,12 +36,11 @@ public abstract class DegradeRegion extends GameState {
 	}
 
 	@Override
-	protected void handleActionSelectedPressed(EAction eAction) {
+	protected void handleRegionSelectedPressed(ERegion eRegion, Region region) {
+
+		Actions.INSTANCE.concealActions();
 
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
-
-		ERegion eRegion = DiscardPileDikeFailure.INSTANCE.getFirstCardERegion();
-		Region region = Regions.INSTANCE.getRegion(eRegion);
 
 		int waterCubes = region.getWaterCubes().getArrayList().size();
 
