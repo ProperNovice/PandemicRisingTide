@@ -5,6 +5,7 @@ import enums.EColor;
 import enums.ERegion;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
+import utils.Flow;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListImageViewAbles;
 import utils.Logger;
@@ -61,6 +62,11 @@ public class Region implements ISelectCoordinatesAble {
 		this.ports.relocateImageViews();
 		this.pawns.relocateImageViews();
 
+	}
+
+	@Override
+	public void handleMousePressedPrimary() {
+		Flow.INSTANCE.getGameStateCurrent().handleRegionPressed(this.eRegion, this);
 	}
 
 	private void relocatePortsWaterPumps() {

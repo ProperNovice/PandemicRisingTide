@@ -4,6 +4,7 @@ import business.Adjacency;
 import business.Dike;
 import business.DikeLocation;
 import business.Player;
+import business.Region;
 import business.WaterCube;
 import cards.Card;
 import cards.CardRole;
@@ -225,6 +226,10 @@ public abstract class GameState {
 			}
 
 		}
+
+	}
+
+	public final void handleRegionPressed(ERegion eRegion, Region region) {
 
 	}
 

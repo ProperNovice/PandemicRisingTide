@@ -15,7 +15,7 @@ import model.Regions;
 import utils.Flow;
 import utils.SelectImageViewManager;
 
-public abstract class DikesFail extends GameState {
+public abstract class DegradeRegion extends GameState {
 
 	@Override
 	public void execute() {
@@ -73,10 +73,10 @@ public abstract class DikesFail extends GameState {
 
 	private void removeDikesFailGameStatesFromFlow() {
 
-		while (Flow.INSTANCE.getFlow().getFirst().equals(DikesFailNoFlood.class))
+		while (Flow.INSTANCE.getFlow().getFirst().equals(DegradeRegionNoFlood.class))
 			Flow.INSTANCE.getFlow().removeFirst();
 
-		while (Flow.INSTANCE.getFlow().getFirst().equals(DikesFailWithFlood.class))
+		while (Flow.INSTANCE.getFlow().getFirst().equals(DegradeRegionWithFlood.class))
 			Flow.INSTANCE.getFlow().removeFirst();
 
 	}

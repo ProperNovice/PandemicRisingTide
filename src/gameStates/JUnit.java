@@ -87,7 +87,7 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
 //		getFlow().addLast(DikesFailNoFlood.class, 50);
-		getFlow().addLast(DikesFailWithFlood.class, 50);
+		getFlow().addLast(DegradeRegionWithFlood.class, 50);
 		getFlow().addLast(WaterFlows.class);
 		proceedToNextGameState();
 

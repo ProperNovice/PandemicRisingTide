@@ -1,6 +1,6 @@
 package gameStates;
 
-public class DikesFailNoFlood extends DikesFail {
+public class DegradeRegionNoFlood extends DegradeRegion {
 
 	@Override
 	protected boolean floodCanTrigger() {
