@@ -3,6 +3,7 @@ package business;
 import controller.Credentials;
 import enums.ELayerZ;
 import enums.ERole;
+import utils.Flow;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
@@ -22,6 +23,11 @@ public class Pawn implements IImageViewAble {
 		getImageView().setDimensions(Credentials.INSTANCE.dPawn);
 		getImageView().setVisible(false);
 
+	}
+
+	@Override
+	public void handleMousePressedPrimary() {
+		Flow.INSTANCE.getGameStateCurrent().handlePawnPressed(this);
 	}
 
 	public ERole getERole() {

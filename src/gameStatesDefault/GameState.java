@@ -3,9 +3,13 @@ package gameStatesDefault;
 import business.Adjacency;
 import business.Dike;
 import business.DikeLocation;
+import business.Pawn;
 import business.Player;
+import business.PopulationCube;
+import business.Port;
 import business.Region;
 import business.WaterCube;
+import business.WaterPump;
 import cards.Card;
 import cards.CardRole;
 import controller.Credentials;
@@ -235,6 +239,9 @@ public abstract class GameState {
 
 	public final void handleRegionPressed(ERegion eRegion, Region region) {
 
+		Logger.INSTANCE.log("selected region pressed");
+		Logger.INSTANCE.logNewLine(eRegion);
+
 		if (!region.isSelected())
 			return;
 
@@ -253,6 +260,58 @@ public abstract class GameState {
 			Region region = Regions.INSTANCE.getRegion(eRegion);
 
 			if (region.getWaterCubes().getArrayList().contains(waterCube))
+				handleRegionPressed(eRegion, region);
+
+		}
+
+	}
+
+	public final void handlePopulationCubePressed(PopulationCube populationCube) {
+
+		for (ERegion eRegion : ERegion.values()) {
+
+			Region region = Regions.INSTANCE.getRegion(eRegion);
+
+			if (region.getPopulations().getArrayList().contains(populationCube))
+				handleRegionPressed(eRegion, region);
+
+		}
+
+	}
+
+	public final void handleWaterPumpPressed(WaterPump waterPump) {
+
+		for (ERegion eRegion : ERegion.values()) {
+
+			Region region = Regions.INSTANCE.getRegion(eRegion);
+
+			if (region.getWaterPumps().getArrayList().contains(waterPump))
+				handleRegionPressed(eRegion, region);
+
+		}
+
+	}
+
+	public final void handlePortPressed(Port port) {
+
+		for (ERegion eRegion : ERegion.values()) {
+
+			Region region = Regions.INSTANCE.getRegion(eRegion);
+
+			if (region.getPorts().getArrayList().contains(port))
+				handleRegionPressed(eRegion, region);
+
+		}
+
+	}
+
+	public final void handlePawnPressed(Pawn pawn) {
+
+		for (ERegion eRegion : ERegion.values()) {
+
+			Region region = Regions.INSTANCE.getRegion(eRegion);
+
+			if (region.getPawns().getArrayList().contains(pawn))
 				handleRegionPressed(eRegion, region);
 
 		}

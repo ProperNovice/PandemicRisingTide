@@ -25,8 +25,13 @@ public abstract class DegradeRegion extends GameState {
 		if (SetDikesAvailableToFail.INSTANCE.sizeDikesAvailableToFail() > 0)
 			SetDikesAvailableToFail.INSTANCE.selectDikesAvailableToFail();
 
-		else
-			Actions.INSTANCE.selectAction(EAction.DIKES_FAIL);
+		else {
+
+			ERegion eRegion = DiscardPileDikeFailure.INSTANCE.getFirstCardERegion();
+			Region region = Regions.INSTANCE.getRegion(eRegion);
+			region.setSelected();
+
+		}
 
 	}
 

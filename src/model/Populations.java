@@ -1,6 +1,6 @@
 package model;
 
-import business.Population;
+import business.PopulationCube;
 import controller.Credentials;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
@@ -11,7 +11,7 @@ public enum Populations {
 
 	INSTANCE;
 
-	private ListImageViewAbles<Population> list = new ListImageViewAbles<>();
+	private ListImageViewAbles<PopulationCube> list = new ListImageViewAbles<>();
 
 	private Populations() {
 
@@ -22,7 +22,7 @@ public enum Populations {
 		this.list.getListCredentials().showListSize = true;
 
 		for (int counter = 1; counter <= 36; counter++)
-			this.list.getArrayList().addLast(new Population());
+			this.list.getArrayList().addLast(new PopulationCube());
 
 		this.list.relocateImageViews();
 
@@ -30,7 +30,7 @@ public enum Populations {
 
 	}
 
-	public ListImageViewAbles<Population> getList() {
+	public ListImageViewAbles<PopulationCube> getList() {
 		return this.list;
 	}
 

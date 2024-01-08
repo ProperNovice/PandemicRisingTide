@@ -17,7 +17,7 @@ public class Region implements ISelectCoordinatesAble {
 	private EColor eColor = null;
 	private Vector2 coordinates = null;
 	private boolean isSea = false, isHighElevated = false, canBuildHydraulicStructure = false;
-	private ListImageViewAbles<Population> populations = new ListImageViewAbles<>();
+	private ListImageViewAbles<PopulationCube> populations = new ListImageViewAbles<>();
 	private ListImageViewAbles<WaterCube> waterCubes = new ListImageViewAbles<>();
 	private ListImageViewAbles<WaterPump> waterPumps = new ListImageViewAbles<>();
 	private ListImageViewAbles<Port> ports = new ListImageViewAbles<>();
@@ -197,7 +197,7 @@ public class Region implements ISelectCoordinatesAble {
 
 	}
 
-	public ListImageViewAbles<Population> getPopulations() {
+	public ListImageViewAbles<PopulationCube> getPopulations() {
 		return this.populations;
 	}
 

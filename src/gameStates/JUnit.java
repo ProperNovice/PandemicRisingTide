@@ -5,7 +5,7 @@ import business.Dike;
 import business.DikeLocation;
 import business.Pawn;
 import business.Player;
-import business.Population;
+import business.PopulationCube;
 import business.Port;
 import business.Region;
 import business.WaterCube;
@@ -39,7 +39,7 @@ public class JUnit extends GameState {
 		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
 		addWaterCubes(3, ERegion.VOLLENHOVE);
 
-//		addPopulations(3, ERegion.FRYSLAN);
+		addPopulations(3, ERegion.FRYSLAN);
 
 		addWaterPump(ERegion.FRYSLAN);
 
@@ -103,7 +103,7 @@ public class JUnit extends GameState {
 
 		for (int counter = 1; counter <= amount; counter++) {
 
-			Population population = new Population();
+			PopulationCube population = new PopulationCube();
 			population.getImageView().setHeight(Credentials.INSTANCE.hWaterPopulationCubeMap);
 			region.getPopulations().getArrayList().addLast(population);
 
