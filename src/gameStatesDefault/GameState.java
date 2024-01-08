@@ -4,6 +4,7 @@ import business.Adjacency;
 import business.Dike;
 import business.DikeLocation;
 import business.Player;
+import business.WaterCube;
 import cards.Card;
 import cards.CardRole;
 import controller.Credentials;
@@ -28,6 +29,18 @@ import utils.Vector2;
 public abstract class GameState {
 
 	public abstract void execute();
+
+	protected final void handleM() {
+
+		InstancesGui.INSTANCE.getStage()
+				.setFullScreen(!InstancesGui.INSTANCE.getStage().isFullScreen());
+
+		if (InstancesGui.INSTANCE.getStage().isFullScreen())
+			InstancesGui.INSTANCE.getStage().setX(0);
+		else
+			InstancesGui.INSTANCE.getStage().setX(-510);
+
+	}
 
 	public final void handleTextOptionPressed(EText textEnum) {
 
@@ -72,17 +85,6 @@ public abstract class GameState {
 	}
 
 	protected void handleKeyPressed(KeyCode keyCode) {
-
-		if (!keyCode.equals(KeyCode.M))
-			return;
-
-		InstancesGui.INSTANCE.getStage()
-				.setFullScreen(!InstancesGui.INSTANCE.getStage().isFullScreen());
-
-		if (InstancesGui.INSTANCE.getStage().isFullScreen())
-			InstancesGui.INSTANCE.getStage().setX(0);
-		else
-			InstancesGui.INSTANCE.getStage().setX(-510);
 
 	}
 
@@ -223,6 +225,10 @@ public abstract class GameState {
 			}
 
 		}
+
+	}
+
+	public final void handleWaterCubePressed(WaterCube waterCube) {
 
 	}
 

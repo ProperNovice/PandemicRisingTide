@@ -48,7 +48,6 @@ public abstract class DikesFail extends GameState {
 
 			if (region.getWaterCubes().getArrayList().isMaxCapacity() && !floodCanTrigger())
 				removeDikesFailGameStatesFromFlow();
-			
 
 		} else {
 

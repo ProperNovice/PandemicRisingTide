@@ -17,6 +17,7 @@ import controller.Credentials;
 import enums.EColor;
 import enums.ERegion;
 import enums.ERole;
+import functions.Flood;
 import gameStatesDefault.GameState;
 import javafx.scene.input.KeyCode;
 import model.Adjacencies;
@@ -31,13 +32,15 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-		handleKeyPressed(KeyCode.M);
+		handleM();
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
-		addWaterCubes(1, ERegion.FRYSLAN);
+		addWaterCubes(2, ERegion.FRYSLAN);
+		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
+		addWaterCubes(3, ERegion.VOLLENHOVE);
 
-		addPopulations(3, ERegion.FRYSLAN);
+//		addPopulations(3, ERegion.FRYSLAN);
 
 		addWaterPump(ERegion.FRYSLAN);
 
@@ -48,13 +51,13 @@ public class JUnit extends GameState {
 		addPawn(ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
 
 		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-//		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
-//		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
-//		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
-		addDike(ERegion.VOLLENHOVE, ERegion.IJSSELDELTA);
-		addDike(ERegion.NOORDOOSTPOLDER, ERegion.IJSSELDELTA);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
+		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
+		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
+//		addDike(ERegion.VOLLENHOVE, ERegion.IJSSELDELTA);
+//		addDike(ERegion.NOORDOOSTPOLDER, ERegion.IJSSELDELTA);
 
 		playerRole(EPlayer.TOP, ERole.CARPENTER);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
@@ -68,12 +71,12 @@ public class JUnit extends GameState {
 
 		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
 //		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
@@ -87,6 +90,13 @@ public class JUnit extends GameState {
 		getFlow().addLast(DikesFailWithFlood.class, 50);
 		getFlow().addLast(WaterFlows.class);
 		proceedToNextGameState();
+
+	}
+
+	@Override
+	protected void handleKeyPressed(KeyCode keyCode) {
+
+		Flood.INSTANCE.execute(ERegion.NOORDERZIJLVEST);
 
 	}
 
