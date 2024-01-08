@@ -235,6 +235,15 @@ public abstract class GameState {
 
 	public final void handleRegionPressed(ERegion eRegion, Region region) {
 
+		if (!region.isSelected())
+			return;
+
+		handleRegionSelectedPressed(eRegion, region);
+
+	}
+
+	protected void handleRegionSelectedPressed(ERegion eRegion, Region region) {
+
 	}
 
 	public final void handleWaterCubePressed(WaterCube waterCube) {
