@@ -15,11 +15,34 @@ public enum OperateWaterPump {
 	public void selectWaterPumpsAvailableToOperate() {
 
 		addWaterPumpsToAvailable();
-		filterOutRegionsThatDotContainWaterCube();
+		filterOutRegionsThatDontContainWaterCube();
+		selectERegionsAvailableToOperate();
 
 	}
 
-	private void filterOutRegionsThatDotContainWaterCube() {
+	private void selectERegionsAvailableToOperate() {
+
+		for (ERegion eRegion : this.waterPumpsAvailableToOperate) {
+
+			Region region = Regions.INSTANCE.getRegion(eRegion);
+			region.setSelected();
+
+		}
+
+	}
+
+	private void filterOutRegionsThatDontContainWaterCube() {
+
+		for (ERegion eRegion : this.waterPumpsAvailableToOperate.clone()) {
+
+			Region region = Regions.INSTANCE.getRegion(eRegion);
+
+			if (!region.getWaterCubes().getArrayList().isEmpty())
+				continue;
+
+			this.waterPumpsAvailableToOperate.remove(eRegion);
+
+		}
 
 	}
 
