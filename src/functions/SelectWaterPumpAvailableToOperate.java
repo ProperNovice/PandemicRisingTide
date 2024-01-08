@@ -5,19 +5,23 @@ import enums.ERegion;
 import model.Regions;
 import utils.ArrayList;
 
-public enum OperateWaterPump {
+public enum SelectWaterPumpAvailableToOperate {
 
 	INSTANCE;
 
 	private ArrayList<ERegion> waterPumpsAvailableToOperate = new ArrayList<>();
 	private ArrayList<ERegion> waterPumpsAlreadyOperated = new ArrayList<>();
 
-	public void selectWaterPumpsAvailableToOperate() {
+	public void execute() {
 
 		addWaterPumpsToAvailable();
 		filterOutRegionsThatDontContainWaterCube();
 		selectERegionsAvailableToOperate();
 
+	}
+
+	public void setWaterPumpAlreadyOperated(ERegion eRegion) {
+		this.waterPumpsAlreadyOperated.addLast(eRegion);
 	}
 
 	private void selectERegionsAvailableToOperate() {

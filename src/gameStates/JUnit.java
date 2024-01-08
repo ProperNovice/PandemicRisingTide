@@ -17,7 +17,6 @@ import controller.Credentials;
 import enums.EColor;
 import enums.ERegion;
 import enums.ERole;
-import functions.OperateWaterPump;
 import gameStatesDefault.GameState;
 import javafx.scene.input.KeyCode;
 import model.Adjacencies;
@@ -37,6 +36,7 @@ public class JUnit extends GameState {
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
 		addWaterCubes(1, ERegion.FRYSLAN);
+		addWaterCubes(1, ERegion.IJSSELDELTA);
 		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
 		addWaterCubes(3, ERegion.VOLLENHOVE);
 
@@ -44,6 +44,7 @@ public class JUnit extends GameState {
 
 		addWaterPump(ERegion.FRYSLAN);
 		addWaterPump(ERegion.IJSSELDELTA);
+		addWaterPump(ERegion.FLEVOLAND);
 
 		addPort(ERegion.FRYSLAN);
 
@@ -88,12 +89,10 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-//		getFlow().addLast(DegradeRegionNoFlood.class, 50);
+		getFlow().addLast(SelectWaterPumpAvailableToOperate.class);
 //		getFlow().addLast(DegradeRegionWithFlood.class, 50);
 //		getFlow().addLast(WaterFlows.class);
-//		proceedToNextGameState();
-
-		OperateWaterPump.INSTANCE.selectWaterPumpsAvailableToOperate();
+		proceedToNextGameState();
 
 	}
 
