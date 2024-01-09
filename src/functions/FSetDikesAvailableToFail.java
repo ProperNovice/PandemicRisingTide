@@ -7,7 +7,7 @@ import model.Adjacencies;
 import model.DiscardPileDikeFailure;
 import utils.ArrayList;
 
-public enum SetDikesAvailableToFail {
+public enum FSetDikesAvailableToFail {
 
 	INSTANCE;
 

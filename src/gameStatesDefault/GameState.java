@@ -204,6 +204,7 @@ public abstract class GameState {
 		if (!dikeLocation.isSelected())
 			return;
 
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 		handleDikeLocationSelectedPressed(dikeLocation);
 
 	}
@@ -245,6 +246,7 @@ public abstract class GameState {
 		if (!region.isSelected())
 			return;
 
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 		handleRegionSelectedPressed(eRegion, region);
 
 	}

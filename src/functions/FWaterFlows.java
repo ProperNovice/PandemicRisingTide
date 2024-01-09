@@ -9,14 +9,14 @@ import model.Regions;
 import utils.ArrayList;
 import utils.Logger;
 
-public enum WaterFlows {
+public enum FWaterFlows {
 
 	INSTANCE;
 
 	private ArrayList<ERegion> listSource = new ArrayList<>();
 	private ArrayList<ERegion> listTarget = new ArrayList<>();
 
-	private WaterFlows() {
+	private FWaterFlows() {
 
 	}
 
@@ -47,7 +47,7 @@ public enum WaterFlows {
 			int waterCubesToAdd = amountTarget - region.getWaterCubes().getArrayList().size();
 
 			for (int counter = 1; counter <= waterCubesToAdd; counter++)
-				AddWaterToRegion.INSTANCE.execute(eRegion);
+				FAddWaterToRegion.INSTANCE.execute(eRegion);
 
 		}
 

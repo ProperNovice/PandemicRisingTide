@@ -4,16 +4,15 @@ import business.DikeLocation;
 import business.Region;
 import enums.EAction;
 import enums.ERegion;
-import functions.AddWaterToRegion;
-import functions.Flood;
-import functions.RemoveDike;
-import functions.SetDikesAvailableToFail;
+import functions.FAddWaterToRegion;
+import functions.FFlood;
+import functions.FRemoveDike;
+import functions.FSetDikesAvailableToFail;
 import gameStatesDefault.GameState;
 import model.Actions;
 import model.DiscardPileDikeFailure;
 import model.Regions;
 import utils.Flow;
-import utils.SelectImageViewManager;
 
 public abstract class DegradeRegion extends GameState {
 
@@ -22,8 +21,8 @@ public abstract class DegradeRegion extends GameState {
 
 		Actions.INSTANCE.showAction(EAction.DIKES_FAIL);
 
-		if (SetDikesAvailableToFail.INSTANCE.sizeDikesAvailableToFail() > 0)
-			SetDikesAvailableToFail.INSTANCE.selectDikesAvailableToFail();
+		if (FSetDikesAvailableToFail.INSTANCE.sizeDikesAvailableToFail() > 0)
+			FSetDikesAvailableToFail.INSTANCE.selectDikesAvailableToFail();
 
 		else {
 
@@ -40,21 +39,19 @@ public abstract class DegradeRegion extends GameState {
 
 		Actions.INSTANCE.concealActions();
 
-		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
-
 		int waterCubes = region.getWaterCubes().getArrayList().size();
 
 		if (waterCubes < 3) {
 
 			waterCubes++;
-			AddWaterToRegion.INSTANCE.execute(eRegion);
+			FAddWaterToRegion.INSTANCE.execute(eRegion);
 
 			if (region.getWaterCubes().getArrayList().isMaxCapacity() && !floodCanTrigger())
 				removeDikesFailGameStatesFromFlow();
 
 		} else {
 
-			Flood.INSTANCE.execute(eRegion);
+			FFlood.INSTANCE.execute(eRegion);
 			removeDikesFailGameStatesFromFlow();
 
 		}
@@ -66,10 +63,9 @@ public abstract class DegradeRegion extends GameState {
 	@Override
 	protected void handleDikeLocationSelectedPressed(DikeLocation dikeLocation) {
 
-		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 		Actions.INSTANCE.concealActions();
 
-		RemoveDike.INSTANCE.execute(dikeLocation);
+		FRemoveDike.INSTANCE.execute(dikeLocation);
 		proceedToNextGameState();
 
 	}

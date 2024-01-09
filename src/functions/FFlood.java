@@ -8,7 +8,7 @@ import model.Adjacencies;
 import model.Regions;
 import utils.ArrayList;
 
-public enum Flood {
+public enum FFlood {
 
 	INSTANCE;
 
@@ -45,7 +45,7 @@ public enum Flood {
 			Region region = Regions.INSTANCE.getRegion(eRegion);
 
 			if (!region.getWaterCubes().getArrayList().isMaxCapacity())
-				AddWaterToRegion.INSTANCE.execute(eRegion);
+				FAddWaterToRegion.INSTANCE.execute(eRegion);
 
 			else if (!this.eRegionsFloodedThisTurn.contains(eRegion))
 				if (!this.eRegionsToFloodNext.contains(eRegion))

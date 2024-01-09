@@ -4,7 +4,7 @@ import business.Dike;
 import business.DikeLocation;
 import model.Dikes;
 
-public enum RemoveDike {
+public enum FRemoveDike {
 
 	INSTANCE;
 

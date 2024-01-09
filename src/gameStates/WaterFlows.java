@@ -18,7 +18,7 @@ public class WaterFlows extends GameState {
 	protected void handleActionSelectedPressed(EAction eAction) {
 
 		Actions.INSTANCE.concealActions();
-		functions.WaterFlows.INSTANCE.execute();
+		functions.FWaterFlows.INSTANCE.execute();
 		proceedToNextGameState();
 
 	}

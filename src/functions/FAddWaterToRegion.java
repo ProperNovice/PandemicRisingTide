@@ -7,7 +7,7 @@ import enums.ERegion;
 import model.Regions;
 import model.WaterCubes;
 
-public enum AddWaterToRegion {
+public enum FAddWaterToRegion {
 
 	INSTANCE;
 

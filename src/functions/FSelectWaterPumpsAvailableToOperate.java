@@ -5,7 +5,7 @@ import enums.ERegion;
 import model.Regions;
 import utils.ArrayList;
 
-public enum SelectWaterPumpAvailableToOperate {
+public enum FSelectWaterPumpsAvailableToOperate {
 
 	INSTANCE;
 
@@ -14,10 +14,19 @@ public enum SelectWaterPumpAvailableToOperate {
 
 	public void execute() {
 
-		addWaterPumpsToAvailable();
+		clearWaterPumpsAvailableToOperate();
+		addWaterPumpsRegionsToAvailable();
 		filterOutRegionsThatDontContainWaterCube();
 		selectERegionsAvailableToOperate();
 
+	}
+
+	public boolean isAvailableWaterPumpToOperate() {
+		return !this.waterPumpsAvailableToOperate.isEmpty();
+	}
+
+	public void startNewTurn() {
+		this.waterPumpsAvailableToOperate.clear();
 	}
 
 	public void setWaterPumpAlreadyOperated(ERegion eRegion) {
@@ -50,7 +59,7 @@ public enum SelectWaterPumpAvailableToOperate {
 
 	}
 
-	private void addWaterPumpsToAvailable() {
+	private void addWaterPumpsRegionsToAvailable() {
 
 		for (ERegion eRegion : ERegion.values()) {
 
@@ -66,6 +75,10 @@ public enum SelectWaterPumpAvailableToOperate {
 
 		}
 
+	}
+
+	private void clearWaterPumpsAvailableToOperate() {
+		this.waterPumpsAvailableToOperate.clear();
 	}
 
 }

@@ -37,8 +37,12 @@ public class JUnit extends GameState {
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
 		addWaterCubes(1, ERegion.FRYSLAN);
 		addWaterCubes(1, ERegion.IJSSELDELTA);
+		addWaterCubes(1, ERegion.MARKERWAARD);
+		addWaterCubes(1, ERegion.BETUWE);
 		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
 		addWaterCubes(3, ERegion.VOLLENHOVE);
+		addWaterCubes(2, ERegion.RIJN_EN_IJSSEL);
+		addWaterCubes(2, ERegion.ZUIDERZEE);
 
 		addPopulations(3, ERegion.FRYSLAN);
 
@@ -61,6 +65,9 @@ public class JUnit extends GameState {
 //		addDike(ERegion.VOLLENHOVE, ERegion.IJSSELDELTA);
 //		addDike(ERegion.NOORDOOSTPOLDER, ERegion.IJSSELDELTA);
 		addDike(ERegion.NOORDOOSTPOLDER, ERegion.VOLLENHOVE);
+		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
+		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
+		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
 		playerRole(EPlayer.TOP, ERole.CARPENTER);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
@@ -89,7 +96,9 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-		getFlow().addLast(SelectWaterPumpAvailableToOperate.class);
+		getFlow().addLast(ActionOperatePumps.class);
+//		getFlow().addLast(SelectWaterPumpAvailableToOperate.class);
+//		getFlow().addLast(SelectWaterRegionsWithWaterPump.class);
 //		getFlow().addLast(DegradeRegionWithFlood.class, 50);
 //		getFlow().addLast(WaterFlows.class);
 		proceedToNextGameState();
