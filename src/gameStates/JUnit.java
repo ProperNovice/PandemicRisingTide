@@ -42,7 +42,7 @@ public class JUnit extends GameState {
 		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
 		addWaterCubes(3, ERegion.VOLLENHOVE);
 		addWaterCubes(2, ERegion.RIJN_EN_IJSSEL);
-		addWaterCubes(2, ERegion.ZUIDERZEE);
+		addWaterCubes(3, ERegion.ZUIDERZEE);
 
 		addPopulations(3, ERegion.FRYSLAN);
 
@@ -96,7 +96,9 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
+		getFlow().addLast(WaterFlows.class);
 		getFlow().addLast(ActionOperatePumps.class);
+		getFlow().addLast(WaterFlows.class);
 //		getFlow().addLast(SelectWaterPumpAvailableToOperate.class);
 //		getFlow().addLast(SelectWaterRegionsWithWaterPump.class);
 //		getFlow().addLast(DegradeRegionWithFlood.class, 50);

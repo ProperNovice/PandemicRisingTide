@@ -1,6 +1,7 @@
 package gameStates;
 
 import enums.EAction;
+import functions.FWaterFlows;
 import gameStatesDefault.GameState;
 import model.Actions;
 
@@ -18,7 +19,7 @@ public class WaterFlows extends GameState {
 	protected void handleActionSelectedPressed(EAction eAction) {
 
 		Actions.INSTANCE.concealActions();
-		functions.FWaterFlows.INSTANCE.execute();
+		FWaterFlows.INSTANCE.execute();
 		proceedToNextGameState();
 
 	}
