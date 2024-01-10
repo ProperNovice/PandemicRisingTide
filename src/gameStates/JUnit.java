@@ -77,10 +77,10 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
-		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.IJSSELDELTA);
+		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.VOLLENHOVE);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);

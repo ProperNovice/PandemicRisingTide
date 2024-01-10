@@ -1,6 +1,9 @@
 package gameStates;
 
+import business.Region;
 import enums.EAction;
+import enums.ERegion;
+import functions.FPawnMoveToRegion;
 import functions.FSetUpMoveTargetRegions;
 import gameStatesDefault.GameState;
 import model.Actions;
@@ -12,6 +15,20 @@ public class ActionChooseMoveToRegion extends GameState {
 
 		Actions.INSTANCE.showAction(EAction.MOVE);
 		FSetUpMoveTargetRegions.INSTANCE.execute();
+
+	}
+
+	@Override
+	protected void handleRegionSelectedPressed(ERegion eRegion, Region region) {
+
+		FPawnMoveToRegion.INSTANCE.setUpERegionToMove(eRegion);
+
+		if (FSetUpMoveTargetRegions.INSTANCE.getFreeERegions().contains(eRegion))
+			FPawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+		else
+			getFlow().addFirst(ChooseCardToDiscardForMoving.class);
+
+		proceedToNextGameState();
 
 	}
 
