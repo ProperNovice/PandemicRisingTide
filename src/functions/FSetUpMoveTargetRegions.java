@@ -35,6 +35,11 @@ public enum FSetUpMoveTargetRegions {
 
 			Region region = Regions.INSTANCE.getRegion(eRegion);
 
+			if (region.getPorts().getArrayList().isEmpty())
+				continue;
+
+			addERegion(eRegion, this.free);
+
 		}
 
 	}
@@ -69,6 +74,9 @@ public enum FSetUpMoveTargetRegions {
 	private void addERegion(ERegion eRegion, ArrayList<ERegion> list) {
 
 		if (this.free.contains(eRegion) || this.usingCard.contains(eRegion))
+			return;
+
+		if (eRegion.equals(this.eRegionPlayer))
 			return;
 
 		list.addLast(eRegion);
