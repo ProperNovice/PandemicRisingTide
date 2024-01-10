@@ -22,7 +22,7 @@ public class Action implements IImageViewAble {
 		new ImageView(filePath, ELayerZ.ACTION_INDICATORS, this);
 		getImageView().setDimensions(Credentials.INSTANCE.dActionIndicator);
 		getImageView().setVisible(false);
-		getImageView().setSelectImageViewAbleRatioDimensions(0.75);
+		getImageView().setSelectImageViewAbleRatioDimensions(0.5);
 
 	}
 

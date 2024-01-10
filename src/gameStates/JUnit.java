@@ -96,7 +96,7 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-		getFlow().addLast(ActionChoose.class);
+		getFlow().addLast(ActionChooseMove.class);
 		proceedToNextGameState();
 
 	}
