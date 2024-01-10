@@ -9,7 +9,7 @@ import business.PopulationCube;
 import business.Port;
 import business.Region;
 import business.WaterCube;
-import business.WaterPump;
+import business.PumpingStation;
 import cards.CardDikeFailure;
 import cards.CardPlayerRegion;
 import cards.CardRole;
@@ -148,8 +148,8 @@ public class JUnit extends GameState {
 
 		Region region = eRegion.getRegion();
 
-		region.getWaterPumps().getArrayList().addLast(new WaterPump());
-		region.getWaterPumps().getArrayList().getLast().getImageView()
+		region.getPumpingStations().getArrayList().addLast(new PumpingStation());
+		region.getPumpingStations().getArrayList().getLast().getImageView()
 				.setHeight(Credentials.INSTANCE.hPortWaterPumpMap);
 
 		region.relocateComponents();

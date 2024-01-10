@@ -10,7 +10,7 @@ import model.Populations;
 import model.Ports;
 import model.Regions;
 import model.WaterCubes;
-import model.WaterPumps;
+import model.PumpingStations;
 
 public enum InstantiateComponents {
 
@@ -22,7 +22,7 @@ public enum InstantiateComponents {
 		Regions.values();
 		WaterCubes.values();
 		Dikes.values();
-		WaterPumps.values();
+		PumpingStations.values();
 		Ports.values();
 		Populations.values();
 		Adjacencies.values();

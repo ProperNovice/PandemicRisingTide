@@ -64,7 +64,7 @@ public enum SelectWaterPumpsAvailableToOperate {
 
 			Region region = eRegion.getRegion();
 
-			if (region.getWaterPumps().getArrayList().isEmpty())
+			if (region.getPumpingStations().getArrayList().isEmpty())
 				continue;
 
 			if (this.waterPumpsAlreadyOperated.contains(eRegion))

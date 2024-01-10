@@ -17,9 +17,10 @@ public enum Credentials {
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
 	public double hPortWaterPumpMap, hWaterPopulationCubeMap;
-	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation,
+	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dPumpingStation, dPort, dPopulation,
 			dPawn, dActionsRemaining;
-	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cWaterPumps, cPorts, cPopulation,
+	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes,
+			cPumpingStations, cPorts, cPopulation,
 			cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure, cPlayerTop,
 			cPlayerBottom;
 
@@ -81,18 +82,18 @@ public enum Credentials {
 		y = 78; // or
 		y = 64;
 		x = 86 * y / 100;
-		this.dWaterPump = new Vector2(x, y);
+		this.dPumpingStation = new Vector2(x, y);
 
 		// d port
 
-		y = this.dWaterPump.y;
+		y = this.dPumpingStation.y;
 		x = 100 * y / 100;
 		this.dPort = new Vector2(x, y);
 
 		// d water cube
 
 		x = this.dCard.y;
-		x -= this.dWaterPump.y;
+		x -= this.dPumpingStation.y;
 		x -= this.dPort.y;
 		x -= 4 * this.dGapBetweenComponents.y;
 		x /= 3;
@@ -129,15 +130,15 @@ public enum Credentials {
 
 		// c water pumps
 
-		this.cWaterPumps = this.cDikes.clone();
-		this.cWaterPumps.y += this.dDike.y / 2;
-		this.cWaterPumps.y += this.dGapBetweenComponents.y;
-		this.cWaterPumps.y += this.dWaterPump.y / 2;
+		this.cPumpingStations = this.cDikes.clone();
+		this.cPumpingStations.y += this.dDike.y / 2;
+		this.cPumpingStations.y += this.dGapBetweenComponents.y;
+		this.cPumpingStations.y += this.dPumpingStation.y / 2;
 
 		// c ports
 
-		this.cPorts = this.cWaterPumps.clone();
-		this.cPorts.y += this.dWaterPump.y / 2;
+		this.cPorts = this.cPumpingStations.clone();
+		this.cPorts.y += this.dPumpingStation.y / 2;
 		this.cPorts.y += this.dGapBetweenComponents.y;
 		this.cPorts.y += this.dPort.y / 2;
 
@@ -150,7 +151,7 @@ public enum Credentials {
 
 		// c action indicators
 
-		x = this.cWaterPumps.x;
+		x = this.cPumpingStations.x;
 		x += this.dPort.x / 2;
 		x += this.dGapBetweenComponents.x;
 		y = this.gapBetweenBorders;

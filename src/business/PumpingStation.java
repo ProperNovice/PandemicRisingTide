@@ -6,12 +6,12 @@ import utils.Flow;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
-public class WaterPump implements IImageViewAble {
+public class PumpingStation implements IImageViewAble {
 
-	public WaterPump() {
+	public PumpingStation() {
 
 		new ImageView("water pump.png", ELayerZ.MAP_BUILDINGS, this);
-		getImageView().setHeight(Credentials.INSTANCE.dWaterPump.y);
+		getImageView().setHeight(Credentials.INSTANCE.dPumpingStation.y);
 
 	}
 

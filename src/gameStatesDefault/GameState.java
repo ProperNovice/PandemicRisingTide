@@ -9,7 +9,7 @@ import business.PopulationCube;
 import business.Port;
 import business.Region;
 import business.WaterCube;
-import business.WaterPump;
+import business.PumpingStation;
 import cards.Card;
 import cards.CardPlayer;
 import cards.CardRole;
@@ -282,13 +282,13 @@ public abstract class GameState {
 
 	}
 
-	public final void handleWaterPumpPressed(WaterPump waterPump) {
+	public final void handleWaterPumpPressed(PumpingStation waterPump) {
 
 		for (ERegion eRegion : ERegion.values()) {
 
 			Region region = eRegion.getRegion();
 
-			if (region.getWaterPumps().getArrayList().contains(waterPump))
+			if (region.getPumpingStations().getArrayList().contains(waterPump))
 				handleRegionPressed(eRegion, region);
 
 		}

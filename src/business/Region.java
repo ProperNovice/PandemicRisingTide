@@ -19,7 +19,7 @@ public class Region implements ISelectCoordinatesAble {
 	private boolean isSea = false, isHighElevated = false, canBuildHydraulicStructure = false;
 	private ListImageViewAbles<PopulationCube> populations = new ListImageViewAbles<>();
 	private ListImageViewAbles<WaterCube> waterCubes = new ListImageViewAbles<>();
-	private ListImageViewAbles<WaterPump> waterPumps = new ListImageViewAbles<>();
+	private ListImageViewAbles<PumpingStation> pumpingStations = new ListImageViewAbles<>();
 	private ListImageViewAbles<Port> ports = new ListImageViewAbles<>();
 	private ListImageViewAbles<Pawn> pawns = new ListImageViewAbles<>();
 
@@ -44,7 +44,7 @@ public class Region implements ISelectCoordinatesAble {
 	public void relocateComponents() {
 
 		relocatePopulationWaterCubes();
-		relocatePortsWaterPumps();
+		relocatePortsPumpingStations();
 
 		// show list size
 
@@ -58,7 +58,7 @@ public class Region implements ISelectCoordinatesAble {
 
 		this.populations.relocateImageViews();
 		this.waterCubes.relocateImageViews();
-		this.waterPumps.relocateImageViews();
+		this.pumpingStations.relocateImageViews();
 		this.ports.relocateImageViews();
 		this.pawns.relocateImageViews();
 
@@ -69,7 +69,7 @@ public class Region implements ISelectCoordinatesAble {
 		Flow.INSTANCE.getGameStateCurrent().handleRegionPressed(this.eRegion, this);
 	}
 
-	private void relocatePortsWaterPumps() {
+	private void relocatePortsPumpingStations() {
 
 		double totalX = 0, totalGaps = -1, x;
 
@@ -80,10 +80,10 @@ public class Region implements ISelectCoordinatesAble {
 
 		}
 
-		if (!this.waterPumps.getArrayList().isEmpty()) {
+		if (!this.pumpingStations.getArrayList().isEmpty()) {
 
 			totalGaps++;
-			totalX += this.waterPumps.getArrayList().getFirst().getImageView().getWidth();
+			totalX += this.pumpingStations.getArrayList().getFirst().getImageView().getWidth();
 
 		}
 
@@ -102,12 +102,12 @@ public class Region implements ISelectCoordinatesAble {
 
 		}
 
-		if (!this.waterPumps.getArrayList().isEmpty()) {
+		if (!this.pumpingStations.getArrayList().isEmpty()) {
 
-			x += this.waterPumps.getArrayList().getFirst().getImageView().getWidth() / 2;
-			this.waterPumps.getListCredentials().coordinatesList.x = x;
+			x += this.pumpingStations.getArrayList().getFirst().getImageView().getWidth() / 2;
+			this.pumpingStations.getListCredentials().coordinatesList.x = x;
 
-			x += this.waterPumps.getArrayList().getFirst().getImageView().getWidth() / 2;
+			x += this.pumpingStations.getArrayList().getFirst().getImageView().getWidth() / 2;
 			x += Credentials.INSTANCE.dGapBetweenComponents.x;
 
 		}
@@ -179,10 +179,10 @@ public class Region implements ISelectCoordinatesAble {
 		this.waterCubes.getListCredentials().listQuantityRatioImageViewDimensions = 1;
 		this.waterCubes.getArrayList().setCapacity(3);
 
-		// water pumps
+		// pumping stations
 
-		this.waterPumps.getListCredentials().coordinatesList.y = this.coordinates.y;
-		this.waterPumps.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
+		this.pumpingStations.getListCredentials().coordinatesList.y = this.coordinates.y;
+		this.pumpingStations.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 
 		// ports
 
@@ -205,8 +205,8 @@ public class Region implements ISelectCoordinatesAble {
 		return this.waterCubes;
 	}
 
-	public ListImageViewAbles<WaterPump> getWaterPumps() {
-		return this.waterPumps;
+	public ListImageViewAbles<PumpingStation> getPumpingStations() {
+		return this.pumpingStations;
 	}
 
 	public ListImageViewAbles<Port> getPorts() {
