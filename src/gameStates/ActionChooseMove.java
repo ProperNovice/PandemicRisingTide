@@ -12,6 +12,13 @@ public class ActionChooseMove extends GameState {
 		driveFerry();
 		sail();
 		charterBoat();
+		returnToPort();
+
+	}
+
+	private void returnToPort() {
+
+		showActionAndSelect(EAction.RETURN_TO_PORT);
 
 	}
 
