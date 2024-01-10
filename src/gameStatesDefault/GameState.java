@@ -21,7 +21,6 @@ import javafx.scene.input.KeyCode;
 import model.Actions;
 import model.Adjacencies;
 import model.Players;
-import model.Regions;
 import utils.Animation;
 import utils.ArrayList;
 import utils.CameraView;
@@ -260,7 +259,7 @@ public abstract class GameState {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.getWaterCubes().getArrayList().contains(waterCube))
 				handleRegionPressed(eRegion, region);
@@ -273,7 +272,7 @@ public abstract class GameState {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.getPopulations().getArrayList().contains(populationCube))
 				handleRegionPressed(eRegion, region);
@@ -286,7 +285,7 @@ public abstract class GameState {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.getWaterPumps().getArrayList().contains(waterPump))
 				handleRegionPressed(eRegion, region);
@@ -299,7 +298,7 @@ public abstract class GameState {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.getPorts().getArrayList().contains(port))
 				handleRegionPressed(eRegion, region);
@@ -312,7 +311,7 @@ public abstract class GameState {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.getPawns().getArrayList().contains(pawn))
 				handleRegionPressed(eRegion, region);

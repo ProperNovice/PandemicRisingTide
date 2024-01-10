@@ -5,7 +5,6 @@ import business.DikeLocation;
 import business.Region;
 import enums.ERegion;
 import model.Adjacencies;
-import model.Regions;
 import utils.ArrayList;
 import utils.Logger;
 
@@ -43,7 +42,7 @@ public enum FWaterFlows {
 
 		for (ERegion eRegion : this.listTarget) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 			int waterCubesToAdd = amountTarget - region.getWaterCubes().getArrayList().size();
 
 			for (int counter = 1; counter <= waterCubesToAdd; counter++)
@@ -62,7 +61,7 @@ public enum FWaterFlows {
 
 			for (ERegion eRegionTarget : adjacentERegions) {
 
-				Region regionTarget = Regions.INSTANCE.getRegion(eRegionTarget);
+				Region regionTarget = eRegionTarget.getRegion();
 
 				// check if is sea
 
@@ -106,7 +105,7 @@ public enum FWaterFlows {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.isHighElevated())
 				continue;

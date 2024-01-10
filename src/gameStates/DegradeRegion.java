@@ -11,7 +11,6 @@ import functions.FSetDikesAvailableToFail;
 import gameStatesDefault.GameState;
 import model.Actions;
 import model.DiscardPileDikeFailure;
-import model.Regions;
 import utils.Flow;
 
 public abstract class DegradeRegion extends GameState {
@@ -27,7 +26,7 @@ public abstract class DegradeRegion extends GameState {
 		else {
 
 			ERegion eRegion = DiscardPileDikeFailure.INSTANCE.getFirstCardERegion();
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 			region.setSelected();
 
 		}

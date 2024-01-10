@@ -3,7 +3,6 @@ package functions;
 import business.Region;
 import enums.ERegion;
 import model.Adjacencies;
-import model.Regions;
 import utils.ArrayList;
 
 public enum FSetUpMoveTargetRegions {
@@ -33,7 +32,7 @@ public enum FSetUpMoveTargetRegions {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.getPorts().getArrayList().isEmpty())
 				continue;
@@ -47,10 +46,10 @@ public enum FSetUpMoveTargetRegions {
 	private void selectRegions() {
 
 		for (ERegion eRegion : this.free)
-			Regions.INSTANCE.getRegion(eRegion).setSelected();
+			eRegion.getRegion().setSelected();
 
 		for (ERegion eRegion : this.usingCard)
-			Regions.INSTANCE.getRegion(eRegion).setSelected();
+			eRegion.getRegion().setSelected();
 
 	}
 
@@ -60,7 +59,7 @@ public enum FSetUpMoveTargetRegions {
 
 		for (ERegion eRegion : list) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.isSea())
 				continue;

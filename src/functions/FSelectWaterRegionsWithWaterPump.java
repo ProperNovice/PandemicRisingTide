@@ -4,7 +4,6 @@ import business.Adjacency;
 import business.Region;
 import enums.ERegion;
 import model.Adjacencies;
-import model.Regions;
 import utils.ArrayList;
 
 public enum FSelectWaterRegionsWithWaterPump {
@@ -34,7 +33,7 @@ public enum FSelectWaterRegionsWithWaterPump {
 
 		else
 			for (ERegion eRegion : this.past)
-				Regions.INSTANCE.getRegion(eRegion).setSelected();
+				eRegion.getRegion().setSelected();
 
 	}
 
@@ -46,7 +45,7 @@ public enum FSelectWaterRegionsWithWaterPump {
 
 		for (ERegion eRegion : Adjacencies.INSTANCE.getAdjacentERegions(this.present)) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.isSea())
 				continue;

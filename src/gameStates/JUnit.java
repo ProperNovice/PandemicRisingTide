@@ -24,7 +24,6 @@ import model.Cards;
 import model.DiscardPileDikeFailure;
 import model.Pawns;
 import model.Players;
-import model.Regions;
 import utils.ArrayList;
 
 public class JUnit extends GameState {
@@ -108,7 +107,7 @@ public class JUnit extends GameState {
 
 	public void addPopulations(int amount, ERegion eRegion) {
 
-		Region region = Regions.INSTANCE.getRegion(eRegion);
+		Region region = eRegion.getRegion();
 
 		for (int counter = 1; counter <= amount; counter++) {
 
@@ -124,7 +123,7 @@ public class JUnit extends GameState {
 
 	public void addWaterCubes(int amount, ERegion eRegion) {
 
-		Region region = Regions.INSTANCE.getRegion(eRegion);
+		Region region = eRegion.getRegion();
 
 		for (int counter = 1; counter <= amount; counter++) {
 
@@ -140,7 +139,7 @@ public class JUnit extends GameState {
 
 	public void addWaterPump(ERegion eRegion) {
 
-		Region region = Regions.INSTANCE.getRegion(eRegion);
+		Region region = eRegion.getRegion();
 
 		region.getWaterPumps().getArrayList().addLast(new WaterPump());
 		region.getWaterPumps().getArrayList().getLast().getImageView()
@@ -152,7 +151,7 @@ public class JUnit extends GameState {
 
 	public void addPort(ERegion eRegion) {
 
-		Region region = Regions.INSTANCE.getRegion(eRegion);
+		Region region = eRegion.getRegion();
 
 		region.getPorts().getArrayList().addLast(new Port());
 		region.getPorts().getArrayList().getLast().getImageView()
@@ -242,7 +241,7 @@ public class JUnit extends GameState {
 		Pawn pawn = Pawns.INSTANCE.getPawn(eRole);
 		pawn.getImageView().setVisible(true);
 
-		Region region = Regions.INSTANCE.getRegion(eRegion);
+		Region region = eRegion.getRegion();
 		region.getPawns().getArrayList().addLast(pawn);
 		region.relocateComponents();
 

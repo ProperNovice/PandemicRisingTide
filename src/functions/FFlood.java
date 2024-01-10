@@ -5,7 +5,6 @@ import business.DikeLocation;
 import business.Region;
 import enums.ERegion;
 import model.Adjacencies;
-import model.Regions;
 import utils.ArrayList;
 
 public enum FFlood {
@@ -42,7 +41,7 @@ public enum FFlood {
 
 		for (ERegion eRegion : this.eRegionsToFloodNow) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (!region.getWaterCubes().getArrayList().isMaxCapacity())
 				FAddWaterToRegion.INSTANCE.execute(eRegion);
@@ -77,7 +76,7 @@ public enum FFlood {
 
 		for (ERegion eRegion : this.eRegionsToFloodNow.clone()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.isHighElevated())
 				this.eRegionsToFloodNow.remove(eRegion);

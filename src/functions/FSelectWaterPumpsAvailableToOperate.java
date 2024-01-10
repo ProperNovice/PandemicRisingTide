@@ -2,7 +2,6 @@ package functions;
 
 import business.Region;
 import enums.ERegion;
-import model.Regions;
 import utils.ArrayList;
 
 public enum FSelectWaterPumpsAvailableToOperate {
@@ -37,7 +36,7 @@ public enum FSelectWaterPumpsAvailableToOperate {
 
 		for (ERegion eRegion : this.waterPumpsAvailableToOperate) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 			region.setSelected();
 
 		}
@@ -48,7 +47,7 @@ public enum FSelectWaterPumpsAvailableToOperate {
 
 		for (ERegion eRegion : this.waterPumpsAvailableToOperate.clone()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (!region.getWaterCubes().getArrayList().isEmpty())
 				continue;
@@ -63,7 +62,7 @@ public enum FSelectWaterPumpsAvailableToOperate {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (region.getWaterPumps().getArrayList().isEmpty())
 				continue;

@@ -8,7 +8,6 @@ import enums.ERegion;
 import enums.ERole;
 import model.Pawns;
 import model.Players;
-import model.Regions;
 import utils.ShutDown;
 
 public enum FGetERegionContainingPawn {
@@ -31,7 +30,7 @@ public enum FGetERegionContainingPawn {
 
 		for (ERegion eRegion : ERegion.values()) {
 
-			Region region = Regions.INSTANCE.getRegion(eRegion);
+			Region region = eRegion.getRegion();
 
 			if (!region.getPawns().getArrayList().contains(pawn))
 				continue;
