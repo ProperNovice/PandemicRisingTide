@@ -35,7 +35,7 @@ public class JUnit extends GameState {
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
-		addWaterCubes(1, ERegion.FRYSLAN);
+//		addWaterCubes(1, ERegion.FRYSLAN);
 		addWaterCubes(1, ERegion.IJSSELDELTA);
 		addWaterCubes(1, ERegion.MARKERWAARD);
 		addWaterCubes(1, ERegion.BETUWE);
@@ -96,7 +96,7 @@ public class JUnit extends GameState {
 
 //		getFlow().addLast(ActionChoose.class);
 
-		Players.INSTANCE.changePlayerOrder();
+//		Players.INSTANCE.changePlayerOrder();
 
 		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
 

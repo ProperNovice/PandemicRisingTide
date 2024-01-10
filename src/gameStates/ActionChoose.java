@@ -1,6 +1,7 @@
 package gameStates;
 
 import enums.EAction;
+import functions.FChooseActionsAvailable;
 import gameStatesDefault.GameState;
 import utils.HashMap;
 
@@ -13,8 +14,7 @@ public class ActionChoose extends GameState {
 
 		createHashMap();
 
-		EAction.MOVE.showAndSelect();
-		EAction.PUMP_WATER.showAndSelect();
+		FChooseActionsAvailable.INSTANCE.execute();
 
 	}
 
@@ -22,7 +22,6 @@ public class ActionChoose extends GameState {
 	protected void handleActionSelectedPressed(EAction eAction) {
 
 		getFlow().addFirst(this.hashMap.getValue(eAction));
-
 		proceedToNextGameState();
 
 	}
@@ -31,6 +30,7 @@ public class ActionChoose extends GameState {
 
 		this.hashMap.put(EAction.MOVE, ActionChooseMoveToRegion.class);
 		this.hashMap.put(EAction.PUMP_WATER, ActionPumpWaterFromPlayerActiveRegion.class);
+		this.hashMap.put(EAction.BUILD_DIKE, BuildDike.class);
 
 	}
 

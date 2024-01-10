@@ -17,6 +17,8 @@ public enum FRemoveWaterFromRegion {
 		WaterCube waterCube = region.getWaterCubes().getArrayList().removeFirst();
 		waterCube.getImageView().setDimensions(Credentials.INSTANCE.dWaterCube);
 
+		region.relocateComponents();
+
 		WaterCubes.INSTANCE.getList().getArrayList().addFirst(waterCube);
 		WaterCubes.INSTANCE.getList().relocateImageViews();
 

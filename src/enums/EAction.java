@@ -4,7 +4,8 @@ import model.Actions;
 
 public enum EAction {
 
-	WATER_FLOWS, DIKES_FAIL, CHOOSE_WATER_PUMP, PUMP_WATER, MOVE, CHOOSE_CARD_TO_DISCARD;
+	WATER_FLOWS, DIKES_FAIL, CHOOSE_WATER_PUMP, PUMP_WATER, MOVE, CHOOSE_CARD_TO_DISCARD,
+	BUILD_DIKE;
 
 	public void show() {
 		Actions.INSTANCE.showAction(this);
