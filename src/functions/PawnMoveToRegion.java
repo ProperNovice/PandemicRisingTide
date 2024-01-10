@@ -8,7 +8,7 @@ import enums.ERole;
 import model.Pawns;
 import model.Players;
 
-public enum FPawnMoveToRegion {
+public enum PawnMoveToRegion {
 
 	INSTANCE;
 
@@ -16,7 +16,7 @@ public enum FPawnMoveToRegion {
 
 	public void moveToERegionActivePlayer() {
 
-		ERegion eRegionPlayer = FGetERegionContainingPlayerPawn.INSTANCE
+		ERegion eRegionPlayer = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
 
 		moveToERegionPlayer(eRegionPlayer, Players.INSTANCE.getActivePlayer());
@@ -25,7 +25,7 @@ public enum FPawnMoveToRegion {
 
 	public void moveToERegionPassivePlayer() {
 
-		ERegion eRegionPlayer = FGetERegionContainingPlayerPawn.INSTANCE
+		ERegion eRegionPlayer = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnPassive();
 
 		moveToERegionPlayer(eRegionPlayer, Players.INSTANCE.getPassivePlayer());

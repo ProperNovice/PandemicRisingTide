@@ -4,9 +4,9 @@ import cards.CardPlayer;
 import cards.CardPlayerRegion;
 import enums.EAction;
 import enums.ERegion;
-import functions.FDiscardCardFromActivePlayer;
-import functions.FGetERegionContainingPlayerPawn;
-import functions.FPawnMoveToRegion;
+import functions.DiscardCardFromActivePlayer;
+import functions.GetERegionContainingPlayerPawn;
+import functions.PawnMoveToRegion;
 import gameStatesDefault.GameState;
 import model.Actions;
 import model.Players;
@@ -25,14 +25,14 @@ public class ChooseCardToDiscardForMoving extends GameState {
 
 		if (this.cardPlayerRegionMoveFrom == null && this.cardPlayerRegionMoveTo != null) {
 
-			FDiscardCardFromActivePlayer.INSTANCE.execute(this.cardPlayerRegionMoveTo);
-			FPawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+			DiscardCardFromActivePlayer.INSTANCE.execute(this.cardPlayerRegionMoveTo);
+			PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
 			proceedToNextGameState();
 
 		} else if (this.cardPlayerRegionMoveFrom != null && this.cardPlayerRegionMoveTo == null) {
 
-			FDiscardCardFromActivePlayer.INSTANCE.execute(this.cardPlayerRegionMoveFrom);
-			FPawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+			DiscardCardFromActivePlayer.INSTANCE.execute(this.cardPlayerRegionMoveFrom);
+			PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
 			proceedToNextGameState();
 
 		} else {
@@ -52,8 +52,8 @@ public class ChooseCardToDiscardForMoving extends GameState {
 		Actions.INSTANCE.concealActions();
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 
-		FDiscardCardFromActivePlayer.INSTANCE.execute(cardPlayer);
-		FPawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+		DiscardCardFromActivePlayer.INSTANCE.execute(cardPlayer);
+		PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
 		proceedToNextGameState();
 
 	}
@@ -81,10 +81,10 @@ public class ChooseCardToDiscardForMoving extends GameState {
 
 	private void setUpERegions() {
 
-		this.eRegionMoveFrom = FGetERegionContainingPlayerPawn.INSTANCE
+		this.eRegionMoveFrom = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
 
-		this.eRegionMoveTo = FPawnMoveToRegion.INSTANCE.getERegionMoveTo();
+		this.eRegionMoveTo = PawnMoveToRegion.INSTANCE.getERegionMoveTo();
 
 	}
 

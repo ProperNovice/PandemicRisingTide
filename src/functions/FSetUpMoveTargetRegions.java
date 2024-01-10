@@ -161,7 +161,7 @@ public enum FSetUpMoveTargetRegions {
 
 		// set up active player eRegion
 
-		this.eRegionPlayer = FGetERegionContainingPlayerPawn.INSTANCE
+		this.eRegionPlayer = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
 
 	}

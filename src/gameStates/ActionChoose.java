@@ -1,7 +1,7 @@
 package gameStates;
 
 import enums.EAction;
-import functions.FChooseActionsAvailable;
+import functions.ChooseActionsAvailable;
 import gameStatesDefault.GameState;
 import utils.HashMap;
 
@@ -14,7 +14,7 @@ public class ActionChoose extends GameState {
 
 		createHashMap();
 
-		FChooseActionsAvailable.INSTANCE.execute();
+		ChooseActionsAvailable.INSTANCE.execute();
 
 	}
 

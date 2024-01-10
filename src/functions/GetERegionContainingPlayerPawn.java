@@ -10,7 +10,7 @@ import model.Pawns;
 import model.Players;
 import utils.ShutDown;
 
-public enum FGetERegionContainingPlayerPawn {
+public enum GetERegionContainingPlayerPawn {
 
 	INSTANCE;
 

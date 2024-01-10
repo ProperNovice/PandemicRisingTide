@@ -4,7 +4,7 @@ import cards.CardPlayer;
 import model.DiscardPilePlayer;
 import model.Players;
 
-public enum FDiscardCardFromActivePlayer {
+public enum DiscardCardFromActivePlayer {
 
 	INSTANCE;
 

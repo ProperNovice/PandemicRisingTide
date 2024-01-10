@@ -3,7 +3,7 @@ package gameStates;
 import business.Region;
 import enums.EAction;
 import enums.ERegion;
-import functions.FPawnMoveToRegion;
+import functions.PawnMoveToRegion;
 import functions.FSetUpMoveTargetRegions;
 import gameStatesDefault.GameState;
 import model.Actions;
@@ -22,10 +22,10 @@ public class ActionChooseMoveToRegion extends GameState {
 	protected void handleRegionSelectedPressed(ERegion eRegion, Region region) {
 
 		Actions.INSTANCE.concealActions();
-		FPawnMoveToRegion.INSTANCE.setUpERegionToMove(eRegion);
+		PawnMoveToRegion.INSTANCE.setUpERegionToMove(eRegion);
 
 		if (FSetUpMoveTargetRegions.INSTANCE.getFreeERegions().contains(eRegion))
-			FPawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+			PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
 		else
 			getFlow().addFirst(ChooseCardToDiscardForMoving.class);
 

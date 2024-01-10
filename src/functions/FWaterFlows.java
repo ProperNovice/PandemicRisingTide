@@ -46,7 +46,7 @@ public enum FWaterFlows {
 			int waterCubesToAdd = amountTarget - region.getWaterCubes().getArrayList().size();
 
 			for (int counter = 1; counter <= waterCubesToAdd; counter++)
-				FAddWaterToRegion.INSTANCE.execute(eRegion);
+				AddWaterToRegion.INSTANCE.execute(eRegion);
 
 		}
 

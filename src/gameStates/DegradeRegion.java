@@ -4,10 +4,10 @@ import business.DikeLocation;
 import business.Region;
 import enums.EAction;
 import enums.ERegion;
-import functions.FAddWaterToRegion;
-import functions.FFlood;
-import functions.FRemoveDike;
-import functions.FSetDikesAvailableToFail;
+import functions.AddWaterToRegion;
+import functions.Flood;
+import functions.RemoveDike;
+import functions.SetDikesAvailableToFail;
 import gameStatesDefault.GameState;
 import model.Actions;
 import model.DiscardPileDikeFailure;
@@ -20,8 +20,8 @@ public abstract class DegradeRegion extends GameState {
 
 		EAction.DIKES_FAIL.show();
 
-		if (FSetDikesAvailableToFail.INSTANCE.sizeDikesAvailableToFail() > 0)
-			FSetDikesAvailableToFail.INSTANCE.selectDikesAvailableToFail();
+		if (SetDikesAvailableToFail.INSTANCE.sizeDikesAvailableToFail() > 0)
+			SetDikesAvailableToFail.INSTANCE.selectDikesAvailableToFail();
 
 		else {
 
@@ -43,14 +43,14 @@ public abstract class DegradeRegion extends GameState {
 		if (waterCubes < 3) {
 
 			waterCubes++;
-			FAddWaterToRegion.INSTANCE.execute(eRegion);
+			AddWaterToRegion.INSTANCE.execute(eRegion);
 
 			if (region.getWaterCubes().getArrayList().isMaxCapacity() && !floodCanTrigger())
 				removeDikesFailGameStatesFromFlow();
 
 		} else {
 
-			FFlood.INSTANCE.execute(eRegion);
+			Flood.INSTANCE.execute(eRegion);
 			removeDikesFailGameStatesFromFlow();
 
 		}
@@ -64,7 +64,7 @@ public abstract class DegradeRegion extends GameState {
 
 		Actions.INSTANCE.concealActions();
 
-		FRemoveDike.INSTANCE.execute(dikeLocation);
+		RemoveDike.INSTANCE.execute(dikeLocation);
 		proceedToNextGameState();
 
 	}

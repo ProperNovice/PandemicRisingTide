@@ -5,7 +5,7 @@ import enums.EAction;
 import enums.ERegion;
 import model.Dikes;
 
-public enum FChooseActionsAvailable {
+public enum ChooseActionsAvailable {
 
 	INSTANCE;
 
@@ -19,7 +19,7 @@ public enum FChooseActionsAvailable {
 
 	private void buildDike() {
 
-		ERegion eRegion = FGetERegionContainingPlayerPawn.INSTANCE
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
 
 		Region region = eRegion.getRegion();
@@ -40,7 +40,7 @@ public enum FChooseActionsAvailable {
 
 	private void pumpWater() {
 
-		ERegion eRegion = FGetERegionContainingPlayerPawn.INSTANCE
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
 
 		Region region = eRegion.getRegion();

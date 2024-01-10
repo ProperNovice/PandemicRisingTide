@@ -6,7 +6,7 @@ import enums.ERegion;
 import model.Adjacencies;
 import utils.ArrayList;
 
-public enum FSelectWaterRegionsWithWaterPump {
+public enum SelectWaterRegionsWithWaterPump {
 
 	INSTANCE;
 

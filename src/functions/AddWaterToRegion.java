@@ -6,7 +6,7 @@ import controller.Credentials;
 import enums.ERegion;
 import model.WaterCubes;
 
-public enum FAddWaterToRegion {
+public enum AddWaterToRegion {
 
 	INSTANCE;
 

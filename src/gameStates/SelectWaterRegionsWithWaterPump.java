@@ -3,7 +3,7 @@ package gameStates;
 import business.Region;
 import enums.EAction;
 import enums.ERegion;
-import functions.FRemoveWaterFromRegion;
+import functions.RemoveWaterFromRegion;
 import gameStatesDefault.GameState;
 import model.Actions;
 
@@ -20,7 +20,7 @@ public class SelectWaterRegionsWithWaterPump extends GameState {
 	protected void handleRegionSelectedPressed(ERegion eRegion, Region region) {
 
 		Actions.INSTANCE.concealActions();
-		FRemoveWaterFromRegion.INSTANCE.execute(eRegion);
+		RemoveWaterFromRegion.INSTANCE.execute(eRegion);
 		proceedToNextGameState();
 
 	}

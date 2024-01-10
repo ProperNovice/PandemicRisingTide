@@ -1,8 +1,8 @@
 package gameStates;
 
 import enums.ERegion;
-import functions.FGetERegionContainingPlayerPawn;
-import functions.FRemoveWaterFromRegion;
+import functions.GetERegionContainingPlayerPawn;
+import functions.RemoveWaterFromRegion;
 import gameStatesDefault.GameState;
 
 public class ActionPumpWaterFromPlayerActiveRegion extends GameState {
@@ -10,10 +10,10 @@ public class ActionPumpWaterFromPlayerActiveRegion extends GameState {
 	@Override
 	public void execute() {
 
-		ERegion eRegion = FGetERegionContainingPlayerPawn.INSTANCE
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
 
-		FRemoveWaterFromRegion.INSTANCE.execute(eRegion);
+		RemoveWaterFromRegion.INSTANCE.execute(eRegion);
 		proceedToNextGameState();
 
 	}
