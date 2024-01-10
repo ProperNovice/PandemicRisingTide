@@ -191,6 +191,7 @@ public abstract class GameState {
 			return;
 
 		Actions.INSTANCE.concealActions();
+		Logger.INSTANCE.logNewLine("action pressed - " + eAction);
 		handleActionSelectedPressed(eAction);
 
 	}

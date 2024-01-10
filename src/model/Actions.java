@@ -62,7 +62,14 @@ public enum Actions {
 	}
 
 	public void selectAction(EAction eAction) {
-		this.hashMap.getValue(eAction).setSelected();
+
+		Action action = this.hashMap.getValue(eAction);
+
+		if (this.list.getArrayList().contains(action))
+			this.hashMap.getValue(eAction).setSelected();
+		else
+			ShutDown.INSTANCE.execute();
+
 	}
 
 	public boolean actionIsSelected(EAction eAction) {
