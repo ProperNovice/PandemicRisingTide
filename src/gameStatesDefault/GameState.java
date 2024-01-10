@@ -11,6 +11,7 @@ import business.Region;
 import business.WaterCube;
 import business.WaterPump;
 import cards.Card;
+import cards.CardPlayer;
 import cards.CardRole;
 import controller.Credentials;
 import enums.EAction;
@@ -169,14 +170,14 @@ public abstract class GameState {
 	public final void handleCardPressed(Card card) {
 
 		if (Players.INSTANCE.getActivePlayer().getCardsPlayer().getArrayList().contains(card))
-			handleCardPressedActivePlayer(card);
+			handleCardPressedActivePlayer((CardPlayer) card);
 
 		if (Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList().contains(card))
 			handleCardPressedPassivePlayer(card);
 
 	}
 
-	protected void handleCardPressedActivePlayer(Card card) {
+	protected void handleCardPressedActivePlayer(CardPlayer cardPlayer) {
 
 	}
 

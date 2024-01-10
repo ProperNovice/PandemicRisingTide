@@ -70,7 +70,7 @@ public class JUnit extends GameState {
 		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
-		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
 		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
@@ -80,10 +80,10 @@ public class JUnit extends GameState {
 		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.VOLLENHOVE);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
-//		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.WEST_BRABANT);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
@@ -96,7 +96,8 @@ public class JUnit extends GameState {
 
 //		getFlow().addLast(ActionChoose.class);
 
-		Players.INSTANCE.changePlayerOrder();
+//		Players.INSTANCE.changePlayerOrder();
+		
 		getFlow().addLast(ActionChooseMoveToRegion.class);
 		proceedToNextGameState();
 

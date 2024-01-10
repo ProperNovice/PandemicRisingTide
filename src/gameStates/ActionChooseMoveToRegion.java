@@ -21,6 +21,7 @@ public class ActionChooseMoveToRegion extends GameState {
 	@Override
 	protected void handleRegionSelectedPressed(ERegion eRegion, Region region) {
 
+		Actions.INSTANCE.concealActions();
 		FPawnMoveToRegion.INSTANCE.setUpERegionToMove(eRegion);
 
 		if (FSetUpMoveTargetRegions.INSTANCE.getFreeERegions().contains(eRegion))
