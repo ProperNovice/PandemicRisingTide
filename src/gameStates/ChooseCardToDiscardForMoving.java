@@ -39,7 +39,8 @@ public class ChooseCardToDiscardForMoving extends GameState {
 
 			this.cardPlayerRegionMoveFrom.setSelected();
 			this.cardPlayerRegionMoveTo.setSelected();
-			Actions.INSTANCE.showAction(EAction.CHOOSE_CARD_TO_DISCARD);
+
+			EAction.CHOOSE_CARD_TO_DISCARD.show();
 
 		}
 

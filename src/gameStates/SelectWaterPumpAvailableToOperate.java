@@ -13,7 +13,7 @@ public class SelectWaterPumpAvailableToOperate extends GameState {
 	@Override
 	public void execute() {
 
-		Actions.INSTANCE.showAction(EAction.CHOOSE_WATER_PUMP);
+		EAction.CHOOSE_WATER_PUMP.show();
 
 	}
 

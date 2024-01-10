@@ -12,7 +12,7 @@ public class SelectWaterRegionsWithWaterPump extends GameState {
 	@Override
 	public void execute() {
 
-		Actions.INSTANCE.showAction(EAction.PUMP_WATER);
+		EAction.PUMP_WATER.show();
 
 	}
 

@@ -2,7 +2,6 @@ package gameStates;
 
 import enums.EAction;
 import gameStatesDefault.GameState;
-import model.Actions;
 import utils.HashMap;
 
 public class ActionChoose extends GameState {
@@ -14,7 +13,8 @@ public class ActionChoose extends GameState {
 
 		createHashMap();
 
-		showAndSelectAction(EAction.MOVE);
+		EAction.MOVE.showAndSelect();
+		EAction.PUMP_WATER.showAndSelect();
 
 	}
 
@@ -27,16 +27,10 @@ public class ActionChoose extends GameState {
 
 	}
 
-	private void showAndSelectAction(EAction eAction) {
-
-		Actions.INSTANCE.showAction(eAction);
-		Actions.INSTANCE.selectAction(eAction);
-
-	}
-
 	private void createHashMap() {
 
 		this.hashMap.put(EAction.MOVE, ActionChooseMoveToRegion.class);
+		this.hashMap.put(EAction.PUMP_WATER, ActionPumpWaterFromPlayerActiveRegion.class);
 
 	}
 

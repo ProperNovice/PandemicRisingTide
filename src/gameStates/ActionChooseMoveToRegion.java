@@ -13,7 +13,7 @@ public class ActionChooseMoveToRegion extends GameState {
 	@Override
 	public void execute() {
 
-		Actions.INSTANCE.showAction(EAction.MOVE);
+		EAction.MOVE.show();
 		FSetUpMoveTargetRegions.INSTANCE.execute();
 
 	}

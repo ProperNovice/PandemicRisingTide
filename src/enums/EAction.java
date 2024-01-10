@@ -1,7 +1,20 @@
 package enums;
 
+import model.Actions;
+
 public enum EAction {
 
-	WATER_FLOWS, DIKES_FAIL, CHOOSE_WATER_PUMP, PUMP_WATER, MOVE, CHOOSE_CARD_TO_DISCARD
+	WATER_FLOWS, DIKES_FAIL, CHOOSE_WATER_PUMP, PUMP_WATER, MOVE, CHOOSE_CARD_TO_DISCARD;
+
+	public void show() {
+		Actions.INSTANCE.showAction(this);
+	}
+
+	public void showAndSelect() {
+
+		show();
+		Actions.INSTANCE.selectAction(this);
+
+	}
 
 }

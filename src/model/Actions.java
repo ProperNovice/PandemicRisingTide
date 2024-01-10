@@ -34,6 +34,17 @@ public enum Actions {
 
 	}
 
+	public void selectAction(EAction eAction) {
+
+		Action action = this.hashMap.getValue(eAction);
+
+		if (this.list.getArrayList().contains(action))
+			this.hashMap.getValue(eAction).setSelected();
+		else
+			ShutDown.INSTANCE.execute();
+
+	}
+
 	public void concealActions() {
 
 		for (Action action : this.list) {
@@ -58,17 +69,6 @@ public enum Actions {
 				return action.getEAction();
 
 		return eAction;
-
-	}
-
-	public void selectAction(EAction eAction) {
-
-		Action action = this.hashMap.getValue(eAction);
-
-		if (this.list.getArrayList().contains(action))
-			this.hashMap.getValue(eAction).setSelected();
-		else
-			ShutDown.INSTANCE.execute();
 
 	}
 

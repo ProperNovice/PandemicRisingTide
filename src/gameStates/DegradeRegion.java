@@ -18,7 +18,7 @@ public abstract class DegradeRegion extends GameState {
 	@Override
 	public void execute() {
 
-		Actions.INSTANCE.showAction(EAction.DIKES_FAIL);
+		EAction.DIKES_FAIL.show();
 
 		if (FSetDikesAvailableToFail.INSTANCE.sizeDikesAvailableToFail() > 0)
 			FSetDikesAvailableToFail.INSTANCE.selectDikesAvailableToFail();
