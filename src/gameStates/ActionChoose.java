@@ -1,7 +1,7 @@
 package gameStates;
 
 import enums.EAction;
-import functions.ChooseActionsAvailable;
+import functions.SetActionsAvailable;
 import gameStatesDefault.GameState;
 import utils.HashMap;
 
@@ -14,7 +14,7 @@ public class ActionChoose extends GameState {
 
 		createHashMap();
 
-		ChooseActionsAvailable.INSTANCE.execute();
+		SetActionsAvailable.INSTANCE.execute();
 		
 		EAction.BUILD_PUMPING_STATION.showAndSelect();
 		EAction.BUILD_PORT.showAndSelect();

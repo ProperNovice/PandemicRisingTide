@@ -5,7 +5,7 @@ import enums.EAction;
 import enums.ERegion;
 import model.Dikes;
 
-public enum ChooseActionsAvailable {
+public enum SetActionsAvailable {
 
 	INSTANCE;
 
