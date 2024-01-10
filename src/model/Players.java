@@ -9,7 +9,6 @@ public enum Players {
 	INSTANCE;
 
 	private ArrayList<Player> list = new ArrayList<>();
-	
 
 	private Players() {
 		createList();
@@ -33,8 +32,8 @@ public enum Players {
 
 	private void createList() {
 
-		this.list.addLast(new Player(Credentials.INSTANCE.cPlayerTop));
 		this.list.addLast(new Player(Credentials.INSTANCE.cPlayerBottom));
+		this.list.addLast(new Player(Credentials.INSTANCE.cPlayerTop));
 
 		this.list.saveOriginal();
 

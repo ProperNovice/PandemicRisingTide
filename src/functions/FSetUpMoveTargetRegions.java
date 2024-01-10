@@ -50,9 +50,6 @@ public enum FSetUpMoveTargetRegions {
 				if (region.isSea())
 					continue;
 
-				if (region.isHighElevated())
-					continue;
-
 				addERegion(eRegion, this.usingCard);
 
 			}
@@ -164,8 +161,8 @@ public enum FSetUpMoveTargetRegions {
 
 		// set up active player eRegion
 
-		this.eRegionPlayer = FGetERegionContainingPawn.INSTANCE
-				.getERegionContainingActivePlayerPawn();
+		this.eRegionPlayer = FGetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
 
 	}
 

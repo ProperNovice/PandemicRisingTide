@@ -5,7 +5,7 @@ import cards.CardPlayerRegion;
 import enums.EAction;
 import enums.ERegion;
 import functions.FDiscardCardFromActivePlayer;
-import functions.FGetERegionContainingPawn;
+import functions.FGetERegionContainingPlayerPawn;
 import functions.FPawnMoveToRegion;
 import gameStatesDefault.GameState;
 import model.Actions;
@@ -80,8 +80,8 @@ public class ChooseCardToDiscardForMoving extends GameState {
 
 	private void setUpERegions() {
 
-		this.eRegionMoveFrom = FGetERegionContainingPawn.INSTANCE
-				.getERegionContainingActivePlayerPawn();
+		this.eRegionMoveFrom = FGetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
 
 		this.eRegionMoveTo = FPawnMoveToRegion.INSTANCE.getERegionMoveTo();
 

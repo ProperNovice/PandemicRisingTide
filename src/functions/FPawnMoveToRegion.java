@@ -16,8 +16,8 @@ public enum FPawnMoveToRegion {
 
 	public void moveToERegionActivePlayer() {
 
-		ERegion eRegionPlayer = FGetERegionContainingPawn.INSTANCE
-				.getERegionContainingActivePlayerPawn();
+		ERegion eRegionPlayer = FGetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
 
 		moveToERegionPlayer(eRegionPlayer, Players.INSTANCE.getActivePlayer());
 
@@ -25,8 +25,8 @@ public enum FPawnMoveToRegion {
 
 	public void moveToERegionPassivePlayer() {
 
-		ERegion eRegionPlayer = FGetERegionContainingPawn.INSTANCE
-				.getERegionContainingPassivePlayerPawn();
+		ERegion eRegionPlayer = FGetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnPassive();
 
 		moveToERegionPlayer(eRegionPlayer, Players.INSTANCE.getPassivePlayer());
 

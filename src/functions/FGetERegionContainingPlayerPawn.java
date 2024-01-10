@@ -10,15 +10,15 @@ import model.Pawns;
 import model.Players;
 import utils.ShutDown;
 
-public enum FGetERegionContainingPawn {
+public enum FGetERegionContainingPlayerPawn {
 
 	INSTANCE;
 
-	public ERegion getERegionContainingActivePlayerPawn() {
+	public ERegion getERegionContainingPlayerPawnActive() {
 		return getERegionContainingPawn(Players.INSTANCE.getActivePlayer());
 	}
 
-	public ERegion getERegionContainingPassivePlayerPawn() {
+	public ERegion getERegionContainingPlayerPawnPassive() {
 		return getERegionContainingPawn(Players.INSTANCE.getPassivePlayer());
 	}
 
