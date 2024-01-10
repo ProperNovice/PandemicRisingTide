@@ -175,7 +175,7 @@ public class JUnit extends GameState {
 
 		for (Adjacency adjacencyTemp : list) {
 
-			if (!adjacencyTemp.getERegions().contains(eRegionB))
+			if (!adjacencyTemp.getERegionsClone().contains(eRegionB))
 				continue;
 
 			adjacency = adjacencyTemp;

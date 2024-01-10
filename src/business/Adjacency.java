@@ -10,20 +10,16 @@ public class Adjacency {
 
 	public Adjacency(ERegion eRegionA, ERegion eRegionB, double x, double y) {
 
-		this.eRegions.addAllLast(eRegionA, eRegionB);
-
-		if (x == -1 && y == -1)
-			return;
-
+		this(eRegionA, eRegionB);
 		this.dikeLocation = new DikeLocation(x, y);
 
 	}
 
 	public Adjacency(ERegion eRegionA, ERegion eRegionB) {
-		this(eRegionA, eRegionB, -1, -1);
+		this.eRegions.addAllLast(eRegionA, eRegionB);
 	}
 
-	public ArrayList<ERegion> getERegions() {
+	public ArrayList<ERegion> getERegionsClone() {
 		return this.eRegions.clone();
 	}
 

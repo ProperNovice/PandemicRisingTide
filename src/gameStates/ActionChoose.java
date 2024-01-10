@@ -30,7 +30,7 @@ public class ActionChoose extends GameState {
 
 		this.hashMap.put(EAction.MOVE, ActionChooseMoveToRegion.class);
 		this.hashMap.put(EAction.PUMP_WATER, ActionPumpWaterFromPlayerActiveRegion.class);
-		this.hashMap.put(EAction.BUILD_DIKE, BuildDike.class);
+		this.hashMap.put(EAction.BUILD_DIKE, ActionBuildDike.class);
 
 	}
 

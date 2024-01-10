@@ -20,8 +20,8 @@ public enum Adjacencies {
 		ArrayList<ERegion> regions = new ArrayList<>();
 
 		for (Adjacency adjacency : this.list)
-			if (adjacency.getERegions().contains(eRegion))
-				regions.addAllLast(adjacency.getERegions());
+			if (adjacency.getERegionsClone().contains(eRegion))
+				regions.addAllLast(adjacency.getERegionsClone());
 
 		while (regions.contains(eRegion))
 			regions.remove(eRegion);
@@ -35,7 +35,7 @@ public enum Adjacencies {
 		ArrayList<Adjacency> adjacencies = new ArrayList<>();
 
 		for (Adjacency adjacency : this.list)
-			if (adjacency.getERegions().contains(eRegion))
+			if (adjacency.getERegionsClone().contains(eRegion))
 				adjacencies.addLast(adjacency);
 
 		return adjacencies;
@@ -45,8 +45,8 @@ public enum Adjacencies {
 	public Adjacency getAdjecencyBetweenRegions(ERegion eRegionA, ERegion eRegionB) {
 
 		for (Adjacency adjacency : this.list)
-			if (adjacency.getERegions().contains(eRegionA))
-				if (adjacency.getERegions().contains(eRegionB))
+			if (adjacency.getERegionsClone().contains(eRegionA))
+				if (adjacency.getERegionsClone().contains(eRegionB))
 					return adjacency;
 
 		ShutDown.INSTANCE.execute();
