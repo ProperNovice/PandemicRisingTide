@@ -15,6 +15,9 @@ public class ActionChoose extends GameState {
 		createHashMap();
 
 		ChooseActionsAvailable.INSTANCE.execute();
+		
+		EAction.BUILD_PUMPING_STATION.showAndSelect();
+		EAction.BUILD_PORT.showAndSelect();
 
 	}
 

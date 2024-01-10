@@ -3,8 +3,8 @@ package gameStates;
 import business.Region;
 import enums.EAction;
 import enums.ERegion;
-import functions.PawnMoveToRegion;
 import functions.FSetUpMoveTargetRegions;
+import functions.PawnMoveToRegion;
 import gameStatesDefault.GameState;
 import model.Actions;
 
