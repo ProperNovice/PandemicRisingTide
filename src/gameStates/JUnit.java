@@ -52,6 +52,8 @@ public class JUnit extends GameState {
 		addWaterPump(ERegion.FLEVOLAND);
 
 		addPort(ERegion.FRYSLAN);
+		addPort(ERegion.GELDERSE_VALLEI);
+		addPort(ERegion.DELFLAND);
 
 		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
@@ -93,8 +95,8 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-		getFlow().addLast(ActionChoose.class);
-//		getFlow().addLast(ActionChooseMoveToRegion.class);
+//		getFlow().addLast(ActionChoose.class);
+		getFlow().addLast(ActionChooseMoveToRegion.class);
 		proceedToNextGameState();
 
 	}

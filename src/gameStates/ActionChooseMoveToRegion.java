@@ -1,7 +1,7 @@
 package gameStates;
 
 import enums.EAction;
-import functions.FMoveTargetRegions;
+import functions.FSetUpMoveTargetRegions;
 import gameStatesDefault.GameState;
 import model.Actions;
 
@@ -11,7 +11,7 @@ public class ActionChooseMoveToRegion extends GameState {
 	public void execute() {
 
 		Actions.INSTANCE.showAction(EAction.MOVE);
-		FMoveTargetRegions.INSTANCE.execute();
+		FSetUpMoveTargetRegions.INSTANCE.execute();
 		
 		
 
