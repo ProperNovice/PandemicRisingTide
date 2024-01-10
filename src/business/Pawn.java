@@ -16,7 +16,7 @@ public class Pawn implements IImageViewAble {
 		this.eRole = eRole;
 
 		String fileName = "pawns/";
-		fileName += this.eRole.getPawnFileName();
+		fileName += this.eRole.toString();
 		fileName += ".png";
 
 		new ImageView(fileName, ELayerZ.MAP_PAWNS, this);

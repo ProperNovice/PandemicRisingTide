@@ -14,8 +14,7 @@ public class ActionChoose extends GameState {
 
 		createHashMap();
 
-		Actions.INSTANCE.showAction(EAction.MOVE);
-		Actions.INSTANCE.selectAction(EAction.MOVE);
+		showAndSelectAction(EAction.MOVE);
 
 	}
 
@@ -27,9 +26,16 @@ public class ActionChoose extends GameState {
 
 	}
 
+	private void showAndSelectAction(EAction eAction) {
+
+		Actions.INSTANCE.showAction(eAction);
+		Actions.INSTANCE.selectAction(eAction);
+
+	}
+
 	private void createHashMap() {
 
-		this.hashMap.put(EAction.MOVE, ActionChooseMove.class);
+		this.hashMap.put(EAction.MOVE, ActionChooseMoveToRegion.class);
 
 	}
 

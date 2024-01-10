@@ -22,6 +22,7 @@ import javafx.scene.input.KeyCode;
 import model.Adjacencies;
 import model.Cards;
 import model.DiscardPileDikeFailure;
+import model.Pawns;
 import model.Players;
 import model.Regions;
 import utils.ArrayList;
@@ -52,10 +53,6 @@ public class JUnit extends GameState {
 
 		addPort(ERegion.FRYSLAN);
 
-		addPawn(ERole.CARPENTER, ERegion.FRYSLAN);
-		addPawn(ERole.SANITATION_ENGINEER, ERegion.FRYSLAN);
-		addPawn(ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
-
 		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
@@ -69,7 +66,7 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
-		playerRole(EPlayer.TOP, ERole.CARPENTER);
+		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
@@ -79,14 +76,14 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
-		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR);
+		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.IJSSELDELTA);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-//		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
 //		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
@@ -96,7 +93,8 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.DIKE_FAIL);
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
-		getFlow().addLast(ActionChooseMove.class);
+		getFlow().addLast(ActionChoose.class);
+//		getFlow().addLast(ActionChooseMoveToRegion.class);
 		proceedToNextGameState();
 
 	}
@@ -162,17 +160,6 @@ public class JUnit extends GameState {
 
 	}
 
-	public void addPawn(ERole eRole, ERegion eRegion) {
-
-		Region region = Regions.INSTANCE.getRegion(eRegion);
-
-		region.getPawns().getArrayList().addLast(new Pawn(eRole));
-		region.getPawns().getArrayList().getLast().getImageView().setVisible(true);
-
-		region.relocateComponents();
-
-	}
-
 	public void addDike(ERegion eRegionA, ERegion eRegionB) {
 
 		ArrayList<Adjacency> list = Adjacencies.INSTANCE.getAdjacenciesOfRegion(eRegionA);
@@ -228,7 +215,7 @@ public class JUnit extends GameState {
 
 	}
 
-	public void playerRole(EPlayer ePlayer, ERole eRole) {
+	public void playerRole(EPlayer ePlayer, ERole eRole, ERegion eRegion) {
 
 		Player player = null;
 
@@ -249,6 +236,13 @@ public class JUnit extends GameState {
 
 		player.getCardRole().getArrayList().addLast(cardRole);
 		player.getCardRole().relocateImageViews();
+
+		Pawn pawn = Pawns.INSTANCE.getPawn(eRole);
+		pawn.getImageView().setVisible(true);
+
+		Region region = Regions.INSTANCE.getRegion(eRegion);
+		region.getPawns().getArrayList().addLast(pawn);
+		region.relocateComponents();
 
 	}
 
