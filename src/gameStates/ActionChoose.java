@@ -13,11 +13,7 @@ public class ActionChoose extends GameState {
 	public void execute() {
 
 		createHashMap();
-
 		SetActionsAvailable.INSTANCE.execute();
-		
-		EAction.BUILD_PUMPING_STATION.showAndSelect();
-		EAction.BUILD_PORT.showAndSelect();
 
 	}
 

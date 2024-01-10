@@ -7,9 +7,9 @@ import business.Pawn;
 import business.Player;
 import business.PopulationCube;
 import business.Port;
+import business.PumpingStation;
 import business.Region;
 import business.WaterCube;
-import business.PumpingStation;
 import cards.CardDikeFailure;
 import cards.CardPlayerRegion;
 import cards.CardRole;
@@ -44,13 +44,13 @@ public class JUnit extends GameState {
 		addWaterCubes(2, ERegion.RIJN_EN_IJSSEL);
 		addWaterCubes(3, ERegion.ZUIDERZEE);
 
-		addPopulations(3, ERegion.FRYSLAN);
+//		addPopulations(3, ERegion.FRYSLAN);
 
-		addWaterPump(ERegion.FRYSLAN);
+//		addWaterPump(ERegion.FRYSLAN);
 		addWaterPump(ERegion.IJSSELDELTA);
 		addWaterPump(ERegion.FLEVOLAND);
 
-		addPort(ERegion.FRYSLAN);
+//		addPort(ERegion.FRYSLAN);
 		addPort(ERegion.GELDERSE_VALLEI);
 		addPort(ERegion.DELFLAND);
 
