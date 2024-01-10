@@ -22,6 +22,7 @@ public class ActionChoose extends GameState {
 	protected void handleActionSelectedPressed(EAction eAction) {
 
 		getFlow().addFirst(this.hashMap.getValue(eAction));
+
 		proceedToNextGameState();
 
 	}

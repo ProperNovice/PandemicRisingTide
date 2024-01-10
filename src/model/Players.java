@@ -9,6 +9,7 @@ public enum Players {
 	INSTANCE;
 
 	private ArrayList<Player> list = new ArrayList<>();
+	
 
 	private Players() {
 		createList();

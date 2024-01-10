@@ -96,9 +96,13 @@ public class JUnit extends GameState {
 
 //		getFlow().addLast(ActionChoose.class);
 
-//		Players.INSTANCE.changePlayerOrder();
-		
-		getFlow().addLast(ActionChooseMoveToRegion.class);
+		Players.INSTANCE.changePlayerOrder();
+
+		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
+
+		getFlow().addLast(ActionChoose.class);
+		getFlow().addLast(ActionsRemainingReduce.class);
+//		getFlow().addLast(ActionChooseMoveToRegion.class);
 		proceedToNextGameState();
 
 	}

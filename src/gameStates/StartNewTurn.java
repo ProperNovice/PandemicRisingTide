@@ -2,6 +2,7 @@ package gameStates;
 
 import functions.FSelectWaterPumpsAvailableToOperate;
 import gameStatesDefault.GameState;
+import model.Players;
 
 public class StartNewTurn extends GameState {
 
@@ -9,6 +10,9 @@ public class StartNewTurn extends GameState {
 	public void execute() {
 
 		FSelectWaterPumpsAvailableToOperate.INSTANCE.startNewTurn();
+
+		Players.INSTANCE.changePlayerOrder();
+		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
 
 	}
 

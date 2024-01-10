@@ -18,7 +18,7 @@ public enum Credentials {
 
 	public double hPortWaterPumpMap, hWaterPopulationCubeMap;
 	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dWaterPump, dPort, dPopulation,
-			dPawn;
+			dPawn, dActionsRemaining;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cWaterPumps, cPorts, cPopulation,
 			cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure, cPlayerTop,
 			cPlayerBottom;
@@ -105,6 +105,11 @@ public enum Credentials {
 		// d population
 
 		this.dPopulation = this.dWaterCube.clone();
+
+		// d actions remaining
+
+		x = 80;
+		this.dActionsRemaining = new Vector2(x, x);
 
 		// c water cubes
 
