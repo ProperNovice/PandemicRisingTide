@@ -71,10 +71,10 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
-		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
-		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
 		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.IJSSELDELTA);
@@ -95,6 +95,8 @@ public class JUnit extends GameState {
 //		Actions.INSTANCE.showAction(EAction.WATER_FLOWS);
 
 //		getFlow().addLast(ActionChoose.class);
+
+		Players.INSTANCE.changePlayerOrder();
 		getFlow().addLast(ActionChooseMoveToRegion.class);
 		proceedToNextGameState();
 

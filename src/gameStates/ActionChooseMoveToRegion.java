@@ -12,8 +12,6 @@ public class ActionChooseMoveToRegion extends GameState {
 
 		Actions.INSTANCE.showAction(EAction.MOVE);
 		FSetUpMoveTargetRegions.INSTANCE.execute();
-		
-		
 
 	}
 

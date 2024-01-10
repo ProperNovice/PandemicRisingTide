@@ -1,9 +1,13 @@
 package functions;
 
 import business.Region;
+import cards.CardPlayer;
+import cards.CardPlayerRegion;
 import enums.ERegion;
 import model.Adjacencies;
+import model.Players;
 import utils.ArrayList;
+import utils.Logger;
 
 public enum FSetUpMoveTargetRegions {
 
@@ -19,12 +23,57 @@ public enum FSetUpMoveTargetRegions {
 		driveFerry();
 		returnToPort();
 		sail();
+		charterBoat();
 
 		selectRegions();
+		printRegions();
+
+	}
+
+	private void charterBoat() {
+
+		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
+
+			if (!(cardPlayer instanceof CardPlayerRegion))
+				continue;
+
+			CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
+			ERegion eRegionCardPlayer = cardPlayerRegion.getERegion();
+
+			if (!eRegionCardPlayer.equals(this.eRegionPlayer))
+				continue;
+
+			for (ERegion eRegion : ERegion.values()) {
+
+				Region region = eRegion.getRegion();
+
+				if (region.isSea())
+					continue;
+
+				if (region.isHighElevated())
+					continue;
+
+				addERegion(eRegion, this.usingCard);
+
+			}
+
+		}
 
 	}
 
 	private void sail() {
+
+		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
+
+			if (!(cardPlayer instanceof CardPlayerRegion))
+				continue;
+
+			CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
+			ERegion eRegion = cardPlayerRegion.getERegion();
+
+			addERegion(eRegion, this.usingCard);
+
+		}
 
 	}
 
@@ -43,16 +92,6 @@ public enum FSetUpMoveTargetRegions {
 
 	}
 
-	private void selectRegions() {
-
-		for (ERegion eRegion : this.free)
-			eRegion.getRegion().setSelected();
-
-		for (ERegion eRegion : this.usingCard)
-			eRegion.getRegion().setSelected();
-
-	}
-
 	private void driveFerry() {
 
 		ArrayList<ERegion> list = Adjacencies.INSTANCE.getAdjacentERegions(this.eRegionPlayer);
@@ -67,6 +106,40 @@ public enum FSetUpMoveTargetRegions {
 			addERegion(eRegion, this.free);
 
 		}
+
+	}
+
+	private void selectRegions() {
+
+		for (ERegion eRegion : this.free)
+			eRegion.getRegion().setSelected();
+
+		for (ERegion eRegion : this.usingCard)
+			eRegion.getRegion().setSelected();
+
+	}
+
+	private void printRegions() {
+
+		Logger.INSTANCE.logNewLine("printing regions to move");
+
+		// free
+
+		Logger.INSTANCE.log("/* free");
+
+		for (ERegion eRegion : this.free)
+			Logger.INSTANCE.log(eRegion);
+
+		Logger.INSTANCE.logNewLine("*/");
+
+		// using card
+
+		Logger.INSTANCE.log("/* using card");
+
+		for (ERegion eRegion : this.usingCard)
+			Logger.INSTANCE.log(eRegion);
+
+		Logger.INSTANCE.logNewLine("*/");
 
 	}
 
@@ -94,6 +167,14 @@ public enum FSetUpMoveTargetRegions {
 		this.eRegionPlayer = FGetERegionContainingPawn.INSTANCE
 				.getERegionContainingActivePlayerPawn();
 
+	}
+
+	public ArrayList<ERegion> getFreeERegions() {
+		return this.free;
+	}
+
+	public ArrayList<ERegion> getUsingCardERegions() {
+		return this.usingCard;
 	}
 
 }
