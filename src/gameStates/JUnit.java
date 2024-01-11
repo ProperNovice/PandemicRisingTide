@@ -24,7 +24,6 @@ import model.Cards;
 import model.DiscardPileDikeFailure;
 import model.Pawns;
 import model.Players;
-import model.PumpingStations;
 import utils.ArrayList;
 
 public class JUnit extends GameState {
@@ -33,8 +32,6 @@ public class JUnit extends GameState {
 	public void execute() {
 
 		handleM();
-		
-		PumpingStations.INSTANCE.getList().getArrayList().clear();
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
@@ -109,7 +106,6 @@ public class JUnit extends GameState {
 
 		getFlow().addLast(ActionChoose.class);
 		getFlow().addLast(ActionsRemainingReduce.class);
-//		getFlow().addLast(ActionChooseMoveToRegion.class);
 		proceedToNextGameState();
 
 	}

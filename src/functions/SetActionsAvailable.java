@@ -18,6 +18,35 @@ public enum SetActionsAvailable {
 		pumpWater();
 		buildDike();
 		buildPumpingStation();
+		buildPort();
+
+	}
+
+	private void buildPort() {
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		Region region = eRegion.getRegion();
+
+		if (!region.getPorts().getArrayList().isEmpty())
+			return;
+
+		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
+
+			if (!(cardPlayer instanceof CardPlayerRegion))
+				continue;
+
+			CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
+
+			if (!eRegion.equals(cardPlayerRegion.getERegion()))
+				continue;
+
+			EAction.BUILD_PORT.showAndSelect();
+
+			return;
+
+		}
 
 	}
 

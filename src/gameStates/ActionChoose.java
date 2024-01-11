@@ -31,6 +31,7 @@ public class ActionChoose extends GameState {
 		this.hashMap.put(EAction.PUMP_WATER, ActionPumpWaterFromPlayerActiveRegion.class);
 		this.hashMap.put(EAction.BUILD_DIKE, ActionBuildDike.class);
 		this.hashMap.put(EAction.BUILD_PUMPING_STATION, ActionBuildPumpingStation.class);
+		this.hashMap.put(EAction.BUILD_PORT, ActionBuildPort.class);
 
 	}
 
