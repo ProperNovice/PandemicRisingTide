@@ -24,12 +24,12 @@ public enum Flow {
 
 		}
 
-		Class<? extends GameState> aGameStateClass = this.flow.removeFirst();
+		Class<? extends GameState> gameStateClass = this.flow.removeFirst();
 
 		Logger.INSTANCE.log("executing gamestate");
-		Logger.INSTANCE.logNewLine(aGameStateClass.getSimpleName());
+		Logger.INSTANCE.logNewLine(gameStateClass.getSimpleName());
 
-		this.gameStateCurrent = getGameState(aGameStateClass);
+		this.gameStateCurrent = getGameState(gameStateClass);
 		this.gameStateCurrent.execute();
 
 	}
