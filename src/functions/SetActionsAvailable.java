@@ -19,6 +19,24 @@ public enum SetActionsAvailable {
 		buildDike();
 		buildPumpingStation();
 		buildPort();
+		shareResources();
+
+	}
+
+	private void shareResources() {
+
+		ERegion eRegionActive = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		ERegion eRegionPassive = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnPassive();
+
+		if (!eRegionActive.equals(eRegionPassive))
+			return;
+
+		if (PlayerHasCardWithERegion.INSTANCE.playerActiveHasCardWithERegion(eRegionActive)
+				|| PlayerHasCardWithERegion.INSTANCE.playerPassiveHasCardWithERegion(eRegionActive))
+			EAction.SHARE_RESOURCES.showAndSelect();
 
 	}
 
