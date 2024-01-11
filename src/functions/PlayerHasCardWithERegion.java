@@ -18,23 +18,6 @@ public enum PlayerHasCardWithERegion {
 		return playerHasCardWithERegion(eRegion, Players.INSTANCE.getPassivePlayer()) != null;
 	}
 
-	public CardPlayer removePlayerActiveCardWithERegion(ERegion eRegion) {
-		return removeCardFromPlayer(eRegion, Players.INSTANCE.getActivePlayer());
-	}
-
-	public CardPlayer removePlayerPassiveCardWithERegion(ERegion eRegion) {
-		return removeCardFromPlayer(eRegion, Players.INSTANCE.getPassivePlayer());
-	}
-
-	private CardPlayer removeCardFromPlayer(ERegion eRegion, Player player) {
-
-		CardPlayer cardPlayer = playerHasCardWithERegion(eRegion, player);
-		player.getCardsPlayer().getArrayList().remove(cardPlayer);
-
-		return cardPlayer;
-
-	}
-
 	private CardPlayer playerHasCardWithERegion(ERegion eRegion, Player player) {
 
 		for (CardPlayer cardPlayer : player.getCardsPlayer()) {
