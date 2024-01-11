@@ -150,8 +150,8 @@ public class JUnit extends GameState {
 
 		Region region = eRegion.getRegion();
 
-		region.getPumpingStations().getArrayList().addLast(new PumpingStation());
-		region.getPumpingStations().getArrayList().getLast().getImageView()
+		region.getPumpingStation().getArrayList().addLast(new PumpingStation());
+		region.getPumpingStation().getArrayList().getLast().getImageView()
 				.setHeight(Credentials.INSTANCE.hPortWaterPumpMap);
 
 		region.relocateComponents();
@@ -162,8 +162,8 @@ public class JUnit extends GameState {
 
 		Region region = eRegion.getRegion();
 
-		region.getPorts().getArrayList().addLast(new Port());
-		region.getPorts().getArrayList().getLast().getImageView()
+		region.getPort().getArrayList().addLast(new Port());
+		region.getPort().getArrayList().getLast().getImageView()
 				.setHeight(Credentials.INSTANCE.hPortWaterPumpMap);
 
 		region.relocateComponents();

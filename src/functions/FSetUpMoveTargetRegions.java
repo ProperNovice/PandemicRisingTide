@@ -80,7 +80,7 @@ public enum FSetUpMoveTargetRegions {
 
 			Region region = eRegion.getRegion();
 
-			if (region.getPorts().getArrayList().isEmpty())
+			if (region.getPort().getArrayList().isEmpty())
 				continue;
 
 			addERegion(eRegion, this.free);

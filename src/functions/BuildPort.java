@@ -18,7 +18,7 @@ public enum BuildPort {
 
 	public void executeFromAnotherRegion(Region region) {
 
-		Port port = region.getPorts().getArrayList().removeFirst();
+		Port port = region.getPort().getArrayList().removeFirst();
 		region.relocateComponents();
 
 		addPumpingStationToActivePlayerERegion(port);
@@ -32,7 +32,7 @@ public enum BuildPort {
 
 		Region region = eRegion.getRegion();
 
-		region.getPorts().getArrayList().addLast(port);
+		region.getPort().getArrayList().addLast(port);
 		region.relocateComponents();
 
 	}

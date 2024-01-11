@@ -47,7 +47,7 @@ public enum SetActionsAvailable {
 
 		Region region = eRegion.getRegion();
 
-		if (!region.getPorts().getArrayList().isEmpty())
+		if (!region.getPort().getArrayList().isEmpty())
 			return;
 
 		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
@@ -75,7 +75,7 @@ public enum SetActionsAvailable {
 
 		Region region = eRegion.getRegion();
 
-		if (!region.getPumpingStations().getArrayList().isEmpty())
+		if (!region.getPumpingStation().getArrayList().isEmpty())
 			return;
 
 		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {

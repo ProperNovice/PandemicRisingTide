@@ -20,7 +20,7 @@ public enum BuildPumpingStation {
 
 	public void executeFromAnotherRegion(Region region) {
 
-		PumpingStation pumpingStation = region.getPumpingStations().getArrayList().removeFirst();
+		PumpingStation pumpingStation = region.getPumpingStation().getArrayList().removeFirst();
 		region.relocateComponents();
 
 		addPumpingStationToActivePlayerERegion(pumpingStation);
@@ -34,7 +34,7 @@ public enum BuildPumpingStation {
 
 		Region region = eRegion.getRegion();
 
-		region.getPumpingStations().getArrayList().addLast(pumpingStation);
+		region.getPumpingStation().getArrayList().addLast(pumpingStation);
 		region.relocateComponents();
 
 	}

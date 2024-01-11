@@ -292,7 +292,7 @@ public abstract class GameState {
 
 			Region region = eRegion.getRegion();
 
-			if (region.getPumpingStations().getArrayList().contains(waterPump))
+			if (region.getPumpingStation().getArrayList().contains(waterPump))
 				handleRegionPressed(eRegion, region);
 
 		}
@@ -305,7 +305,7 @@ public abstract class GameState {
 
 			Region region = eRegion.getRegion();
 
-			if (region.getPorts().getArrayList().contains(port))
+			if (region.getPort().getArrayList().contains(port))
 				handleRegionPressed(eRegion, region);
 
 		}

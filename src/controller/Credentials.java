@@ -16,13 +16,13 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public double hPortWaterPumpMap, hWaterPopulationCubeMap;
-	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dPumpingStation, dPort, dPopulation,
-			dPawn, dActionsRemaining;
-	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes,
-			cPumpingStations, cPorts, cPopulation,
-			cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure, cPlayerTop,
-			cPlayerBottom;
+	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hHydraulicStructure;
+	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dPumpingStation, dPort,
+			dPopulation, dPawn, dActionsRemaining;
+	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cPumpingStations, cPorts,
+			cPopulation, cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure,
+			cPlayerTop, cPlayerBottom, cHydraulicStructureGreen, cHydraulicStructureOrange,
+			cHydraulicStructurePurple, cHydraulicStructureYellow;
 
 	private Credentials() {
 
@@ -166,6 +166,10 @@ public enum Credentials {
 		x = 54 * y / 100;
 		this.dPawn = new Vector2(x, y);
 
+		// h hydraulic structure
+
+		this.hHydraulicStructure = this.selectEventHandlerAbleDimension;
+
 		// c deck player
 
 		x = 172;
@@ -205,6 +209,30 @@ public enum Credentials {
 		this.cPlayerBottom = this.cPlayerTop.clone();
 		this.cPlayerBottom.y += 2 * this.dCard.y;
 		this.cPlayerBottom.y += this.dGapBetweenComponents.y;
+
+		// c hydraulic structure green
+
+		x = 658;
+		y = 2027;
+		this.cHydraulicStructureGreen = new Vector2(x, y);
+
+		// c hydraulic structure orange
+
+		x = 818;
+		y = 2027;
+		this.cHydraulicStructureOrange = new Vector2(x, y);
+
+		// c hydraulic structure purple
+
+		x = 978;
+		y = 2027;
+		this.cHydraulicStructurePurple = new Vector2(x, y);
+
+		// c hydraulic structure yellow
+
+		x = 1038;
+		y = 2027;
+		this.cHydraulicStructureYellow = new Vector2(x, y);
 
 	}
 

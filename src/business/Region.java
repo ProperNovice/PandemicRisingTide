@@ -20,8 +20,9 @@ public class Region implements ISelectCoordinatesAble {
 	private ListImageViewAbles<PopulationCube> populations = new ListImageViewAbles<>();
 	private ListImageViewAbles<WaterCube> waterCubes = new ListImageViewAbles<>();
 	private ListImageViewAbles<PumpingStation> pumpingStations = new ListImageViewAbles<>();
-	private ListImageViewAbles<Port> ports = new ListImageViewAbles<>();
+	private ListImageViewAbles<Port> port = new ListImageViewAbles<>();
 	private ListImageViewAbles<Pawn> pawns = new ListImageViewAbles<>();
+	private ListImageViewAbles<HydraulicStructure> hydraulicStructure = new ListImageViewAbles<>();
 
 	public Region(ERegion eRegion, double x, double y) {
 		this(eRegion, x, y, null);
@@ -59,8 +60,9 @@ public class Region implements ISelectCoordinatesAble {
 		this.populations.relocateImageViews();
 		this.waterCubes.relocateImageViews();
 		this.pumpingStations.relocateImageViews();
-		this.ports.relocateImageViews();
+		this.port.relocateImageViews();
 		this.pawns.relocateImageViews();
+		this.hydraulicStructure.relocateImageViews();
 
 	}
 
@@ -73,10 +75,10 @@ public class Region implements ISelectCoordinatesAble {
 
 		double totalX = 0, totalGaps = -1, x;
 
-		if (!this.ports.getArrayList().isEmpty()) {
+		if (!this.port.getArrayList().isEmpty()) {
 
 			totalGaps++;
-			totalX += this.ports.getArrayList().getFirst().getImageView().getWidth();
+			totalX += this.port.getArrayList().getFirst().getImageView().getWidth();
 
 		}
 
@@ -92,12 +94,12 @@ public class Region implements ISelectCoordinatesAble {
 		x = this.coordinates.x;
 		x -= totalX / 2;
 
-		if (!this.ports.getArrayList().isEmpty()) {
+		if (!this.port.getArrayList().isEmpty()) {
 
-			x += this.ports.getArrayList().getFirst().getImageView().getWidth() / 2;
-			this.ports.getListCredentials().coordinatesList.x = x;
+			x += this.port.getArrayList().getFirst().getImageView().getWidth() / 2;
+			this.port.getListCredentials().coordinatesList.x = x;
 
-			x += this.ports.getArrayList().getFirst().getImageView().getWidth() / 2;
+			x += this.port.getArrayList().getFirst().getImageView().getWidth() / 2;
 			x += Credentials.INSTANCE.dGapBetweenComponents.x;
 
 		}
@@ -161,8 +163,6 @@ public class Region implements ISelectCoordinatesAble {
 
 	private void createLists() {
 
-		this.waterCubes = new ListImageViewAbles<>();
-
 		// populations
 
 		this.populations.getListCredentials().coordinatesList.y = this.coordinates.y;
@@ -186,14 +186,18 @@ public class Region implements ISelectCoordinatesAble {
 
 		// ports
 
-		this.ports.getListCredentials().coordinatesList.y = this.coordinates.y;
-		this.ports.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
+		this.port.getListCredentials().coordinatesList.y = this.coordinates.y;
+		this.port.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 
 		// pawns
 
 		this.pawns.getListCredentials().coordinatesList = this.coordinates;
 		this.pawns.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.pawns.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.PIVOT;
+
+		// hydraulic structure
+
+		this.hydraulicStructure.getListCredentials().coordinatesList = this.coordinates;
 
 	}
 
@@ -205,16 +209,20 @@ public class Region implements ISelectCoordinatesAble {
 		return this.waterCubes;
 	}
 
-	public ListImageViewAbles<PumpingStation> getPumpingStations() {
+	public ListImageViewAbles<PumpingStation> getPumpingStation() {
 		return this.pumpingStations;
 	}
 
-	public ListImageViewAbles<Port> getPorts() {
-		return this.ports;
+	public ListImageViewAbles<Port> getPort() {
+		return this.port;
 	}
 
 	public ListImageViewAbles<Pawn> getPawns() {
 		return this.pawns;
+	}
+
+	public ListImageViewAbles<HydraulicStructure> getHydraulicStructure() {
+		return this.hydraulicStructure;
 	}
 
 	public void setIsSea(boolean value) {

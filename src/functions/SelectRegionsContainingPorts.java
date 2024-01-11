@@ -13,7 +13,7 @@ public enum SelectRegionsContainingPorts {
 
 			Region region = eRegion.getRegion();
 
-			if (region.getPorts().getArrayList().isEmpty())
+			if (region.getPort().getArrayList().isEmpty())
 				continue;
 
 			region.setSelected();
