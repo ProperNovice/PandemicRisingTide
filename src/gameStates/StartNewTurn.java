@@ -1,6 +1,6 @@
 package gameStates;
 
-import functions.SelectWaterPumpsAvailableToOperate;
+import functions.SelectPumpingStationsAvailableToOperate;
 import gameStatesDefault.GameState;
 import model.Players;
 
@@ -9,7 +9,7 @@ public class StartNewTurn extends GameState {
 	@Override
 	public void execute() {
 
-		SelectWaterPumpsAvailableToOperate.INSTANCE.startNewTurn();
+		SelectPumpingStationsAvailableToOperate.INSTANCE.startNewTurn();
 
 		Players.INSTANCE.changePlayerOrder();
 		Players.INSTANCE.getActivePlayer().resetActionsRemaining();

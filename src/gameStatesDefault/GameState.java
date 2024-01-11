@@ -7,9 +7,9 @@ import business.Pawn;
 import business.Player;
 import business.PopulationCube;
 import business.Port;
+import business.PumpingStation;
 import business.Region;
 import business.WaterCube;
-import business.PumpingStation;
 import cards.Card;
 import cards.CardPlayer;
 import cards.CardRole;
@@ -191,7 +191,11 @@ public abstract class GameState {
 			return;
 
 		Actions.INSTANCE.concealActions();
-		Logger.INSTANCE.logNewLine("action pressed - " + eAction);
+
+		Logger.INSTANCE.log("action pressed");
+		Logger.INSTANCE.log(eAction);
+		Logger.INSTANCE.newLine();
+
 		handleActionSelectedPressed(eAction);
 
 	}

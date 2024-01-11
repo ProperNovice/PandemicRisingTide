@@ -1,9 +1,12 @@
 package functions;
 
 import business.Region;
+import cards.CardPlayer;
+import cards.CardPlayerRegion;
 import enums.EAction;
 import enums.ERegion;
 import model.Dikes;
+import model.Players;
 
 public enum SetActionsAvailable {
 
@@ -14,6 +17,35 @@ public enum SetActionsAvailable {
 		move();
 		pumpWater();
 		buildDike();
+		buildPumpingStation();
+
+	}
+
+	private void buildPumpingStation() {
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		Region region = eRegion.getRegion();
+
+		if (!region.getPumpingStations().getArrayList().isEmpty())
+			return;
+
+		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
+
+			if (!(cardPlayer instanceof CardPlayerRegion))
+				continue;
+
+			CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
+
+			if (!eRegion.equals(cardPlayerRegion.getERegion()))
+				continue;
+
+			EAction.BUILD_PUMPING_STATION.showAndSelect();
+
+			return;
+
+		}
 
 	}
 
@@ -34,10 +66,6 @@ public enum SetActionsAvailable {
 
 	}
 
-	private void move() {
-		EAction.MOVE.showAndSelect();
-	}
-
 	private void pumpWater() {
 
 		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
@@ -50,6 +78,10 @@ public enum SetActionsAvailable {
 
 		EAction.PUMP_WATER.showAndSelect();
 
+	}
+
+	private void move() {
+		EAction.MOVE.showAndSelect();
 	}
 
 }

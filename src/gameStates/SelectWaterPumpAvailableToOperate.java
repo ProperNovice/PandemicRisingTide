@@ -3,7 +3,7 @@ package gameStates;
 import business.Region;
 import enums.EAction;
 import enums.ERegion;
-import functions.SelectWaterPumpsAvailableToOperate;
+import functions.SelectPumpingStationsAvailableToOperate;
 import functions.SelectWaterRegionsWithWaterPump;
 import gameStatesDefault.GameState;
 import model.Actions;
@@ -22,7 +22,7 @@ public class SelectWaterPumpAvailableToOperate extends GameState {
 
 		Actions.INSTANCE.concealActions();
 
-		SelectWaterPumpsAvailableToOperate.INSTANCE.setWaterPumpAlreadyOperated(eRegion);
+		SelectPumpingStationsAvailableToOperate.INSTANCE.setWaterPumpAlreadyOperated(eRegion);
 		SelectWaterRegionsWithWaterPump.INSTANCE.execute(eRegion);
 
 		proceedToNextGameState();

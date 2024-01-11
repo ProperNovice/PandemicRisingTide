@@ -4,7 +4,7 @@ import business.Region;
 import enums.ERegion;
 import utils.ArrayList;
 
-public enum SelectWaterPumpsAvailableToOperate {
+public enum SelectPumpingStationsAvailableToOperate {
 
 	INSTANCE;
 

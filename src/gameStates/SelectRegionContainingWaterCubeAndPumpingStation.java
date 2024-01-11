@@ -7,7 +7,7 @@ import functions.RemoveWaterFromRegion;
 import gameStatesDefault.GameState;
 import model.Actions;
 
-public class SelectWaterRegionsWithWaterPump extends GameState {
+public class SelectRegionContainingWaterCubeAndPumpingStation extends GameState {
 
 	@Override
 	public void execute() {

@@ -1,6 +1,6 @@
 package gameStates;
 
-import functions.SelectWaterPumpsAvailableToOperate;
+import functions.SelectPumpingStationsAvailableToOperate;
 import gameStatesDefault.GameState;
 
 public class ActionOperatePumps extends GameState {
@@ -8,11 +8,11 @@ public class ActionOperatePumps extends GameState {
 	@Override
 	public void execute() {
 
-		SelectWaterPumpsAvailableToOperate.INSTANCE.execute();
+		SelectPumpingStationsAvailableToOperate.INSTANCE.execute();
 
-		if (SelectWaterPumpsAvailableToOperate.INSTANCE.isAvailableWaterPumpToOperate())
+		if (SelectPumpingStationsAvailableToOperate.INSTANCE.isAvailableWaterPumpToOperate())
 			getFlow().addAllFirst(SelectWaterPumpAvailableToOperate.class,
-					SelectWaterRegionsWithWaterPump.class, ActionOperatePumps.class);
+					SelectRegionContainingWaterCubeAndPumpingStation.class, ActionOperatePumps.class);
 
 		proceedToNextGameState();
 
