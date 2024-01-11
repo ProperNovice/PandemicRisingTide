@@ -18,8 +18,10 @@ public enum Flow {
 	public void proceed() {
 
 		if (this.flow.isEmpty()) {
+
 			Logger.INSTANCE.logNewLine("flow is empty");
 			return;
+
 		}
 
 		Class<? extends GameState> aGameStateClass = this.flow.removeFirst();
