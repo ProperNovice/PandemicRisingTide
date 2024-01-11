@@ -1,11 +1,11 @@
 package gameStates;
 
 import enums.EAction;
-import functions.FWaterFlows;
+import functions.WaterFlows;
 import gameStatesDefault.GameState;
 import model.Actions;
 
-public class WaterFlows extends GameState {
+public class ActionWaterFlows extends GameState {
 
 	@Override
 	public void execute() {
@@ -18,7 +18,7 @@ public class WaterFlows extends GameState {
 	protected void handleActionSelectedPressed(EAction eAction) {
 
 		Actions.INSTANCE.concealActions();
-		FWaterFlows.INSTANCE.execute();
+		WaterFlows.INSTANCE.execute();
 		proceedToNextGameState();
 
 	}

@@ -8,14 +8,14 @@ import model.Adjacencies;
 import utils.ArrayList;
 import utils.Logger;
 
-public enum FWaterFlows {
+public enum WaterFlows {
 
 	INSTANCE;
 
 	private ArrayList<ERegion> listSource = new ArrayList<>();
 	private ArrayList<ERegion> listTarget = new ArrayList<>();
 
-	private FWaterFlows() {
+	private WaterFlows() {
 
 	}
 

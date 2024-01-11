@@ -9,7 +9,7 @@ import model.Players;
 import utils.ArrayList;
 import utils.Logger;
 
-public enum FSetUpMoveTargetRegions {
+public enum SetUpMoveTargetRegions {
 
 	INSTANCE;
 
