@@ -198,6 +198,7 @@ public class Region implements ISelectCoordinatesAble {
 		// hydraulic structure
 
 		this.hydraulicStructure.getListCredentials().coordinatesList = this.coordinates;
+		this.hydraulicStructure.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 
 	}
 

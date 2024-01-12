@@ -3,6 +3,7 @@ package gameStates;
 import business.Adjacency;
 import business.Dike;
 import business.DikeLocation;
+import business.HydraulicStructure;
 import business.Pawn;
 import business.Player;
 import business.PopulationCube;
@@ -24,6 +25,7 @@ import model.Cards;
 import model.DiscardPileDikeFailure;
 import model.Pawns;
 import model.Players;
+import model.Regions;
 import utils.ArrayList;
 
 public class JUnit extends GameState {
@@ -100,6 +102,22 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ActionChoose.class);
 
 //		Players.INSTANCE.changePlayerOrder();
+
+		Regions.INSTANCE.getRegion(ERegion.ROER_EN_OVERMAAS).getHydraulicStructure().getArrayList()
+				.addLast(new HydraulicStructure());
+		Regions.INSTANCE.getRegion(ERegion.ROER_EN_OVERMAAS).relocateComponents();
+		
+		Regions.INSTANCE.getRegion(ERegion.RIJN_EN_IJSSEL).getHydraulicStructure().getArrayList()
+		.addLast(new HydraulicStructure());
+		Regions.INSTANCE.getRegion(ERegion.RIJN_EN_IJSSEL).relocateComponents();
+		
+		Regions.INSTANCE.getRegion(ERegion.SCHOUWEN_DUIVELAND).getHydraulicStructure().getArrayList()
+		.addLast(new HydraulicStructure());
+		Regions.INSTANCE.getRegion(ERegion.SCHOUWEN_DUIVELAND).relocateComponents();
+		
+		Regions.INSTANCE.getRegion(ERegion.WIERINGERMEER).getHydraulicStructure().getArrayList()
+		.addLast(new HydraulicStructure());
+		Regions.INSTANCE.getRegion(ERegion.WIERINGERMEER).relocateComponents();
 
 		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
 

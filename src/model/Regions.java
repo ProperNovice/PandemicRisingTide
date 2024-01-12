@@ -1,6 +1,7 @@
 package model;
 
 import business.Region;
+import controller.Credentials;
 import enums.EColor;
 import enums.ERegion;
 import utils.ArrayList;
@@ -105,6 +106,24 @@ public enum Regions {
 		getRegion(ERegion.SCHOUWEN_DUIVELAND).setCanBuildHydraulicStructure();
 		getRegion(ERegion.ROER_EN_OVERMAAS).setCanBuildHydraulicStructure();
 		getRegion(ERegion.RIJN_EN_IJSSEL).setCanBuildHydraulicStructure();
+
+		// hydraulic structure building location
+
+		getRegion(ERegion.FRYSLAN).getHydraulicStructure()
+				.getListCredentials().coordinatesList = Credentials.INSTANCE.cHydraulicStructurePurpleBuilding
+						.clone();
+		getRegion(ERegion.FRYSLAN).getHydraulicStructure()
+				.getListCredentials().coordinatesList.x += Credentials.INSTANCE.gapBetweenBorders;
+		getRegion(ERegion.FRYSLAN).getHydraulicStructure()
+				.getListCredentials().coordinatesList.y += Credentials.INSTANCE.gapBetweenBorders;
+
+		getRegion(ERegion.WIERINGERMEER).getHydraulicStructure()
+				.getListCredentials().coordinatesList = Credentials.INSTANCE.cHydraulicStructurePurpleBuilding
+						.clone();
+		getRegion(ERegion.WIERINGERMEER).getHydraulicStructure()
+				.getListCredentials().coordinatesList.x += Credentials.INSTANCE.gapBetweenBorders;
+		getRegion(ERegion.WIERINGERMEER).getHydraulicStructure()
+				.getListCredentials().coordinatesList.y += Credentials.INSTANCE.gapBetweenBorders;
 
 	}
 

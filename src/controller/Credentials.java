@@ -22,7 +22,7 @@ public enum Credentials {
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cPumpingStations, cPorts,
 			cPopulation, cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure,
 			cPlayerTop, cPlayerBottom, cHydraulicStructureGreen, cHydraulicStructureOrange,
-			cHydraulicStructurePurple, cHydraulicStructureYellow;
+			cHydraulicStructurePurple, cHydraulicStructureYellow, cHydraulicStructurePurpleBuilding;
 
 	private Credentials() {
 
@@ -233,6 +233,12 @@ public enum Credentials {
 		x = 1038;
 		y = 2027;
 		this.cHydraulicStructureYellow = new Vector2(x, y);
+
+		// c hydraulic structure purple building
+
+		x = 1014;
+		y = 432;
+		this.cHydraulicStructurePurpleBuilding = new Vector2(x, y);
 
 	}
 

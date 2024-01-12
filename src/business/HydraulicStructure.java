@@ -10,7 +10,7 @@ public class HydraulicStructure implements IImageViewAble {
 	public HydraulicStructure() {
 
 		String fileName = "hydraulic structure.png";
-		new ImageView(fileName, ELayerZ.MAP_BUILDINGS, this);
+		new ImageView(fileName, ELayerZ.HYDRAULIC_STRUCTURE, this);
 		getImageView().setHeight(Credentials.INSTANCE.hHydraulicStructure);
 
 	}
