@@ -21,8 +21,9 @@ public enum Credentials {
 			dPopulation, dPawn, dActionsRemaining;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cPumpingStations, cPorts,
 			cPopulation, cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure,
-			cPlayerTop, cPlayerBottom, cHydraulicStructureGreen, cHydraulicStructureOrange,
-			cHydraulicStructurePurple, cHydraulicStructureYellow, cHydraulicStructurePurpleBuilding;
+			cPlayerTop, cPlayerBottom, cHydraulicStructureMapGreen, cHydraulicStructureMapOrange,
+			cHydraulicStructureMapPurple, cHydraulicStructureMapYellow,
+			cHydraulicStructurePurpleBuilding;
 
 	private Credentials() {
 
@@ -168,7 +169,7 @@ public enum Credentials {
 
 		// h hydraulic structure
 
-		this.hHydraulicStructure = this.selectEventHandlerAbleDimension;
+		this.hHydraulicStructure = 80;
 
 		// c deck player
 
@@ -210,29 +211,29 @@ public enum Credentials {
 		this.cPlayerBottom.y += 2 * this.dCard.y;
 		this.cPlayerBottom.y += this.dGapBetweenComponents.y;
 
-		// c hydraulic structure green
+		// c hydraulic structure map orange
 
 		x = 658;
 		y = 2027;
-		this.cHydraulicStructureGreen = new Vector2(x, y);
+		this.cHydraulicStructureMapOrange = new Vector2(x, y);
 
-		// c hydraulic structure orange
+		// c hydraulic structure map purple
 
 		x = 818;
 		y = 2027;
-		this.cHydraulicStructureOrange = new Vector2(x, y);
+		this.cHydraulicStructureMapPurple = new Vector2(x, y);
 
-		// c hydraulic structure purple
+		// c hydraulic structure map yellow
 
 		x = 978;
 		y = 2027;
-		this.cHydraulicStructurePurple = new Vector2(x, y);
+		this.cHydraulicStructureMapYellow = new Vector2(x, y);
 
-		// c hydraulic structure yellow
+		// c hydraulic structure map green
 
-		x = 1038;
+		x = 1138;
 		y = 2027;
-		this.cHydraulicStructureYellow = new Vector2(x, y);
+		this.cHydraulicStructureMapGreen = new Vector2(x, y);
 
 		// c hydraulic structure purple building
 

@@ -2,6 +2,7 @@ package gameStates;
 
 import enums.EText;
 import gameStatesDefault.GameState;
+import model.HydraulicStructures;
 
 public class StartGame extends GameState {
 
@@ -9,6 +10,7 @@ public class StartGame extends GameState {
 	public void execute() {
 
 		EText.START_GAME.show();
+		HydraulicStructures.INSTANCE.reset();
 
 	}
 

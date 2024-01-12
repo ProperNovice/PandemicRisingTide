@@ -3,7 +3,6 @@ package gameStates;
 import business.Adjacency;
 import business.Dike;
 import business.DikeLocation;
-import business.HydraulicStructure;
 import business.Pawn;
 import business.Player;
 import business.PopulationCube;
@@ -23,9 +22,9 @@ import javafx.scene.input.KeyCode;
 import model.Adjacencies;
 import model.Cards;
 import model.DiscardPileDikeFailure;
+import model.HydraulicStructures;
 import model.Pawns;
 import model.Players;
-import model.Regions;
 import utils.ArrayList;
 
 public class JUnit extends GameState {
@@ -33,7 +32,7 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-		handleM();
+//		handleM();
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
@@ -103,23 +102,26 @@ public class JUnit extends GameState {
 
 //		Players.INSTANCE.changePlayerOrder();
 
-		Regions.INSTANCE.getRegion(ERegion.ROER_EN_OVERMAAS).getHydraulicStructure().getArrayList()
-				.addLast(new HydraulicStructure());
-		Regions.INSTANCE.getRegion(ERegion.ROER_EN_OVERMAAS).relocateComponents();
-		
-		Regions.INSTANCE.getRegion(ERegion.RIJN_EN_IJSSEL).getHydraulicStructure().getArrayList()
-		.addLast(new HydraulicStructure());
-		Regions.INSTANCE.getRegion(ERegion.RIJN_EN_IJSSEL).relocateComponents();
-		
-		Regions.INSTANCE.getRegion(ERegion.SCHOUWEN_DUIVELAND).getHydraulicStructure().getArrayList()
-		.addLast(new HydraulicStructure());
-		Regions.INSTANCE.getRegion(ERegion.SCHOUWEN_DUIVELAND).relocateComponents();
-		
-		Regions.INSTANCE.getRegion(ERegion.WIERINGERMEER).getHydraulicStructure().getArrayList()
-		.addLast(new HydraulicStructure());
-		Regions.INSTANCE.getRegion(ERegion.WIERINGERMEER).relocateComponents();
+//		Regions.INSTANCE.getRegion(ERegion.ROER_EN_OVERMAAS).getHydraulicStructure().getArrayList()
+//				.addLast(new HydraulicStructure());
+//		Regions.INSTANCE.getRegion(ERegion.ROER_EN_OVERMAAS).relocateComponents();
+//		
+//		Regions.INSTANCE.getRegion(ERegion.RIJN_EN_IJSSEL).getHydraulicStructure().getArrayList()
+//		.addLast(new HydraulicStructure());
+//		Regions.INSTANCE.getRegion(ERegion.RIJN_EN_IJSSEL).relocateComponents();
+//		
+//		Regions.INSTANCE.getRegion(ERegion.SCHOUWEN_DUIVELAND).getHydraulicStructure().getArrayList()
+//		.addLast(new HydraulicStructure());
+//		Regions.INSTANCE.getRegion(ERegion.SCHOUWEN_DUIVELAND).relocateComponents();
+//		
+//		Regions.INSTANCE.getRegion(ERegion.WIERINGERMEER).getHydraulicStructure().getArrayList()
+//		.addLast(new HydraulicStructure());
+//		Regions.INSTANCE.getRegion(ERegion.WIERINGERMEER).relocateComponents();
 
 		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
+		
+		for(EColor eColor: EColor.values())
+			HydraulicStructures.INSTANCE.buildHydraulicStructureMap(eColor);
 
 		getFlow().addLast(ActionChoose.class);
 		getFlow().addLast(ActionsRemainingReduce.class);
