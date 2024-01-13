@@ -1,5 +1,7 @@
 package functions;
 
+import enums.EColor;
+import enums.ERegion;
 import model.HydraulicStructures;
 
 public enum BuildHydraulicStructure {
@@ -8,9 +10,11 @@ public enum BuildHydraulicStructure {
 
 	public void execute() {
 
-		HydraulicStructures.INSTANCE
-				.buildHydraulicStructureMap(GetERegionContainingPlayerPawn.INSTANCE
-						.getERegionContainingPlayerPawnActive().getRegion().getEColor());
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+		EColor eColor = eRegion.getRegion().getEColor();
+
+		HydraulicStructures.INSTANCE.buildHydraulicStructureMap(eColor);
 
 	}
 

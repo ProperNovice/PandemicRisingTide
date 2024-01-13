@@ -4,6 +4,7 @@ import cards.CardPlayer;
 import cards.CardPlayerRegion;
 import enums.EAction;
 import enums.EColor;
+import enums.ERegion;
 import functions.BuildHydraulicStructure;
 import functions.DiscardCardsSelected;
 import functions.GetCardsSelectedActivePlayer;
@@ -11,11 +12,19 @@ import functions.GetERegionContainingPlayerPawn;
 import functions.SelectCardsForHydraulicStructure;
 import gameStatesDefault.GameState;
 import model.Actions;
+import utils.Flow;
+import utils.HashMap;
 
 public class ActionBuildHydraulicStructure extends GameState {
 
+	private HashMap<EColor, Class<? extends GameState>> hashMap = new HashMap<>();
+	private EColor eColor = null;
+
 	@Override
 	public void execute() {
+
+		createHashMap();
+		setEColor();
 
 		SelectCardsForHydraulicStructure.INSTANCE.execute();
 
@@ -40,8 +49,7 @@ public class ActionBuildHydraulicStructure extends GameState {
 		CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
 		EColor eColor = cardPlayerRegion.getEColor();
 
-		if (!eColor.equals(GetERegionContainingPlayerPawn.INSTANCE
-				.getERegionContainingPlayerPawnActive().getRegion().getEColor()))
+		if (!eColor.equals(this.eColor))
 			return;
 
 		cardPlayerRegion.reverseSelected();
@@ -57,7 +65,24 @@ public class ActionBuildHydraulicStructure extends GameState {
 
 		DiscardCardsSelected.INSTANCE.execute();
 		BuildHydraulicStructure.INSTANCE.execute();
-		proceedToNextGameState();
+		Flow.INSTANCE.executeGameState(this.hashMap.getValue(this.eColor));
+
+	}
+
+	private void setEColor() {
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+		this.eColor = eRegion.getRegion().getEColor();
+
+	}
+
+	private void createHashMap() {
+
+		this.hashMap.put(EColor.ORANGE, ResolveHydraulicStructureOrange.class);
+		this.hashMap.put(EColor.PURPLE, ResolveHydraulicStructurePurple.class);
+		this.hashMap.put(EColor.YELLOW, ResolveHydraulicStructureYellow.class);
+		this.hashMap.put(EColor.GREEN, ResolveHydraulicStructureGreen.class);
 
 	}
 

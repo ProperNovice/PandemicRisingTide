@@ -4,13 +4,16 @@ import model.Actions;
 import model.Adjacencies;
 import model.Cards;
 import model.Dikes;
+import model.HydraulicStructures;
 import model.Map;
 import model.Pawns;
+import model.Players;
 import model.Populations;
 import model.Ports;
-import model.Regions;
-import model.WaterCubes;
 import model.PumpingStations;
+import model.Regions;
+import model.SeaLevel;
+import model.WaterCubes;
 
 public enum InstantiateComponents {
 
@@ -28,7 +31,10 @@ public enum InstantiateComponents {
 		Adjacencies.values();
 		Cards.values();
 		Pawns.values();
+		Players.values();
 		Actions.values();
+		HydraulicStructures.values();
+		SeaLevel.values();
 
 	}
 

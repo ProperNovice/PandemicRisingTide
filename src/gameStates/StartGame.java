@@ -1,8 +1,10 @@
 package gameStates;
 
+import enums.ERegion;
 import enums.EText;
 import gameStatesDefault.GameState;
 import model.HydraulicStructures;
+import model.SeaLevel;
 
 public class StartGame extends GameState {
 
@@ -11,6 +13,8 @@ public class StartGame extends GameState {
 
 		EText.START_GAME.show();
 		HydraulicStructures.INSTANCE.reset();
+		ERegion.ZUIDERZEE.getRegion().setIsSea(true);
+		SeaLevel.INSTANCE.reset();
 
 	}
 

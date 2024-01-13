@@ -42,7 +42,11 @@ public class JUnit extends GameState {
 		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
 		addWaterCubes(3, ERegion.VOLLENHOVE);
 		addWaterCubes(2, ERegion.RIJN_EN_IJSSEL);
-		addWaterCubes(3, ERegion.ZUIDERZEE);
+		addWaterCubes(4, ERegion.ZUIDERZEE);
+		addWaterCubes(2, ERegion.ROER_EN_OVERMAAS);
+		addWaterCubes(1, ERegion.LAND_VAN_MAAS_EN_WAAL);
+		addWaterCubes(3, ERegion.LAND_VAN_HEUSDEN);
+		addWaterCubes(1, ERegion.HOEKSE_WAARD);
 
 //		addPopulations(3, ERegion.FRYSLAN);
 
@@ -71,14 +75,14 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
-		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.WIERINGERMEER);
+		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
 //		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
 		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
 		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
-		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
+//		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
 		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
 		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
 		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
@@ -128,9 +132,10 @@ public class JUnit extends GameState {
 //			HydraulicStructures.INSTANCE.buildHydraulicStructureMap(eColor);
 
 //		getFlow().addLast(ActionChoose.class);
-		getFlow().addLast(ActionBuildHydraulicStructure.class);
-		getFlow().addLast(ActionsRemainingReduce.class);
-		proceedToNextGameState();
+//		getFlow().addLast(ActionBuildHydraulicStructure.class);
+//		getFlow().addLast(ActionsRemainingReduce.class);
+		getFlow().addLast(ResolveHydraulicStructureOrange.class);
+//		proceedToNextGameState();
 
 	}
 

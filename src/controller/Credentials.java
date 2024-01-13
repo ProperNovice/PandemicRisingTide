@@ -16,14 +16,15 @@ public enum Credentials {
 	public Vector2 cTextPanel, cImageViewClone;
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 
-	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hHydraulicStructure;
+	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hHydraulicStructure, hSeaLevelMarker,
+			hSeaLevelHeight;
 	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dPumpingStation, dPort,
 			dPopulation, dPawn, dActionsRemaining;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cPumpingStations, cPorts,
 			cPopulation, cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure,
 			cPlayerTop, cPlayerBottom, cHydraulicStructureMapGreen, cHydraulicStructureMapOrange,
 			cHydraulicStructureMapPurple, cHydraulicStructureMapYellow,
-			cHydraulicStructurePurpleBuilding;
+			cHydraulicStructurePurpleBuilding, cSeaLevelMarkerFirst;
 
 	private Credentials() {
 
@@ -171,6 +172,10 @@ public enum Credentials {
 
 		this.hHydraulicStructure = 80;
 
+		// h sea level marker
+
+		this.hSeaLevelMarker = 100;
+
 		// c deck player
 
 		x = 172;
@@ -240,6 +245,16 @@ public enum Credentials {
 		x = 1014;
 		y = 432;
 		this.cHydraulicStructurePurpleBuilding = new Vector2(x, y);
+
+		// c sea level marker first
+
+		x = 158;
+		y = 1324;
+		this.cSeaLevelMarkerFirst = new Vector2(x, y);
+
+		// h sea level height
+
+		this.hSeaLevelHeight = 78;
 
 	}
 
