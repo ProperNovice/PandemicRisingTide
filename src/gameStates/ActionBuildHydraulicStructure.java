@@ -4,7 +4,7 @@ import cards.CardPlayer;
 import cards.CardPlayerRegion;
 import enums.EAction;
 import enums.EColor;
-import functions.DiscardCardsSelectedProceed;
+import functions.DiscardCardsSelected;
 import functions.GetCardsSelectedActivePlayer;
 import functions.GetERegionContainingPlayerPawn;
 import functions.SelectCardsForHydraulicStructure;
@@ -57,7 +57,7 @@ public class ActionBuildHydraulicStructure extends GameState {
 
 	private void discardCardsSelectedProceed() {
 
-		DiscardCardsSelectedProceed.INSTANCE.execute();
+		DiscardCardsSelected.INSTANCE.execute();
 
 		HydraulicStructures.INSTANCE
 				.buildHydraulicStructureMap(GetERegionContainingPlayerPawn.INSTANCE

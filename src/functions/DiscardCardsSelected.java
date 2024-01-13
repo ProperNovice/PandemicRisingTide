@@ -5,7 +5,7 @@ import model.DiscardPilePlayer;
 import model.Players;
 import utils.ArrayList;
 
-public enum DiscardCardsSelectedProceed {
+public enum DiscardCardsSelected {
 
 	INSTANCE;
 
