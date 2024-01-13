@@ -76,12 +76,12 @@ public class JUnit extends GameState {
 //		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
 		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
+		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
+		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
+		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
+		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
+		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
+		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
 //		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 //		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 

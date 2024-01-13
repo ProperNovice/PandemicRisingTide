@@ -4,6 +4,7 @@ import cards.CardPlayer;
 import model.DiscardPilePlayer;
 import model.Players;
 import utils.ArrayList;
+import utils.SelectImageViewManager;
 
 public enum DiscardCardsSelected {
 
@@ -12,10 +13,9 @@ public enum DiscardCardsSelected {
 	public void execute() {
 
 		ArrayList<CardPlayer> list = GetCardsSelectedActivePlayer.INSTANCE.execute();
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 
 		for (CardPlayer cardPlayer : list) {
-
-			cardPlayer.deselect();
 
 			Players.INSTANCE.getActivePlayer().getCardsPlayer().getArrayList().remove(cardPlayer);
 			DiscardPilePlayer.INSTANCE.addFirstRelocate(cardPlayer);
