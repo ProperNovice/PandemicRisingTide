@@ -4,15 +4,13 @@ import cards.CardPlayer;
 import cards.CardPlayerRegion;
 import enums.EAction;
 import enums.EColor;
+import functions.BuildHydraulicStructure;
 import functions.DiscardCardsSelected;
 import functions.GetCardsSelectedActivePlayer;
 import functions.GetERegionContainingPlayerPawn;
 import functions.SelectCardsForHydraulicStructure;
 import gameStatesDefault.GameState;
-import javafx.scene.input.KeyCode;
 import model.Actions;
-import model.HydraulicStructures;
-import model.Players;
 
 public class ActionBuildHydraulicStructure extends GameState {
 
@@ -22,7 +20,7 @@ public class ActionBuildHydraulicStructure extends GameState {
 		SelectCardsForHydraulicStructure.INSTANCE.execute();
 
 		if (GetCardsSelectedActivePlayer.INSTANCE.execute().size() == 5)
-			discardCardsSelectedProceed();
+			proceed();
 		else
 			EAction.BUILD_HYDRAULIC_STRUCTURE.show();
 
@@ -30,25 +28,7 @@ public class ActionBuildHydraulicStructure extends GameState {
 
 	@Override
 	protected void handleActionSelectedPressed(EAction eAction) {
-
-		discardCardsSelectedProceed();
-
-	}
-
-	@Override
-	protected void handleKeyPressed(KeyCode keyCode) {
-
-		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
-
-			CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
-
-			System.out.println(cardPlayerRegion.getERegion() + " - " + cardPlayerRegion.getEColor()
-					+ " - " + cardPlayerRegion.isSelected());
-
-		}
-
-		System.out.println();
-
+		proceed();
 	}
 
 	@Override
@@ -73,14 +53,10 @@ public class ActionBuildHydraulicStructure extends GameState {
 
 	}
 
-	private void discardCardsSelectedProceed() {
+	private void proceed() {
 
 		DiscardCardsSelected.INSTANCE.execute();
-
-		HydraulicStructures.INSTANCE
-				.buildHydraulicStructureMap(GetERegionContainingPlayerPawn.INSTANCE
-						.getERegionContainingPlayerPawnActive().getRegion().getEColor());
-
+		BuildHydraulicStructure.INSTANCE.execute();
 		proceedToNextGameState();
 
 	}
