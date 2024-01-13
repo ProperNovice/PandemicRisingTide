@@ -22,7 +22,6 @@ import javafx.scene.input.KeyCode;
 import model.Adjacencies;
 import model.Cards;
 import model.DiscardPileDikeFailure;
-import model.HydraulicStructures;
 import model.Pawns;
 import model.Players;
 import utils.ArrayList;
@@ -32,7 +31,7 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-//		handleM();
+		handleM();
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
@@ -72,14 +71,19 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
-		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.VOLLENHOVE);
-		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
-		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.WIERINGERMEER);
+//		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
+//		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
 		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
-		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
-		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
+//		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
+//		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
 		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.VOLLENHOVE);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
@@ -119,11 +123,12 @@ public class JUnit extends GameState {
 //		Regions.INSTANCE.getRegion(ERegion.WIERINGERMEER).relocateComponents();
 
 		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
-		
-		for(EColor eColor: EColor.values())
-			HydraulicStructures.INSTANCE.buildHydraulicStructureMap(eColor);
 
-		getFlow().addLast(ActionChoose.class);
+//		for (EColor eColor : EColor.values())
+//			HydraulicStructures.INSTANCE.buildHydraulicStructureMap(eColor);
+
+//		getFlow().addLast(ActionChoose.class);
+		getFlow().addLast(ActionBuildHydraulicStructure.class);
 		getFlow().addLast(ActionsRemainingReduce.class);
 		proceedToNextGameState();
 

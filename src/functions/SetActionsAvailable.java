@@ -4,8 +4,10 @@ import business.Region;
 import cards.CardPlayer;
 import cards.CardPlayerRegion;
 import enums.EAction;
+import enums.EColor;
 import enums.ERegion;
 import model.Dikes;
+import model.HydraulicStructures;
 import model.Players;
 
 public enum SetActionsAvailable {
@@ -20,6 +22,43 @@ public enum SetActionsAvailable {
 		buildPumpingStation();
 		buildPort();
 		shareResources();
+		hydraulicStructure();
+
+	}
+
+	private void hydraulicStructure() {
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		if (!eRegion.getRegion().canBuildHydraulicStructure())
+			return;
+
+		EColor eColor = eRegion.getRegion().getEColor();
+
+		if (HydraulicStructures.INSTANCE.isBuilt(eColor))
+			return;
+
+		int amount = 0;
+
+		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
+
+			if (!(cardPlayer instanceof CardPlayerRegion))
+				continue;
+
+			CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
+
+			if (!cardPlayerRegion.getEColor().equals(eColor))
+				continue;
+
+			amount++;
+
+		}
+
+		if (amount < 5)
+			return;
+
+		EAction.BUILD_HYDRAULIC_STRUCTURE.showAndSelect();
 
 	}
 
@@ -46,6 +85,9 @@ public enum SetActionsAvailable {
 				.getERegionContainingPlayerPawnActive();
 
 		Region region = eRegion.getRegion();
+
+		if (!region.getWaterCubes().getArrayList().isEmpty())
+			return;
 
 		if (!region.getPort().getArrayList().isEmpty())
 			return;
@@ -74,6 +116,9 @@ public enum SetActionsAvailable {
 				.getERegionContainingPlayerPawnActive();
 
 		Region region = eRegion.getRegion();
+
+		if (!region.getWaterCubes().getArrayList().isEmpty())
+			return;
 
 		if (!region.getPumpingStation().getArrayList().isEmpty())
 			return;

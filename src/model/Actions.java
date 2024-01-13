@@ -45,6 +45,17 @@ public enum Actions {
 
 	}
 
+	public void deselectAction(EAction eAction) {
+
+		Action action = this.hashMap.getValue(eAction);
+
+		if (this.list.getArrayList().contains(action))
+			this.hashMap.getValue(eAction).deselect();
+		else
+			ShutDown.INSTANCE.execute();
+
+	}
+
 	public void concealActions() {
 
 		for (Action action : this.list) {

@@ -23,6 +23,10 @@ public enum HydraulicStructures {
 		this.hashMap.getValue(eColor).getArrayList().getFirst().getImageView().setVisible(true);
 	}
 
+	public boolean isBuilt(EColor eColor) {
+		return this.hashMap.getValue(eColor).getArrayList().getFirst().getImageView().isVisible();
+	}
+
 	public void reset() {
 
 		for (EColor eColor : EColor.values())
