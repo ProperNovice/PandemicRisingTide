@@ -38,10 +38,13 @@ public enum Actions {
 
 		Action action = this.hashMap.getValue(eAction);
 
-		if (this.list.getArrayList().contains(action))
-			this.hashMap.getValue(eAction).setSelected();
-		else
+		if (!this.list.getArrayList().contains(action))
 			ShutDown.INSTANCE.execute();
+
+		if (action.isSelected())
+			return;
+
+		action.setSelected();
 
 	}
 
@@ -49,10 +52,13 @@ public enum Actions {
 
 		Action action = this.hashMap.getValue(eAction);
 
-		if (this.list.getArrayList().contains(action))
-			this.hashMap.getValue(eAction).deselect();
-		else
+		if (!this.list.getArrayList().contains(action))
 			ShutDown.INSTANCE.execute();
+
+		if (!action.isSelected())
+			return;
+
+		action.deselect();
 
 	}
 

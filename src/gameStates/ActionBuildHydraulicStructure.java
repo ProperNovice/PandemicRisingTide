@@ -9,8 +9,10 @@ import functions.GetCardsSelectedActivePlayer;
 import functions.GetERegionContainingPlayerPawn;
 import functions.SelectCardsForHydraulicStructure;
 import gameStatesDefault.GameState;
+import javafx.scene.input.KeyCode;
 import model.Actions;
 import model.HydraulicStructures;
+import model.Players;
 
 public class ActionBuildHydraulicStructure extends GameState {
 
@@ -30,6 +32,22 @@ public class ActionBuildHydraulicStructure extends GameState {
 	protected void handleActionSelectedPressed(EAction eAction) {
 
 		discardCardsSelectedProceed();
+
+	}
+
+	@Override
+	protected void handleKeyPressed(KeyCode keyCode) {
+
+		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
+
+			CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
+
+			System.out.println(cardPlayerRegion.getERegion() + " - " + cardPlayerRegion.getEColor()
+					+ " - " + cardPlayerRegion.isSelected());
+
+		}
+
+		System.out.println();
 
 	}
 
