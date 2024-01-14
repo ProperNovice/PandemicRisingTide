@@ -6,6 +6,7 @@ import cards.CardPlayerRegion;
 import enums.EAction;
 import enums.EColor;
 import enums.ERegion;
+import enums.ERole;
 import model.Dikes;
 import model.HydraulicStructures;
 import model.Players;
@@ -117,6 +118,16 @@ public enum SetActionsAvailable {
 		if (!region.getPumpingStation().getArrayList().isEmpty())
 			return;
 
+		ERole eRole = Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst()
+				.getERole();
+
+		if (eRole.equals(ERole.CARPENTER)) {
+
+			EAction.BUILD_PUMPING_STATION.showAndSelect();
+			return;
+
+		}
+
 		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
 
 			if (!(cardPlayer instanceof CardPlayerRegion))
@@ -139,6 +150,16 @@ public enum SetActionsAvailable {
 
 		if (Dikes.INSTANCE.getList().getArrayList().isEmpty())
 			return;
+
+		ERole eRole = Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst()
+				.getERole();
+
+		if (eRole.equals(ERole.CARPENTER)) {
+
+			EAction.BUILD_DIKE.showAndSelect();
+			return;
+
+		}
 
 		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
