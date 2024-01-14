@@ -1,6 +1,7 @@
 package gameStates;
 
 import enums.EAction;
+import functions.ActionTakeCurrentRegionCardFromDiscardPile;
 import functions.SetActionsAvailable;
 import gameStatesDefault.GameState;
 import utils.HashMap;
@@ -34,6 +35,8 @@ public class ActionChoose extends GameState {
 		this.hashMap.put(EAction.BUILD_PORT, ActionBuildPort.class);
 		this.hashMap.put(EAction.SHARE_RESOURCES, ActionShareResources.class);
 		this.hashMap.put(EAction.BUILD_HYDRAULIC_STRUCTURE, ActionBuildHydraulicStructure.class);
+		this.hashMap.put(EAction.TAKE_CURRENT_REGION_CARD_FROM_THE_DISCARD_PILE,
+				ActionTakeCurrentRegionCardFromDiscardPile.class);
 
 	}
 

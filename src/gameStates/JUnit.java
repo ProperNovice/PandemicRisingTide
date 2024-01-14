@@ -22,6 +22,7 @@ import javafx.scene.input.KeyCode;
 import model.Adjacencies;
 import model.Cards;
 import model.DiscardPileDikeFailure;
+import model.DiscardPilePlayer;
 import model.Pawns;
 import model.Players;
 import utils.ArrayList;
@@ -75,7 +76,7 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
-		playerRole(EPlayer.TOP, ERole.PORT_MASTER, ERegion.FRYSLAN);
+		playerRole(EPlayer.TOP, ERole.SANITATION_ENGINEER, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
 //		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
@@ -100,6 +101,8 @@ public class JUnit extends GameState {
 
 		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
 //		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
+
+		addCardRegionCardToDiscardPile(ERegion.FRYSLAN);
 
 //		WaterFlows.INSTANCE.execute();
 
@@ -133,7 +136,7 @@ public class JUnit extends GameState {
 
 		getFlow().addLast(ActionChoose.class);
 //		getFlow().addLast(ActionBuildHydraulicStructure.class);
-//		getFlow().addLast(ActionsRemainingReduce.class);
+		getFlow().addLast(ActionsRemainingReduce.class);
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
 		proceedToNextGameState();
@@ -293,6 +296,21 @@ public class JUnit extends GameState {
 		cardDikeFailure.getImageView().setVisible(true);
 
 		DiscardPileDikeFailure.INSTANCE.addFirstRelocate(cardDikeFailure);
+
+	}
+
+	public void addCardRegionCardToDiscardPile(ERegion eRegion) {
+
+		EColor eColor = null;
+
+		for (CardPlayerRegion cardPlayerRegionTemp : Cards.INSTANCE.getCardsPlayerRegionClone())
+			if (eRegion.equals(cardPlayerRegionTemp.getERegion()))
+				eColor = cardPlayerRegionTemp.getEColor();
+
+		CardPlayerRegion cardPlayerRegion = new CardPlayerRegion(eRegion, eColor);
+		cardPlayerRegion.getImageView().setVisible(true);
+
+		DiscardPilePlayer.INSTANCE.addFirstRelocate(cardPlayerRegion);
 
 	}
 

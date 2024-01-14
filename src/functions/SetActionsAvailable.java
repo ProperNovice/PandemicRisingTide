@@ -8,6 +8,7 @@ import enums.EColor;
 import enums.ERegion;
 import enums.ERole;
 import model.Dikes;
+import model.DiscardPilePlayer;
 import model.HydraulicStructures;
 import model.Players;
 
@@ -24,6 +25,21 @@ public enum SetActionsAvailable {
 		buildPort();
 		shareResources();
 		hydraulicStructure();
+		sanitationEngineer();
+
+	}
+
+	private void sanitationEngineer() {
+
+		if (!Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst().getERole()
+				.equals(ERole.SANITATION_ENGINEER))
+			return;
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		if (DiscardPilePlayer.INSTANCE.containsERegionCard(eRegion))
+			EAction.TAKE_CURRENT_REGION_CARD_FROM_THE_DISCARD_PILE.showAndSelect();
 
 	}
 

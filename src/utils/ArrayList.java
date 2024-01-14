@@ -137,10 +137,10 @@ public class ArrayList<T> implements Iterable<T>, ISaveLoadStateAble {
 		return this.list.remove(index);
 	}
 
-	public final void remove(T t) {
+	public final T remove(T t) {
 
 		int index = indexOf(t);
-		remove(index);
+		return remove(index);
 
 	}
 

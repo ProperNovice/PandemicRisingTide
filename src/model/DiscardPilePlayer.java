@@ -1,7 +1,9 @@
 package model;
 
 import cards.CardPlayer;
+import cards.CardPlayerRegion;
 import controller.Credentials;
+import enums.ERegion;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
@@ -22,6 +24,34 @@ public enum DiscardPilePlayer {
 
 		this.list.getArrayList().addFirst(cardPlayer);
 		this.list.relocateImageViews();
+
+	}
+
+	public CardPlayer getERegionCard(ERegion eRegion) {
+		return this.list.getArrayList().remove(getCardPlayerWithERegion(eRegion));
+	}
+
+	public boolean containsERegionCard(ERegion eRegion) {
+		return getCardPlayerWithERegion(eRegion) != null;
+	}
+
+	private CardPlayer getCardPlayerWithERegion(ERegion eRegion) {
+
+		for (CardPlayer cardPlayer : this.list) {
+
+			if (!(cardPlayer instanceof CardPlayerRegion))
+				continue;
+
+			CardPlayerRegion cardPlayerRegion = (CardPlayerRegion) cardPlayer;
+
+			if (!cardPlayerRegion.getERegion().equals(eRegion))
+				continue;
+
+			return cardPlayerRegion;
+
+		}
+
+		return null;
 
 	}
 
