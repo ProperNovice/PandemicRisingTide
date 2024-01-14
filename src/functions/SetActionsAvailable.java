@@ -86,9 +86,6 @@ public enum SetActionsAvailable {
 
 		Region region = eRegion.getRegion();
 
-		if (!region.getWaterCubes().getArrayList().isEmpty())
-			return;
-
 		if (!region.getPort().getArrayList().isEmpty())
 			return;
 
@@ -117,9 +114,6 @@ public enum SetActionsAvailable {
 
 		Region region = eRegion.getRegion();
 
-		if (!region.getWaterCubes().getArrayList().isEmpty())
-			return;
-
 		if (!region.getPumpingStation().getArrayList().isEmpty())
 			return;
 
@@ -143,15 +137,15 @@ public enum SetActionsAvailable {
 
 	private void buildDike() {
 
+		if (Dikes.INSTANCE.getList().getArrayList().isEmpty())
+			return;
+
 		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
 
 		Region region = eRegion.getRegion();
 
 		if (!region.getWaterCubes().getArrayList().isEmpty())
-			return;
-
-		if (Dikes.INSTANCE.getList().getArrayList().isEmpty())
 			return;
 
 		EAction.BUILD_DIKE.showAndSelect();

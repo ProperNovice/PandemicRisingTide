@@ -2,10 +2,13 @@ package gameStates;
 
 import business.DikeLocation;
 import enums.EAction;
+import enums.ERole;
 import functions.BuildDike;
+import functions.SaveDikeLocationBuilt;
 import functions.SetDikeLocationsAvailableToBuild;
 import gameStatesDefault.GameState;
 import model.Actions;
+import model.Players;
 
 public class ActionBuildDike extends GameState {
 
@@ -22,6 +25,12 @@ public class ActionBuildDike extends GameState {
 
 		Actions.INSTANCE.concealActions();
 		BuildDike.INSTANCE.execute(dikeLocation);
+
+		SaveDikeLocationBuilt.INSTANCE.set(dikeLocation);
+
+		if (Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst().getERole()
+				.equals(ERole.HYDRAULIC_ENGINEER))
+			getFlow().addFirst(ActionBuildDikeHydraulicEngineer.class);
 
 		proceedToNextGameState();
 
