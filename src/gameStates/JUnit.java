@@ -31,74 +31,74 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-		handleM();
+//		handleM();
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
 //		addWaterCubes(1, ERegion.FRYSLAN);
-		addWaterCubes(1, ERegion.IJSSELDELTA);
-		addWaterCubes(1, ERegion.MARKERWAARD);
-		addWaterCubes(1, ERegion.BETUWE);
-		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
-		addWaterCubes(3, ERegion.VOLLENHOVE);
-		addWaterCubes(2, ERegion.RIJN_EN_IJSSEL);
-		addWaterCubes(4, ERegion.ZUIDERZEE);
-		addWaterCubes(2, ERegion.ROER_EN_OVERMAAS);
-		addWaterCubes(1, ERegion.LAND_VAN_MAAS_EN_WAAL);
-		addWaterCubes(3, ERegion.LAND_VAN_HEUSDEN);
-		addWaterCubes(1, ERegion.HOEKSE_WAARD);
+//		addWaterCubes(1, ERegion.IJSSELDELTA);
+//		addWaterCubes(1, ERegion.MARKERWAARD);
+//		addWaterCubes(1, ERegion.BETUWE);
+//		addWaterCubes(3, ERegion.NOORDOOSTPOLDER);
+//		addWaterCubes(3, ERegion.VOLLENHOVE);
+//		addWaterCubes(2, ERegion.RIJN_EN_IJSSEL);
+//		addWaterCubes(4, ERegion.ZUIDERZEE);
+//		addWaterCubes(2, ERegion.ROER_EN_OVERMAAS);
+//		addWaterCubes(1, ERegion.LAND_VAN_MAAS_EN_WAAL);
+//		addWaterCubes(3, ERegion.LAND_VAN_HEUSDEN);
+//		addWaterCubes(1, ERegion.HOEKSE_WAARD);
 
 //		addPopulations(3, ERegion.FRYSLAN);
 
 //		addWaterPump(ERegion.FRYSLAN);
-		addWaterPump(ERegion.IJSSELDELTA);
-		addWaterPump(ERegion.FLEVOLAND);
-		addWaterPump(ERegion.WIERINGERMEER);
-		addWaterPump(ERegion.KENNEMERLAND);
-		addWaterPump(ERegion.ROER_EN_OVERMAAS);
+//		addWaterPump(ERegion.IJSSELDELTA);
+//		addWaterPump(ERegion.FLEVOLAND);
+//		addWaterPump(ERegion.WIERINGERMEER);
+//		addWaterPump(ERegion.KENNEMERLAND);
+//		addWaterPump(ERegion.ROER_EN_OVERMAAS);
 
 //		addPort(ERegion.FRYSLAN);
-		addPort(ERegion.GELDERSE_VALLEI);
-		addPort(ERegion.DELFLAND);
-		addPort(ERegion.ROER_EN_OVERMAAS);
+//		addPort(ERegion.GELDERSE_VALLEI);
+//		addPort(ERegion.DELFLAND);
+//		addPort(ERegion.ROER_EN_OVERMAAS);
 
-		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
-		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDERZIJLVEST);
+//		addDike(ERegion.FRYSLAN, ERegion.NOORDOOSTPOLDER);
 //		addDike(ERegion.FRYSLAN, ERegion.NOORDZEE);
 //		addDike(ERegion.FRYSLAN, ERegion.ZUIDERZEE);
 //		addDike(ERegion.VOLLENHOVE, ERegion.IJSSELDELTA);
 //		addDike(ERegion.NOORDOOSTPOLDER, ERegion.IJSSELDELTA);
-		addDike(ERegion.NOORDOOSTPOLDER, ERegion.VOLLENHOVE);
-		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
-		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
-		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
+//		addDike(ERegion.NOORDOOSTPOLDER, ERegion.VOLLENHOVE);
+//		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
+//		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
+//		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
-		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.FRYSLAN);
+//		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
 //		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
-		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
-		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
-		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
+//		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
+//		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
+//		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
 //		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
-		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
-		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
-		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
+//		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
+//		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
+//		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
 //		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 //		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
-		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.VOLLENHOVE);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.WEST_BRABANT);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
+//		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.VOLLENHOVE);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.WEST_BRABANT);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
-		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
+//		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
 //		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
 
 //		WaterFlows.INSTANCE.execute();
@@ -126,7 +126,7 @@ public class JUnit extends GameState {
 //		.addLast(new HydraulicStructure());
 //		Regions.INSTANCE.getRegion(ERegion.WIERINGERMEER).relocateComponents();
 
-		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
+//		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
 
 //		for (EColor eColor : EColor.values())
 //			HydraulicStructures.INSTANCE.buildHydraulicStructureMap(eColor);
@@ -134,8 +134,9 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ActionChoose.class);
 //		getFlow().addLast(ActionBuildHydraulicStructure.class);
 //		getFlow().addLast(ActionsRemainingReduce.class);
-		getFlow().addLast(ResolveHydraulicStructureOrange.class);
-//		proceedToNextGameState();
+//		getFlow().addLast(ResolveHydraulicStructureOrange.class);
+		getFlow().addLast(StartGame.class);
+		proceedToNextGameState();
 
 	}
 

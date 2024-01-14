@@ -19,9 +19,15 @@ public enum DeckDikeFailure {
 		createList();
 	}
 
-	public void addDeckRelocate(ArrayList<CardDikeFailure> list) {
+	public void setUpDeck(ArrayList<CardDikeFailure> list) {
 
+		this.list.getArrayList().clear();
 		this.list.getArrayList().addAllLast(list);
+
+		for (CardDikeFailure cardDikeFailure : this.list)
+			cardDikeFailure.getImageView().flipBack();
+
+		this.list.getArrayList().shuffle();
 		this.list.relocateImageViews();
 
 	}
@@ -30,6 +36,7 @@ public enum DeckDikeFailure {
 
 		CardDikeFailure cardPlayer = this.list.getArrayList().removeFirst();
 		cardPlayer.getImageView().flipFront();
+		cardPlayer.getImageView().setVisible(true);
 
 		return cardPlayer;
 
