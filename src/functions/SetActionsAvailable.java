@@ -90,6 +90,16 @@ public enum SetActionsAvailable {
 		if (!region.getPort().getArrayList().isEmpty())
 			return;
 
+		ERole eRole = Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst()
+				.getERole();
+
+		if (eRole.equals(ERole.PORT_MASTER)) {
+
+			EAction.BUILD_PORT.showAndSelect();
+			return;
+
+		}
+
 		for (CardPlayer cardPlayer : Players.INSTANCE.getActivePlayer().getCardsPlayer()) {
 
 			if (!(cardPlayer instanceof CardPlayerRegion))

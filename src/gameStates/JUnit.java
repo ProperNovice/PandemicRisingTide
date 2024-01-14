@@ -75,11 +75,11 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
-		playerRole(EPlayer.TOP, ERole.CARPENTER, ERegion.FRYSLAN);
+		playerRole(EPlayer.TOP, ERole.PORT_MASTER, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
 //		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
-//		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
 		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
 //		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);

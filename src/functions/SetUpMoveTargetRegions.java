@@ -4,6 +4,7 @@ import business.Region;
 import cards.CardPlayer;
 import cards.CardPlayerRegion;
 import enums.ERegion;
+import enums.ERole;
 import model.Adjacencies;
 import model.Players;
 import utils.ArrayList;
@@ -20,6 +21,7 @@ public enum SetUpMoveTargetRegions {
 	public void execute() {
 
 		setup();
+		portMaster();
 		driveFerry();
 		returnToPort();
 		sail();
@@ -106,6 +108,33 @@ public enum SetUpMoveTargetRegions {
 
 	}
 
+	private void portMaster() {
+
+		if (!Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst().getERole()
+				.equals(ERole.PORT_MASTER))
+			return;
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		if (eRegion.getRegion().getPort().getArrayList().isEmpty())
+			return;
+
+		for (ERegion eRegionTemp : ERegion.values()) {
+
+			Region region = eRegionTemp.getRegion();
+
+			if (region.isSea())
+				continue;
+
+			addERegion(eRegionTemp, this.free);
+
+		}
+
+		printRegions();
+
+	}
+
 	private void selectRegions() {
 
 		for (ERegion eRegion : this.free)
@@ -141,6 +170,13 @@ public enum SetUpMoveTargetRegions {
 	}
 
 	private void addERegion(ERegion eRegion, ArrayList<ERegion> list) {
+
+		if (list.equals(this.free) && this.usingCard.contains(eRegion)) {
+
+			this.usingCard.remove(eRegion);
+			this.free.addLast(eRegion);
+
+		}
 
 		if (this.free.contains(eRegion) || this.usingCard.contains(eRegion))
 			return;

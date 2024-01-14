@@ -49,6 +49,9 @@ public class ChooseCardToDiscardForMoving extends GameState {
 	@Override
 	protected void handleCardPressedActivePlayer(CardPlayer cardPlayer) {
 
+		if (!cardPlayer.isSelected())
+			return;
+
 		Actions.INSTANCE.concealActions();
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 
