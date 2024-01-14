@@ -18,6 +18,14 @@ public enum PlayerHasCardWithERegion {
 		return playerHasCardWithERegion(eRegion, Players.INSTANCE.getPassivePlayer()) != null;
 	}
 
+	public CardPlayer getPlayerActiveCardWithERegion(ERegion eRegion) {
+		return playerHasCardWithERegion(eRegion, Players.INSTANCE.getActivePlayer());
+	}
+
+	public CardPlayer getPlayerPassiveCardWithERegion(ERegion eRegion) {
+		return playerHasCardWithERegion(eRegion, Players.INSTANCE.getPassivePlayer());
+	}
+
 	private CardPlayer playerHasCardWithERegion(ERegion eRegion, Player player) {
 
 		for (CardPlayer cardPlayer : player.getCardsPlayer()) {

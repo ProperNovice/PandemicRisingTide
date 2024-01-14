@@ -81,17 +81,9 @@ public enum SetActionsAvailable {
 
 	private void shareResources() {
 
-		ERegion eRegionActive = GetERegionContainingPlayerPawn.INSTANCE
-				.getERegionContainingPlayerPawnActive();
+		ShareResources.INSTANCE.execute();
 
-		ERegion eRegionPassive = GetERegionContainingPlayerPawn.INSTANCE
-				.getERegionContainingPlayerPawnPassive();
-
-		if (!eRegionActive.equals(eRegionPassive))
-			return;
-
-		if (PlayerHasCardWithERegion.INSTANCE.playerActiveHasCardWithERegion(eRegionActive)
-				|| PlayerHasCardWithERegion.INSTANCE.playerPassiveHasCardWithERegion(eRegionActive))
+		if (ShareResources.INSTANCE.canShareResources())
 			EAction.SHARE_RESOURCES.showAndSelect();
 
 	}

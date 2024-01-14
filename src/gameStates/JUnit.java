@@ -51,14 +51,14 @@ public class JUnit extends GameState {
 
 //		addPopulations(3, ERegion.FRYSLAN);
 
-//		addWaterPump(ERegion.FRYSLAN);
+		addWaterPump(ERegion.FRYSLAN);
 		addWaterPump(ERegion.IJSSELDELTA);
 		addWaterPump(ERegion.FLEVOLAND);
 		addWaterPump(ERegion.WIERINGERMEER);
 		addWaterPump(ERegion.KENNEMERLAND);
 		addWaterPump(ERegion.ROER_EN_OVERMAAS);
 
-//		addPort(ERegion.FRYSLAN);
+		addPort(ERegion.FRYSLAN);
 		addPort(ERegion.GELDERSE_VALLEI);
 		addPort(ERegion.DELFLAND);
 		addPort(ERegion.ROER_EN_OVERMAAS);
@@ -76,11 +76,11 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
-		playerRole(EPlayer.TOP, ERole.SANITATION_ENGINEER, ERegion.FRYSLAN);
+		playerRole(EPlayer.TOP, ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
 //		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
-		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
 		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
 //		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
@@ -90,7 +90,7 @@ public class JUnit extends GameState {
 //		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 //		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
-		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.VOLLENHOVE);
+		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);

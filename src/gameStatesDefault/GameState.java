@@ -173,7 +173,7 @@ public abstract class GameState {
 			handleCardPressedActivePlayer((CardPlayer) card);
 
 		if (Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList().contains(card))
-			handleCardPressedPassivePlayer(card);
+			handleCardPressedPassivePlayer((CardPlayer) card);
 
 	}
 
@@ -181,7 +181,7 @@ public abstract class GameState {
 
 	}
 
-	protected void handleCardPressedPassivePlayer(Card card) {
+	protected void handleCardPressedPassivePlayer(CardPlayer cardPlayer) {
 
 	}
 
