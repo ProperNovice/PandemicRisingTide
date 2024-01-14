@@ -21,7 +21,13 @@ public enum DeckPlayer {
 
 	public void addDeckRelocate(ArrayList<CardPlayer> list) {
 
+		this.list.getArrayList().clear();
 		this.list.getArrayList().addAllLast(list);
+
+		for (CardPlayer cardPlayer : this.list)
+			cardPlayer.getImageView().flipBack();
+
+		this.list.getArrayList().shuffle();
 		this.list.relocateImageViews();
 
 	}

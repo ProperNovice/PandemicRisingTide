@@ -27,6 +27,8 @@ public class StartGame extends GameState {
 		createDikeFailureDeck();
 		createDegradeRegions();
 
+		proceedToNextGameState();
+
 	}
 
 	@Override
@@ -35,6 +37,19 @@ public class StartGame extends GameState {
 	}
 
 	private void createDegradeRegions() {
+
+		for (int degradeRegionAmount = 3; degradeRegionAmount >= 1; degradeRegionAmount--) {
+
+			for (int cardsDikeFailureToDraw = 1; cardsDikeFailureToDraw <= 3; cardsDikeFailureToDraw++) {
+
+				getFlow().addLast(DrawCardDikeFailure.class);
+				getFlow().addLast(DegradeRegionNoFlood.class, degradeRegionAmount);
+
+			}
+
+		}
+
+		getFlow().addLast(ActionWaterFlows.class);
 
 	}
 
