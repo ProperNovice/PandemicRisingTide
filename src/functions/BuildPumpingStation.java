@@ -9,12 +9,21 @@ public enum BuildPumpingStation {
 
 	INSTANCE;
 
-	public void executeFromReserve() {
+	public void executeFromReserveActivePlayerRegion() {
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		executeFromReserve(eRegion);
+
+	}
+
+	public void executeFromReserve(ERegion eRegion) {
 
 		PumpingStation pumpingStation = PumpingStations.INSTANCE.getList().getArrayList()
 				.removeFirst();
 
-		addPumpingStationToActivePlayerERegion(pumpingStation);
+		addPumpingStationToERegion(eRegion, pumpingStation);
 
 	}
 
@@ -23,14 +32,14 @@ public enum BuildPumpingStation {
 		PumpingStation pumpingStation = region.getPumpingStation().getArrayList().removeFirst();
 		region.relocateComponents();
 
-		addPumpingStationToActivePlayerERegion(pumpingStation);
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		addPumpingStationToERegion(eRegion, pumpingStation);
 
 	}
 
-	private void addPumpingStationToActivePlayerERegion(PumpingStation pumpingStation) {
-
-		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
-				.getERegionContainingPlayerPawnActive();
+	private void addPumpingStationToERegion(ERegion eRegion, PumpingStation pumpingStation) {
 
 		Region region = eRegion.getRegion();
 

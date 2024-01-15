@@ -22,7 +22,7 @@ public class ActionBuildPumpingStation extends GameState {
 
 		if (!PumpingStations.INSTANCE.getList().getArrayList().isEmpty()) {
 
-			BuildPumpingStation.INSTANCE.executeFromReserve();
+			BuildPumpingStation.INSTANCE.executeFromReserveActivePlayerRegion();
 			proceedToNextGameState();
 
 		} else {

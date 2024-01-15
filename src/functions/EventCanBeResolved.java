@@ -4,6 +4,7 @@ import cards.CardPlayer;
 import cards.CardPlayerEvent;
 import enums.EEvent;
 import model.Dikes;
+import model.PumpingStations;
 
 public enum EventCanBeResolved {
 
@@ -26,6 +27,10 @@ public enum EventCanBeResolved {
 
 		case TWEE_GEBROEDERS_PLUGS_BREACH:
 			return !Dikes.INSTANCE.getList().getArrayList().isEmpty();
+
+		case STOOMGEMAAL_VIER_NOORDER_KOGGEN:
+			return !PumpingStations.INSTANCE.getList().getArrayList().isEmpty()
+					|| !Dikes.INSTANCE.getList().getArrayList().isEmpty();
 
 		default:
 			return true;

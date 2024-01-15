@@ -56,12 +56,12 @@ public class JUnit extends GameState {
 
 //		addPopulations(3, ERegion.FRYSLAN);
 
-		addWaterPump(ERegion.FRYSLAN);
-		addWaterPump(ERegion.IJSSELDELTA);
-		addWaterPump(ERegion.FLEVOLAND);
-		addWaterPump(ERegion.WIERINGERMEER);
-		addWaterPump(ERegion.KENNEMERLAND);
-		addWaterPump(ERegion.ROER_EN_OVERMAAS);
+//		addPumpingStation(ERegion.FRYSLAN);
+		addPumpingStation(ERegion.IJSSELDELTA);
+		addPumpingStation(ERegion.FLEVOLAND);
+		addPumpingStation(ERegion.WIERINGERMEER);
+		addPumpingStation(ERegion.KENNEMERLAND);
+		addPumpingStation(ERegion.ROER_EN_OVERMAAS);
 
 		addPort(ERegion.FRYSLAN);
 		addPort(ERegion.GELDERSE_VALLEI);
@@ -109,9 +109,12 @@ public class JUnit extends GameState {
 //		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
 
 		addCardRegionCardToDiscardPile(ERegion.FRYSLAN);
-		
-//		while(Dikes.INSTANCE.getList().getArrayList().size() > 3)
+
+//		while (Dikes.INSTANCE.getList().getArrayList().size() > 0)
 //			Dikes.INSTANCE.getList().getArrayList().removeRandom();
+
+//		while (PumpingStations.INSTANCE.getList().getArrayList().size() > 0)
+//			PumpingStations.INSTANCE.getList().getArrayList().removeRandom();
 
 //		WaterFlows.INSTANCE.execute();
 
@@ -149,7 +152,7 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
 
-		event(EEvent.TWEE_GEBROEDERS_PLUGS_BREACH);
+		event(EEvent.STOOMGEMAAL_VIER_NOORDER_KOGGEN);
 
 		getFlow().addLast(ResolveEvent.class);
 		proceedToNextGameState();
@@ -193,7 +196,7 @@ public class JUnit extends GameState {
 
 	}
 
-	public void addWaterPump(ERegion eRegion) {
+	public void addPumpingStation(ERegion eRegion) {
 
 		Region region = eRegion.getRegion();
 

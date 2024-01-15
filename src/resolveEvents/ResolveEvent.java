@@ -37,6 +37,7 @@ public class ResolveEvent extends GameState {
 			break;
 
 		case STOOMGEMAAL_VIER_NOORDER_KOGGEN:
+			classEvent = ResolveEventStoomgemaalVierNoorderKoggen.class;
 			break;
 
 		case STORMVLOEDSEINDIENST:
