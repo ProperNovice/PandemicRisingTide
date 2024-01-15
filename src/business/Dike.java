@@ -10,7 +10,7 @@ public class Dike implements IImageViewAble {
 
 	public Dike() {
 
-		new ImageView("dike.png", ELayerZ.MAP_BUILDINGS, this);
+		new ImageView("dike.png", ELayerZ.DIKES, this);
 		getImageView().setDimensions(Credentials.INSTANCE.dDike);
 		getImageView().setSelectImageViewAbleRatioDimensions(2);
 

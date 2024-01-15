@@ -96,7 +96,7 @@ public class JUnit extends GameState {
 //		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 //		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
-		playerRole(EPlayer.BOTTOM, ERole.WEREHOUSE_MANAGER, ERegion.GOERRE_OVERFLAKKEE);
+		playerRole(EPlayer.BOTTOM, ERole.WEREHOUSE_MANAGER, ERegion.DELFLAND);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
@@ -109,6 +109,9 @@ public class JUnit extends GameState {
 //		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
 
 		addCardRegionCardToDiscardPile(ERegion.FRYSLAN);
+		
+//		while(Dikes.INSTANCE.getList().getArrayList().size() > 3)
+//			Dikes.INSTANCE.getList().getArrayList().removeRandom();
 
 //		WaterFlows.INSTANCE.execute();
 
@@ -146,7 +149,7 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
 
-		event(EEvent.DELTA_PLAN);
+		event(EEvent.TWEE_GEBROEDERS_PLUGS_BREACH);
 
 		getFlow().addLast(ResolveEvent.class);
 		proceedToNextGameState();
