@@ -18,10 +18,11 @@ public enum SetUpMoveTargetRegions {
 	private ArrayList<ERegion> usingCard = new ArrayList<>();
 	private ERegion eRegionPlayer = null;
 
-	public void execute() {
+	public void executeActivePlayer() {
 
 		setup();
 		portMaster();
+		director();
 		driveFerry();
 		returnToPort();
 		sail();
@@ -29,6 +30,17 @@ public enum SetUpMoveTargetRegions {
 
 		selectRegions();
 		printRegions();
+
+	}
+
+	public void executePassivePlayer() {
+
+		setup();
+		this.eRegionPlayer = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnPassive();
+
+		director();
+		selectRegions();
 
 	}
 
@@ -108,6 +120,31 @@ public enum SetUpMoveTargetRegions {
 
 	}
 
+	private void director() {
+
+		if (!Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst().getERole()
+				.equals(ERole.DIRECTOR))
+			return;
+
+		for (ERegion eRegionTemp : ERegion.values()) {
+
+			Region region = eRegionTemp.getRegion();
+
+			if (region.isSea())
+				continue;
+
+			if (region.isHighElevated())
+				continue;
+
+			if (region.getWaterCubes().getArrayList().isEmpty())
+				continue;
+
+			addERegion(eRegionTemp, this.free);
+
+		}
+
+	}
+
 	private void portMaster() {
 
 		if (!Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst().getERole()
@@ -130,8 +167,6 @@ public enum SetUpMoveTargetRegions {
 			addERegion(eRegionTemp, this.free);
 
 		}
-
-		printRegions();
 
 	}
 

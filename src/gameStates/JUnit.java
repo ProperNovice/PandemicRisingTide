@@ -36,7 +36,7 @@ public class JUnit extends GameState {
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
-		addWaterCubes(1, ERegion.FRYSLAN);
+		addWaterCubes(3, ERegion.FRYSLAN);
 		addWaterCubes(1, ERegion.IJSSELDELTA);
 		addWaterCubes(1, ERegion.MARKERWAARD);
 		addWaterCubes(1, ERegion.BETUWE);
@@ -76,13 +76,14 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
-		playerRole(EPlayer.TOP, ERole.WEREHOUSE_MANAGER, ERegion.FRYSLAN);
+		playerRole(EPlayer.TOP, ERole.PUMP_OPERATOR, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
 //		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
 //		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
 		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
+		playerCardRegion(EPlayer.TOP, ERegion.LAND_VAN_MAAS_EN_WAAL);
 //		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
 //		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
 		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
@@ -90,7 +91,7 @@ public class JUnit extends GameState {
 //		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 //		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
-		playerRole(EPlayer.BOTTOM, ERole.DIRECTOR, ERegion.FRYSLAN);
+		playerRole(EPlayer.BOTTOM, ERole.WEREHOUSE_MANAGER, ERegion.GOERRE_OVERFLAKKEE);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);

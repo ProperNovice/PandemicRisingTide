@@ -5,7 +5,7 @@ import functions.GetERegionContainingPlayerPawn;
 import functions.RemoveWaterFromRegion;
 import gameStatesDefault.GameState;
 
-public class ActionPumpWaterFromPlayerActiveRegion extends GameState {
+public class ActionPumpWaterFromActiveRegion extends GameState {
 
 	@Override
 	public void execute() {
