@@ -33,8 +33,16 @@ public class Player {
 	}
 
 	public void resetActionsRemaining() {
+		addActionsRemaining(4);
+	}
 
-		for (int counter = 1; counter <= 4; counter++) {
+	public void reduceActionsRemaining() {
+		this.actionsRemaining.getArrayList().removeLast().getImageView().setVisible(false);
+	}
+
+	public void addActionsRemaining(int amount) {
+
+		for (int counter = 1; counter <= amount; counter++) {
 
 			ActionsRemaining actionsRemaining = ObjectPool.INSTANCE.acquire(ActionsRemaining.class);
 			actionsRemaining.getImageView().setVisible(true);
@@ -44,10 +52,6 @@ public class Player {
 
 		this.actionsRemaining.relocateImageViews();
 
-	}
-
-	public void reduceActionsRemaining() {
-		this.actionsRemaining.getArrayList().removeLast().getImageView().setVisible(false);
 	}
 
 	private void createLists(Vector2 coordinates) {
