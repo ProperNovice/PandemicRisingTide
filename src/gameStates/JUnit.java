@@ -15,8 +15,11 @@ import cards.CardPlayerRegion;
 import cards.CardRole;
 import controller.Credentials;
 import enums.EColor;
+import enums.EEvent;
 import enums.ERegion;
 import enums.ERole;
+import functions.EventCanBeResolved;
+import functions.SaveEventPressed;
 import gameStatesDefault.GameState;
 import javafx.scene.input.KeyCode;
 import model.Adjacencies;
@@ -25,7 +28,9 @@ import model.DiscardPileDikeFailure;
 import model.DiscardPilePlayer;
 import model.Pawns;
 import model.Players;
+import resolveEvents.ResolveEvent;
 import utils.ArrayList;
+import utils.Logger;
 
 public class JUnit extends GameState {
 
@@ -135,11 +140,15 @@ public class JUnit extends GameState {
 //		for (EColor eColor : EColor.values())
 //			HydraulicStructures.INSTANCE.buildHydraulicStructureMap(eColor);
 
-		getFlow().addLast(ActionChoose.class);
+//		getFlow().addLast(ActionChoose.class);
 //		getFlow().addLast(ActionBuildHydraulicStructure.class);
-		getFlow().addLast(ActionsRemainingReduce.class);
+//		getFlow().addLast(ActionsRemainingReduce.class);
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
+
+		event(EEvent.DELTA_PLAN);
+
+		getFlow().addLast(ResolveEvent.class);
 		proceedToNextGameState();
 
 	}
@@ -312,6 +321,13 @@ public class JUnit extends GameState {
 		cardPlayerRegion.getImageView().setVisible(true);
 
 		DiscardPilePlayer.INSTANCE.addFirstRelocate(cardPlayerRegion);
+
+	}
+
+	public void event(EEvent eEvent) {
+
+		Logger.INSTANCE.logNewLine(EventCanBeResolved.INSTANCE.execute(eEvent));
+		SaveEventPressed.INSTANCE.set(eEvent);
 
 	}
 
