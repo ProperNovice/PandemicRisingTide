@@ -152,7 +152,7 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
 
-		event(EEvent.STOOMGEMAAL_VIER_NOORDER_KOGGEN);
+		event(EEvent.MAIL_EXCHANGE);
 
 		getFlow().addLast(ResolveEvent.class);
 		proceedToNextGameState();

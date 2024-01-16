@@ -1,6 +1,7 @@
 package gameStates;
 
 import functions.SelectPumpingStationsAvailableToOperate;
+import functions.SkipDikesFailStepThisTurn;
 import gameStatesDefault.GameState;
 import model.Players;
 
@@ -20,6 +21,8 @@ public class StartNewTurn extends GameState {
 			getFlow().addLast(ActionsRemainingReduce.class);
 
 		}
+
+		SkipDikesFailStepThisTurn.INSTANCE.execute();
 
 	}
 

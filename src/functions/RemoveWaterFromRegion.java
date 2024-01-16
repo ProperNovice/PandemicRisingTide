@@ -11,8 +11,10 @@ public enum RemoveWaterFromRegion {
 	INSTANCE;
 
 	public void execute(ERegion eRegion) {
+		execute(eRegion.getRegion());
+	}
 
-		Region region = eRegion.getRegion();
+	public void execute(Region region) {
 
 		WaterCube waterCube = region.getWaterCubes().getArrayList().removeFirst();
 		waterCube.getImageView().setDimensions(Credentials.INSTANCE.dWaterCube);

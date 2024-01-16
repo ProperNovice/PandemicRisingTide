@@ -4,6 +4,7 @@ import cards.CardPlayer;
 import cards.CardPlayerEvent;
 import enums.EEvent;
 import model.Dikes;
+import model.Players;
 import model.PumpingStations;
 
 public enum EventCanBeResolved {
@@ -31,6 +32,25 @@ public enum EventCanBeResolved {
 		case STOOMGEMAAL_VIER_NOORDER_KOGGEN:
 			return !PumpingStations.INSTANCE.getList().getArrayList().isEmpty()
 					|| !Dikes.INSTANCE.getList().getArrayList().isEmpty();
+
+		case ENGINEERING_CORPS:
+			return true;
+
+		case EMERGENCY_MEETING:
+			return !GetERegionContainingPlayerPawn.INSTANCE.getERegionContainingPlayerPawnActive()
+					.equals(GetERegionContainingPlayerPawn.INSTANCE
+							.getERegionContainingPlayerPawnPassive());
+
+		case EMERGENCY_SANDBAGS:
+			return true;
+
+		case HOOGHEEMRAADSCHAPPEN:
+			return !GetRegionsContainingAtLeastOneWaterCube.INSTANCE.execute().isEmpty();
+
+		case MAIL_EXCHANGE:
+			return !Players.INSTANCE.getActivePlayer().getCardsPlayer().getArrayList().isEmpty()
+					&& !Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList()
+							.isEmpty();
 
 		default:
 			return true;

@@ -19,18 +19,23 @@ public class ResolveEvent extends GameState {
 			break;
 
 		case EMERGENCY_MEETING:
+			classEvent = ResolveEventEmergencyMeeting.class;
 			break;
 
 		case EMERGENCY_SANDBAGS:
+			classEvent = ResolveEventEmergencySandbags.class;
 			break;
 
 		case ENGINEERING_CORPS:
+			classEvent = ResolveEventEngineeringCorps.class;
 			break;
 
 		case HOOGHEEMRAADSCHAPPEN:
+			classEvent = ResolveEventHoogheemraadschappen.class;
 			break;
 
 		case MAIL_EXCHANGE:
+			classEvent = ResolveEventMailExchange.class;
 			break;
 
 		case NEW_PORT:
