@@ -52,6 +52,9 @@ public enum EventCanBeResolved {
 					&& !Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList()
 							.isEmpty();
 
+		case THE_LITTLE_DUTCH_BOY:
+			return true;
+
 		default:
 			return true;
 

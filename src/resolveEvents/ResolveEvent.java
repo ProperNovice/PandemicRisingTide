@@ -52,6 +52,7 @@ public class ResolveEvent extends GameState {
 			break;
 
 		case THE_LITTLE_DUTCH_BOY:
+			classEvent = ResolveEventTheLittleDutchBoy.class;
 			break;
 
 		case TWEE_GEBROEDERS_PLUGS_BREACH:

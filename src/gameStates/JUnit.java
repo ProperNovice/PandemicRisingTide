@@ -24,6 +24,7 @@ import gameStatesDefault.GameState;
 import javafx.scene.input.KeyCode;
 import model.Adjacencies;
 import model.Cards;
+import model.DeckDikeFailure;
 import model.DiscardPileDikeFailure;
 import model.DiscardPilePlayer;
 import model.Pawns;
@@ -36,6 +37,8 @@ public class JUnit extends GameState {
 
 	@Override
 	public void execute() {
+
+		DeckDikeFailure.INSTANCE.setUpDeck(Cards.INSTANCE.getCardsDikeFailureClone());
 
 		handleM();
 
@@ -152,9 +155,10 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
 
-		event(EEvent.MAIL_EXCHANGE);
+		event(EEvent.THE_LITTLE_DUTCH_BOY);
 
 		getFlow().addLast(ResolveEvent.class);
+//		getFlow().addLast(ActionDikesFail.class);
 		proceedToNextGameState();
 
 	}

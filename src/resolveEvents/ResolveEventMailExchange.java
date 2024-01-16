@@ -2,6 +2,8 @@ package resolveEvents;
 
 import cards.CardPlayer;
 import enums.EAction;
+import functions.AddCardToPlayer;
+import functions.RemoveCardFromPlayer;
 import gameStatesDefault.GameState;
 import model.Actions;
 import model.Players;
@@ -45,18 +47,10 @@ public class ResolveEventMailExchange extends GameState {
 
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 
-		Players.INSTANCE.getActivePlayer().getCardsPlayer().getArrayList()
-				.remove(this.active.getFirst());
-		Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList()
-				.remove(this.passive.getFirst());
-
-		Players.INSTANCE.getActivePlayer().getCardsPlayer().getArrayList()
-				.addLast(this.passive.getFirst());
-		Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList()
-				.addLast(this.active.getFirst());
-
-		Players.INSTANCE.getActivePlayer().getCardsPlayer().relocateImageViews();
-		Players.INSTANCE.getPassivePlayer().getCardsPlayer().relocateImageViews();
+		RemoveCardFromPlayer.INSTANCE.executeActivePlayer(this.active.getFirst());
+		RemoveCardFromPlayer.INSTANCE.executePassivePlayer(this.passive.getFirst());
+		AddCardToPlayer.INSTANCE.executeActivePlayer(this.passive.getFirst());
+		AddCardToPlayer.INSTANCE.executePassivePlayer(this.active.getFirst());
 
 		proceedToNextGameState();
 

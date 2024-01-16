@@ -93,6 +93,9 @@ public enum WaterFlows {
 				if (this.listTarget.contains(eRegionTarget))
 					continue;
 
+				if (SetERegionProtectedFromWaterFlows.INSTANCE.getERegion() == eRegionTarget)
+					continue;
+
 				this.listTarget.addLast(eRegionTarget);
 
 			}
