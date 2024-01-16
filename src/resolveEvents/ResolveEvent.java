@@ -39,6 +39,7 @@ public class ResolveEvent extends GameState {
 			break;
 
 		case NEW_PORT:
+			classEvent = ResolveEventNewPort.class;
 			break;
 
 		case STOOMGEMAAL_VIER_NOORDER_KOGGEN:

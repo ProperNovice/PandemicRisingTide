@@ -9,10 +9,20 @@ public enum BuildPort {
 
 	INSTANCE;
 
-	public void executeFromReserve() {
+	public void executeFromReserveActivePlayerRegion() {
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		executeFromReserve(eRegion);
+
+	}
+
+	public void executeFromReserve(ERegion eRegion) {
 
 		Port port = Ports.INSTANCE.getList().getArrayList().removeFirst();
-		addPumpingStationToActivePlayerERegion(port);
+
+		addPumpingStationToERegion(eRegion, port);
 
 	}
 
@@ -21,14 +31,14 @@ public enum BuildPort {
 		Port port = region.getPort().getArrayList().removeFirst();
 		region.relocateComponents();
 
-		addPumpingStationToActivePlayerERegion(port);
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+
+		addPumpingStationToERegion(eRegion, port);
 
 	}
 
-	private void addPumpingStationToActivePlayerERegion(Port port) {
-
-		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
-				.getERegionContainingPlayerPawnActive();
+	private void addPumpingStationToERegion(ERegion eRegion, Port port) {
 
 		Region region = eRegion.getRegion();
 

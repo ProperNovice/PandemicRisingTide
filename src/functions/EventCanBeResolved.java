@@ -5,6 +5,7 @@ import cards.CardPlayerEvent;
 import enums.EEvent;
 import model.Dikes;
 import model.Players;
+import model.Ports;
 import model.PumpingStations;
 
 public enum EventCanBeResolved {
@@ -54,6 +55,10 @@ public enum EventCanBeResolved {
 
 		case THE_LITTLE_DUTCH_BOY:
 			return true;
+
+		case NEW_PORT:
+			return !Ports.INSTANCE.getList().getArrayList().isEmpty()
+					|| !Dikes.INSTANCE.getList().getArrayList().isEmpty();
 
 		default:
 			return true;

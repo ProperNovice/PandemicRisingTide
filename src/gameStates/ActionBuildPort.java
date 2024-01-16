@@ -22,7 +22,7 @@ public class ActionBuildPort extends GameState {
 
 		if (!Ports.INSTANCE.getList().getArrayList().isEmpty()) {
 
-			BuildPort.INSTANCE.executeFromReserve();
+			BuildPort.INSTANCE.executeFromReserveActivePlayerRegion();
 			proceedToNextGameState();
 
 		} else {

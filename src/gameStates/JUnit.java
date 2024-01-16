@@ -155,7 +155,7 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
 
-		event(EEvent.THE_LITTLE_DUTCH_BOY);
+		event(EEvent.NEW_PORT);
 
 		getFlow().addLast(ResolveEvent.class);
 //		getFlow().addLast(ActionDikesFail.class);
