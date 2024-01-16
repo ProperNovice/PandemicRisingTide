@@ -61,6 +61,7 @@ public class ResolveEvent extends GameState {
 			break;
 
 		case WATER_MANAGEMENT:
+			classEvent = ResolveEventWaterManagement.class;
 			break;
 
 		case ZUIDERZEEVEREENIGING:

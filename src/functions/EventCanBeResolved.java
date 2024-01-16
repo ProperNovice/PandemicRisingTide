@@ -60,6 +60,9 @@ public enum EventCanBeResolved {
 			return !Ports.INSTANCE.getList().getArrayList().isEmpty()
 					|| !Dikes.INSTANCE.getList().getArrayList().isEmpty();
 
+		case WATER_MANAGEMENT:
+			return true;
+
 		default:
 			return true;
 
