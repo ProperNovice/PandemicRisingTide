@@ -4,7 +4,6 @@ import cards.CardPlayer;
 import cards.CardPlayerStorm;
 import enums.EAction;
 import gameStatesDefault.GameState;
-import model.Cards;
 import model.DeckPlayer;
 import model.DeckPlayerPanel;
 import utils.ArrayList;
@@ -13,9 +12,6 @@ public class ResolveEventTheCalmBeforeTheStorm extends GameState {
 
 	@Override
 	public void execute() {
-
-		ArrayList<CardPlayer> card = Cards.INSTANCE.getCardsPlayerRegionClone();
-		DeckPlayer.INSTANCE.addDeckShuffleRelocate(card);
 
 		EAction.RESOLVE_EVENT.showAndSelect();
 
