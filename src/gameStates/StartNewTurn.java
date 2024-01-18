@@ -1,5 +1,6 @@
 package gameStates;
 
+import functions.Flood;
 import functions.SelectPumpingStationsAvailableToOperate;
 import functions.SkipDikesFailStepThisTurn;
 import gameStatesDefault.GameState;
@@ -23,6 +24,7 @@ public class StartNewTurn extends GameState {
 		}
 
 		SkipDikesFailStepThisTurn.INSTANCE.execute();
+		Flood.INSTANCE.clearList();
 
 	}
 
