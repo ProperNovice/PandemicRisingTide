@@ -41,7 +41,7 @@ public class JUnit extends GameState {
 
 		DeckDikeFailure.INSTANCE.setUpDeck(Cards.INSTANCE.getCardsDikeFailureClone());
 
-		handleM();
+//		handleM();
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);

@@ -260,6 +260,7 @@ public enum Credentials {
 
 		this.cCardsDeckPanel = this.cDiscardPilePlayer.clone();
 		this.cCardsDeckPanel.addX(this.cDiscardPilePlayer.x - this.cDeckPlayer.x);
+		this.cCardsDeckPanel.y -= this.dCard.y - this.dGapBetweenComponents.y;
 
 	}
 

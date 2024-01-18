@@ -40,6 +40,21 @@ public enum DeckPlayer {
 		return this.list.getArrayList().isEmpty();
 	}
 
+	public void addDeckFirst(ArrayList<CardPlayer> list) {
+
+		this.list.getArrayList().addAllFirst(list);
+
+		for (CardPlayer cardPlayer : this.list) {
+
+			cardPlayer.getImageView().flipBack();
+			cardPlayer.getImageView().setVisible(false);
+
+		}
+
+		this.list.relocateImageViews();
+
+	}
+
 	public CardPlayer removeFirstFlip() {
 
 		CardPlayer cardPlayer = this.list.getArrayList().removeFirst();

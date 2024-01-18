@@ -69,6 +69,7 @@ public class ResolveEvent extends GameState {
 			classEvent = ResolveEventZuiderzeevereeniging.class;
 			break;
 
+
 		}
 
 		getFlow().addFirst(classEvent);

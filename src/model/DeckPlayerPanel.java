@@ -29,6 +29,7 @@ public enum DeckPlayerPanel {
 		listCredentials.coordinatesList.addVector2(Credentials.INSTANCE.cMap);
 		listCredentials.layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		listCredentials.relocateTypeEnum = RelocateTypeEnum.CENTER;
+		listCredentials.objectsPerRow = 3;
 
 	}
 

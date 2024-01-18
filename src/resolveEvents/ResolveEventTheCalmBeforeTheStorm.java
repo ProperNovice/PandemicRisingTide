@@ -1,6 +1,7 @@
 package resolveEvents;
 
 import cards.CardPlayer;
+import cards.CardPlayerStorm;
 import enums.EAction;
 import gameStatesDefault.GameState;
 import model.Cards;
@@ -29,6 +30,20 @@ public class ResolveEventTheCalmBeforeTheStorm extends GameState {
 		}
 
 		DeckPlayerPanel.INSTANCE.getList().relocateImageViews();
+
+	}
+
+	@Override
+	protected void handleActionSelectedPressed(EAction eAction) {
+
+		ArrayList<CardPlayer> list = DeckPlayerPanel.INSTANCE.getList().getArrayList().clear();
+
+		for (CardPlayer cardPlayer : list.clone())
+			if (cardPlayer instanceof CardPlayerStorm)
+				list.addLast(list.remove(cardPlayer));
+
+		DeckPlayer.INSTANCE.addDeckFirst(list);
+		proceedToNextGameState();
 
 	}
 
