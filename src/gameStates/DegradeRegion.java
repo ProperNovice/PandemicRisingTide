@@ -15,6 +15,8 @@ import utils.Flow;
 
 public abstract class DegradeRegion extends GameState {
 
+	private ERegion floodERegion = null;
+
 	@Override
 	public void execute() {
 
@@ -34,6 +36,14 @@ public abstract class DegradeRegion extends GameState {
 	}
 
 	@Override
+	protected void handleActionSelectedPressed(EAction eAction) {
+
+		Flood.INSTANCE.execute(this.floodERegion);
+		proceedToNextGameState();
+
+	}
+
+	@Override
 	protected void handleRegionSelectedPressed(ERegion eRegion, Region region) {
 
 		Actions.INSTANCE.concealActions();
@@ -45,17 +55,20 @@ public abstract class DegradeRegion extends GameState {
 			waterCubes++;
 			AddWaterToRegion.INSTANCE.execute(eRegion);
 
-			if (region.getWaterCubes().getArrayList().isMaxCapacity() && !floodCanTrigger())
+			if (region.getWaterCubes().getArrayList().isMaxCapacity() && !floodCanTrigger()) {
+
 				removeDikesFailGameStatesFromFlow();
+				proceedToNextGameState();
+
+			}
 
 		} else {
 
-			Flood.INSTANCE.execute(eRegion);
+			this.floodERegion = eRegion;
+			EAction.FLOOD.showAndSelect();
 			removeDikesFailGameStatesFromFlow();
 
 		}
-
-		proceedToNextGameState();
 
 	}
 
