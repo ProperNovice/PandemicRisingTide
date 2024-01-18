@@ -4,7 +4,7 @@ import business.Region;
 import enums.EAction;
 import enums.ERegion;
 import enums.ERole;
-import functions.PawnMoveToRegion;
+import functions.MovePawnToRegion;
 import functions.SetUpMoveTargetRegions;
 import gameStatesDefault.GameState;
 import model.Actions;
@@ -44,7 +44,7 @@ public class ActionChooseMoveToRegion extends GameState {
 	protected void handleRegionSelectedPressed(ERegion eRegion, Region region) {
 
 		Actions.INSTANCE.concealActions();
-		PawnMoveToRegion.INSTANCE.setUpERegionToMove(eRegion);
+		MovePawnToRegion.INSTANCE.setUpERegionToMove(eRegion);
 
 		if (this.moveActivePlayer)
 			handleRegionSelectedPressedActivePlayer(eRegion);
@@ -58,14 +58,14 @@ public class ActionChooseMoveToRegion extends GameState {
 	private void handleRegionSelectedPressedActivePlayer(ERegion eRegion) {
 
 		if (SetUpMoveTargetRegions.INSTANCE.getFreeERegions().contains(eRegion))
-			PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+			MovePawnToRegion.INSTANCE.moveToERegionActivePlayer();
 		else
 			getFlow().addFirst(ChooseCardToDiscardForMoving.class);
 
 	}
 
 	private void handleRegionSelectedPressedPassivePlayer(ERegion eRegion) {
-		PawnMoveToRegion.INSTANCE.moveToERegionPassivePlayer();
+		MovePawnToRegion.INSTANCE.moveToERegionPassivePlayer();
 	}
 
 }

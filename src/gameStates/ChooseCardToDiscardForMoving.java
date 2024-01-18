@@ -6,7 +6,7 @@ import enums.EAction;
 import enums.ERegion;
 import functions.DiscardCardFromActivePlayer;
 import functions.GetERegionContainingPlayerPawn;
-import functions.PawnMoveToRegion;
+import functions.MovePawnToRegion;
 import gameStatesDefault.GameState;
 import model.Actions;
 import model.Players;
@@ -26,13 +26,13 @@ public class ChooseCardToDiscardForMoving extends GameState {
 		if (this.cardPlayerRegionMoveFrom == null && this.cardPlayerRegionMoveTo != null) {
 
 			DiscardCardFromActivePlayer.INSTANCE.execute(this.cardPlayerRegionMoveTo);
-			PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+			MovePawnToRegion.INSTANCE.moveToERegionActivePlayer();
 			proceedToNextGameState();
 
 		} else if (this.cardPlayerRegionMoveFrom != null && this.cardPlayerRegionMoveTo == null) {
 
 			DiscardCardFromActivePlayer.INSTANCE.execute(this.cardPlayerRegionMoveFrom);
-			PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+			MovePawnToRegion.INSTANCE.moveToERegionActivePlayer();
 			proceedToNextGameState();
 
 		} else {
@@ -56,7 +56,7 @@ public class ChooseCardToDiscardForMoving extends GameState {
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 
 		DiscardCardFromActivePlayer.INSTANCE.execute(cardPlayer);
-		PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+		MovePawnToRegion.INSTANCE.moveToERegionActivePlayer();
 		proceedToNextGameState();
 
 	}
@@ -87,7 +87,7 @@ public class ChooseCardToDiscardForMoving extends GameState {
 		this.eRegionMoveFrom = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();
 
-		this.eRegionMoveTo = PawnMoveToRegion.INSTANCE.getERegionMoveTo();
+		this.eRegionMoveTo = MovePawnToRegion.INSTANCE.getERegionMoveTo();
 
 	}
 

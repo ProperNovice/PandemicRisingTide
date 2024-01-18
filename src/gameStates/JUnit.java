@@ -11,6 +11,7 @@ import business.PumpingStation;
 import business.Region;
 import business.WaterCube;
 import cards.CardDikeFailure;
+import cards.CardPlayer;
 import cards.CardPlayerRegion;
 import cards.CardRole;
 import controller.Credentials;
@@ -155,7 +156,7 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
 
-		event(EEvent.WATER_MANAGEMENT);
+		event(EEvent.THE_CALM_BEFORE_THE_STORM);
 
 		getFlow().addLast(ResolveEvent.class);
 //		getFlow().addLast(ActionDikesFail.class);
@@ -267,9 +268,14 @@ public class JUnit extends GameState {
 		CardPlayerRegion cardPlayerRegion = null;
 		EColor eColor = null;
 
-		for (CardPlayerRegion cardPlayerRegionTemp : Cards.INSTANCE.getCardsPlayerRegionClone())
+		for (CardPlayer cardPlayer : Cards.INSTANCE.getCardsPlayerRegionClone()) {
+
+			CardPlayerRegion cardPlayerRegionTemp = (CardPlayerRegion) cardPlayer;
+
 			if (eRegion.equals(cardPlayerRegionTemp.getERegion()))
 				eColor = cardPlayerRegionTemp.getEColor();
+
+		}
 
 		cardPlayerRegion = new CardPlayerRegion(eRegion, eColor);
 		cardPlayerRegion.getImageView().setVisible(true);
@@ -323,9 +329,14 @@ public class JUnit extends GameState {
 
 		EColor eColor = null;
 
-		for (CardPlayerRegion cardPlayerRegionTemp : Cards.INSTANCE.getCardsPlayerRegionClone())
+		for (CardPlayer cardPlayer : Cards.INSTANCE.getCardsPlayerRegionClone()) {
+
+			CardPlayerRegion cardPlayerRegionTemp = (CardPlayerRegion) cardPlayer;
+
 			if (eRegion.equals(cardPlayerRegionTemp.getERegion()))
 				eColor = cardPlayerRegionTemp.getEColor();
+
+		}
 
 		CardPlayerRegion cardPlayerRegion = new CardPlayerRegion(eRegion, eColor);
 		cardPlayerRegion.getImageView().setVisible(true);

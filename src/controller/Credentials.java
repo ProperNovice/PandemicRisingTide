@@ -24,7 +24,7 @@ public enum Credentials {
 			cPopulation, cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure,
 			cPlayerTop, cPlayerBottom, cHydraulicStructureMapGreen, cHydraulicStructureMapOrange,
 			cHydraulicStructureMapPurple, cHydraulicStructureMapYellow,
-			cHydraulicStructurePurpleBuilding, cSeaLevelMarkerFirst;
+			cHydraulicStructurePurpleBuilding, cSeaLevelMarkerFirst, cCardsDeckPanel;
 
 	private Credentials() {
 
@@ -255,6 +255,11 @@ public enum Credentials {
 		// h sea level height
 
 		this.hSeaLevelHeight = 78;
+
+		// c cards deck panel
+
+		this.cCardsDeckPanel = this.cDiscardPilePlayer.clone();
+		this.cCardsDeckPanel.addX(this.cDiscardPilePlayer.x - this.cDeckPlayer.x);
 
 	}
 

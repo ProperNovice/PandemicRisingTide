@@ -50,6 +50,7 @@ public class ResolveEvent extends GameState {
 			break;
 
 		case THE_CALM_BEFORE_THE_STORM:
+			classEvent = ResolveEventTheCalmBeforeTheStorm.class;
 			break;
 
 		case THE_LITTLE_DUTCH_BOY:
@@ -65,6 +66,7 @@ public class ResolveEvent extends GameState {
 			break;
 
 		case ZUIDERZEEVEREENIGING:
+			classEvent = ResolveEventZuiderzeevereeniging.class;
 			break;
 
 		}

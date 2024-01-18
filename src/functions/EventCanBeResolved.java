@@ -3,6 +3,7 @@ package functions;
 import cards.CardPlayer;
 import cards.CardPlayerEvent;
 import enums.EEvent;
+import model.DeckPlayer;
 import model.Dikes;
 import model.Players;
 import model.Ports;
@@ -61,6 +62,12 @@ public enum EventCanBeResolved {
 					|| !Dikes.INSTANCE.getList().getArrayList().isEmpty();
 
 		case WATER_MANAGEMENT:
+			return true;
+
+		case THE_CALM_BEFORE_THE_STORM:
+			return !DeckPlayer.INSTANCE.isEmpty();
+
+		case ZUIDERZEEVEREENIGING:
 			return true;
 
 		default:

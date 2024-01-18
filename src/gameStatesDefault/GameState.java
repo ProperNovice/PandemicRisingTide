@@ -172,8 +172,11 @@ public abstract class GameState {
 		if (Players.INSTANCE.getActivePlayer().getCardsPlayer().getArrayList().contains(card))
 			handleCardPressedActivePlayer((CardPlayer) card);
 
-		if (Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList().contains(card))
+		else if (Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList().contains(card))
 			handleCardPressedPassivePlayer((CardPlayer) card);
+
+		else if (card instanceof CardRole)
+			handleCardRolePlayerPressed((CardRole) card);
 
 	}
 
@@ -182,6 +185,10 @@ public abstract class GameState {
 	}
 
 	protected void handleCardPressedPassivePlayer(CardPlayer cardPlayer) {
+
+	}
+
+	protected void handleCardRolePlayerPressed(CardRole cardRole) {
 
 	}
 

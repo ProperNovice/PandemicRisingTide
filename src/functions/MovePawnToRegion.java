@@ -8,7 +8,7 @@ import enums.ERole;
 import model.Pawns;
 import model.Players;
 
-public enum PawnMoveToRegion {
+public enum MovePawnToRegion {
 
 	INSTANCE;
 

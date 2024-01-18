@@ -4,7 +4,7 @@ import business.Region;
 import enums.EAction;
 import enums.ERegion;
 import functions.GetERegionContainingPlayerPawn;
-import functions.PawnMoveToRegion;
+import functions.MovePawnToRegion;
 import gameStatesDefault.GameState;
 import model.Actions;
 
@@ -35,13 +35,13 @@ public class ResolveEventEmergencyMeeting extends GameState {
 
 		if (eRegion.equals(this.eRegionActive)) {
 
-			PawnMoveToRegion.INSTANCE.setUpERegionToMove(this.eRegionPassive);
-			PawnMoveToRegion.INSTANCE.moveToERegionActivePlayer();
+			MovePawnToRegion.INSTANCE.setUpERegionToMove(this.eRegionPassive);
+			MovePawnToRegion.INSTANCE.moveToERegionActivePlayer();
 
 		} else if (eRegion.equals(this.eRegionPassive)) {
 
-			PawnMoveToRegion.INSTANCE.setUpERegionToMove(this.eRegionActive);
-			PawnMoveToRegion.INSTANCE.moveToERegionPassivePlayer();
+			MovePawnToRegion.INSTANCE.setUpERegionToMove(this.eRegionActive);
+			MovePawnToRegion.INSTANCE.moveToERegionPassivePlayer();
 
 		}
 
