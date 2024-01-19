@@ -2,16 +2,20 @@ package gameStates;
 
 import business.DikeLocation;
 import cards.CardPlayer;
+import cards.CardRole;
 import enums.EAction;
 import enums.ERegion;
 import enums.EText;
+import functions.AddCardToPlayer;
 import functions.AddWaterToRegion;
 import functions.BuildDike;
 import gameStatesDefault.GameState;
 import model.Adjacencies;
 import model.Cards;
 import model.DeckDikeFailure;
+import model.DeckPlayer;
 import model.HydraulicStructures;
+import model.Players;
 import model.SeaLevel;
 import utils.ArrayList;
 
@@ -50,15 +54,106 @@ public class StartGame extends GameState {
 
 	private void createPlayerDeck() {
 
+		int stormCards = 6;
+
+		// create piles
+
+		ArrayList<ArrayList<CardPlayer>> lists = new ArrayList<>();
+
+		for (int counter = 1; counter <= stormCards; counter++)
+			lists.addLast(new ArrayList<>());
+
+		// populate piles
+
+		int index = 0;
+
+		while (!this.deck.isEmpty()) {
+
+			ArrayList<CardPlayer> listTemp = lists.get(index);
+			listTemp.addLast(this.deck.removeRandom());
+
+			index++;
+
+			if (index == lists.size())
+				index = 0;
+
+		}
+
+		// add storm cards
+
+		ArrayList<CardPlayer> storms = Cards.INSTANCE.getCardsPlayerStormClone();
+
+		for (ArrayList<CardPlayer> listTemp : lists) {
+
+			CardPlayer cardPlayer = storms.removeRandom();
+			cardPlayer.getImageView().setVisible(true);
+			listTemp.addLast(cardPlayer);
+
+		}
+
+		// shuffle piles
+
+		for (ArrayList<CardPlayer> listTemp : lists)
+			listTemp.shuffle();
+
+		lists.shuffle();
+
+		// add to deck
+
+		for (ArrayList<CardPlayer> listTemp : lists)
+			DeckPlayer.INSTANCE.addDeckFirst(listTemp);
+
 	}
 
 	private void createPlayerHands() {
 
+		// create cards region
+
 		this.deck.addAllLast(Cards.INSTANCE.getCardsPlayerRegionClone());
+
+		// add card events
+
+		ArrayList<CardPlayer> events = Cards.INSTANCE.getCardsPlayerEventClone();
+
+		for (int counter = 1; counter <= 4; counter++)
+			this.deck.addLast(events.removeRandom());
+
+		// draw four cards
+
+		CardPlayer cardPlayer = null;
+
+		for (int counter = 1; counter <= 4; counter++) {
+
+			cardPlayer = this.deck.removeRandom();
+			cardPlayer.getImageView().setVisible(true);
+			AddCardToPlayer.INSTANCE.executeActivePlayer(cardPlayer);
+
+			cardPlayer = this.deck.removeRandom();
+			cardPlayer.getImageView().setVisible(true);
+			AddCardToPlayer.INSTANCE.executePassivePlayer(cardPlayer);
+
+		}
 
 	}
 
 	private void createPlayerRoles() {
+
+		ArrayList<CardRole> list = Cards.INSTANCE.getCardsRoleClone();
+		CardRole cardRole = null;
+
+		// player active
+
+		cardRole = list.removeRandom();
+		cardRole.getImageView().setVisible(true);
+		Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().addLast(cardRole);
+		Players.INSTANCE.getActivePlayer().getCardRole().relocateImageViews();
+
+		// player passive
+
+		cardRole = list.removeRandom();
+		cardRole.getImageView().setVisible(true);
+		Players.INSTANCE.getPassivePlayer().getCardRole().getArrayList().addLast(cardRole);
+		Players.INSTANCE.getPassivePlayer().getCardRole().relocateImageViews();
 
 	}
 

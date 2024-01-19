@@ -19,27 +19,6 @@ public enum DeckPlayer {
 		createList();
 	}
 
-	public void addDeckShuffleRelocate(ArrayList<CardPlayer> list) {
-
-		this.list.getArrayList().clear();
-		this.list.getArrayList().addAllFirst(list);
-
-		for (CardPlayer cardPlayer : this.list) {
-
-			cardPlayer.getImageView().flipBack();
-			cardPlayer.getImageView().setVisible(false);
-
-		}
-
-		this.list.getArrayList().shuffle();
-		this.list.relocateImageViews();
-
-	}
-
-	public boolean isEmpty() {
-		return this.list.getArrayList().isEmpty();
-	}
-
 	public void addDeckFirst(ArrayList<CardPlayer> list) {
 
 		this.list.getArrayList().addAllFirst(list);
@@ -63,6 +42,10 @@ public enum DeckPlayer {
 
 		return cardPlayer;
 
+	}
+
+	public boolean isEmpty() {
+		return this.list.getArrayList().isEmpty();
 	}
 
 	private void createList() {
