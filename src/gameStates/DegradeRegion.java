@@ -55,12 +55,10 @@ public abstract class DegradeRegion extends GameState {
 			waterCubes++;
 			AddWaterToRegion.INSTANCE.execute(eRegion);
 
-			if (region.getWaterCubes().getArrayList().isMaxCapacity() && !floodCanTrigger()) {
-
+			if (region.getWaterCubes().getArrayList().isMaxCapacity() && !floodCanTrigger())
 				removeDikesFailGameStatesFromFlow();
-				proceedToNextGameState();
 
-			}
+			proceedToNextGameState();
 
 		} else {
 

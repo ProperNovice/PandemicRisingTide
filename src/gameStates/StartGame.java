@@ -11,11 +11,9 @@ import gameStatesDefault.GameState;
 import model.Adjacencies;
 import model.Cards;
 import model.DeckDikeFailure;
-import model.Dikes;
 import model.HydraulicStructures;
 import model.SeaLevel;
 import utils.ArrayList;
-import utils.Enums.Lists;
 
 public class StartGame extends GameState {
 
@@ -47,8 +45,6 @@ public class StartGame extends GameState {
 		createPlayerDeck();
 
 		proceedToNextGameState();
-		
-		System.out.println(Dikes.INSTANCE.getList().getArrayList().size());
 
 	}
 
