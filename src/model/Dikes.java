@@ -25,7 +25,6 @@ public enum Dikes {
 			this.list.getArrayList().addLast(new Dike());
 
 		this.list.relocateImageViews();
-
 		this.list.getArrayList().saveOriginal();
 
 	}

@@ -1,6 +1,8 @@
 package gameStates;
 
 import business.DikeLocation;
+import cards.CardPlayer;
+import enums.EAction;
 import enums.ERegion;
 import enums.EText;
 import functions.AddWaterToRegion;
@@ -9,30 +11,58 @@ import gameStatesDefault.GameState;
 import model.Adjacencies;
 import model.Cards;
 import model.DeckDikeFailure;
+import model.Dikes;
 import model.HydraulicStructures;
 import model.SeaLevel;
+import utils.ArrayList;
+import utils.Enums.Lists;
 
 public class StartGame extends GameState {
 
+	private ArrayList<CardPlayer> deck = new ArrayList<>();
+
 	@Override
 	public void execute() {
+
+//		Lists.INSTANCE.loadListsOriginal();
 
 		EText.START_GAME.show();
 		HydraulicStructures.INSTANCE.reset();
 		ERegion.ZUIDERZEE.getRegion().setIsSea(true);
 		SeaLevel.INSTANCE.reset();
 
-		setUpDikes();
-		setUpWaterCubes();
-		createDikeFailureDeck();
-		createDegradeRegions();
-
-		proceedToNextGameState();
+		EAction.START_GAME.showAndSelect();
 
 	}
 
 	@Override
-	protected void executeTextOption(EText eText) {
+	protected void handleActionSelectedPressed(EAction eAction) {
+
+		setUpDikes();
+		setUpWaterCubes();
+		createDikeFailureDeck();
+		createDegradeRegions();
+		createPlayerRoles();
+		createPlayerHands();
+		createPlayerDeck();
+
+		proceedToNextGameState();
+		
+		System.out.println(Dikes.INSTANCE.getList().getArrayList().size());
+
+	}
+
+	private void createPlayerDeck() {
+
+	}
+
+	private void createPlayerHands() {
+
+		this.deck.addAllLast(Cards.INSTANCE.getCardsPlayerRegionClone());
+
+	}
+
+	private void createPlayerRoles() {
 
 	}
 
