@@ -13,6 +13,7 @@ import business.WaterCube;
 import cards.CardDikeFailure;
 import cards.CardPlayer;
 import cards.CardPlayerRegion;
+import cards.CardPlayerStorm;
 import cards.CardRole;
 import controller.Credentials;
 import enums.EColor;
@@ -26,11 +27,11 @@ import javafx.scene.input.KeyCode;
 import model.Adjacencies;
 import model.Cards;
 import model.DeckDikeFailure;
+import model.DeckPlayer;
 import model.DiscardPileDikeFailure;
 import model.DiscardPilePlayer;
 import model.Pawns;
 import model.Players;
-import resolveEvents.ResolveEvent;
 import utils.ArrayList;
 import utils.Logger;
 
@@ -41,7 +42,7 @@ public class JUnit extends GameState {
 
 		DeckDikeFailure.INSTANCE.setUpDeck(Cards.INSTANCE.getCardsDikeFailureClone());
 
-//		handleM();
+		handleM();
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
@@ -156,9 +157,11 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ResolveHydraulicStructureOrange.class);
 //		getFlow().addLast(ActionBuildDike.class);
 
-		event(EEvent.THE_CALM_BEFORE_THE_STORM);
+//		event(EEvent.THE_CALM_BEFORE_THE_STORM);
 
-		getFlow().addLast(ResolveEvent.class);
+		addStormFirstCardPlayersDeck();
+
+		getFlow().addLast(DrawOnePlayerCard.class);
 //		getFlow().addLast(ActionDikesFail.class);
 		proceedToNextGameState();
 
@@ -349,6 +352,15 @@ public class JUnit extends GameState {
 
 		Logger.INSTANCE.logNewLine(EventCanBeResolved.INSTANCE.execute(eEvent));
 		SaveEventPressed.INSTANCE.set(eEvent);
+
+	}
+
+	public void addStormFirstCardPlayersDeck() {
+
+		ArrayList<CardPlayer> list = new ArrayList<>();
+		list.addLast(new CardPlayerStorm());
+
+		DeckPlayer.INSTANCE.addDeckFirst(list);
 
 	}
 
