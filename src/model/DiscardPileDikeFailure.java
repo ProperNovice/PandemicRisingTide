@@ -30,6 +30,10 @@ public enum DiscardPileDikeFailure {
 		return this.list.getArrayList().getFirst().getERegion();
 	}
 
+	public ListImageViewAbles<CardDikeFailure> getList() {
+		return this.list;
+	}
+
 	private void createList() {
 
 		ListCredentials listCredentials = this.list.getListCredentials();

@@ -82,6 +82,9 @@ public abstract class DegradeRegion extends GameState {
 
 	private void removeDikesFailGameStatesFromFlow() {
 
+		if (getFlow().isEmpty())
+			return;
+
 		while (Flow.INSTANCE.getFlow().getFirst().equals(DegradeRegionNoFlood.class))
 			Flow.INSTANCE.getFlow().removeFirst();
 

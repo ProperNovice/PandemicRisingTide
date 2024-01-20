@@ -110,7 +110,7 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.WEST_BRABANT);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
-		addDikesFailureCardToDiscardPile(ERegion.FRYSLAN);
+		addDikesFailureCardToDiscardPile(ERegion.NOORDOOSTPOLDER);
 //		addDikesFailureCardToDiscardPile(ERegion.VOLLENHOVE);
 
 		addCardRegionCardToDiscardPile(ERegion.FRYSLAN);
@@ -161,7 +161,7 @@ public class JUnit extends GameState {
 
 		addStormFirstCardPlayersDeck();
 
-		getFlow().addLast(DrawOnePlayerCard.class);
+		getFlow().addLast(ResolveStorm.class);
 //		getFlow().addLast(ActionDikesFail.class);
 		proceedToNextGameState();
 

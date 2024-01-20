@@ -23,7 +23,7 @@ public class StartNewTurn extends GameState {
 
 		}
 
-		SkipDikesFailStepThisTurn.INSTANCE.execute();
+		SkipDikesFailStepThisTurn.INSTANCE.reset();
 		Flood.INSTANCE.clearList();
 
 	}
