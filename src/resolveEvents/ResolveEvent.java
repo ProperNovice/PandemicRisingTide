@@ -1,8 +1,8 @@
 package resolveEvents;
 
 import enums.EEvent;
-import functions.SaveEventPressed;
 import gameStatesDefault.GameState;
+import model.DiscardPilePlayer;
 
 public class ResolveEvent extends GameState {
 
@@ -10,7 +10,7 @@ public class ResolveEvent extends GameState {
 	public void execute() {
 
 		Class<? extends GameState> classEvent = null;
-		EEvent eEvent = SaveEventPressed.INSTANCE.get();
+		EEvent eEvent = DiscardPilePlayer.INSTANCE.getEEventFirstCard();
 
 		switch (eEvent) {
 
@@ -68,7 +68,6 @@ public class ResolveEvent extends GameState {
 		case ZUIDERZEEVEREENIGING:
 			classEvent = ResolveEventZuiderzeevereeniging.class;
 			break;
-
 
 		}
 

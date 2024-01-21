@@ -1,8 +1,10 @@
 package model;
 
 import cards.CardPlayer;
+import cards.CardPlayerEvent;
 import cards.CardPlayerRegion;
 import controller.Credentials;
+import enums.EEvent;
 import enums.ERegion;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
@@ -24,6 +26,15 @@ public enum DiscardPilePlayer {
 
 		this.list.getArrayList().addFirst(cardPlayer);
 		this.list.relocateImageViews();
+
+	}
+
+	public EEvent getEEventFirstCard() {
+
+		CardPlayer cardPlayer = this.list.getArrayList().getFirst();
+		CardPlayerEvent cardPlayerEvent = (CardPlayerEvent) cardPlayer;
+
+		return cardPlayerEvent.getEEvent();
 
 	}
 

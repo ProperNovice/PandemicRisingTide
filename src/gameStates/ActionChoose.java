@@ -4,6 +4,7 @@ import enums.EAction;
 import functions.ActionTakeCurrentRegionCardFromDiscardPile;
 import functions.SetActionsAvailable;
 import gameStatesDefault.GameState;
+import utils.ArrayList;
 import utils.HashMap;
 
 public class ActionChoose extends GameState {
@@ -21,7 +22,15 @@ public class ActionChoose extends GameState {
 	@Override
 	protected void handleActionSelectedPressed(EAction eAction) {
 
-		getFlow().addFirst(this.hashMap.getValue(eAction));
+		ArrayList<Class<? extends GameState>> list = new ArrayList<>();
+
+		Class<? extends GameState> classAction = this.hashMap.getValue(eAction);
+		list.addLast(classAction);
+
+		if (!classAction.equals(ActionChooseEventToPlay.class))
+			list.addLast(ActionsRemainingReduce.class);
+
+		getFlow().addAllFirst(list);
 		proceedToNextGameState();
 
 	}
