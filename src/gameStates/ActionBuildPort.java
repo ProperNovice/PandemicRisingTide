@@ -5,7 +5,7 @@ import enums.EAction;
 import enums.ERegion;
 import enums.ERole;
 import functions.BuildPort;
-import functions.DiscardCardFromActivePlayer;
+import functions.DiscardCardFromPlayer;
 import functions.SelectRegionsContainingPorts;
 import gameStatesDefault.GameState;
 import model.Players;
@@ -18,7 +18,7 @@ public class ActionBuildPort extends GameState {
 
 		if (!Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst().getERole()
 				.equals(ERole.PORT_MASTER))
-			DiscardCardFromActivePlayer.INSTANCE.executeCardRegionActivePlayer();
+			DiscardCardFromPlayer.INSTANCE.executeCardRegionActivePlayer();
 
 		if (!Ports.INSTANCE.getList().getArrayList().isEmpty()) {
 

@@ -8,14 +8,23 @@ import model.DiscardPilePlayer;
 import model.Players;
 import utils.ArrayList;
 
-public enum DiscardCardFromActivePlayer {
+public enum DiscardCardFromPlayer {
 
 	INSTANCE;
 
-	public void execute(CardPlayer cardPlayer) {
+	public void executeActivePlayer(CardPlayer cardPlayer) {
 
 		Players.INSTANCE.getActivePlayer().getCardsPlayer().getArrayList().remove(cardPlayer);
 		Players.INSTANCE.getActivePlayer().getCardsPlayer().relocateImageViews();
+
+		DiscardPilePlayer.INSTANCE.addFirstRelocate(cardPlayer);
+
+	}
+
+	public void executePassivePlayer(CardPlayer cardPlayer) {
+
+		Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList().remove(cardPlayer);
+		Players.INSTANCE.getPassivePlayer().getCardsPlayer().relocateImageViews();
 
 		DiscardPilePlayer.INSTANCE.addFirstRelocate(cardPlayer);
 
@@ -40,7 +49,7 @@ public enum DiscardCardFromActivePlayer {
 			if (!cardPlayerRegion.getERegion().equals(eRegion))
 				continue;
 
-			execute(cardPlayer);
+			executeActivePlayer(cardPlayer);
 			return;
 
 		}

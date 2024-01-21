@@ -17,6 +17,7 @@ public enum EventCanBeResolved {
 
 		CardPlayerEvent cardPlayerEvent = (CardPlayerEvent) cardPlayer;
 		EEvent eEvent = cardPlayerEvent.getEEvent();
+
 		return execute(eEvent);
 
 	}

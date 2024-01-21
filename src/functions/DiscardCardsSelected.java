@@ -14,7 +14,7 @@ public enum DiscardCardsSelected {
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 
 		for (CardPlayer cardPlayer : list)
-			DiscardCardFromActivePlayer.INSTANCE.execute(cardPlayer);
+			DiscardCardFromPlayer.INSTANCE.executeActivePlayer(cardPlayer);
 
 	}
 

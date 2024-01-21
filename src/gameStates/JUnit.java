@@ -12,6 +12,7 @@ import business.Region;
 import business.WaterCube;
 import cards.CardDikeFailure;
 import cards.CardPlayer;
+import cards.CardPlayerEvent;
 import cards.CardPlayerRegion;
 import cards.CardPlayerStorm;
 import cards.CardRole;
@@ -97,6 +98,7 @@ public class JUnit extends GameState {
 //		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
 //		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
 		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
+		playerCardEvent(EEvent.NEW_PORT, EPlayer.TOP);
 		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
 //		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 //		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
@@ -108,6 +110,7 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.WEST_BRABANT);
+		playerCardEvent(EEvent.THE_CALM_BEFORE_THE_STORM, EPlayer.BOTTOM);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		addDikesFailureCardToDiscardPile(ERegion.NOORDOOSTPOLDER);
@@ -161,8 +164,10 @@ public class JUnit extends GameState {
 
 		addStormFirstCardPlayersDeck();
 
-		getFlow().addLast(ResolveStorm.class);
+//		getFlow().addLast(ResolveStorm.class);
 //		getFlow().addLast(ActionDikesFail.class);
+		getFlow().addLast(ActionChoose.class);
+
 		proceedToNextGameState();
 
 	}
@@ -361,6 +366,30 @@ public class JUnit extends GameState {
 		list.addLast(new CardPlayerStorm());
 
 		DeckPlayer.INSTANCE.addDeckFirst(list);
+
+	}
+
+	public void playerCardEvent(EEvent eEvent, EPlayer ePlayer) {
+
+		Player player = null;
+
+		switch (ePlayer) {
+
+		case TOP:
+			player = Players.INSTANCE.getList().getFirst();
+			break;
+
+		case BOTTOM:
+			player = Players.INSTANCE.getList().getLast();
+			break;
+
+		}
+
+		CardPlayerEvent cardPlayerEvent = new CardPlayerEvent(eEvent);
+		cardPlayerEvent.getImageView().setVisible(true);
+
+		player.getCardsPlayer().getArrayList().addLast(cardPlayerEvent);
+		player.getCardsPlayer().relocateImageViews();
 
 	}
 

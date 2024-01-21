@@ -5,7 +5,7 @@ import enums.EAction;
 import enums.ERegion;
 import enums.ERole;
 import functions.BuildPumpingStation;
-import functions.DiscardCardFromActivePlayer;
+import functions.DiscardCardFromPlayer;
 import functions.SelectRegionsContainingPumpingStations;
 import gameStatesDefault.GameState;
 import model.Players;
@@ -18,7 +18,7 @@ public class ActionBuildPumpingStation extends GameState {
 
 		if (!Players.INSTANCE.getActivePlayer().getCardRole().getArrayList().getFirst().getERole()
 				.equals(ERole.CARPENTER))
-			DiscardCardFromActivePlayer.INSTANCE.executeCardRegionActivePlayer();
+			DiscardCardFromPlayer.INSTANCE.executeCardRegionActivePlayer();
 
 		if (!PumpingStations.INSTANCE.getList().getArrayList().isEmpty()) {
 

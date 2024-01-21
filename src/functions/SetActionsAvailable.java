@@ -26,6 +26,17 @@ public enum SetActionsAvailable {
 		shareResources();
 		hydraulicStructure();
 		sanitationEngineer();
+		event();
+
+	}
+
+	private void event() {
+
+		if (GetEventsPlayable.INSTANCE.executeActivePlayer().isEmpty()
+				&& GetEventsPlayable.INSTANCE.executePassivePlayer().isEmpty())
+			return;
+
+		EAction.RESOLVE_EVENT.showAndSelect();
 
 	}
 

@@ -37,6 +37,7 @@ public class ActionChoose extends GameState {
 		this.hashMap.put(EAction.BUILD_HYDRAULIC_STRUCTURE, ActionBuildHydraulicStructure.class);
 		this.hashMap.put(EAction.TAKE_CURRENT_REGION_CARD_FROM_THE_DISCARD_PILE,
 				ActionTakeCurrentRegionCardFromDiscardPile.class);
+		this.hashMap.put(EAction.RESOLVE_EVENT, ActionChooseEventToPlay.class);
 
 	}
 
