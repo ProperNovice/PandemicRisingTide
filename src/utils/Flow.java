@@ -2,6 +2,7 @@ package utils;
 
 import java.lang.reflect.InvocationTargetException;
 
+import functions.GameStateChange;
 import gameStatesDefault.GameState;
 
 public enum Flow {
@@ -23,6 +24,8 @@ public enum Flow {
 			return;
 
 		}
+
+		GameStateChange.INSTANCE.execute();
 
 		Class<? extends GameState> gameStateClass = this.flow.removeFirst();
 

@@ -33,7 +33,12 @@ public class Player {
 	}
 
 	public void resetActionsRemaining() {
+
+		while (!this.actionsRemaining.getArrayList().isEmpty())
+			reduceActionsRemaining();
+
 		addActionsRemaining(4);
+
 	}
 
 	public void reduceActionsRemaining() {
