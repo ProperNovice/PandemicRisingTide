@@ -30,8 +30,6 @@ public class StartGame extends GameState {
 	@Override
 	public void execute() {
 
-//		Lists.INSTANCE.loadListsOriginal();
-
 		EText.START_GAME.show();
 		HydraulicStructures.INSTANCE.reset();
 		UpdateDikeFailureCardsDrawn.INSTANCE.reset();
