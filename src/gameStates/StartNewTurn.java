@@ -16,20 +16,18 @@ public class StartNewTurn extends GameState {
 		Players.INSTANCE.changePlayerOrder();
 		Players.INSTANCE.getActivePlayer().resetActionsRemaining();
 
-		for (int counter = 1; counter <= 4; counter++)
-			getFlow().addLast(ActionChoose.class);
+		SkipDikesFailStepThisTurn.INSTANCE.reset();
+		Flood.INSTANCE.clearList();
+
+		getFlow().addLast(ActionChoose.class);
+		getFlow().addLast(ActionEnded.class);
 
 		getFlow().addLast(ActionOperatePumps.class);
-
 		getFlow().addLast(ActionDrawTwoPlayerCards.class);
-
 		getFlow().addLast(ActionDikesFail.class);
 		getFlow().addLast(ActionWaterFlows.class);
 
 		getFlow().addLast(StartNewTurn.class);
-
-		SkipDikesFailStepThisTurn.INSTANCE.reset();
-		Flood.INSTANCE.clearList();
 
 		proceedToNextGameState();
 
