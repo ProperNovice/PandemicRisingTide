@@ -19,7 +19,7 @@ public enum Credentials {
 	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hHydraulicStructure, hSeaLevelMarker,
 			hSeaLevelHeight;
 	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dPumpingStation, dPort,
-			dPopulation, dPawn, dActionsRemaining;
+			dPopulation, dPawn, dActionsRemaining, dCircle;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cPumpingStations, cPorts,
 			cPopulation, cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure,
 			cPlayerTop, cPlayerBottom, cHydraulicStructureMapGreen, cHydraulicStructureMapOrange,
@@ -261,6 +261,10 @@ public enum Credentials {
 		this.cCardsDeckPanel = this.cDiscardPilePlayer.clone();
 		this.cCardsDeckPanel.addX(this.cDiscardPilePlayer.x - this.cDeckPlayer.x);
 		this.cCardsDeckPanel.y -= this.dCard.y - this.dGapBetweenComponents.y;
+
+		// d circle
+
+		this.dCircle = new Vector2(120, 120);
 
 	}
 

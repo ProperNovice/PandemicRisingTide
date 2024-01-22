@@ -3,6 +3,7 @@ package model;
 import cards.CardDikeFailure;
 import controller.Credentials;
 import enums.ERegion;
+import functions.UpdateDikeFailureCardsDrawn;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
@@ -23,6 +24,7 @@ public enum DiscardPileDikeFailure {
 
 		this.list.getArrayList().addFirst(cardDikeFailure);
 		this.list.relocateImageViews();
+		UpdateDikeFailureCardsDrawn.INSTANCE.execute(cardDikeFailure);
 
 	}
 

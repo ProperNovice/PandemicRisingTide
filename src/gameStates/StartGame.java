@@ -11,6 +11,7 @@ import enums.EText;
 import functions.AddCardToPlayer;
 import functions.AddWaterToRegion;
 import functions.BuildDike;
+import functions.UpdateDikeFailureCardsDrawn;
 import gameStatesDefault.GameState;
 import model.Adjacencies;
 import model.Cards;
@@ -33,6 +34,7 @@ public class StartGame extends GameState {
 
 		EText.START_GAME.show();
 		HydraulicStructures.INSTANCE.reset();
+		UpdateDikeFailureCardsDrawn.INSTANCE.reset();
 		ERegion.ZUIDERZEE.getRegion().setIsSea(true);
 		SeaLevel.INSTANCE.reset();
 

@@ -9,12 +9,15 @@ import utils.Flow;
 import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListImageViewAbles;
 import utils.Logger;
+import utils.ObjectPool;
+import utils.ShutDown;
 import utils.Vector2;
 
 public class Region implements ISelectCoordinatesAble {
 
 	private ERegion eRegion = null;
 	private EColor eColor = null;
+	private Circle circle = null;
 	private Vector2 coordinates = null;
 	private boolean isSea = false, isHighElevated = false, canBuildHydraulicStructure = false;
 	private ListImageViewAbles<PopulationCube> populations = new ListImageViewAbles<>();
@@ -63,6 +66,35 @@ public class Region implements ISelectCoordinatesAble {
 		this.port.relocateImageViews();
 		this.pawns.relocateImageViews();
 		this.hydraulicStructure.relocateImageViews();
+
+	}
+
+	public void setCircle(int number) {
+
+		clearCircle();
+
+		Class<? extends Circle> classCircle = null;
+
+		if (number == 1)
+			classCircle = CircleOne.class;
+		else if (number == 2)
+			classCircle = CircleTwo.class;
+		else
+			ShutDown.INSTANCE.execute();
+
+		this.circle = ObjectPool.INSTANCE.acquire(classCircle);
+		this.circle.getImageView().relocateCenter(this.coordinates);
+		this.circle.getImageView().setVisible(true);
+
+	}
+
+	public void clearCircle() {
+
+		if (this.circle == null)
+			return;
+
+		this.circle.getImageView().setVisible(false);
+		this.circle = null;
 
 	}
 
