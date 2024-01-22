@@ -1,6 +1,8 @@
 package gameStates;
 
 import business.DikeLocation;
+import business.Pawn;
+import business.Player;
 import cards.CardPlayer;
 import cards.CardRole;
 import enums.EAction;
@@ -15,6 +17,7 @@ import model.Cards;
 import model.DeckDikeFailure;
 import model.DeckPlayer;
 import model.HydraulicStructures;
+import model.Pawns;
 import model.Players;
 import model.SeaLevel;
 import utils.ArrayList;
@@ -45,8 +48,11 @@ public class StartGame extends GameState {
 		createDikeFailureDeck();
 		createDegradeRegions();
 		createPlayerRoles();
+		addPlayerPawns();
 		createPlayerHands();
 		createPlayerDeck();
+		getFlow().addLast(StartNewTurn.class);
+		Players.INSTANCE.changePlayerOrder();
 
 		proceedToNextGameState();
 
@@ -133,6 +139,26 @@ public class StartGame extends GameState {
 			AddCardToPlayer.INSTANCE.executePassivePlayer(cardPlayer);
 
 		}
+
+	}
+
+	private void addPlayerPawns() {
+
+		ArrayList<Player> list = new ArrayList<>();
+		list.addLast(Players.INSTANCE.getActivePlayer());
+		list.addLast(Players.INSTANCE.getPassivePlayer());
+
+		for (Player player : list) {
+
+			Pawn pawn = null;
+			pawn = Pawns.INSTANCE
+					.getPawn(player.getCardRole().getArrayList().getFirst().getERole());
+			pawn.getImageView().setVisible(true);
+			ERegion.DELFLAND.getRegion().getPawns().getArrayList().addLast(pawn);
+
+		}
+
+		ERegion.DELFLAND.getRegion().relocateComponents();
 
 	}
 

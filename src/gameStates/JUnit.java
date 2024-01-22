@@ -39,6 +39,14 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
+		getFlow().addAllLast(StartGame.class);
+
+		proceedToNextGameState();
+
+	}
+
+	public void jUnit() {
+
 		DeckDikeFailure.INSTANCE.setUpDeck(Cards.INSTANCE.getCardsDikeFailureClone());
 
 		handleM();
@@ -167,8 +175,6 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ResolveStorm.class);
 //		getFlow().addLast(ActionDikesFail.class);
 //		getFlow().addLast(ActionChoose.class);
-
-		proceedToNextGameState();
 
 	}
 

@@ -21,11 +21,12 @@ public class StartNewTurn extends GameState {
 
 		getFlow().addLast(ActionOperatePumps.class);
 
-		for (int counter = 1; counter <= 2; counter++)
-			getFlow().addLast(DrawOnePlayerCard.class);
+		getFlow().addLast(ActionDrawTwoPlayerCards.class);
 
 		getFlow().addLast(ActionDikesFail.class);
 		getFlow().addLast(ActionWaterFlows.class);
+
+		getFlow().addLast(StartNewTurn.class);
 
 		SkipDikesFailStepThisTurn.INSTANCE.reset();
 		Flood.INSTANCE.clearList();
