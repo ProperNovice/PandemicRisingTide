@@ -96,7 +96,7 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
 		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
 		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
-//		playerCardEvent(EEvent.NEW_PORT, EPlayer.TOP);
+		playerCardEvent(EEvent.NEW_PORT, EPlayer.TOP);
 		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
 		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
@@ -288,9 +288,9 @@ public class JUnit extends GameState {
 		cardPlayerRegion = new CardPlayerRegion(eRegion, eColor);
 		cardPlayerRegion.getImageView().setVisible(true);
 
-		// TODO
-
 		player.getCardsPlayer().relocateImageViews();
+
+		// TODO
 
 		if (ePlayer == EPlayer.TOP)
 			AddCardToPlayer.INSTANCE.executeActivePlayer(cardPlayerRegion);
@@ -387,8 +387,12 @@ public class JUnit extends GameState {
 		CardPlayerEvent cardPlayerEvent = new CardPlayerEvent(eEvent);
 		cardPlayerEvent.getImageView().setVisible(true);
 
-		player.getCardsPlayer().getArrayList().addLast(cardPlayerEvent);
-		player.getCardsPlayer().relocateImageViews();
+		// TODO
+
+		if (ePlayer == EPlayer.TOP)
+			AddCardToPlayer.INSTANCE.executeActivePlayer(cardPlayerEvent);
+		else
+			AddCardToPlayer.INSTANCE.executePassivePlayer(cardPlayerEvent);
 
 	}
 

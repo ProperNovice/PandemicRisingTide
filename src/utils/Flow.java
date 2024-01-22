@@ -3,6 +3,7 @@ package utils;
 import java.lang.reflect.InvocationTargetException;
 
 import functions.GameStateChange;
+import gameStates.ChooseDiscardCardPlayEvent;
 import gameStatesDefault.GameState;
 
 public enum Flow {
@@ -25,7 +26,9 @@ public enum Flow {
 
 		}
 
-		GameStateChange.INSTANCE.execute();
+		if (this.gameStateCurrent != null)
+			if (!this.gameStateCurrent.getClass().equals(ChooseDiscardCardPlayEvent.class))
+				GameStateChange.INSTANCE.execute();
 
 		Class<? extends GameState> gameStateClass = this.flow.removeFirst();
 
