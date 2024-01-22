@@ -24,8 +24,10 @@ public enum Actions {
 
 		Action action = this.hashMap.getValue(eAction);
 
-		if (this.list.getArrayList().contains(action))
+		if (this.list.getArrayList().contains(action)) {
+			System.out.println(eAction);
 			ShutDown.INSTANCE.execute();
+		}
 
 		action.getImageView().setVisible(true);
 

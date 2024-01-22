@@ -9,14 +9,23 @@ import model.Actions;
 import model.Players;
 import utils.SelectImageViewManager;
 
-public abstract class ChooseCardToDiscardForOverCapacity extends GameState {
+public class ChooseCardToDiscardForOverCapacity extends GameState {
+
+	private Player player = null;
 
 	@Override
 	public void execute() {
 
+		if (Players.INSTANCE.getActivePlayer().getCardsPlayer().getArrayList().isOverCapacity())
+			this.player = Players.INSTANCE.getActivePlayer();
+
+		else if (Players.INSTANCE.getPassivePlayer().getCardsPlayer().getArrayList()
+				.isOverCapacity())
+			this.player = Players.INSTANCE.getPassivePlayer();
+
 		EAction.CHOOSE_CARD_TO_DISCARD.show();
 
-		for (CardPlayer cardPlayer : getPlayer().getCardsPlayer().getArrayList())
+		for (CardPlayer cardPlayer : this.player.getCardsPlayer().getArrayList())
 			cardPlayer.setSelected();
 
 	}
@@ -26,8 +35,9 @@ public abstract class ChooseCardToDiscardForOverCapacity extends GameState {
 
 		if (!cardPlayer.isSelected())
 			return;
-
-		discardCardProceed(cardPlayer);
+		
+		DiscardCardFromPlayer.INSTANCE.executeActivePlayer(cardPlayer);
+		proceed(cardPlayer);
 
 	}
 
@@ -36,25 +46,18 @@ public abstract class ChooseCardToDiscardForOverCapacity extends GameState {
 
 		if (!cardPlayer.isSelected())
 			return;
-
-		discardCardProceed(cardPlayer);
+		
+		DiscardCardFromPlayer.INSTANCE.executePassivePlayer(cardPlayer);
+		proceed(cardPlayer);
 
 	}
 
-	protected final void discardCardProceed(CardPlayer cardPlayer) {
+	protected final void proceed(CardPlayer cardPlayer) {
 
 		Actions.INSTANCE.concealActions();
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
-
-		if (getPlayer().equals(Players.INSTANCE.getActivePlayer()))
-			DiscardCardFromPlayer.INSTANCE.executeActivePlayer(cardPlayer);
-		else if (getPlayer().equals(Players.INSTANCE.getPassivePlayer()))
-			DiscardCardFromPlayer.INSTANCE.executePassivePlayer(cardPlayer);
-
 		proceedToNextGameState();
 
 	}
-
-	protected abstract Player getPlayer();
 
 }

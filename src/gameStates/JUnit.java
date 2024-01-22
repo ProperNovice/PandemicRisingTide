@@ -21,6 +21,7 @@ import enums.EColor;
 import enums.EEvent;
 import enums.ERegion;
 import enums.ERole;
+import functions.AddCardToPlayer;
 import gameStatesDefault.GameState;
 import javafx.scene.input.KeyCode;
 import model.Adjacencies;
@@ -85,20 +86,20 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
 
 		playerRole(EPlayer.TOP, ERole.PUMP_OPERATOR, ERegion.FRYSLAN);
-//		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
-//		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
+		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
-//		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-//		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
 		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
 		playerCardRegion(EPlayer.TOP, ERegion.LAND_VAN_MAAS_EN_WAAL);
-//		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
-//		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
+		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
+		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
 		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
-		playerCardEvent(EEvent.NEW_PORT, EPlayer.TOP);
+//		playerCardEvent(EEvent.NEW_PORT, EPlayer.TOP);
 		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
-//		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
-//		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
+		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
+		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
 		playerRole(EPlayer.BOTTOM, ERole.WEREHOUSE_MANAGER, ERegion.DELFLAND);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
@@ -106,8 +107,12 @@ public class JUnit extends GameState {
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.WEST_BRABANT);
-		playerCardEvent(EEvent.THE_CALM_BEFORE_THE_STORM, EPlayer.BOTTOM);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
+		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.WEST_BRABANT);
+//		playerCardEvent(EEvent.THE_CALM_BEFORE_THE_STORM, EPlayer.BOTTOM);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.MARKERWAARD);
 
 		addDikesFailureCardToDiscardPile(ERegion.NOORDOOSTPOLDER);
@@ -161,7 +166,7 @@ public class JUnit extends GameState {
 
 //		getFlow().addLast(ResolveStorm.class);
 //		getFlow().addLast(ActionDikesFail.class);
-		getFlow().addLast(ActionChoose.class);
+//		getFlow().addLast(ActionChoose.class);
 
 		proceedToNextGameState();
 
@@ -283,8 +288,14 @@ public class JUnit extends GameState {
 		cardPlayerRegion = new CardPlayerRegion(eRegion, eColor);
 		cardPlayerRegion.getImageView().setVisible(true);
 
-		player.getCardsPlayer().getArrayList().addLast(cardPlayerRegion);
+		// TODO
+
 		player.getCardsPlayer().relocateImageViews();
+
+		if (ePlayer == EPlayer.TOP)
+			AddCardToPlayer.INSTANCE.executeActivePlayer(cardPlayerRegion);
+		else
+			AddCardToPlayer.INSTANCE.executePassivePlayer(cardPlayerRegion);
 
 	}
 
