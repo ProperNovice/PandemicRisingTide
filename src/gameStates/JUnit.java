@@ -376,24 +376,8 @@ public class JUnit extends GameState {
 
 	public void playerCardEvent(EEvent eEvent, EPlayer ePlayer) {
 
-		Player player = null;
-
-		switch (ePlayer) {
-
-		case TOP:
-			player = Players.INSTANCE.getList().getFirst();
-			break;
-
-		case BOTTOM:
-			player = Players.INSTANCE.getList().getLast();
-			break;
-
-		}
-
 		CardPlayerEvent cardPlayerEvent = new CardPlayerEvent(eEvent);
 		cardPlayerEvent.getImageView().setVisible(true);
-
-		// TODO
 
 		if (ePlayer == EPlayer.TOP)
 			AddCardToPlayer.INSTANCE.executeActivePlayer(cardPlayerEvent);
