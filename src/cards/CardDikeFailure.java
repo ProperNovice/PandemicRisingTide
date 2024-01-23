@@ -24,12 +24,12 @@ public class CardDikeFailure extends Card {
 
 	@Override
 	protected String getFolder() {
-		return super.getFolder() + "dike failure/";
+		return super.getFolder() + "dikeFailure/";
 	}
 
 	@Override
 	protected String getStringBack() {
-		return "cards/dike failure/back.png";
+		return "cards/dikeFailure/back.png";
 	}
 
 }
