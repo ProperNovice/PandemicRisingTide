@@ -4,7 +4,7 @@ import cards.CardDikeFailure;
 import enums.ERegion;
 import utils.ArrayList;
 
-public enum UpdateDikeFailureCardsDrawn {
+public enum UpdateDikeFailureCardsDrawnCircle {
 
 	INSTANCE;
 
