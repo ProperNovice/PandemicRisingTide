@@ -269,7 +269,9 @@ public enum Credentials {
 		// c objectives
 
 		x = this.cPorts.x;
-		x += this.dPort.x;
+		x += this.dPort.x / 2;
+		x += this.dGapBetweenComponents.x;
+		x += this.dActionIndicator.x;
 		x += this.dGapBetweenComponents.x;
 		y = this.gapBetweenBorders;
 		this.cObjectives = new Vector2(x, y);

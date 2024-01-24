@@ -30,6 +30,7 @@ import model.DeckDikeFailure;
 import model.DeckPlayer;
 import model.DiscardPileDikeFailure;
 import model.DiscardPilePlayer;
+import model.Objectives;
 import model.Pawns;
 import model.Players;
 import utils.ArrayList;
@@ -39,7 +40,12 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
+//		jUnit();
+
 		getFlow().addAllLast(StartGame.class);
+
+		Objectives.INSTANCE.setUpObjectives(6);
+		Objectives.INSTANCE.moveObjectivesRight();
 
 		proceedToNextGameState();
 
