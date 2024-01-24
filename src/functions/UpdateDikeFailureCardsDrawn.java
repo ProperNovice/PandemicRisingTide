@@ -25,8 +25,6 @@ public enum UpdateDikeFailureCardsDrawn {
 				totalCards++;
 
 		eRegion.getRegion().setCircle(totalCards);
-		
-		System.out.println("a");
 
 	}
 
