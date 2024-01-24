@@ -24,7 +24,7 @@ public enum Credentials {
 			cPopulation, cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure,
 			cPlayerTop, cPlayerBottom, cHydraulicStructureMapGreen, cHydraulicStructureMapOrange,
 			cHydraulicStructureMapPurple, cHydraulicStructureMapYellow,
-			cHydraulicStructurePurpleBuilding, cSeaLevelMarkerFirst, cCardsDeckPanel;
+			cHydraulicStructurePurpleBuilding, cSeaLevelMarkerFirst, cCardsDeckPanel, cObjectives;
 
 	private Credentials() {
 
@@ -265,6 +265,14 @@ public enum Credentials {
 		// d circle
 
 		this.dCircle = new Vector2(120, 120);
+
+		// c objectives
+
+		x = this.cPorts.x;
+		x += this.dPort.x;
+		x += this.dGapBetweenComponents.x;
+		y = this.gapBetweenBorders;
+		this.cObjectives = new Vector2(x, y);
 
 	}
 

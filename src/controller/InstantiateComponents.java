@@ -6,6 +6,7 @@ import model.Cards;
 import model.Dikes;
 import model.HydraulicStructures;
 import model.Map;
+import model.Objectives;
 import model.Pawns;
 import model.Players;
 import model.Populations;
@@ -35,6 +36,7 @@ public enum InstantiateComponents {
 		Actions.values();
 		HydraulicStructures.values();
 		SeaLevel.values();
+		Objectives.values();
 
 	}
 

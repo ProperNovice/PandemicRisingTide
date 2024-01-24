@@ -8,7 +8,7 @@ public class ActionsRemaining implements IImageViewAble {
 
 	public ActionsRemaining() {
 
-		new ImageView("action.png", this);
+		new ImageView("actionRemaining.png", this);
 		getImageView().setDimensions(Credentials.INSTANCE.dActionsRemaining);
 		getImageView().setVisible(false);
 
