@@ -11,6 +11,7 @@ import business.PumpingStation;
 import business.Region;
 import business.WaterCube;
 import cards.Card;
+import cards.CardObjective;
 import cards.CardPlayer;
 import cards.CardRole;
 import controller.Credentials;
@@ -21,6 +22,7 @@ import gui.InstancesGui;
 import javafx.scene.input.KeyCode;
 import model.Actions;
 import model.Adjacencies;
+import model.Objectives;
 import model.Players;
 import utils.Animation;
 import utils.ArrayList;
@@ -145,6 +147,11 @@ public abstract class GameState {
 		if (card instanceof CardRole)
 			card.getImageView().toFront();
 
+		// check for card objective
+
+		if (card instanceof CardObjective)
+			card.getImageView().toFront();
+
 	}
 
 	public final void handleCardExited(Card card) {
@@ -164,6 +171,11 @@ public abstract class GameState {
 
 		if (card instanceof CardRole)
 			card.getImageView().toBack();
+
+		// check for card objective
+
+		if (card instanceof CardObjective)
+			Objectives.INSTANCE.getList().relocateImageViews();
 
 	}
 

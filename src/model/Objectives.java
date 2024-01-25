@@ -16,9 +16,7 @@ public enum Objectives {
 	private ListImageViewAbles<CardObjective> list = new ListImageViewAbles<>();
 
 	private Objectives() {
-
 		createObjectives();
-
 	}
 
 	public void moveObjectivesLeft() {
@@ -36,6 +34,10 @@ public enum Objectives {
 				.getListCredentials().coordinatesList.x += Credentials.INSTANCE.dGapBetweenComponents.x;
 		calculateGapBetweenCardsRelocate();
 
+	}
+
+	public ListImageViewAbles<CardObjective> getList() {
+		return this.list;
 	}
 
 	private void calculateGapBetweenCardsRelocate() {
