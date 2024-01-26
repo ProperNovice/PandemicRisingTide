@@ -12,6 +12,17 @@ public enum GameStateChange {
 
 	public void execute() {
 
+		checkForObjectivesAreCompleted();
+		checkForPlayerHandOvercapacity();
+
+	}
+
+	private void checkForObjectivesAreCompleted() {
+
+	}
+
+	private void checkForPlayerHandOvercapacity() {
+
 		handleActivePlayer();
 		handlePassivePlayer();
 

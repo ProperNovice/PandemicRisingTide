@@ -18,6 +18,7 @@ import model.Cards;
 import model.DeckDikeFailure;
 import model.DeckPlayer;
 import model.HydraulicStructures;
+import model.Objectives;
 import model.Pawns;
 import model.Players;
 import model.SeaLevel;
@@ -51,6 +52,7 @@ public class StartGame extends GameState {
 		addPlayerPawns();
 		createPlayerHands();
 		createPlayerDeck();
+		Objectives.INSTANCE.setUpObjectives(4);
 		getFlow().addLast(StartNewTurn.class);
 		Players.INSTANCE.changePlayerOrder();
 

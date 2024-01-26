@@ -19,12 +19,13 @@ public enum Credentials {
 	public double hPortWaterPumpMap, hWaterPopulationCubeMap, hHydraulicStructure, hSeaLevelMarker,
 			hSeaLevelHeight;
 	public Vector2 dMap, dCard, dActionIndicator, dWaterCube, dDike, dPumpingStation, dPort,
-			dPopulation, dPawn, dActionsRemaining, dCircle;
+			dPopulation, dPawn, dActionsRemaining, dCircle, dObjectiveSelect;
 	public Vector2 cMap, cActionIndicators, cWaterCubes, cDikes, cPumpingStations, cPorts,
 			cPopulation, cDeckPlayer, cDiscardPilePlayer, cDeckDikeFailure, cDiscardPileDikeFailure,
 			cPlayerTop, cPlayerBottom, cHydraulicStructureMapGreen, cHydraulicStructureMapOrange,
 			cHydraulicStructureMapPurple, cHydraulicStructureMapYellow,
-			cHydraulicStructurePurpleBuilding, cSeaLevelMarkerFirst, cCardsDeckPanel, cObjectives;
+			cHydraulicStructurePurpleBuilding, cSeaLevelMarkerFirst, cCardsDeckPanel, cObjectives,
+			cObjectiveSelect;
 
 	private Credentials() {
 
@@ -275,6 +276,20 @@ public enum Credentials {
 		x += this.dGapBetweenComponents.x;
 		y = this.gapBetweenBorders;
 		this.cObjectives = new Vector2(x, y);
+
+		// d objective select
+
+		x = this.dCard.x * 2 / 5;
+		y = x;
+		this.dObjectiveSelect = new Vector2(x, y);
+
+		// c objective select
+
+		x = this.dGapBetweenComponents.x;
+		y = this.dCard.y * 0.22;
+		this.cObjectiveSelect = new Vector2(x, y);
+
+		this.cObjectiveSelect.print();
 
 	}
 
