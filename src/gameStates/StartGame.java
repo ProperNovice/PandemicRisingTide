@@ -69,7 +69,7 @@ public class StartGame extends GameState {
 
 		Objectives.INSTANCE.setUpObjectives(4);
 
-		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectives()) {
+		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectivesCurrent()) {
 
 			if (!cardObjective.getEColor().equals(EColor.RED))
 				continue;

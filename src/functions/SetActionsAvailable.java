@@ -1,15 +1,18 @@
 package functions;
 
 import business.Region;
+import cards.CardObjective;
 import cards.CardPlayer;
 import cards.CardPlayerRegion;
 import enums.EAction;
 import enums.EColor;
+import enums.EObjective;
 import enums.ERegion;
 import enums.ERole;
 import model.Dikes;
 import model.DiscardPilePlayer;
 import model.HydraulicStructures;
+import model.Objectives;
 import model.Players;
 
 public enum SetActionsAvailable {
@@ -23,6 +26,7 @@ public enum SetActionsAvailable {
 		buildDike();
 		buildPumpingStation();
 		buildPort();
+		addPopulation();
 		shareResources();
 		hydraulicStructure();
 		sanitationEngineer();
@@ -96,6 +100,39 @@ public enum SetActionsAvailable {
 
 		if (ShareResources.INSTANCE.canShareResources())
 			EAction.SHARE_RESOURCES.showAndSelect();
+
+	}
+
+	private void addPopulation() {
+
+		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
+				.getERegionContainingPlayerPawnActive();
+		Region region = eRegion.getRegion();
+
+		if (region.getWaterCubes().getArrayList().size()
+				+ region.getPopulations().getArrayList().size() == 3)
+			return;
+
+		EColor eColor = region.getEColor();
+
+		if (GetCardsPlayerHasWithEColor.INSTANCE.execute(eColor).isEmpty())
+			return;
+
+		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectivesCurrent()) {
+
+			if (!cardObjective.getEObjective().equals(EObjective.POPULATION))
+				continue;
+
+			EColor cardObjectiveEColor = cardObjective.getEColor();
+
+			if (!Objectives.INSTANCE.getPopulationERegions(cardObjectiveEColor).contains(eRegion))
+				return;
+
+			EAction.EXPAND_POPULATION.showAndSelect();
+
+			return;
+
+		}
 
 	}
 

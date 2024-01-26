@@ -11,6 +11,7 @@ import business.PumpingStation;
 import business.Region;
 import business.WaterCube;
 import cards.CardDikeFailure;
+import cards.CardObjective;
 import cards.CardPlayer;
 import cards.CardPlayerEvent;
 import cards.CardPlayerRegion;
@@ -19,6 +20,7 @@ import cards.CardRole;
 import controller.Credentials;
 import enums.EColor;
 import enums.EEvent;
+import enums.EObjective;
 import enums.ERegion;
 import enums.ERole;
 import functions.AddCardToPlayer;
@@ -30,6 +32,7 @@ import model.DeckDikeFailure;
 import model.DeckPlayer;
 import model.DiscardPileDikeFailure;
 import model.DiscardPilePlayer;
+import model.Objectives;
 import model.Pawns;
 import model.Players;
 import utils.ArrayList;
@@ -39,9 +42,9 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-//		jUnit();
+		jUnit();
 
-		getFlow().addAllLast(StartGame.class);
+//		getFlow().addAllLast(StartGame.class);
 		proceedToNextGameState();
 
 	}
@@ -54,7 +57,7 @@ public class JUnit extends GameState {
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
-		addWaterCubes(3, ERegion.FRYSLAN);
+		addWaterCubes(1, ERegion.FRYSLAN);
 		addWaterCubes(1, ERegion.IJSSELDELTA);
 		addWaterCubes(1, ERegion.MARKERWAARD);
 		addWaterCubes(1, ERegion.BETUWE);
@@ -67,7 +70,7 @@ public class JUnit extends GameState {
 		addWaterCubes(3, ERegion.LAND_VAN_HEUSDEN);
 		addWaterCubes(1, ERegion.HOEKSE_WAARD);
 
-//		addPopulations(3, ERegion.FRYSLAN);
+//		addPopulations(1, ERegion.FRYSLAN);
 
 //		addPumpingStation(ERegion.FRYSLAN);
 		addPumpingStation(ERegion.IJSSELDELTA);
@@ -101,9 +104,14 @@ public class JUnit extends GameState {
 		addDike(ERegion.NOORDZEE, ERegion.ZEEUWS_VLAANDEREN);
 
 		playerRole(EPlayer.TOP, ERole.PUMP_OPERATOR, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
-		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
-		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
+//		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
+//		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
+//		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
 //		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
 //		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
@@ -171,6 +179,8 @@ public class JUnit extends GameState {
 //		for (EColor eColor : EColor.values())
 //			HydraulicStructures.INSTANCE.buildHydraulicStructureMap(eColor);
 
+		addObjective(EColor.PURPLE, EObjective.POPULATION);
+
 //		getFlow().addLast(ActionChoose.class);
 //		getFlow().addLast(ActionBuildHydraulicStructure.class);
 //		getFlow().addLast(ActionsRemainingReduce.class);
@@ -178,17 +188,31 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ActionBuildDike.class);
 
 		addStormFirstCardPlayersDeck();
-		
-		getFlow().addLast(ResolveRedSpecialObjectiveStartGame.class);
 
+//		getFlow().addLast(ResolveRedSpecialObjectiveStartGame.class);
 //		getFlow().addLast(ResolveStorm.class);
 //		getFlow().addLast(ActionDikesFail.class);
-//		getFlow().addLast(ActionChoose.class);
+		getFlow().addLast(ActionChoose.class);
 
 	}
 
 	@Override
 	protected void handleKeyPressed(KeyCode keyCode) {
+
+	}
+
+	public void addObjective(EColor eColor, EObjective eObjective) {
+
+		CardObjective cardObjective = new CardObjective(eObjective, eColor);
+		cardObjective.getImageView().setVisible(true);
+
+		System.out.println(cardObjective.getImageView().getCoordinatesTopLeftX());
+
+		Objectives.INSTANCE.getObjectivesCurrent().getArrayList().addLast(cardObjective);
+		Objectives.INSTANCE.relocateObjectivesLeft();
+
+		System.out.println(cardObjective.getImageView());
+		System.out.println(cardObjective.getImageView().getCoordinatesTopLeftX());
 
 	}
 

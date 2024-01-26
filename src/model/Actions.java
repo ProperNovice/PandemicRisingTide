@@ -105,13 +105,18 @@ public enum Actions {
 		for (EAction eAction : EAction.values())
 			this.hashMap.put(eAction, new Action(eAction));
 
-		// create list
+		// create lists
 
-		ListCredentials listCredentials = this.listLeft.getListCredentials();
+		ListCredentials listCredentials = null;
+
+		// left
+
+		listCredentials = this.listLeft.getListCredentials();
 
 		listCredentials.coordinatesList = Credentials.INSTANCE.cActionIndicators;
 		listCredentials.objectsPerRow = 1;
 		listCredentials.gapBetweenComponents.y = Credentials.INSTANCE.dActionIndicator.y;
+		this.listLeft.getArrayList().setCapacity(5);
 
 	}
 

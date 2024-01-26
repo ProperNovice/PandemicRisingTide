@@ -258,7 +258,7 @@ public enum ObjectivesMarkCompleted {
 
 	private void unmarkObjectives() {
 
-		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectives())
+		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectivesCurrent())
 			cardObjective.unmark();
 
 	}
