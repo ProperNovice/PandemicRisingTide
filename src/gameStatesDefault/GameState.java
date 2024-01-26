@@ -175,7 +175,7 @@ public abstract class GameState {
 		// check for card objective
 
 		if (card instanceof CardObjective)
-			Objectives.INSTANCE.getList().relocateImageViews();
+			Objectives.INSTANCE.getObjectives().relocateImageViews();
 
 	}
 
