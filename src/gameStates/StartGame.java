@@ -24,6 +24,7 @@ import model.HydraulicStructures;
 import model.Objectives;
 import model.Pawns;
 import model.Players;
+import model.PopulationLoss;
 import model.SeaLevel;
 import utils.ArrayList;
 
@@ -78,6 +79,18 @@ public class StartGame extends GameState {
 				continue;
 
 			getFlow().addLast(ResolveRedSpecialObjectiveStartGame.class);
+
+		}
+
+		PopulationLoss.INSTANCE.setVisible(false);
+
+		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectivesCurrent()) {
+
+			if (!cardObjective.getEObjective().equals(EObjective.POPULATION))
+				continue;
+
+			PopulationLoss.INSTANCE.setVisible(true);
+			break;
 
 		}
 

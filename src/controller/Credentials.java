@@ -25,7 +25,7 @@ public enum Credentials {
 			cPlayerTop, cPlayerBottom, cHydraulicStructureMapGreen, cHydraulicStructureMapOrange,
 			cHydraulicStructureMapPurple, cHydraulicStructureMapYellow,
 			cHydraulicStructurePurpleBuilding, cSeaLevelMarkerFirst, cCardsDeckPanel, cObjectives,
-			cObjectiveSelect;
+			cObjectiveSelect, cPopulationLoss;
 
 	private Credentials() {
 
@@ -288,6 +288,12 @@ public enum Credentials {
 		x = this.dGapBetweenComponents.x;
 		y = this.dCard.y * 0.22;
 		this.cObjectiveSelect = new Vector2(x, y);
+
+		// c population loss
+
+		x = 898;
+		y = 1895;
+		this.cPopulationLoss = new Vector2(x, y);
 
 	}
 

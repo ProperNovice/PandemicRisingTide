@@ -42,9 +42,9 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-		jUnit();
+//		jUnit();
 
-//		getFlow().addAllLast(StartGame.class);
+		getFlow().addAllLast(StartGame.class);
 		proceedToNextGameState();
 
 	}
@@ -53,7 +53,7 @@ public class JUnit extends GameState {
 
 		DeckDikeFailure.INSTANCE.setUpDeck(Cards.INSTANCE.getCardsDikeFailureClone());
 
-		handleM();
+//		handleM();
 
 //		addWaterCubes(2, ERegion.NOORDZEE);
 //		addWaterCubes(2, ERegion.ZUIDERZEE);
