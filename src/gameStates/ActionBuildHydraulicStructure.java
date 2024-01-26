@@ -79,7 +79,7 @@ public class ActionBuildHydraulicStructure extends GameState {
 
 	private void createHashMap() {
 
-		this.hashMap.put(EColor.ORANGE, ResolveHydraulicStructureOrange.class);
+		this.hashMap.put(EColor.RED, ResolveHydraulicStructureOrange.class);
 		this.hashMap.put(EColor.PURPLE, ResolveHydraulicStructurePurple.class);
 		this.hashMap.put(EColor.YELLOW, ResolveHydraulicStructureYellow.class);
 		this.hashMap.put(EColor.GREEN, ResolveHydraulicStructureGreen.class);

@@ -43,13 +43,13 @@ public enum Regions {
 
 		// orange
 
-		this.list.addLast(new Region(ERegion.DELFLAND, 743, 1052, EColor.ORANGE));
-		this.list.addLast(new Region(ERegion.VOORNE_PUTTEN, 479, 1372, EColor.ORANGE));
-		this.list.addLast(new Region(ERegion.GOERRE_OVERFLAKKEE, 428, 1459, EColor.ORANGE));
-		this.list.addLast(new Region(ERegion.SCHOUWEN_DUIVELAND, 329, 1518, EColor.ORANGE));
-		this.list.addLast(new Region(ERegion.WALCHEREN, 175, 1641, EColor.ORANGE));
-		this.list.addLast(new Region(ERegion.ZUID_BEVELAND, 320, 1676, EColor.ORANGE));
-		this.list.addLast(new Region(ERegion.ZEEUWS_VLAANDEREN, 322, 1839, EColor.ORANGE));
+		this.list.addLast(new Region(ERegion.DELFLAND, 743, 1052, EColor.RED));
+		this.list.addLast(new Region(ERegion.VOORNE_PUTTEN, 479, 1372, EColor.RED));
+		this.list.addLast(new Region(ERegion.GOERRE_OVERFLAKKEE, 428, 1459, EColor.RED));
+		this.list.addLast(new Region(ERegion.SCHOUWEN_DUIVELAND, 329, 1518, EColor.RED));
+		this.list.addLast(new Region(ERegion.WALCHEREN, 175, 1641, EColor.RED));
+		this.list.addLast(new Region(ERegion.ZUID_BEVELAND, 320, 1676, EColor.RED));
+		this.list.addLast(new Region(ERegion.ZEEUWS_VLAANDEREN, 322, 1839, EColor.RED));
 
 		// green
 

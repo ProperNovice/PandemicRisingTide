@@ -40,7 +40,7 @@ public enum HydraulicStructures {
 		createHydraulicStructureLocation(EColor.GREEN,
 				Credentials.INSTANCE.cHydraulicStructureMapGreen);
 
-		createHydraulicStructureLocation(EColor.ORANGE,
+		createHydraulicStructureLocation(EColor.RED,
 				Credentials.INSTANCE.cHydraulicStructureMapOrange);
 
 		createHydraulicStructureLocation(EColor.PURPLE,

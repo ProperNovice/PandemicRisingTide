@@ -86,13 +86,13 @@ public enum Cards {
 
 		// orange
 
-		createCardsRegion(ERegion.DELFLAND, EColor.ORANGE);
-		createCardsRegion(ERegion.VOORNE_PUTTEN, EColor.ORANGE);
-		createCardsRegion(ERegion.GOERRE_OVERFLAKKEE, EColor.ORANGE);
-		createCardsRegion(ERegion.SCHOUWEN_DUIVELAND, EColor.ORANGE);
-		createCardsRegion(ERegion.WALCHEREN, EColor.ORANGE);
-		createCardsRegion(ERegion.ZUID_BEVELAND, EColor.ORANGE);
-		createCardsRegion(ERegion.ZEEUWS_VLAANDEREN, EColor.ORANGE);
+		createCardsRegion(ERegion.DELFLAND, EColor.RED);
+		createCardsRegion(ERegion.VOORNE_PUTTEN, EColor.RED);
+		createCardsRegion(ERegion.GOERRE_OVERFLAKKEE, EColor.RED);
+		createCardsRegion(ERegion.SCHOUWEN_DUIVELAND, EColor.RED);
+		createCardsRegion(ERegion.WALCHEREN, EColor.RED);
+		createCardsRegion(ERegion.ZUID_BEVELAND, EColor.RED);
+		createCardsRegion(ERegion.ZEEUWS_VLAANDEREN, EColor.RED);
 
 		// green
 

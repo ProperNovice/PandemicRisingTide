@@ -2,6 +2,6 @@ package enums;
 
 public enum EColor {
 
-	GREEN, ORANGE, PURPLE, YELLOW
+	GREEN, RED, PURPLE, YELLOW
 
 }
