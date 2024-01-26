@@ -289,8 +289,6 @@ public enum Credentials {
 		y = this.dCard.y * 0.22;
 		this.cObjectiveSelect = new Vector2(x, y);
 
-		this.cObjectiveSelect.print();
-
 	}
 
 }

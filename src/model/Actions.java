@@ -6,6 +6,7 @@ import enums.EAction;
 import utils.HashMap;
 import utils.ListCredentials;
 import utils.ListImageViewAbles;
+import utils.Logger;
 import utils.ShutDown;
 import utils.Vector2;
 
@@ -14,7 +15,7 @@ public enum Actions {
 	INSTANCE;
 
 	private HashMap<EAction, Action> hashMap = new HashMap<>();
-	private ListImageViewAbles<Action> list = new ListImageViewAbles<>();
+	private ListImageViewAbles<Action> listLeft = new ListImageViewAbles<>();
 
 	private Actions() {
 		create();
@@ -24,15 +25,17 @@ public enum Actions {
 
 		Action action = this.hashMap.getValue(eAction);
 
-		if (this.list.getArrayList().contains(action)) {
-			System.out.println(eAction);
+		if (this.listLeft.getArrayList().contains(action)) {
+
+			Logger.INSTANCE.log(action);
 			ShutDown.INSTANCE.execute();
+
 		}
 
 		action.getImageView().setVisible(true);
 
-		this.list.getArrayList().addLast(action);
-		this.list.relocateImageViews();
+		this.listLeft.getArrayList().addLast(action);
+		this.listLeft.relocateImageViews();
 
 	}
 
@@ -40,7 +43,7 @@ public enum Actions {
 
 		Action action = this.hashMap.getValue(eAction);
 
-		if (!this.list.getArrayList().contains(action))
+		if (!this.listLeft.getArrayList().contains(action))
 			ShutDown.INSTANCE.execute();
 
 		if (action.isSelected())
@@ -54,7 +57,7 @@ public enum Actions {
 
 		Action action = this.hashMap.getValue(eAction);
 
-		if (!this.list.getArrayList().contains(action))
+		if (!this.listLeft.getArrayList().contains(action))
 			ShutDown.INSTANCE.execute();
 
 		if (!action.isSelected())
@@ -66,7 +69,7 @@ public enum Actions {
 
 	public void concealActions() {
 
-		for (Action action : this.list) {
+		for (Action action : this.listLeft) {
 
 			action.getImageView().setVisible(false);
 
@@ -75,7 +78,7 @@ public enum Actions {
 
 		}
 
-		this.list.getArrayList().clear();
+		this.listLeft.getArrayList().clear();
 
 	}
 
@@ -83,7 +86,7 @@ public enum Actions {
 
 		EAction eAction = null;
 
-		for (Action action : this.list)
+		for (Action action : this.listLeft)
 			if (action.getImageView().contains(vector2))
 				return action.getEAction();
 
@@ -104,7 +107,7 @@ public enum Actions {
 
 		// create list
 
-		ListCredentials listCredentials = this.list.getListCredentials();
+		ListCredentials listCredentials = this.listLeft.getListCredentials();
 
 		listCredentials.coordinatesList = Credentials.INSTANCE.cActionIndicators;
 		listCredentials.objectsPerRow = 1;

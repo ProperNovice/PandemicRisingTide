@@ -93,31 +93,37 @@ public class JUnit extends GameState {
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.VOLLENHOVE);
 		addDike(ERegion.RIJN_EN_IJSSEL, ERegion.BETUWE);
+		addDike(ERegion.NOORDZEE, ERegion.DELFLAND);
+		addDike(ERegion.NOORDZEE, ERegion.VOORNE_PUTTEN);
+		addDike(ERegion.NOORDZEE, ERegion.GOERRE_OVERFLAKKEE);
+		addDike(ERegion.NOORDZEE, ERegion.SCHOUWEN_DUIVELAND);
+		addDike(ERegion.NOORDZEE, ERegion.WALCHEREN);
+		addDike(ERegion.NOORDZEE, ERegion.ZEEUWS_VLAANDEREN);
 
 		playerRole(EPlayer.TOP, ERole.PUMP_OPERATOR, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.TOP, ERegion.VOLLENHOVE);
 		playerCardRegion(EPlayer.TOP, ERegion.BETUWE);
 		playerCardRegion(EPlayer.TOP, ERegion.GELDERSE_VALLEI);
-		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
-		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
-		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
-		playerCardRegion(EPlayer.TOP, ERegion.LAND_VAN_MAAS_EN_WAAL);
-		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
-		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
-		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
-		playerCardEvent(EEvent.NEW_PORT, EPlayer.TOP);
-		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
-		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
+//		playerCardRegion(EPlayer.TOP, ERegion.FRYSLAN);
+//		playerCardRegion(EPlayer.TOP, ERegion.NOORDERZIJLVEST);
+//		playerCardRegion(EPlayer.TOP, ERegion.NOORDOOSTPOLDER);
+//		playerCardRegion(EPlayer.TOP, ERegion.LAND_VAN_MAAS_EN_WAAL);
+//		playerCardRegion(EPlayer.TOP, ERegion.FLEVOLAND);
+//		playerCardRegion(EPlayer.TOP, ERegion.MARKERWAARD);
+//		playerCardRegion(EPlayer.TOP, ERegion.KENNEMERLAND);
+//		playerCardEvent(EEvent.NEW_PORT, EPlayer.TOP);
+//		playerCardRegion(EPlayer.TOP, ERegion.WIERINGERMEER);
+//		playerCardRegion(EPlayer.TOP, ERegion.WEST_BRABANT);
 		playerCardRegion(EPlayer.TOP, ERegion.ROER_EN_OVERMAAS);
 
 		playerRole(EPlayer.BOTTOM, ERole.WEREHOUSE_MANAGER, ERegion.DELFLAND);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.FRYSLAN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
-		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
+//		playerCardRegion(EPlayer.BOTTOM, ERegion.ZEEUWS_VLAANDEREN);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.ROER_EN_OVERMAAS);
 		playerCardRegion(EPlayer.BOTTOM, ERegion.VOLLENHOVE);
 //		playerCardRegion(EPlayer.BOTTOM, ERegion.WEST_BRABANT);
@@ -172,6 +178,8 @@ public class JUnit extends GameState {
 //		getFlow().addLast(ActionBuildDike.class);
 
 		addStormFirstCardPlayersDeck();
+		
+		getFlow().addLast(ResolveRedSpecialObjectiveStartGame.class);
 
 //		getFlow().addLast(ResolveStorm.class);
 //		getFlow().addLast(ActionDikesFail.class);

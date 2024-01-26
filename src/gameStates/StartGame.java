@@ -3,9 +3,12 @@ package gameStates;
 import business.DikeLocation;
 import business.Pawn;
 import business.Player;
+import cards.CardObjective;
 import cards.CardPlayer;
 import cards.CardRole;
 import enums.EAction;
+import enums.EColor;
+import enums.EObjective;
 import enums.ERegion;
 import enums.EText;
 import functions.AddCardToPlayer;
@@ -52,11 +55,31 @@ public class StartGame extends GameState {
 		addPlayerPawns();
 		createPlayerHands();
 		createPlayerDeck();
-		Objectives.INSTANCE.setUpObjectives(4);
-		getFlow().addLast(StartNewTurn.class);
+		setUpObjectives();
+
 		Players.INSTANCE.changePlayerOrder();
 
+		getFlow().addLast(StartNewTurn.class);
+
 		proceedToNextGameState();
+
+	}
+
+	private void setUpObjectives() {
+
+		Objectives.INSTANCE.setUpObjectives(4);
+
+		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectives()) {
+
+			if (!cardObjective.getEColor().equals(EColor.RED))
+				continue;
+
+			if (!cardObjective.getEObjective().equals(EObjective.SPECIAL))
+				continue;
+
+			getFlow().addLast(ResolveRedSpecialObjectiveStartGame.class);
+
+		}
 
 	}
 
