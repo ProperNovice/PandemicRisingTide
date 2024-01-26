@@ -14,6 +14,7 @@ import model.DiscardPilePlayer;
 import model.HydraulicStructures;
 import model.Objectives;
 import model.Players;
+import model.Populations;
 
 public enum SetActionsAvailable {
 
@@ -104,6 +105,9 @@ public enum SetActionsAvailable {
 	}
 
 	private void addPopulation() {
+
+		if (Populations.INSTANCE.getList().getArrayList().isEmpty())
+			return;
 
 		ERegion eRegion = GetERegionContainingPlayerPawn.INSTANCE
 				.getERegionContainingPlayerPawnActive();

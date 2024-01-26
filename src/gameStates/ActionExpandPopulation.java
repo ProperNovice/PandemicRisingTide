@@ -5,10 +5,14 @@ import cards.CardPlayer;
 import enums.EAction;
 import enums.EColor;
 import enums.ERegion;
+import functions.DiscardCardFromPlayer;
+import functions.ExpandPopulationToERegion;
 import functions.GetCardsPlayerHasWithEColor;
+import functions.GetCardsSelectedActivePlayer;
 import functions.GetERegionContainingPlayerPawn;
 import gameStatesDefault.GameState;
 import model.Actions;
+import model.Populations;
 import utils.ArrayList;
 import utils.SelectImageViewManager;
 
@@ -31,6 +35,21 @@ public class ActionExpandPopulation extends GameState {
 	}
 
 	@Override
+	protected void handleActionSelectedPressed(EAction eAction) {
+
+		for (CardPlayer cardPlayer : GetCardsSelectedActivePlayer.INSTANCE.execute()) {
+
+			DiscardCardFromPlayer.INSTANCE.executeActivePlayer(cardPlayer);
+			ExpandPopulationToERegion.INSTANCE.execute(this.eRegion);
+
+		}
+
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+		proceedToNextGameState();
+
+	}
+
+	@Override
 	protected void handleCardPressedActivePlayer(CardPlayer cardPlayer) {
 
 		if (!this.list.contains(cardPlayer))
@@ -45,6 +64,9 @@ public class ActionExpandPopulation extends GameState {
 
 		this.populationCanBeAdded -= this.region.getWaterCubes().getArrayList().size();
 		this.populationCanBeAdded -= this.region.getPopulations().getArrayList().size();
+
+		this.populationCanBeAdded = Math.min(this.populationCanBeAdded,
+				Populations.INSTANCE.getList().getArrayList().size());
 
 	}
 
