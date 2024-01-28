@@ -25,8 +25,10 @@ public enum SelectPumpingStationsAvailableToOperate {
 	}
 
 	public void startNewTurn() {
+
 		this.waterPumpsAvailableToOperate.clear();
 		this.waterPumpsAlreadyOperated.clear();
+
 	}
 
 	public void setWaterPumpAlreadyOperated(ERegion eRegion) {
