@@ -1,6 +1,6 @@
 package gameStatesDefault;
 
-import gameStates.StartGame;
+import functions.ComponentsWrapUp;
 import utils.CameraView;
 import utils.Flow;
 import utils.SelectImageViewManager;
@@ -15,8 +15,9 @@ public class RestartGame extends GameState {
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 		Flow.INSTANCE.getFlow().clear();
 		CameraView.INSTANCE.setCameraViewingSpot(1);
+		ComponentsWrapUp.INSTANCE.execute();
 
-		Flow.INSTANCE.executeGameState(StartGame.class);
+//		Flow.INSTANCE.executeGameState(StartGame.class);
 
 	}
 
