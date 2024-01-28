@@ -333,8 +333,6 @@ public class JUnit extends GameState {
 
 		player.getCardsPlayer().relocateImageViews();
 
-		// TODO
-
 		if (ePlayer == EPlayer.TOP)
 			AddCardToPlayer.INSTANCE.executeActivePlayer(cardPlayerRegion);
 		else
