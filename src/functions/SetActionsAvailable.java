@@ -27,7 +27,7 @@ public enum SetActionsAvailable {
 		buildDike();
 		buildPumpingStation();
 		buildPort();
-		addPopulation();
+		expandPopulation();
 		shareResources();
 		hydraulicStructure();
 		sanitationEngineer();
@@ -104,7 +104,7 @@ public enum SetActionsAvailable {
 
 	}
 
-	private void addPopulation() {
+	private void expandPopulation() {
 
 		if (Populations.INSTANCE.getList().getArrayList().isEmpty())
 			return;

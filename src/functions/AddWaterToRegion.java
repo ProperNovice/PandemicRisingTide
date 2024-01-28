@@ -18,8 +18,13 @@ public enum AddWaterToRegion {
 		waterCube.getImageView().setHeight(Credentials.INSTANCE.hWaterPopulationCubeMap);
 
 		region.getWaterCubes().getArrayList().addLast(waterCube);
-
 		region.relocateComponents();
+
+		if (region.getWaterCubes().getArrayList().size()
+				+ region.getPopulations().getArrayList().size() <= 3)
+			return;
+
+		PopulationLossFunction.INSTANCE.execute(eRegion);
 
 	}
 
