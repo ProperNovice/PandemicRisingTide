@@ -13,7 +13,7 @@ public enum SelectPumpingStationsAvailableToOperate {
 
 	public void execute() {
 
-		clearWaterPumpsAvailableToOperate();
+		clearWaterPumpLists();
 		addWaterPumpsRegionsToAvailable();
 		filterOutRegionsThatDontContainWaterCube();
 		selectERegionsAvailableToOperate();
@@ -76,8 +76,9 @@ public enum SelectPumpingStationsAvailableToOperate {
 
 	}
 
-	private void clearWaterPumpsAvailableToOperate() {
+	private void clearWaterPumpLists() {
 		this.waterPumpsAvailableToOperate.clear();
+		this.waterPumpsAlreadyOperated.clear();
 	}
 
 }
