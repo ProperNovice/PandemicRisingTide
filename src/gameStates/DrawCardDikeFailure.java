@@ -16,7 +16,7 @@ public class DrawCardDikeFailure extends GameState {
 	@Override
 	protected void handleActionSelectedPressed(EAction eAction) {
 
-		CardDikeFailure cardDikeFailure = DeckDikeFailure.INSTANCE.removeFirstFlip();
+		CardDikeFailure cardDikeFailure = DeckDikeFailure.INSTANCE.removeFirst();
 		DiscardPileDikeFailure.INSTANCE.addFirstRelocate(cardDikeFailure);
 		proceedToNextGameState();
 

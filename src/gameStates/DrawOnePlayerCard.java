@@ -18,7 +18,7 @@ public class DrawOnePlayerCard extends GameState {
 	@Override
 	protected void handleActionSelectedPressed(EAction eAction) {
 
-		CardPlayer cardPlayer = DeckPlayer.INSTANCE.removeFirstFlip();
+		CardPlayer cardPlayer = DeckPlayer.INSTANCE.removeFirst();
 
 		if (cardPlayer instanceof CardPlayerStorm) {
 

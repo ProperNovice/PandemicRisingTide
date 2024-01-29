@@ -21,7 +21,7 @@ public class ResolveEventTheCalmBeforeTheStorm extends GameState {
 				break;
 
 			DeckPlayerPanel.INSTANCE.getList().getArrayList()
-					.addLast(DeckPlayer.INSTANCE.removeFirstFlip());
+					.addLast(DeckPlayer.INSTANCE.removeFirst());
 
 		}
 

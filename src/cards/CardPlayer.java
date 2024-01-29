@@ -11,9 +11,4 @@ public abstract class CardPlayer extends Card {
 		return super.getFolder() + "player/";
 	}
 
-	@Override
-	protected final String getStringBack() {
-		return "cards/player/back.png";
-	}
-
 }

@@ -24,7 +24,6 @@ import enums.EObjective;
 import enums.ERegion;
 import enums.ERole;
 import functions.AddCardToPlayer;
-import functions.ExpandPopulationToERegion;
 import gameStatesDefault.GameState;
 import javafx.scene.input.KeyCode;
 import model.Adjacencies;
@@ -44,9 +43,6 @@ public class JUnit extends GameState {
 	public void execute() {
 
 //		jUnit();
-
-		ExpandPopulationToERegion.INSTANCE.execute(ERegion.ROER_EN_OVERMAAS);
-		ExpandPopulationToERegion.INSTANCE.execute(ERegion.ROER_EN_OVERMAAS);
 
 		getFlow().addAllLast(StartGame.class);
 		proceedToNextGameState();

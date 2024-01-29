@@ -27,9 +27,4 @@ public class CardRole extends Card {
 		return super.getFolder() + "roles/";
 	}
 
-	@Override
-	protected String getStringBack() {
-		return getFolder() + "back.png";
-	}
-
 }

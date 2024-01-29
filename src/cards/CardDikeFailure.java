@@ -27,9 +27,4 @@ public class CardDikeFailure extends Card {
 		return super.getFolder() + "dikeFailure/";
 	}
 
-	@Override
-	protected String getStringBack() {
-		return "cards/dikeFailure/back.png";
-	}
-
 }

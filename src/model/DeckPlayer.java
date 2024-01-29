@@ -23,21 +23,16 @@ public enum DeckPlayer {
 
 		this.list.getArrayList().addAllFirst(list);
 
-		for (CardPlayer cardPlayer : this.list) {
-
-			cardPlayer.getImageView().flipBack();
+		for (CardPlayer cardPlayer : this.list)
 			cardPlayer.getImageView().setVisible(false);
-
-		}
 
 		this.list.relocateImageViews();
 
 	}
 
-	public CardPlayer removeFirstFlip() {
+	public CardPlayer removeFirst() {
 
 		CardPlayer cardPlayer = this.list.getArrayList().removeFirst();
-		cardPlayer.getImageView().flipFront();
 		cardPlayer.getImageView().setVisible(true);
 
 		return cardPlayer;

@@ -16,7 +16,7 @@ public class MajorBreach extends GameState {
 	@Override
 	protected void handleActionSelectedPressed(EAction eAction) {
 
-		CardDikeFailure cardDikeFailure = DeckDikeFailure.INSTANCE.removeLastFlip();
+		CardDikeFailure cardDikeFailure = DeckDikeFailure.INSTANCE.removeLast();
 		DiscardPileDikeFailure.INSTANCE.addFirstRelocate(cardDikeFailure);
 		proceedToNextGameState();
 

@@ -29,7 +29,6 @@ public abstract class Card implements IImageViewAble {
 	protected final void createCard(String fileName) {
 
 		new ImageView(fileName, ELayerZ.CARDS, this);
-		getImageView().setBack(getStringBack());
 		getImageView().setVisible(false);
 		getImageView().setSelectImageViewAbleRatioPosition(0.5, 0.35);
 		getImageView().setSelectImageViewAbleRatioDimensions(0.35);
@@ -39,7 +38,5 @@ public abstract class Card implements IImageViewAble {
 	protected String getFolder() {
 		return "cards/";
 	}
-
-	protected abstract String getStringBack();
 
 }

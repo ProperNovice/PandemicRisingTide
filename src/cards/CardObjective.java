@@ -57,9 +57,4 @@ public class CardObjective extends Card {
 		return this.eColor;
 	}
 
-	@Override
-	protected String getStringBack() {
-		return "cards/objectives/back.png";
-	}
-
 }
