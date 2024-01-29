@@ -2,6 +2,7 @@ package gameStatesDefault;
 
 import functions.ComponentsWrapUp;
 import gameStates.StartGame;
+import model.CheckForObjectivesAreCompleted;
 import utils.CameraView;
 import utils.Flow;
 import utils.SelectImageViewManager;
@@ -12,6 +13,7 @@ public class RestartGame extends GameState {
 	@Override
 	public void execute() {
 
+		CheckForObjectivesAreCompleted.INSTANCE.set(false);
 		TextManager.INSTANCE.concealText();
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 		Flow.INSTANCE.getFlow().clear();

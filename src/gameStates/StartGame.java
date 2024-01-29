@@ -18,6 +18,7 @@ import functions.UpdateDikeFailureCardsDrawnCircle;
 import gameStatesDefault.GameState;
 import model.Adjacencies;
 import model.Cards;
+import model.CheckForObjectivesAreCompleted;
 import model.DeckDikeFailure;
 import model.DeckPlayer;
 import model.HydraulicStructures;
@@ -40,6 +41,7 @@ public class StartGame extends GameState {
 		UpdateDikeFailureCardsDrawnCircle.INSTANCE.reset();
 		ERegion.ZUIDERZEE.getRegion().setIsSea(true);
 		SeaLevel.INSTANCE.reset();
+		CheckForObjectivesAreCompleted.INSTANCE.set(true);
 
 		EAction.START_GAME.showAndSelect();
 

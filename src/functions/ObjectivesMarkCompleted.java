@@ -13,80 +13,79 @@ public enum ObjectivesMarkCompleted {
 
 	INSTANCE;
 
-	public int execute() {
+	public void execute() {
 
-		int objectiveCompleted = 0;
 		unmarkObjectives();
 
-		for (EColor eColor : EColor.values()) {
+		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectivesCurrent())
+			executeObjective(cardObjective);
 
-			for (EObjective eObjective : EObjective.values()) {
+	}
 
-				if (eColor.equals(EColor.GREEN))
-					if (eObjective.equals(EObjective.BASIC))
-						if (greenBasic())
-							objectiveCompleted++;
+	public void executeObjective(CardObjective cardObjective) {
 
-				if (eColor.equals(EColor.PURPLE))
-					if (eObjective.equals(EObjective.BASIC))
-						if (purpleBasic())
-							objectiveCompleted++;
+		EColor eColor = cardObjective.getEColor();
+		EObjective eObjective = cardObjective.getEObjective();
 
-				if (eColor.equals(EColor.RED))
-					if (eObjective.equals(EObjective.BASIC))
-						if (redBasic())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.GREEN))
+			if (eObjective.equals(EObjective.BASIC))
+				if (greenBasic())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.YELLOW))
-					if (eObjective.equals(EObjective.BASIC))
-						if (yellowBasic())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.PURPLE))
+			if (eObjective.equals(EObjective.BASIC))
+				if (purpleBasic())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.GREEN))
-					if (eObjective.equals(EObjective.SPECIAL))
-						if (greenSpecial())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.RED))
+			if (eObjective.equals(EObjective.BASIC))
+				if (redBasic())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.PURPLE))
-					if (eObjective.equals(EObjective.SPECIAL))
-						if (purpleSpecial())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.YELLOW))
+			if (eObjective.equals(EObjective.BASIC))
+				if (yellowBasic())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.RED))
-					if (eObjective.equals(EObjective.SPECIAL))
-						if (redSpecial())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.GREEN))
+			if (eObjective.equals(EObjective.SPECIAL))
+				if (greenSpecial())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.YELLOW))
-					if (eObjective.equals(EObjective.SPECIAL))
-						if (yellowSpecial())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.PURPLE))
+			if (eObjective.equals(EObjective.SPECIAL))
+				if (purpleSpecial())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.GREEN))
-					if (eObjective.equals(EObjective.POPULATION))
-						if (greenPopulation())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.RED))
+			if (eObjective.equals(EObjective.SPECIAL))
+				if (redSpecial())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.PURPLE))
-					if (eObjective.equals(EObjective.POPULATION))
-						if (purplePopulation())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.YELLOW))
+			if (eObjective.equals(EObjective.SPECIAL))
+				if (yellowSpecial())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.RED))
-					if (eObjective.equals(EObjective.POPULATION))
-						if (redPopulation())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.GREEN))
+			if (eObjective.equals(EObjective.POPULATION))
+				if (greenPopulation())
+					cardObjective.mark();
 
-				if (eColor.equals(EColor.YELLOW))
-					if (eObjective.equals(EObjective.POPULATION))
-						if (yellowPopulation())
-							objectiveCompleted++;
+		if (eColor.equals(EColor.PURPLE))
+			if (eObjective.equals(EObjective.POPULATION))
+				if (purplePopulation())
+					cardObjective.mark();
 
-			}
+		if (eColor.equals(EColor.RED))
+			if (eObjective.equals(EObjective.POPULATION))
+				if (redPopulation())
+					cardObjective.mark();
 
-		}
-
-		return objectiveCompleted;
+		if (eColor.equals(EColor.YELLOW))
+			if (eObjective.equals(EObjective.POPULATION))
+				if (yellowPopulation())
+					cardObjective.mark();
 
 	}
 
