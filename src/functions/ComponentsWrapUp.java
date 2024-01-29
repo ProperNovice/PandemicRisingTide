@@ -27,6 +27,11 @@ public enum ComponentsWrapUp {
 		populationCubes();
 		drawnCircles();
 		actions();
+		cards();
+
+	}
+
+	private void cards() {
 
 	}
 
