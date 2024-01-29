@@ -28,7 +28,7 @@ public class ActionChoose extends GameState {
 		list.addLast(classAction);
 
 		if (!classAction.equals(ActionChooseEventToPlay.class))
-			list.addLast(ActionsRemainingReduce.class);
+			list.addFirst(ActionsRemainingReduce.class);
 
 		getFlow().addAllFirst(list);
 		proceedToNextGameState();
