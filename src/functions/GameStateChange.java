@@ -18,6 +18,8 @@ public enum GameStateChange {
 	}
 
 	private void checkForObjectivesAreCompleted() {
+		
+		
 
 	}
 

@@ -49,6 +49,10 @@ public class CardObjective extends Card {
 
 	}
 
+	public boolean isMarked() {
+		return this.objectiveSelect != null;
+	}
+
 	public EObjective getEObjective() {
 		return this.eObjective;
 	}

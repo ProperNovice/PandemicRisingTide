@@ -79,8 +79,14 @@ public enum ComponentsWrapUp {
 		// objectives
 
 		for (CardObjective cardObjective : Objectives.INSTANCE.getObjectivesCurrent().getArrayList()
-				.clear())
+				.clear()) {
+
+			if (cardObjective.isMarked())
+				cardObjective.unmark();
+
 			cardObjective.getImageView().setVisible(false);
+
+		}
 
 		// set visible false
 
