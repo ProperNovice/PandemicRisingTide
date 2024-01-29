@@ -36,6 +36,10 @@ public enum DiscardPileDikeFailure {
 		return this.list;
 	}
 
+	public void clear() {
+		this.list.getArrayList().clear();
+	}
+
 	private void createList() {
 
 		ListCredentials listCredentials = this.list.getListCredentials();

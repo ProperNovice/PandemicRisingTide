@@ -71,6 +71,10 @@ public enum DeckDikeFailure {
 
 	}
 
+	public void clear() {
+		this.list.getArrayList().clear();
+	}
+
 	private void createList() {
 
 		ListCredentials listCredentials = this.list.getListCredentials();

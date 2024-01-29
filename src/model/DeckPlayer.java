@@ -48,6 +48,10 @@ public enum DeckPlayer {
 		return this.list.getArrayList().isEmpty();
 	}
 
+	public void clear() {
+		this.list.getArrayList().clear();
+	}
+
 	private void createList() {
 
 		ListCredentials listCredentials = this.list.getListCredentials();

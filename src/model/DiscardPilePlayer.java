@@ -46,6 +46,10 @@ public enum DiscardPilePlayer {
 		return getCardPlayerWithERegion(eRegion) != null;
 	}
 
+	public void clear() {
+		this.list.getArrayList().clear();
+	}
+
 	private CardPlayer getCardPlayerWithERegion(ERegion eRegion) {
 
 		for (CardPlayer cardPlayer : this.list) {
