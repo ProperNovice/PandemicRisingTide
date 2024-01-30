@@ -1,8 +1,8 @@
 package gameStatesDefault;
 
+import functions.CheckForObjectivesAreCompleted;
 import functions.ComponentsWrapUp;
 import gameStates.StartGame;
-import model.CheckForObjectivesAreCompleted;
 import utils.CameraView;
 import utils.Flow;
 import utils.SelectImageViewManager;

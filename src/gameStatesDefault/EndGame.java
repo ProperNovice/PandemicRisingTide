@@ -1,7 +1,7 @@
 package gameStatesDefault;
 
 import enums.EText;
-import model.CheckForObjectivesAreCompleted;
+import functions.CheckForObjectivesAreCompleted;
 import utils.Flow;
 import utils.SelectImageViewManager;
 import utils.TextManager;

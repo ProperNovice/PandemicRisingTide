@@ -1,4 +1,4 @@
-package model;
+package functions;
 
 public enum CheckForObjectivesAreCompleted {
 

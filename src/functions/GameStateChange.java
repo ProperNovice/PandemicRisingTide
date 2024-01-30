@@ -5,7 +5,6 @@ import cards.CardObjective;
 import gameStates.ChooseCardToDiscardForOverCapacity;
 import gameStates.ChooseDiscardCardPlayEvent;
 import gameStatesDefault.EndGameWon;
-import model.CheckForObjectivesAreCompleted;
 import model.Objectives;
 import model.Players;
 import utils.Flow;
